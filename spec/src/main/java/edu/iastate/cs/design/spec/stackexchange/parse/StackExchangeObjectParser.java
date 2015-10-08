@@ -3,25 +3,25 @@ package edu.iastate.cs.design.spec.stackexchange.parse;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import edu.iastate.cs.design.spec.stackexchange.objects.BadgeCount;
-import edu.iastate.cs.design.spec.stackexchange.objects.Post;
-import edu.iastate.cs.design.spec.stackexchange.objects.ShallowUser;
+import edu.iastate.cs.design.spec.stackexchange.objects.BadgeCountDTO;
+import edu.iastate.cs.design.spec.stackexchange.objects.PostDTO;
+import edu.iastate.cs.design.spec.stackexchange.objects.ShallowUserDTO;
 
 /**
  This class abstracts away the library that parses our json objects from Stack Exchange. Uses gson for the moment.
  */
 public class StackExchangeObjectParser {
 
-    public static Post parsePostObject(String jsonObject) {
-        return gsonParse(jsonObject, Post.class);
+    public static PostDTO parsePostObject(String jsonObject) {
+        return gsonParse(jsonObject, PostDTO.class);
     }
 
-    public static BadgeCount parseBadgeCountObject(String jsonObject) {
-        return gsonParse(jsonObject, BadgeCount.class);
+    public static BadgeCountDTO parseBadgeCountObject(String jsonObject) {
+        return gsonParse(jsonObject, BadgeCountDTO.class);
     }
 
-    public static ShallowUser parseShallowUserObject(String jsonObject) {
-        return gsonParse(jsonObject, ShallowUser.class);
+    public static ShallowUserDTO parseShallowUserObject(String jsonObject) {
+        return gsonParse(jsonObject, ShallowUserDTO.class);
     }
 
     private static <T> T gsonParse(String jsonObject, Class<T> objectType) {

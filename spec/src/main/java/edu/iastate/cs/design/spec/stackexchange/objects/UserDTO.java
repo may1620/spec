@@ -1,6 +1,6 @@
 package edu.iastate.cs.design.spec.stackexchange.objects;
 
-public class User {
+public class UserDTO {
     public static final String REGISTERED_USER_TYPE = "registered";
     public static final String UNREGISTERED_USER_TYPE = "unregistered";
     public static final String MODERATOR_USER_TYPE = "moderator";

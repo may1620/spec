@@ -23,11 +23,11 @@ public class ShallowUserTest {
                 "  \"gold\": 3},"+
                 "\"link\": \"http://example.stackexchange.com/users/1/example-user\"" +
                 "}";
-        ShallowUser shallowUser = StackExchangeObjectParser.parseShallowUserObject(json);
-        BadgeCount expectedBadgeCount = new BadgeCount(1, 2, 3);
+        ShallowUserDTO shallowUser = StackExchangeObjectParser.parseShallowUserObject(json);
+        BadgeCountDTO expectedBadgeCount = new BadgeCountDTO(1, 2, 3);
         assertEquals(9001, shallowUser.getReputation());
         assertEquals(1, shallowUser.getUserId());
-        assertEquals(User.REGISTERED_USER_TYPE, shallowUser.getUserType());
+        assertEquals(UserDTO.REGISTERED_USER_TYPE, shallowUser.getUserType());
         assertEquals(55, shallowUser.getAcceptRate());
         assertEquals("https://www.gravatar.com/avatar/a007be5a61f6aa8f3e85ae2fc18dd66e?d=identicon&r=PG", shallowUser.getProfileImage());
         assertEquals("Example User", shallowUser.getDisplayName());

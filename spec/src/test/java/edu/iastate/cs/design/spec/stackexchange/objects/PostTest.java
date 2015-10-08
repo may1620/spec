@@ -35,10 +35,10 @@ public class PostTest {
                 "  \"body\": \"question body\",\n" +
                 "  \"comments\": [\"hello\", \"there\", \"needs more jquery\"]\n" +
                 "}";
-        Post post = StackExchangeObjectParser.parsePostObject(json);
-        ShallowUser expectedOwner = new ShallowUser(55, null, "Example User",
+        PostDTO post = StackExchangeObjectParser.parsePostObject(json);
+        ShallowUserDTO expectedOwner = new ShallowUserDTO(55, null, "Example User",
                 "http://example.stackexchange.com/users/1/example-user",
-                "https://www.gravatar.com/avatar/a007be5a61f6aa8f3e85ae2fc18dd66e?d=identicon&r=PG", 9001, 1, User.REGISTERED_USER_TYPE);
+                "https://www.gravatar.com/avatar/a007be5a61f6aa8f3e85ae2fc18dd66e?d=identicon&r=PG", 9001, 1, UserDTO.REGISTERED_USER_TYPE);
         assertEquals(expectedOwner, post.getOwner());
         assertEquals(2, post.getDownVoteCount());
         assertEquals(7, post.getUpVoteCount());
@@ -46,7 +46,7 @@ public class PostTest {
         assertEquals(1443416142L, post.getLastEditDate());
         assertEquals(1443437742L, post.getLastActivityDate());
         assertEquals(1443372942L, post.getCreationDate());
-        assertEquals(Post.QUESTION_POST_TYPE, post.getPostType());
+        assertEquals(PostDTO.QUESTION_POST_TYPE, post.getPostType());
         assertEquals(1, post.getPostId());
         assertEquals("question body", post.getBody());
         assertEquals(Arrays.asList("hello", "there", "needs more jquery"), post.getComments());

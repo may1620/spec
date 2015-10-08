@@ -1,6 +1,6 @@
 package edu.iastate.cs.design.spec.stackexchange.objects;
 
-public class BadgeCount {
+public class BadgeCountDTO {
 
     private int bronze;
 
@@ -20,7 +20,7 @@ public class BadgeCount {
         return gold;
     }
 
-    public BadgeCount(int bronze, int silver, int gold) {
+    public BadgeCountDTO(int bronze, int silver, int gold) {
         this.bronze = bronze;
         this.silver = silver;
         this.gold = gold;
@@ -31,7 +31,7 @@ public class BadgeCount {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        BadgeCount that = (BadgeCount) o;
+        BadgeCountDTO that = (BadgeCountDTO) o;
 
         if (bronze != that.bronze) return false;
         if (gold != that.gold) return false;

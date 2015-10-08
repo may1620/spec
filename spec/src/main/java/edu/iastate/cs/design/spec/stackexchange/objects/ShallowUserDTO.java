@@ -1,9 +1,9 @@
 package edu.iastate.cs.design.spec.stackexchange.objects;
 
-public class ShallowUser {
+public class ShallowUserDTO {
     private int acceptRate;
 
-    private BadgeCount badgeCounts;
+    private BadgeCountDTO badgeCounts;
 
     private String displayName;
 
@@ -21,7 +21,7 @@ public class ShallowUser {
         return acceptRate;
     }
 
-    public BadgeCount getBadgeCounts() {
+    public BadgeCountDTO getBadgeCounts() {
         return badgeCounts;
     }
 
@@ -49,7 +49,7 @@ public class ShallowUser {
         return userType;
     }
 
-    public ShallowUser(int acceptRate, BadgeCount badgeCounts, String displayName, String link, String profileImage, int reputation, int userId, String userType) {
+    public ShallowUserDTO(int acceptRate, BadgeCountDTO badgeCounts, String displayName, String link, String profileImage, int reputation, int userId, String userType) {
         this.acceptRate = acceptRate;
         this.badgeCounts = badgeCounts;
         this.displayName = displayName;
@@ -65,7 +65,7 @@ public class ShallowUser {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ShallowUser that = (ShallowUser) o;
+        ShallowUserDTO that = (ShallowUserDTO) o;
 
         if (acceptRate != that.acceptRate) return false;
         if (reputation != that.reputation) return false;

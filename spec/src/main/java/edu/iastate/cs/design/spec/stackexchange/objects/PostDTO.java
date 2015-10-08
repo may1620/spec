@@ -2,7 +2,7 @@ package edu.iastate.cs.design.spec.stackexchange.objects;
 
 import java.util.List;
 
-public class Post {
+public class PostDTO {
     public static final String QUESTION_POST_TYPE = "question";
 
     public static final String ANSWER_POST_TYPE = "answer";
@@ -26,11 +26,11 @@ public class Post {
     // Number of seconds since 1/1/1970
     private long lastEditDate;
 
-    private ShallowUser lastEditor;
+    private ShallowUserDTO lastEditor;
 
     private String link;
 
-    private ShallowUser owner;
+    private ShallowUserDTO owner;
 
     private int postId;
 
@@ -79,7 +79,7 @@ public class Post {
         return lastEditDate;
     }
 
-    public ShallowUser getLastEditor() {
+    public ShallowUserDTO getLastEditor() {
         return lastEditor;
     }
 
@@ -87,7 +87,7 @@ public class Post {
         return link;
     }
 
-    public ShallowUser getOwner() {
+    public ShallowUserDTO getOwner() {
         return owner;
     }
 
@@ -124,7 +124,7 @@ public class Post {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Post post = (Post) o;
+        PostDTO post = (PostDTO) o;
 
         if (creationDate != post.creationDate) return false;
         if (downVoteCount != post.downVoteCount) return false;
