@@ -4,8 +4,13 @@ package edu.iastate.cs.design.spec.post;
 import edu.iastate.cs.design.spec.common.IOpenQuestionsDao;
 import edu.iastate.cs.design.spec.common.MockOpenQuestionsDao;
 import edu.iastate.cs.design.spec.common.Specification;
+import edu.iastate.cs.design.spec.stackexchange.objects.AnswerDTO;
+import edu.iastate.cs.design.spec.stackexchange.objects.QuestionDTO;
+import edu.iastate.cs.design.spec.stackexchange.request.AnswerQuestionRequestData;
 import edu.iastate.cs.design.spec.stackexchange.request.IStackExchangeRequester;
 import edu.iastate.cs.design.spec.stackexchange.request.MockStackExchangeRequester;
+import edu.iastate.cs.design.spec.stackexchange.request.QuestionAnswersRequestData;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -26,6 +31,20 @@ public class PostTest {
         pendingSpecificationDao.insertPendingSpecification(pendingSpecification);
         Post postProgram = new Post(pendingSpecificationDao, stackExchangeRequester, openQuestionsDao);
         postProgram.run();
-        // TODO validate things
+        List<Integer> openQuestionIds = openQuestionsDao.getOpenQuestions();
+        Assert.assertEquals(1, openQuestionIds.size());
+        int questionId = openQuestionIds.get(0);
+        QuestionDTO questionDTO = stackExchangeRequester.getQuestionByQuestionId(questionId);
+        Assert.assertTrue(questionDTO.getTitle().contains(pendingSpecification.getMethodName()));
+        QuestionAnswersRequestData questionRequestData =
+                new QuestionAnswersRequestData(QuestionAnswersRequestData.VOTES_SORT, questionId);
+        List<AnswerDTO> answers = stackExchangeRequester.getAnswersToQuestion(questionRequestData);
+        Assert.assertEquals(0, answers.size());
+        // The following code is worthless for now, but would be useful for testing in the future with real connections
+        AnswerQuestionRequestData answerRequestData = new AnswerQuestionRequestData(questionId, "answer", null, null);
+        stackExchangeRequester.postAnswerToQuestion(answerRequestData);
+        answers = stackExchangeRequester.getAnswersToQuestion(questionRequestData);
+        Assert.assertEquals(1, answers.size());
+        Assert.assertEquals("answer", answers.get(0).getBody());
     }
 }
