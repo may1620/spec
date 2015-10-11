@@ -24,4 +24,9 @@ public class StackExchangeRequester implements IStackExchangeRequester {
         // TODO
         return null;
     }
+
+    public QuestionDTO getQuestionByQuestionId(int questionId) {
+        // TODO
+        return null;
+    }
 }

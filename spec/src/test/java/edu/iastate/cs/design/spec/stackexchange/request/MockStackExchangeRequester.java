@@ -39,7 +39,7 @@ public class MockStackExchangeRequester implements IStackExchangeRequester {
         return answer;
     }
 
-    private QuestionDTO getQuestionByQuestionId(int questionId) {
+    public QuestionDTO getQuestionByQuestionId(int questionId) {
         for (QuestionDTO question : postMap.keySet()) {
             if (question.getQuestionId() == questionId) {
                 return question;

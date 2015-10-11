@@ -15,4 +15,6 @@ public interface IStackExchangeRequester {
     List<AnswerDTO> getAnswersToQuestion(QuestionAnswersRequestData requestData);
 
     AnswerDTO postAnswerToQuestion(AnswerQuestionRequestData requestData);
+
+    QuestionDTO getQuestionByQuestionId(int questionId);
 }
