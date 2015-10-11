@@ -8,6 +8,8 @@ public class OpenQuestionEntity implements Serializable {
 
     @Id
     private int questionId;
+    
+    private String functionId; //Ties a certain question to a specific function
 
     public OpenQuestionEntity(int questionId) {
        this.questionId = questionId;
@@ -16,4 +18,12 @@ public class OpenQuestionEntity implements Serializable {
     public int getQuestionId() {
         return questionId;
     }
+
+	public String getFunctionId() {
+		return functionId;
+	}
+
+	public void setFunctionId(String functionId) {
+		this.functionId = functionId;
+	}
 }

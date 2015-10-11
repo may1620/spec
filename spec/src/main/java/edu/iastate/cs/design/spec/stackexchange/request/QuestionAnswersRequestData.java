@@ -30,6 +30,7 @@ public class QuestionAnswersRequestData implements IStackExchangeRequestData {
         requestBuilder.append("/answers?order=desc&sort=");
         requestBuilder.append(sort);
         requestBuilder.append("&site=stackoverflow");
+        requestBuilder.append("&filter=withbody");
         requestBuilder.append("&key=KW1Do4aYqEdlMNsHpPEHdg((");
         return requestBuilder.toString();
     }
