@@ -1,7 +1,10 @@
 package edu.iastate.cs.design.spec.post;
 
+import edu.iastate.cs.design.spec.common.IOpenQuestionsDao;
+import edu.iastate.cs.design.spec.common.OpenQuestionsDao;
 import edu.iastate.cs.design.spec.common.Specification;
 import edu.iastate.cs.design.spec.persistenceResource.FactoryStartup;
+import edu.iastate.cs.design.spec.stackexchange.objects.QuestionDTO;
 import edu.iastate.cs.design.spec.stackexchange.request.IStackExchangeRequester;
 import edu.iastate.cs.design.spec.stackexchange.request.QuestionAddRequestData;
 import edu.iastate.cs.design.spec.stackexchange.request.StackExchangeRequester;
@@ -19,16 +22,21 @@ public class Post {
 
     private IPendingSpecificationDao pendingSpecificationDao;
     private IStackExchangeRequester stackExchangeRequester;
+    private IOpenQuestionsDao openQuestionsDao;
 
-    public Post(IPendingSpecificationDao pendingSpecificationDao, IStackExchangeRequester stackExchangeRequester) {
+    public Post(IPendingSpecificationDao pendingSpecificationDao,
+                IStackExchangeRequester stackExchangeRequester,
+                IOpenQuestionsDao openQuestionsDao) {
         this.pendingSpecificationDao = pendingSpecificationDao;
         this.stackExchangeRequester = stackExchangeRequester;
+        this.openQuestionsDao = openQuestionsDao;
     }
 
     public void run() {
         Specification pendingSpecification = pendingSpecificationDao.removeNextPendingSpecification();
         QuestionAddRequestData requestData = createQuestionAddRequestData(pendingSpecification);
-        stackExchangeRequester.postQuestion(requestData);
+        QuestionDTO question = stackExchangeRequester.postQuestion(requestData);
+        openQuestionsDao.insertOpenQuestion(question.getQuestionId());
     }
 
     private QuestionAddRequestData createQuestionAddRequestData(Specification pendingSpecification) {
@@ -96,9 +104,10 @@ public class Post {
     // Entry point
     public static void main(String[] args) {
         EntityManager entityManager = FactoryStartup.getAnEntityManager();
-        PendingSpecificationDao pendingSpecificationDao = new PendingSpecificationDao(entityManager);
-        StackExchangeRequester stackExchangeRequester = new StackExchangeRequester();
-        Post program = new Post(pendingSpecificationDao, stackExchangeRequester);
+        IPendingSpecificationDao pendingSpecificationDao = new PendingSpecificationDao(entityManager);
+        IOpenQuestionsDao openQuestionsDao = new OpenQuestionsDao(entityManager);
+        IStackExchangeRequester stackExchangeRequester = new StackExchangeRequester();
+        Post program = new Post(pendingSpecificationDao, stackExchangeRequester, openQuestionsDao);
         program.run();
     }
 }
