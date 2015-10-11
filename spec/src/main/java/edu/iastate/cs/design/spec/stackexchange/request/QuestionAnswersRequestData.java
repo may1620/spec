@@ -8,9 +8,9 @@ public class QuestionAnswersRequestData implements IStackExchangeRequestData {
 
     private String sort;
     // The api actually accepts a list of ids, but we will just use one.
-    private String id;
+    private int id;
 
-    public QuestionAnswersRequestData(String sort, String id) {
+    public QuestionAnswersRequestData(String sort, int id) {
         this.sort = sort;
         this.id = id;
     }
@@ -19,7 +19,7 @@ public class QuestionAnswersRequestData implements IStackExchangeRequestData {
         return sort;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 

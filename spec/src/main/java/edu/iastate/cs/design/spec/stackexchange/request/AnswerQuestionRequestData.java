@@ -2,19 +2,19 @@ package edu.iastate.cs.design.spec.stackexchange.request;
 
 public class AnswerQuestionRequestData implements IStackExchangeRequestData {
 
-    private String id;
+    private int id;
     private String body;
     private String key;
     private String accessToken;
 
-    public AnswerQuestionRequestData(String id, String body, String key, String access_token) {
+    public AnswerQuestionRequestData(int id, String body, String key, String access_token) {
         this.id = id;
         this.body = body;
         this.key = key;
         this.accessToken = access_token;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
