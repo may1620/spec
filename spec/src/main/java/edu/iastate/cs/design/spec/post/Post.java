@@ -1,6 +1,7 @@
 package edu.iastate.cs.design.spec.post;
 
 import edu.iastate.cs.design.spec.persistenceResource.FactoryStartup;
+import edu.iastate.cs.design.spec.stackexchange.request.IStackExchangeRequester;
 
 import javax.persistence.EntityManager;
 
@@ -12,13 +13,15 @@ import javax.persistence.EntityManager;
 public class Post {
 
     private IPendingSpecificationDao pendingSpecificationDao;
+    private IStackExchangeRequester stackExchangeRequester;
 
-    public Post(IPendingSpecificationDao pendingSpecificationDao) {
+    public Post(IPendingSpecificationDao pendingSpecificationDao, IStackExchangeRequester stackExchangeRequester) {
         this.pendingSpecificationDao = pendingSpecificationDao;
+        this.stackExchangeRequester = stackExchangeRequester;
     }
 
     public void run() {
-
+        // TODO
     }
 
     // Entry point

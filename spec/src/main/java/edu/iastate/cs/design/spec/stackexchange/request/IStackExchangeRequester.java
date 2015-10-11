@@ -8,9 +8,11 @@ import java.util.List;
 /**
  * This class will provide methods for interacting with StackExchange.
  */
-public interface IStackExchangeRequests {
+public interface IStackExchangeRequester {
 
     QuestionDTO postQuestion(QuestionAddRequestData requestData);
 
     List<AnswerDTO> getAnswersToQuestion(QuestionAnswersRequestData requestData);
+
+    AnswerDTO postAnswerToQuestion(AnswerQuestionRequestData requestData);
 }
