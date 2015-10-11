@@ -2,6 +2,7 @@ package edu.iastate.cs.design.spec.post;
 
 import edu.iastate.cs.design.spec.persistenceResource.FactoryStartup;
 import edu.iastate.cs.design.spec.stackexchange.request.IStackExchangeRequester;
+import edu.iastate.cs.design.spec.stackexchange.request.StackExchangeRequester;
 
 import javax.persistence.EntityManager;
 
@@ -28,7 +29,8 @@ public class Post {
     public static void main(String[] args) {
         EntityManager entityManager = FactoryStartup.getAnEntityManager();
         PendingSpecificationDao pendingSpecificationDao = new PendingSpecificationDao(entityManager);
-        Post program = new Post(pendingSpecificationDao);
+        StackExchangeRequester stackExchangeRequester = new StackExchangeRequester();
+        Post program = new Post(pendingSpecificationDao, stackExchangeRequester);
         program.run();
     }
 }
