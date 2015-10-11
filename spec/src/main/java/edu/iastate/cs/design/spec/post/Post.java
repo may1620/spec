@@ -69,13 +69,13 @@ public class Post {
     private String createQuestionBody(Specification pendingSpecification) {
         StringBuilder postBody = new StringBuilder();
         postBody.append("What would be the proper JML specification for the <code>");
+        postBody.append(pendingSpecification.getClassName());
+        postBody.append(".");
         postBody.append(pendingSpecification.getMethodName());
         postBody.append("()</code> method in the <code>");
         postBody.append(pendingSpecification.getFullPackageName());
-        postBody.append(" package.");
-        postBody.append(pendingSpecification.getClassName());
-        postBody.append("</code>\n");
-        postBody.append("What I have for this method so far is: \n <code>");
+        postBody.append("</code>package?\n");
+        postBody.append("What I have for this method so far is:\n<code>");
         for (String precondition : pendingSpecification.getPreconditions()) {
             postBody.append(precondition);
             postBody.append('\n');
