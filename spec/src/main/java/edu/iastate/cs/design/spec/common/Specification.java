@@ -19,11 +19,15 @@ public class Specification {
     public Specification(String fullPackageName,
                          String className,
                          String methodName,
+                         String returnType,
+                         List<String> formalParameters,
                          List<String> preconditions,
                          List<String> postconditions) {
         this.fullPackageName = fullPackageName;
         this.className = className;
         this.methodName = methodName;
+        this.returnType = returnType;
+        this.formalParameters = formalParameters;
         this.preconditions = preconditions;
         this.postconditions = postconditions;
     }
