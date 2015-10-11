@@ -1,4 +1,4 @@
-package edu.iastate.cs.design.spec.stackexchange.parse;
+package edu.iastate.cs.design.spec.stackexchange.objects;
 
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
