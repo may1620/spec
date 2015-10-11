@@ -2,9 +2,9 @@ package edu.iastate.cs.design.spec.stackexchange.request;
 
 public class QuestionAnswersRequestData implements IStackExchangeRequestData {
 
-    public final String ACTIVITY_SORT = "activity";
-    public final String CREATION_DATE_SORT = "creation";
-    public final String VOTES_SORT = "votes";
+    public static final String ACTIVITY_SORT = "activity";
+    public static final String CREATION_DATE_SORT = "creation";
+    public static final String VOTES_SORT = "votes";
 
     private String sort;
     // The api actually accepts a list of ids, but we will just use one.
