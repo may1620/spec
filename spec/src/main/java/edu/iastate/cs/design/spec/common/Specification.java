@@ -11,6 +11,8 @@ public class Specification {
     private String fullPackageName;
     private String className;
     private String methodName;
+    private String returnType;
+    private List<String> formalParameters;
     private List<String> preconditions;
     private List<String> postconditions;
 
@@ -25,6 +27,10 @@ public class Specification {
         this.preconditions = preconditions;
         this.postconditions = postconditions;
     }
+
+    public String getReturnType() { return returnType; }
+
+    public List<String> getFormalParameters() { return formalParameters; }
 
     public String getFullPackageName() {
         return fullPackageName;
