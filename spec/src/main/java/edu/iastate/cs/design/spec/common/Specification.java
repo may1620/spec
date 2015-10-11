@@ -28,9 +28,13 @@ public class Specification {
         this.postconditions = postconditions;
     }
 
-    public String getReturnType() { return returnType; }
+    public String getReturnType() {
+        return returnType;
+    }
 
-    public List<String> getFormalParameters() { return formalParameters; }
+    public List<String> getFormalParameters() {
+        return formalParameters;
+    }
 
     public String getFullPackageName() {
         return fullPackageName;
