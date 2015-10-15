@@ -2,6 +2,7 @@ package edu.iastate.cs.design.spec.analyze;
 
 import javax.persistence.EntityManager;
 
+import edu.iastate.cs.design.spec.common.OpenQuestionsDao;
 import edu.iastate.cs.design.spec.common.Specification;
 import edu.iastate.cs.design.spec.persistenceResource.FactoryStartup;
 import edu.iastate.cs.design.spec.post.IPendingSpecificationDao;
@@ -19,28 +20,27 @@ import edu.iastate.cs.design.spec.stackexchange.request.StackExchangeRequester;
 public class Analyze {
 
 	private IStackExchangeRequester stackExchangeRequester;
-	private QuestionAnswersRequestData questionData;
 	
-	public Analyze(IStackExchangeRequester stackExchangeRequester, 
-					QuestionAnswersRequestData questionData) 
+	public Analyze(IStackExchangeRequester stackExchangeRequester) 
 	{
 		this.stackExchangeRequester = stackExchangeRequester;
-		this.questionData = questionData;
 	}
 	
     public void run() {
     	EntityManager entityManager = FactoryStartup.getAnEntityManager();
-    	IPendingSpecificationDao pendingSpecificationDao = new PendingSpecificationDao(entityManager);
-    	Specification specification = AnswerAnalysis.analyze(stackExchangeRequester.getAnswersToQuestion(questionData));
-    	pendingSpecificationDao.insertPendingSpecification(specification);
+    	OpenQuestionsDao questions = new OpenQuestionsDao(entityManager);
+    	for(Integer questionId : questions.getOpenQuestions()) {
+    		QuestionAnswersRequestData questionData = new QuestionAnswersRequestData(QuestionAnswersRequestData.VOTES_SORT, questionId);
+        	IPendingSpecificationDao pendingSpecificationDao = new PendingSpecificationDao(entityManager);
+        	Specification specification = AnswerAnalysis.analyze(stackExchangeRequester.getAnswersToQuestion(questionData));
+        	pendingSpecificationDao.insertPendingSpecification(specification);
+    	}
     }
 
     // Entry point
     public static void main(String[] args) {
-    	//TODO there is likely a better way to get our question id rather than having it entered as a program parameter
-        QuestionAnswersRequestData questionData = new QuestionAnswersRequestData(QuestionAnswersRequestData.VOTES_SORT, Integer.parseInt(args[1]));
         IStackExchangeRequester stackExchangeRequester = new StackExchangeRequester();
-        Analyze program = new Analyze(stackExchangeRequester, questionData);
+        Analyze program = new Analyze(stackExchangeRequester);
         program.run();
     }
     

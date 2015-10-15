@@ -11,7 +11,7 @@ import edu.iastate.cs.design.spec.stackexchange.objects.AnswerDTO;
 public class AnswerAnalysis {
 	
 	public static Specification analyze(List<AnswerDTO> answers) {
-		Specification spec = new Specification("testPackageName", );
+		Specification spec = new Specification(null, null, null, null, null, null, null);
 		
 		return spec;
 	}
