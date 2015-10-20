@@ -5,8 +5,8 @@ import javax.persistence.EntityManager;
 import edu.iastate.cs.design.spec.common.OpenQuestionsDao;
 import edu.iastate.cs.design.spec.common.Specification;
 import edu.iastate.cs.design.spec.persistenceResource.FactoryStartup;
-import edu.iastate.cs.design.spec.post.IPendingSpecificationDao;
-import edu.iastate.cs.design.spec.post.PendingSpecificationDao;
+import edu.iastate.cs.design.spec.common.ISpecificationDao;
+import edu.iastate.cs.design.spec.common.SpecificationDao;
 import edu.iastate.cs.design.spec.stackexchange.request.IStackExchangeRequester;
 import edu.iastate.cs.design.spec.stackexchange.request.QuestionAnswersRequestData;
 import edu.iastate.cs.design.spec.stackexchange.request.StackExchangeRequester;
@@ -20,10 +20,12 @@ import edu.iastate.cs.design.spec.stackexchange.request.StackExchangeRequester;
 public class Analyze {
 
 	private IStackExchangeRequester stackExchangeRequester;
+	private ISpecificationDao specificationDao;
 	
-	public Analyze(IStackExchangeRequester stackExchangeRequester) 
+	public Analyze(IStackExchangeRequester stackExchangeRequester, ISpecificationDao specificationDao)
 	{
 		this.stackExchangeRequester = stackExchangeRequester;
+		this.specificationDao = specificationDao;
 	}
 	
     public void run() {
@@ -31,16 +33,17 @@ public class Analyze {
     	OpenQuestionsDao questions = new OpenQuestionsDao(entityManager);
     	for(Integer questionId : questions.getOpenQuestions()) {
     		QuestionAnswersRequestData questionData = new QuestionAnswersRequestData(QuestionAnswersRequestData.VOTES_SORT, questionId);
-        	IPendingSpecificationDao pendingSpecificationDao = new PendingSpecificationDao(entityManager);
         	Specification specification = AnswerAnalysis.analyze(stackExchangeRequester.getAnswersToQuestion(questionData));
-        	pendingSpecificationDao.insertPendingSpecification(specification);
+        	specificationDao.insertFinalizedSpecification(specification);
     	}
     }
 
     // Entry point
     public static void main(String[] args) {
         IStackExchangeRequester stackExchangeRequester = new StackExchangeRequester();
-        Analyze program = new Analyze(stackExchangeRequester);
+		EntityManager entityManager = FactoryStartup.getAnEntityManager();
+		ISpecificationDao specificationDao = new SpecificationDao(entityManager);
+        Analyze program = new Analyze(stackExchangeRequester, specificationDao);
         program.run();
     }
     

@@ -1,14 +1,13 @@
-package edu.iastate.cs.design.spec.post;
-
-import edu.iastate.cs.design.spec.common.Specification;
+package edu.iastate.cs.design.spec.common;
 
 import java.util.LinkedList;
+import java.util.List;
 
-public class MockPendingSpecificationDao implements IPendingSpecificationDao {
+public class MockSpecificationDao implements ISpecificationDao {
 
     private LinkedList<Specification> pendingSpecifications;
 
-    public MockPendingSpecificationDao() {
+    public MockSpecificationDao() {
         pendingSpecifications = new LinkedList<Specification>();
     }
 
@@ -18,5 +17,14 @@ public class MockPendingSpecificationDao implements IPendingSpecificationDao {
 
     public Specification removeNextPendingSpecification() {
         return pendingSpecifications.removeFirst();
+    }
+
+    public void insertFinalizedSpecification(Specification specification) {
+        // TODO
+    }
+
+    public List<Specification> getFinalizedSpecifications() {
+        // TODO
+        return null;
     }
 }

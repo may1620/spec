@@ -1,9 +1,7 @@
 package edu.iastate.cs.design.spec.post;
 
 
-import edu.iastate.cs.design.spec.common.IOpenQuestionsDao;
-import edu.iastate.cs.design.spec.common.MockOpenQuestionsDao;
-import edu.iastate.cs.design.spec.common.Specification;
+import edu.iastate.cs.design.spec.common.*;
 import edu.iastate.cs.design.spec.stackexchange.objects.AnswerDTO;
 import edu.iastate.cs.design.spec.stackexchange.objects.QuestionDTO;
 import edu.iastate.cs.design.spec.stackexchange.request.AnswerQuestionRequestData;
@@ -25,11 +23,11 @@ public class PostTest {
         List<String> formals = Arrays.asList("E item");
         Specification pendingSpecification = new Specification("java.util", "ArrayList", "add", "void",
                 formals, approxPreconditions, approxPostconditions);
-        IPendingSpecificationDao pendingSpecificationDao = new MockPendingSpecificationDao();
+        ISpecificationDao specificationDao = new MockSpecificationDao();
         IStackExchangeRequester stackExchangeRequester = new MockStackExchangeRequester();
         IOpenQuestionsDao openQuestionsDao = new MockOpenQuestionsDao();
-        pendingSpecificationDao.insertPendingSpecification(pendingSpecification);
-        Post postProgram = new Post(pendingSpecificationDao, stackExchangeRequester, openQuestionsDao);
+        specificationDao.insertPendingSpecification(pendingSpecification);
+        Post postProgram = new Post(specificationDao, stackExchangeRequester, openQuestionsDao);
         postProgram.run();
         List<Integer> openQuestionIds = openQuestionsDao.getOpenQuestions();
         Assert.assertEquals(1, openQuestionIds.size());
