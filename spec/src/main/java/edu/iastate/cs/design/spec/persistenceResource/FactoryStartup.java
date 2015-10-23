@@ -16,7 +16,7 @@ public class FactoryStartup {
 	/**
 	 * This is our EntityManagerFactory that handles the creation of EntityManagers.
 	 */
-	static EntityManagerFactory emf = Persistence.createEntityManagerFactory("May1620Project");
+	static EntityManagerFactory emf = Persistence.createEntityManagerFactory("may1620");
 	
 	/**
 	 * This method is used to get an EntityManager.

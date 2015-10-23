@@ -3,6 +3,8 @@ package edu.iastate.cs.design.spec.common;
 import edu.iastate.cs.design.spec.entities.OpenQuestionEntity;
 
 import javax.persistence.EntityManager;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class OpenQuestionsDao implements  IOpenQuestionsDao {
@@ -18,7 +20,6 @@ public class OpenQuestionsDao implements  IOpenQuestionsDao {
     }
 
     public List<Integer> getOpenQuestions() {
-        // TODO
-        return null;
+        return new ArrayList<Integer>();
     }
 }

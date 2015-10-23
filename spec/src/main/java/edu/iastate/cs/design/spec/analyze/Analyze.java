@@ -1,12 +1,14 @@
 package edu.iastate.cs.design.spec.analyze;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 
+import edu.iastate.cs.design.spec.common.ISpecificationDao;
 import edu.iastate.cs.design.spec.common.OpenQuestionsDao;
 import edu.iastate.cs.design.spec.common.Specification;
-import edu.iastate.cs.design.spec.persistenceResource.FactoryStartup;
-import edu.iastate.cs.design.spec.common.ISpecificationDao;
 import edu.iastate.cs.design.spec.common.SpecificationDao;
+import edu.iastate.cs.design.spec.entities.TestEntity;
+import edu.iastate.cs.design.spec.persistenceResource.FactoryStartup;
 import edu.iastate.cs.design.spec.stackexchange.request.IStackExchangeRequester;
 import edu.iastate.cs.design.spec.stackexchange.request.QuestionAnswersRequestData;
 import edu.iastate.cs.design.spec.stackexchange.request.StackExchangeRequester;
@@ -40,11 +42,19 @@ public class Analyze {
 
     // Entry point
     public static void main(String[] args) {
+    	//Analyze Test
         IStackExchangeRequester stackExchangeRequester = new StackExchangeRequester();
 		EntityManager entityManager = FactoryStartup.getAnEntityManager();
 		ISpecificationDao specificationDao = new SpecificationDao(entityManager);
         Analyze program = new Analyze(stackExchangeRequester, specificationDao);
         program.run();
+    	
+    	//Database Test
+    	TypedQuery<TestEntity> query = entityManager.createNamedQuery("TestEntity.getAll", TestEntity.class);
+    	for(TestEntity test : query.getResultList()) {
+    		System.out.println(test.getTestId() + " " + test.getTestName());
+    	}
+    
     }
     
 }
