@@ -1,8 +1,11 @@
 package edu.iastate.cs.design.spec.common;
 
 import edu.iastate.cs.design.spec.entities.OpenQuestionEntity;
+import edu.iastate.cs.design.spec.entities.Question;
+import edu.iastate.cs.design.spec.entities.TestEntity;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,10 +19,17 @@ public class OpenQuestionsDao implements  IOpenQuestionsDao {
     }
 
     public void insertOpenQuestion(int questionId) {
-        // TODO
+    	entityManager.getTransaction().begin();
+    	Question question = new Question();
+    	question.setQuestionId(questionId);
+    	question.setOpen(true);
+        entityManager.persist(question);
+        entityManager.getTransaction().commit();
     }
 
-    public List<Integer> getOpenQuestions() {
-        return new ArrayList<Integer>();
+    public List<Question> getOpenQuestions() {
+    	TypedQuery<Question> query = entityManager.createNamedQuery("Question.getOpenQuestions", Question.class);
+    	return query.getResultList();
     }
+
 }

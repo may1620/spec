@@ -1,12 +1,18 @@
 package edu.iastate.cs.design.spec.analyze;
 
+import java.io.IOException;
+
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
+
+import org.apache.http.client.ClientProtocolException;
+import org.json.JSONException;
 
 import edu.iastate.cs.design.spec.common.ISpecificationDao;
 import edu.iastate.cs.design.spec.common.OpenQuestionsDao;
 import edu.iastate.cs.design.spec.common.Specification;
 import edu.iastate.cs.design.spec.common.SpecificationDao;
+import edu.iastate.cs.design.spec.entities.Question;
 import edu.iastate.cs.design.spec.entities.TestEntity;
 import edu.iastate.cs.design.spec.persistenceResource.FactoryStartup;
 import edu.iastate.cs.design.spec.stackexchange.request.IStackExchangeRequester;
@@ -30,18 +36,18 @@ public class Analyze {
 		this.specificationDao = specificationDao;
 	}
 	
-    public void run() {
+    public void run() throws JSONException, ClientProtocolException, IOException {
     	EntityManager entityManager = FactoryStartup.getAnEntityManager();
     	OpenQuestionsDao questions = new OpenQuestionsDao(entityManager);
-    	for(Integer questionId : questions.getOpenQuestions()) {
-    		QuestionAnswersRequestData questionData = new QuestionAnswersRequestData(QuestionAnswersRequestData.VOTES_SORT, questionId);
+    	for(Question question : questions.getOpenQuestions()) {
+    		QuestionAnswersRequestData questionData = new QuestionAnswersRequestData(QuestionAnswersRequestData.VOTES_SORT, question.getQuestionId());
         	Specification specification = AnswerAnalysis.analyze(stackExchangeRequester.getAnswersToQuestion(questionData));
         	specificationDao.insertFinalizedSpecification(specification);
     	}
     }
 
     // Entry point
-    public static void main(String[] args) {
+    public static void main(String[] args) throws JSONException, ClientProtocolException, IOException {
     	//Analyze Test
         IStackExchangeRequester stackExchangeRequester = new StackExchangeRequester();
 		EntityManager entityManager = FactoryStartup.getAnEntityManager();
