@@ -2,6 +2,7 @@ package edu.iastate.cs.design.spec.post;
 
 
 import edu.iastate.cs.design.spec.common.*;
+import edu.iastate.cs.design.spec.entities.Question;
 import edu.iastate.cs.design.spec.stackexchange.objects.AnswerDTO;
 import edu.iastate.cs.design.spec.stackexchange.objects.QuestionDTO;
 import edu.iastate.cs.design.spec.stackexchange.request.AnswerQuestionRequestData;
@@ -11,13 +12,14 @@ import edu.iastate.cs.design.spec.stackexchange.request.QuestionAnswersRequestDa
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
 public class PostTest {
 
     @Test
-    public void basicTest() {
+    public void basicTest() throws IOException {
         List<String> approxPreconditions = Arrays.asList("items != null", "items.length > 0");
         List<String> approxPostconditions = Arrays.asList("items != null", "items.length == \\old(items.length)");
         List<String> formals = Arrays.asList("E item");
@@ -25,13 +27,13 @@ public class PostTest {
                 formals, approxPreconditions, approxPostconditions);
         ISpecificationDao specificationDao = new MockSpecificationDao();
         IStackExchangeRequester stackExchangeRequester = new MockStackExchangeRequester();
-        IOpenQuestionsDao openQuestionsDao = new MockOpenQuestionsDao();
+        IQuestionDao openQuestionsDao = new MockQuestionDao();
         specificationDao.insertPendingSpecification(pendingSpecification);
         Post postProgram = new Post(specificationDao, stackExchangeRequester, openQuestionsDao);
         postProgram.run();
-        List<Integer> openQuestionIds = openQuestionsDao.getOpenQuestions();
-        Assert.assertEquals(1, openQuestionIds.size());
-        int questionId = openQuestionIds.get(0);
+        List<Question> questions = openQuestionsDao.getAllQuestions();
+        Assert.assertEquals(1, questions.size());
+        int questionId = questions.get(0).getQuestionId();
         QuestionDTO questionDTO = stackExchangeRequester.getQuestionByQuestionId(questionId);
         Assert.assertTrue(questionDTO.getTitle().contains(pendingSpecification.getMethodName()));
         QuestionAnswersRequestData questionRequestData =

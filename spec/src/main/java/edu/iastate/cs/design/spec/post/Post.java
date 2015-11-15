@@ -20,11 +20,11 @@ public class Post {
 
     private ISpecificationDao specificationDao;
     private IStackExchangeRequester stackExchangeRequester;
-    private IOpenQuestionsDao openQuestionsDao;
+    private IQuestionDao openQuestionsDao;
 
     public Post(ISpecificationDao specificationDao,
                 IStackExchangeRequester stackExchangeRequester,
-                IOpenQuestionsDao openQuestionsDao) {
+                IQuestionDao openQuestionsDao) {
         this.specificationDao = specificationDao;
         this.stackExchangeRequester = stackExchangeRequester;
         this.openQuestionsDao = openQuestionsDao;
@@ -34,7 +34,7 @@ public class Post {
         Specification pendingSpecification = specificationDao.removeNextPendingSpecification();
         QuestionAddRequestData requestData = createQuestionAddRequestData(pendingSpecification);
         QuestionDTO question = stackExchangeRequester.postQuestion(requestData);
-        openQuestionsDao.insertOpenQuestion(question.getQuestionId());
+        openQuestionsDao.insertQuestion(question.getQuestionId());
     }
 
     private QuestionAddRequestData createQuestionAddRequestData(Specification pendingSpecification) {
@@ -103,7 +103,7 @@ public class Post {
     public static void main(String[] args) {
         EntityManager entityManager = FactoryStartup.getAnEntityManager();
         ISpecificationDao specificationDao = new SpecificationDao(entityManager);
-        IOpenQuestionsDao openQuestionsDao = new OpenQuestionsDao(entityManager);
+        IQuestionDao openQuestionsDao = new QuestionDao(entityManager);
         IStackExchangeRequester stackExchangeRequester = new StackExchangeRequester();
         Post program = new Post(specificationDao, stackExchangeRequester, openQuestionsDao);
         program.run();

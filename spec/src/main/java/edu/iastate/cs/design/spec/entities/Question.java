@@ -11,7 +11,7 @@ import javax.persistence.*;
 	@NamedQueries({
 		@NamedQuery(name="Question.getAll", query="SELECT q FROM Question q"),
 		
-		@NamedQuery(name="Question.getOpenQuestions", query="SELECT q.questionId FROM Question q WHERE "
+		@NamedQuery(name="Question.getAllQuestions", query="SELECT q.questionId FROM Question q WHERE "
 															+ "q.isOpen == true")
 	})
 	public class Question implements Serializable {

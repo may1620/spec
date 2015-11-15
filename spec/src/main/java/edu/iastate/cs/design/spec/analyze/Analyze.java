@@ -9,7 +9,7 @@ import org.apache.http.client.ClientProtocolException;
 import org.json.JSONException;
 
 import edu.iastate.cs.design.spec.common.ISpecificationDao;
-import edu.iastate.cs.design.spec.common.OpenQuestionsDao;
+import edu.iastate.cs.design.spec.common.QuestionDao;
 import edu.iastate.cs.design.spec.common.Specification;
 import edu.iastate.cs.design.spec.common.SpecificationDao;
 import edu.iastate.cs.design.spec.entities.Question;
@@ -38,8 +38,8 @@ public class Analyze {
 	
     public void run() throws JSONException, ClientProtocolException, IOException {
     	EntityManager entityManager = FactoryStartup.getAnEntityManager();
-    	OpenQuestionsDao questions = new OpenQuestionsDao(entityManager);
-    	for(Question question : questions.getOpenQuestions()) {
+    	QuestionDao questions = new QuestionDao(entityManager);
+    	for(Question question : questions.getAllQuestions()) {
     		QuestionAnswersRequestData questionData = new QuestionAnswersRequestData(QuestionAnswersRequestData.VOTES_SORT, question.getQuestionId());
         	Specification specification = AnswerAnalysis.analyze(stackExchangeRequester.getAnswersToQuestion(questionData));
         	specificationDao.insertFinalizedSpecification(specification);
