@@ -8,8 +8,12 @@ import edu.iastate.cs.design.spec.stackexchange.request.QuestionAddRequestData;
 import edu.iastate.cs.design.spec.stackexchange.request.StackExchangeRequester;
 
 import javax.persistence.EntityManager;
+
+import org.jasypt.encryption.pbe.StandardPBEStringEncryptor;
+
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  * This class contains the main method for the part of the system that will
@@ -47,13 +51,20 @@ public class Post {
     }
 
     private String getStackExchangeAccessToken() {
-        // TODO implement this correctly
-        return "access_token";
+    	System.out.println("Enter decyrption password: ");
+    	Scanner scan = new Scanner(System.in);
+    	String password = scan.next();
+    	scan.close();
+    	System.out.println("Processing...");
+    	StandardPBEStringEncryptor encryptor = new StandardPBEStringEncryptor();
+    	encryptor.setPassword(password);
+    	String decryptText = encryptor.decrypt("LrJhEUS82WeTvRzJsbGzQfihL3EKW0sdMEqtnyRUiS8g6IdYLBybQA==");
+    	System.out.println(decryptText);
+        return decryptText;
     }
 
     private String getStackExchangeKey() {
-        // TODO implement this correctly
-        return "key";
+        return "zuQeOSftIrtt8lhr0mYUoQ((";
     }
 
     private List<String> createQuestionTags(Specification pendingSpecification) {
@@ -103,9 +114,9 @@ public class Post {
     public static void main(String[] args) {
         EntityManager entityManager = FactoryStartup.getAnEntityManager();
         ISpecificationDao specificationDao = new SpecificationDao(entityManager);
-        IQuestionDao openQuestionsDao = new QuestionDao(entityManager);
+        IQuestionDao questionsDao = new QuestionDao(entityManager);
         IStackExchangeRequester stackExchangeRequester = new StackExchangeRequester();
-        Post program = new Post(specificationDao, stackExchangeRequester, openQuestionsDao);
+        Post program = new Post(specificationDao, stackExchangeRequester, questionsDao);
         program.run();
     }
 }

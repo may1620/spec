@@ -12,7 +12,7 @@ import javax.persistence.*;
 		@NamedQuery(name="Question.getAll", query="SELECT q FROM Question q"),
 		
 		@NamedQuery(name="Question.getAllQuestions", query="SELECT q.questionId FROM Question q WHERE "
-															+ "q.isOpen == true")
+				+ "q.isOpen = true")
 	})
 	public class Question implements Serializable {
 		private static final long serialVersionUID = 1L;
