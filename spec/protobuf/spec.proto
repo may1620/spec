@@ -1,0 +1,64 @@
+package boa.types;
+
+option optimize_for = SPEED;
+
+message Specification {
+    // Where the method this specification corresponds to is located.
+    // Do we want to have more information about the method here?
+    required string sequence_file = 1;
+    required int64 sequence_file_pos = 2;
+    required bool is_exceptional = 3;
+    repeated SpecExpression preconditions = 4;
+    repeated SpecExpression postconditions = 5;
+    repeated string assignable_fields = 6;
+    repeated string exception_types = 7;
+}
+
+message SpecExpression {
+    enum SpecExpressionType {
+        QUANTIFIED = 0;// body is in subexpressions
+        VARACCESS = 1;
+        ARR_INDEXING = 2;// index expression is in subexpression
+        // For most of these, subexpressions will just contain the left and right side of these
+        // operations
+        IMPLIES = 3;
+        IFF = 4;
+        LOGICAL_AND = 5;
+        LOGICAL_OR = 6;
+        PLUS = 7;
+        MINUS = 8;
+        DIVIDE = 9;
+        MODULUS = 10;
+        MULTIPLY = 11;
+        BIT_LSHIFT = 12;
+        BIT_RSHIFT = 13;
+        BIT_UNSIGNEDRSHIFT = 14;
+        BIT_AND = 15;
+        BIT_OR = 16;
+        BIT_NOT = 17;
+        BIT_XOR = 18;
+        EQUAL = 19;
+        NOT_EQUAL = 20;
+        LESS_THAN = 21;
+        GREATER_THAN = 22;
+        LESS_THAN_EQ = 23;
+        GREATER_THAN_EQ = 24;
+        NOT = 25;
+        OLD = 26; // the value of a subexpression before running the method
+        RESULT = 27;// the return value of the method
+        LITERAL = 28;
+    }
+    enum Quantifier {
+        FORALL = 0;
+        EXISTS = 1;
+        JML_SUM = 2;
+        JML_PRODUCT = 3;
+        JML_MAX = 4;
+        JML_MIN = 5;
+    }
+    required SpecExpressionType type = 1;
+    optional Quantifier quantifier = 2;
+    optional SpecExpression quantified_scope = 3;
+    repeated SpecExpression subexpressions = 4;
+    optional string value = 5;
+}
