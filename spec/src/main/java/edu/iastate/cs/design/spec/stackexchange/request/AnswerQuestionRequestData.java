@@ -1,5 +1,7 @@
 package edu.iastate.cs.design.spec.stackexchange.request;
 
+import java.net.URI;
+
 public class AnswerQuestionRequestData implements IStackExchangeRequestData {
 
     private int id;
@@ -30,7 +32,9 @@ public class AnswerQuestionRequestData implements IStackExchangeRequestData {
         return accessToken;
     }
 
-    public String requestUrl() {
-        return "https://api.stackexchange.com/2.2/questions/" + id + "/answers/add";
+    // TODO this wasn't compiling so I quickly hacked it to make it compile, make sure changes are okay
+    public URI requestUrl() {
+        //return "https://api.stackexchange.com/2.2/questions/" + id + "/answers/add";
+        return null;
     }
 }

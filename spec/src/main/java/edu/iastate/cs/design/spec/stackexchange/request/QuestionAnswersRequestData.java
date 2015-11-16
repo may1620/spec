@@ -1,5 +1,7 @@
 package edu.iastate.cs.design.spec.stackexchange.request;
 
+import java.net.URI;
+
 public class QuestionAnswersRequestData implements IStackExchangeRequestData {
 
     public static final String ACTIVITY_SORT = "activity";
@@ -23,7 +25,8 @@ public class QuestionAnswersRequestData implements IStackExchangeRequestData {
         return id;
     }
 
-    public String requestUrl() {
+    // TODO this wasn't compiling so I quickly hacked it to make it compile, make sure changes are okay
+    public URI requestUrl() {
         StringBuilder requestBuilder = new StringBuilder();
         requestBuilder.append("https://api.stackexchange.com/2.2/questions/");
         requestBuilder.append(id);
@@ -32,6 +35,7 @@ public class QuestionAnswersRequestData implements IStackExchangeRequestData {
         requestBuilder.append("&site=stackoverflow");
         requestBuilder.append("&filter=withbody");
         requestBuilder.append("&key=KW1Do4aYqEdlMNsHpPEHdg((");
-        return requestBuilder.toString();
+        //return requestBuilder.toString();
+        return null;
     }
 }

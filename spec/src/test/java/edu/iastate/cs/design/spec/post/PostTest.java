@@ -19,7 +19,7 @@ import java.util.List;
 public class PostTest {
 
     @Test
-    public void basicTest() throws IOException {
+    public void basicTest() throws Exception {
         List<String> approxPreconditions = Arrays.asList("items != null", "items.length > 0");
         List<String> approxPostconditions = Arrays.asList("items != null", "items.length == \\old(items.length)");
         List<String> formals = Arrays.asList("E item");

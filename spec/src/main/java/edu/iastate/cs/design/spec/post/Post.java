@@ -34,7 +34,7 @@ public class Post {
         this.openQuestionsDao = openQuestionsDao;
     }
 
-    public void run() {
+    public void run() throws Exception {
         Specification pendingSpecification = specificationDao.removeNextPendingSpecification();
         QuestionAddRequestData requestData = createQuestionAddRequestData(pendingSpecification);
         QuestionDTO question = stackExchangeRequester.postQuestion(requestData);
@@ -111,7 +111,8 @@ public class Post {
     }
 
     // Entry point
-    public static void main(String[] args) {
+    // TODO this wasn't compiling so I quickly hacked it to make it compile, make sure changes are okay
+    public static void main(String[] args) throws Exception {
         EntityManager entityManager = FactoryStartup.getAnEntityManager();
         ISpecificationDao specificationDao = new SpecificationDao(entityManager);
         IQuestionDao questionsDao = new QuestionDao(entityManager);
