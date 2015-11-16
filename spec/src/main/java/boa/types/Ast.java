@@ -171,10 +171,10 @@ public final class Ast {
     // @@protoc_insertion_point(enum_scope:boa.types.TypeKind)
   }
 
-  public interface CommentsRootOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:boa.types.CommentsRoot)
-      com.google.protobuf.MessageOrBuilder {
+  public interface CommentsRootOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
 
+    // repeated .boa.types.Comment comments = 1;
     /**
      * <code>repeated .boa.types.Comment comments = 1;</code>
      */
@@ -203,9 +203,8 @@ public final class Ast {
    * Protobuf type {@code boa.types.CommentsRoot}
    */
   public static final class CommentsRoot extends
-      com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:boa.types.CommentsRoot)
-      CommentsRootOrBuilder {
+      com.google.protobuf.GeneratedMessage
+      implements CommentsRootOrBuilder {
     // Use CommentsRoot.newBuilder() to construct.
     private CommentsRoot(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -276,14 +275,14 @@ public final class Ast {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return internal_static_boa_types_CommentsRoot_descriptor;
+      return boa.types.Ast.internal_static_boa_types_CommentsRoot_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return internal_static_boa_types_CommentsRoot_fieldAccessorTable
+      return boa.types.Ast.internal_static_boa_types_CommentsRoot_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-                  boa.types.Ast.CommentsRoot.class, boa.types.Ast.CommentsRoot.Builder.class);
+              boa.types.Ast.CommentsRoot.class, boa.types.Ast.CommentsRoot.Builder.class);
     }
 
     public static com.google.protobuf.Parser<CommentsRoot> PARSER =
@@ -301,6 +300,7 @@ public final class Ast {
       return PARSER;
     }
 
+    // repeated .boa.types.Comment comments = 1;
     public static final int COMMENTS_FIELD_NUMBER = 1;
     private java.util.List<boa.types.Ast.Comment> comments_;
     /**
@@ -342,8 +342,7 @@ public final class Ast {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
+      if (isInitialized != -1) return isInitialized == 1;
 
       for (int i = 0; i < getCommentsCount(); i++) {
         if (!getComments(i).isInitialized()) {
@@ -456,19 +455,18 @@ public final class Ast {
      * Protobuf type {@code boa.types.CommentsRoot}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:boa.types.CommentsRoot)
-        boa.types.Ast.CommentsRootOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements boa.types.Ast.CommentsRootOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return internal_static_boa_types_CommentsRoot_descriptor;
+        return boa.types.Ast.internal_static_boa_types_CommentsRoot_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return internal_static_boa_types_CommentsRoot_fieldAccessorTable
+        return boa.types.Ast.internal_static_boa_types_CommentsRoot_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                    boa.types.Ast.CommentsRoot.class, boa.types.Ast.CommentsRoot.Builder.class);
+                boa.types.Ast.CommentsRoot.class, boa.types.Ast.CommentsRoot.Builder.class);
       }
 
       // Construct using boa.types.Ast.CommentsRoot.newBuilder()
@@ -507,11 +505,11 @@ public final class Ast {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return internal_static_boa_types_CommentsRoot_descriptor;
+        return boa.types.Ast.internal_static_boa_types_CommentsRoot_descriptor;
       }
 
       public boa.types.Ast.CommentsRoot getDefaultInstanceForType() {
-        return getDefaultInstance();
+        return boa.types.Ast.CommentsRoot.getDefaultInstance();
       }
 
       public boa.types.Ast.CommentsRoot build() {
@@ -548,7 +546,7 @@ public final class Ast {
       }
 
       public Builder mergeFrom(boa.types.Ast.CommentsRoot other) {
-        if (other == getDefaultInstance()) return this;
+        if (other == boa.types.Ast.CommentsRoot.getDefaultInstance()) return this;
         if (commentsBuilder_ == null) {
           if (!other.comments_.isEmpty()) {
             if (comments_.isEmpty()) {
@@ -608,6 +606,7 @@ public final class Ast {
       }
       private int bitField0_;
 
+      // repeated .boa.types.Comment comments = 1;
       private java.util.List<boa.types.Ast.Comment> comments_ =
         java.util.Collections.emptyList();
       private void ensureCommentsIsMutable() {
@@ -749,8 +748,7 @@ public final class Ast {
           java.lang.Iterable<? extends boa.types.Ast.Comment> values) {
         if (commentsBuilder_ == null) {
           ensureCommentsIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, comments_);
+          super.addAll(values, comments_);
           onChanged();
         } else {
           commentsBuilder_.addAllMessages(values);
@@ -859,10 +857,10 @@ public final class Ast {
     // @@protoc_insertion_point(class_scope:boa.types.CommentsRoot)
   }
 
-  public interface ASTRootOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:boa.types.ASTRoot)
-      com.google.protobuf.MessageOrBuilder {
+  public interface ASTRootOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
 
+    // repeated .boa.types.Namespace namespaces = 1;
     /**
      * <code>repeated .boa.types.Namespace namespaces = 1;</code>
      */
@@ -887,11 +885,12 @@ public final class Ast {
     boa.types.Ast.NamespaceOrBuilder getNamespacesOrBuilder(
         int index);
 
+    // repeated string imports = 2;
     /**
      * <code>repeated string imports = 2;</code>
      */
-    com.google.protobuf.ProtocolStringList
-        getImportsList();
+    java.util.List<java.lang.String>
+    getImportsList();
     /**
      * <code>repeated string imports = 2;</code>
      */
@@ -906,11 +905,12 @@ public final class Ast {
     com.google.protobuf.ByteString
         getImportsBytes(int index);
 
+    // repeated string names = 3;
     /**
      * <code>repeated string names = 3;</code>
      */
-    com.google.protobuf.ProtocolStringList
-        getNamesList();
+    java.util.List<java.lang.String>
+    getNamesList();
     /**
      * <code>repeated string names = 3;</code>
      */
@@ -929,9 +929,8 @@ public final class Ast {
    * Protobuf type {@code boa.types.ASTRoot}
    */
   public static final class ASTRoot extends
-      com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:boa.types.ASTRoot)
-      ASTRootOrBuilder {
+      com.google.protobuf.GeneratedMessage
+      implements ASTRootOrBuilder {
     // Use ASTRoot.newBuilder() to construct.
     private ASTRoot(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -986,21 +985,19 @@ public final class Ast {
               break;
             }
             case 18: {
-              com.google.protobuf.ByteString bs = input.readBytes();
               if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
                 imports_ = new com.google.protobuf.LazyStringArrayList();
                 mutable_bitField0_ |= 0x00000002;
               }
-              imports_.add(bs);
+              imports_.add(input.readBytes());
               break;
             }
             case 26: {
-              com.google.protobuf.ByteString bs = input.readBytes();
               if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
                 names_ = new com.google.protobuf.LazyStringArrayList();
                 mutable_bitField0_ |= 0x00000004;
               }
-              names_.add(bs);
+              names_.add(input.readBytes());
               break;
             }
           }
@@ -1015,10 +1012,10 @@ public final class Ast {
           namespaces_ = java.util.Collections.unmodifiableList(namespaces_);
         }
         if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-          imports_ = imports_.getUnmodifiableView();
+          imports_ = new com.google.protobuf.UnmodifiableLazyStringList(imports_);
         }
         if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-          names_ = names_.getUnmodifiableView();
+          names_ = new com.google.protobuf.UnmodifiableLazyStringList(names_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -1026,14 +1023,14 @@ public final class Ast {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return internal_static_boa_types_ASTRoot_descriptor;
+      return boa.types.Ast.internal_static_boa_types_ASTRoot_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return internal_static_boa_types_ASTRoot_fieldAccessorTable
+      return boa.types.Ast.internal_static_boa_types_ASTRoot_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-                  boa.types.Ast.ASTRoot.class, boa.types.Ast.ASTRoot.Builder.class);
+              boa.types.Ast.ASTRoot.class, boa.types.Ast.ASTRoot.Builder.class);
     }
 
     public static com.google.protobuf.Parser<ASTRoot> PARSER =
@@ -1051,6 +1048,7 @@ public final class Ast {
       return PARSER;
     }
 
+    // repeated .boa.types.Namespace namespaces = 1;
     public static final int NAMESPACES_FIELD_NUMBER = 1;
     private java.util.List<boa.types.Ast.Namespace> namespaces_;
     /**
@@ -1086,12 +1084,13 @@ public final class Ast {
       return namespaces_.get(index);
     }
 
+    // repeated string imports = 2;
     public static final int IMPORTS_FIELD_NUMBER = 2;
     private com.google.protobuf.LazyStringList imports_;
     /**
      * <code>repeated string imports = 2;</code>
      */
-    public com.google.protobuf.ProtocolStringList
+    public java.util.List<java.lang.String>
         getImportsList() {
       return imports_;
     }
@@ -1115,12 +1114,13 @@ public final class Ast {
       return imports_.getByteString(index);
     }
 
+    // repeated string names = 3;
     public static final int NAMES_FIELD_NUMBER = 3;
     private com.google.protobuf.LazyStringList names_;
     /**
      * <code>repeated string names = 3;</code>
      */
-    public com.google.protobuf.ProtocolStringList
+    public java.util.List<java.lang.String>
         getNamesList() {
       return names_;
     }
@@ -1152,8 +1152,7 @@ public final class Ast {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
+      if (isInitialized != -1) return isInitialized == 1;
 
       for (int i = 0; i < getNamespacesCount(); i++) {
         if (!getNamespaces(i).isInitialized()) {
@@ -1290,19 +1289,18 @@ public final class Ast {
      * Protobuf type {@code boa.types.ASTRoot}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:boa.types.ASTRoot)
-        boa.types.Ast.ASTRootOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements boa.types.Ast.ASTRootOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return internal_static_boa_types_ASTRoot_descriptor;
+        return boa.types.Ast.internal_static_boa_types_ASTRoot_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return internal_static_boa_types_ASTRoot_fieldAccessorTable
+        return boa.types.Ast.internal_static_boa_types_ASTRoot_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                    boa.types.Ast.ASTRoot.class, boa.types.Ast.ASTRoot.Builder.class);
+                boa.types.Ast.ASTRoot.class, boa.types.Ast.ASTRoot.Builder.class);
       }
 
       // Construct using boa.types.Ast.ASTRoot.newBuilder()
@@ -1345,11 +1343,11 @@ public final class Ast {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return internal_static_boa_types_ASTRoot_descriptor;
+        return boa.types.Ast.internal_static_boa_types_ASTRoot_descriptor;
       }
 
       public boa.types.Ast.ASTRoot getDefaultInstanceForType() {
-        return getDefaultInstance();
+        return boa.types.Ast.ASTRoot.getDefaultInstance();
       }
 
       public boa.types.Ast.ASTRoot build() {
@@ -1373,12 +1371,14 @@ public final class Ast {
           result.namespaces_ = namespacesBuilder_.build();
         }
         if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          imports_ = imports_.getUnmodifiableView();
+          imports_ = new com.google.protobuf.UnmodifiableLazyStringList(
+              imports_);
           bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.imports_ = imports_;
         if (((bitField0_ & 0x00000004) == 0x00000004)) {
-          names_ = names_.getUnmodifiableView();
+          names_ = new com.google.protobuf.UnmodifiableLazyStringList(
+              names_);
           bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.names_ = names_;
@@ -1396,7 +1396,7 @@ public final class Ast {
       }
 
       public Builder mergeFrom(boa.types.Ast.ASTRoot other) {
-        if (other == getDefaultInstance()) return this;
+        if (other == boa.types.Ast.ASTRoot.getDefaultInstance()) return this;
         if (namespacesBuilder_ == null) {
           if (!other.namespaces_.isEmpty()) {
             if (namespaces_.isEmpty()) {
@@ -1476,6 +1476,7 @@ public final class Ast {
       }
       private int bitField0_;
 
+      // repeated .boa.types.Namespace namespaces = 1;
       private java.util.List<boa.types.Ast.Namespace> namespaces_ =
         java.util.Collections.emptyList();
       private void ensureNamespacesIsMutable() {
@@ -1617,8 +1618,7 @@ public final class Ast {
           java.lang.Iterable<? extends boa.types.Ast.Namespace> values) {
         if (namespacesBuilder_ == null) {
           ensureNamespacesIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, namespaces_);
+          super.addAll(values, namespaces_);
           onChanged();
         } else {
           namespacesBuilder_.addAllMessages(values);
@@ -1716,6 +1716,7 @@ public final class Ast {
         return namespacesBuilder_;
       }
 
+      // repeated string imports = 2;
       private com.google.protobuf.LazyStringList imports_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureImportsIsMutable() {
         if (!((bitField0_ & 0x00000002) == 0x00000002)) {
@@ -1726,9 +1727,9 @@ public final class Ast {
       /**
        * <code>repeated string imports = 2;</code>
        */
-      public com.google.protobuf.ProtocolStringList
+      public java.util.List<java.lang.String>
           getImportsList() {
-        return imports_.getUnmodifiableView();
+        return java.util.Collections.unmodifiableList(imports_);
       }
       /**
        * <code>repeated string imports = 2;</code>
@@ -1781,8 +1782,7 @@ public final class Ast {
       public Builder addAllImports(
           java.lang.Iterable<java.lang.String> values) {
         ensureImportsIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, imports_);
+        super.addAll(values, imports_);
         onChanged();
         return this;
       }
@@ -1809,6 +1809,7 @@ public final class Ast {
         return this;
       }
 
+      // repeated string names = 3;
       private com.google.protobuf.LazyStringList names_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureNamesIsMutable() {
         if (!((bitField0_ & 0x00000004) == 0x00000004)) {
@@ -1819,9 +1820,9 @@ public final class Ast {
       /**
        * <code>repeated string names = 3;</code>
        */
-      public com.google.protobuf.ProtocolStringList
+      public java.util.List<java.lang.String>
           getNamesList() {
-        return names_.getUnmodifiableView();
+        return java.util.Collections.unmodifiableList(names_);
       }
       /**
        * <code>repeated string names = 3;</code>
@@ -1874,8 +1875,7 @@ public final class Ast {
       public Builder addAllNames(
           java.lang.Iterable<java.lang.String> values) {
         ensureNamesIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, names_);
+        super.addAll(values, names_);
         onChanged();
         return this;
       }
@@ -1913,10 +1913,10 @@ public final class Ast {
     // @@protoc_insertion_point(class_scope:boa.types.ASTRoot)
   }
 
-  public interface NamespaceOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:boa.types.Namespace)
-      com.google.protobuf.MessageOrBuilder {
+  public interface NamespaceOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
 
+    // required string name = 1;
     /**
      * <code>required string name = 1;</code>
      */
@@ -1931,6 +1931,7 @@ public final class Ast {
     com.google.protobuf.ByteString
         getNameBytes();
 
+    // repeated .boa.types.Modifier modifiers = 2;
     /**
      * <code>repeated .boa.types.Modifier modifiers = 2;</code>
      */
@@ -1955,6 +1956,7 @@ public final class Ast {
     boa.types.Ast.ModifierOrBuilder getModifiersOrBuilder(
         int index);
 
+    // repeated .boa.types.Declaration declarations = 3;
     /**
      * <code>repeated .boa.types.Declaration declarations = 3;</code>
      *
@@ -2003,9 +2005,8 @@ public final class Ast {
    * Protobuf type {@code boa.types.Namespace}
    */
   public static final class Namespace extends
-      com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:boa.types.Namespace)
-      NamespaceOrBuilder {
+      com.google.protobuf.GeneratedMessage
+      implements NamespaceOrBuilder {
     // Use Namespace.newBuilder() to construct.
     private Namespace(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -2052,9 +2053,8 @@ public final class Ast {
               break;
             }
             case 10: {
-              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
-              name_ = bs;
+              name_ = input.readBytes();
               break;
             }
             case 18: {
@@ -2093,14 +2093,14 @@ public final class Ast {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return internal_static_boa_types_Namespace_descriptor;
+      return boa.types.Ast.internal_static_boa_types_Namespace_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return internal_static_boa_types_Namespace_fieldAccessorTable
+      return boa.types.Ast.internal_static_boa_types_Namespace_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-                  boa.types.Ast.Namespace.class, boa.types.Ast.Namespace.Builder.class);
+              boa.types.Ast.Namespace.class, boa.types.Ast.Namespace.Builder.class);
     }
 
     public static com.google.protobuf.Parser<Namespace> PARSER =
@@ -2119,6 +2119,7 @@ public final class Ast {
     }
 
     private int bitField0_;
+    // required string name = 1;
     public static final int NAME_FIELD_NUMBER = 1;
     private java.lang.Object name_;
     /**
@@ -2161,6 +2162,7 @@ public final class Ast {
       }
     }
 
+    // repeated .boa.types.Modifier modifiers = 2;
     public static final int MODIFIERS_FIELD_NUMBER = 2;
     private java.util.List<boa.types.Ast.Modifier> modifiers_;
     /**
@@ -2196,6 +2198,7 @@ public final class Ast {
       return modifiers_.get(index);
     }
 
+    // repeated .boa.types.Declaration declarations = 3;
     public static final int DECLARATIONS_FIELD_NUMBER = 3;
     private java.util.List<boa.types.Ast.Declaration> declarations_;
     /**
@@ -2259,8 +2262,7 @@ public final class Ast {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
+      if (isInitialized != -1) return isInitialized == 1;
 
       if (!hasName()) {
         memoizedIsInitialized = 0;
@@ -2397,19 +2399,18 @@ public final class Ast {
      * Protobuf type {@code boa.types.Namespace}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:boa.types.Namespace)
-        boa.types.Ast.NamespaceOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements boa.types.Ast.NamespaceOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return internal_static_boa_types_Namespace_descriptor;
+        return boa.types.Ast.internal_static_boa_types_Namespace_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return internal_static_boa_types_Namespace_fieldAccessorTable
+        return boa.types.Ast.internal_static_boa_types_Namespace_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                    boa.types.Ast.Namespace.class, boa.types.Ast.Namespace.Builder.class);
+                boa.types.Ast.Namespace.class, boa.types.Ast.Namespace.Builder.class);
       }
 
       // Construct using boa.types.Ast.Namespace.newBuilder()
@@ -2457,11 +2458,11 @@ public final class Ast {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return internal_static_boa_types_Namespace_descriptor;
+        return boa.types.Ast.internal_static_boa_types_Namespace_descriptor;
       }
 
       public boa.types.Ast.Namespace getDefaultInstanceForType() {
-        return getDefaultInstance();
+        return boa.types.Ast.Namespace.getDefaultInstance();
       }
 
       public boa.types.Ast.Namespace build() {
@@ -2513,7 +2514,7 @@ public final class Ast {
       }
 
       public Builder mergeFrom(boa.types.Ast.Namespace other) {
-        if (other == getDefaultInstance()) return this;
+        if (other == boa.types.Ast.Namespace.getDefaultInstance()) return this;
         if (other.hasName()) {
           bitField0_ |= 0x00000001;
           name_ = other.name_;
@@ -2614,6 +2615,7 @@ public final class Ast {
       }
       private int bitField0_;
 
+      // required string name = 1;
       private java.lang.Object name_ = "";
       /**
        * <code>required string name = 1;</code>
@@ -2627,12 +2629,9 @@ public final class Ast {
       public java.lang.String getName() {
         java.lang.Object ref = name_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            name_ = s;
-          }
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          name_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -2690,6 +2689,7 @@ public final class Ast {
         return this;
       }
 
+      // repeated .boa.types.Modifier modifiers = 2;
       private java.util.List<boa.types.Ast.Modifier> modifiers_ =
         java.util.Collections.emptyList();
       private void ensureModifiersIsMutable() {
@@ -2831,8 +2831,7 @@ public final class Ast {
           java.lang.Iterable<? extends boa.types.Ast.Modifier> values) {
         if (modifiersBuilder_ == null) {
           ensureModifiersIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, modifiers_);
+          super.addAll(values, modifiers_);
           onChanged();
         } else {
           modifiersBuilder_.addAllMessages(values);
@@ -2930,6 +2929,7 @@ public final class Ast {
         return modifiersBuilder_;
       }
 
+      // repeated .boa.types.Declaration declarations = 3;
       private java.util.List<boa.types.Ast.Declaration> declarations_ =
         java.util.Collections.emptyList();
       private void ensureDeclarationsIsMutable() {
@@ -3111,8 +3111,7 @@ public final class Ast {
           java.lang.Iterable<? extends boa.types.Ast.Declaration> values) {
         if (declarationsBuilder_ == null) {
           ensureDeclarationsIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, declarations_);
+          super.addAll(values, declarations_);
           onChanged();
         } else {
           declarationsBuilder_.addAllMessages(values);
@@ -3253,10 +3252,10 @@ public final class Ast {
     // @@protoc_insertion_point(class_scope:boa.types.Namespace)
   }
 
-  public interface DeclarationOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:boa.types.Declaration)
-      com.google.protobuf.MessageOrBuilder {
+  public interface DeclarationOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
 
+    // required string name = 1;
     /**
      * <code>required string name = 1;</code>
      */
@@ -3271,6 +3270,7 @@ public final class Ast {
     com.google.protobuf.ByteString
         getNameBytes();
 
+    // required .boa.types.TypeKind kind = 2;
     /**
      * <code>required .boa.types.TypeKind kind = 2;</code>
      */
@@ -3280,6 +3280,7 @@ public final class Ast {
      */
     boa.types.Ast.TypeKind getKind();
 
+    // repeated .boa.types.Modifier modifiers = 3;
     /**
      * <code>repeated .boa.types.Modifier modifiers = 3;</code>
      */
@@ -3304,6 +3305,7 @@ public final class Ast {
     boa.types.Ast.ModifierOrBuilder getModifiersOrBuilder(
         int index);
 
+    // repeated .boa.types.Type generic_parameters = 4;
     /**
      * <code>repeated .boa.types.Type generic_parameters = 4;</code>
      */
@@ -3328,6 +3330,7 @@ public final class Ast {
     boa.types.Ast.TypeOrBuilder getGenericParametersOrBuilder(
         int index);
 
+    // repeated .boa.types.Type parents = 5;
     /**
      * <code>repeated .boa.types.Type parents = 5;</code>
      */
@@ -3352,6 +3355,7 @@ public final class Ast {
     boa.types.Ast.TypeOrBuilder getParentsOrBuilder(
         int index);
 
+    // repeated .boa.types.Method methods = 6;
     /**
      * <code>repeated .boa.types.Method methods = 6;</code>
      */
@@ -3376,6 +3380,7 @@ public final class Ast {
     boa.types.Ast.MethodOrBuilder getMethodsOrBuilder(
         int index);
 
+    // repeated .boa.types.Variable fields = 7;
     /**
      * <code>repeated .boa.types.Variable fields = 7;</code>
      */
@@ -3400,6 +3405,7 @@ public final class Ast {
     boa.types.Ast.VariableOrBuilder getFieldsOrBuilder(
         int index);
 
+    // repeated .boa.types.Declaration nested_declarations = 8;
     /**
      * <code>repeated .boa.types.Declaration nested_declarations = 8;</code>
      */
@@ -3424,6 +3430,7 @@ public final class Ast {
     boa.types.Ast.DeclarationOrBuilder getNestedDeclarationsOrBuilder(
         int index);
 
+    // repeated .boa.types.Comment comments = 9;
     /**
      * <code>repeated .boa.types.Comment comments = 9;</code>
      *
@@ -3472,9 +3479,8 @@ public final class Ast {
    * Protobuf type {@code boa.types.Declaration}
    */
   public static final class Declaration extends
-      com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:boa.types.Declaration)
-      DeclarationOrBuilder {
+      com.google.protobuf.GeneratedMessage
+      implements DeclarationOrBuilder {
     // Use Declaration.newBuilder() to construct.
     private Declaration(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -3521,9 +3527,8 @@ public final class Ast {
               break;
             }
             case 10: {
-              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
-              name_ = bs;
+              name_ = input.readBytes();
               break;
             }
             case 16: {
@@ -3582,7 +3587,7 @@ public final class Ast {
                 nestedDeclarations_ = new java.util.ArrayList<boa.types.Ast.Declaration>();
                 mutable_bitField0_ |= 0x00000080;
               }
-              nestedDeclarations_.add(input.readMessage(PARSER, extensionRegistry));
+              nestedDeclarations_.add(input.readMessage(boa.types.Ast.Declaration.PARSER, extensionRegistry));
               break;
             }
             case 74: {
@@ -3628,14 +3633,14 @@ public final class Ast {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return internal_static_boa_types_Declaration_descriptor;
+      return boa.types.Ast.internal_static_boa_types_Declaration_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return internal_static_boa_types_Declaration_fieldAccessorTable
+      return boa.types.Ast.internal_static_boa_types_Declaration_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-                  boa.types.Ast.Declaration.class, boa.types.Ast.Declaration.Builder.class);
+              boa.types.Ast.Declaration.class, boa.types.Ast.Declaration.Builder.class);
     }
 
     public static com.google.protobuf.Parser<Declaration> PARSER =
@@ -3654,6 +3659,7 @@ public final class Ast {
     }
 
     private int bitField0_;
+    // required string name = 1;
     public static final int NAME_FIELD_NUMBER = 1;
     private java.lang.Object name_;
     /**
@@ -3696,6 +3702,7 @@ public final class Ast {
       }
     }
 
+    // required .boa.types.TypeKind kind = 2;
     public static final int KIND_FIELD_NUMBER = 2;
     private boa.types.Ast.TypeKind kind_;
     /**
@@ -3711,6 +3718,7 @@ public final class Ast {
       return kind_;
     }
 
+    // repeated .boa.types.Modifier modifiers = 3;
     public static final int MODIFIERS_FIELD_NUMBER = 3;
     private java.util.List<boa.types.Ast.Modifier> modifiers_;
     /**
@@ -3746,6 +3754,7 @@ public final class Ast {
       return modifiers_.get(index);
     }
 
+    // repeated .boa.types.Type generic_parameters = 4;
     public static final int GENERIC_PARAMETERS_FIELD_NUMBER = 4;
     private java.util.List<boa.types.Ast.Type> genericParameters_;
     /**
@@ -3781,6 +3790,7 @@ public final class Ast {
       return genericParameters_.get(index);
     }
 
+    // repeated .boa.types.Type parents = 5;
     public static final int PARENTS_FIELD_NUMBER = 5;
     private java.util.List<boa.types.Ast.Type> parents_;
     /**
@@ -3816,6 +3826,7 @@ public final class Ast {
       return parents_.get(index);
     }
 
+    // repeated .boa.types.Method methods = 6;
     public static final int METHODS_FIELD_NUMBER = 6;
     private java.util.List<boa.types.Ast.Method> methods_;
     /**
@@ -3851,6 +3862,7 @@ public final class Ast {
       return methods_.get(index);
     }
 
+    // repeated .boa.types.Variable fields = 7;
     public static final int FIELDS_FIELD_NUMBER = 7;
     private java.util.List<boa.types.Ast.Variable> fields_;
     /**
@@ -3886,6 +3898,7 @@ public final class Ast {
       return fields_.get(index);
     }
 
+    // repeated .boa.types.Declaration nested_declarations = 8;
     public static final int NESTED_DECLARATIONS_FIELD_NUMBER = 8;
     private java.util.List<boa.types.Ast.Declaration> nestedDeclarations_;
     /**
@@ -3921,6 +3934,7 @@ public final class Ast {
       return nestedDeclarations_.get(index);
     }
 
+    // repeated .boa.types.Comment comments = 9;
     public static final int COMMENTS_FIELD_NUMBER = 9;
     private java.util.List<boa.types.Ast.Comment> comments_;
     /**
@@ -3990,8 +4004,7 @@ public final class Ast {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
+      if (isInitialized != -1) return isInitialized == 1;
 
       if (!hasName()) {
         memoizedIsInitialized = 0;
@@ -4204,19 +4217,18 @@ public final class Ast {
      * Protobuf type {@code boa.types.Declaration}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:boa.types.Declaration)
-        boa.types.Ast.DeclarationOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements boa.types.Ast.DeclarationOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return internal_static_boa_types_Declaration_descriptor;
+        return boa.types.Ast.internal_static_boa_types_Declaration_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return internal_static_boa_types_Declaration_fieldAccessorTable
+        return boa.types.Ast.internal_static_boa_types_Declaration_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                    boa.types.Ast.Declaration.class, boa.types.Ast.Declaration.Builder.class);
+                boa.types.Ast.Declaration.class, boa.types.Ast.Declaration.Builder.class);
       }
 
       // Construct using boa.types.Ast.Declaration.newBuilder()
@@ -4301,11 +4313,11 @@ public final class Ast {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return internal_static_boa_types_Declaration_descriptor;
+        return boa.types.Ast.internal_static_boa_types_Declaration_descriptor;
       }
 
       public boa.types.Ast.Declaration getDefaultInstanceForType() {
-        return getDefaultInstance();
+        return boa.types.Ast.Declaration.getDefaultInstance();
       }
 
       public boa.types.Ast.Declaration build() {
@@ -4406,7 +4418,7 @@ public final class Ast {
       }
 
       public Builder mergeFrom(boa.types.Ast.Declaration other) {
-        if (other == getDefaultInstance()) return this;
+        if (other == boa.types.Ast.Declaration.getDefaultInstance()) return this;
         if (other.hasName()) {
           bitField0_ |= 0x00000001;
           name_ = other.name_;
@@ -4674,6 +4686,7 @@ public final class Ast {
       }
       private int bitField0_;
 
+      // required string name = 1;
       private java.lang.Object name_ = "";
       /**
        * <code>required string name = 1;</code>
@@ -4687,12 +4700,9 @@ public final class Ast {
       public java.lang.String getName() {
         java.lang.Object ref = name_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            name_ = s;
-          }
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          name_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -4750,6 +4760,7 @@ public final class Ast {
         return this;
       }
 
+      // required .boa.types.TypeKind kind = 2;
       private boa.types.Ast.TypeKind kind_ = boa.types.Ast.TypeKind.OTHER;
       /**
        * <code>required .boa.types.TypeKind kind = 2;</code>
@@ -4785,6 +4796,7 @@ public final class Ast {
         return this;
       }
 
+      // repeated .boa.types.Modifier modifiers = 3;
       private java.util.List<boa.types.Ast.Modifier> modifiers_ =
         java.util.Collections.emptyList();
       private void ensureModifiersIsMutable() {
@@ -4926,8 +4938,7 @@ public final class Ast {
           java.lang.Iterable<? extends boa.types.Ast.Modifier> values) {
         if (modifiersBuilder_ == null) {
           ensureModifiersIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, modifiers_);
+          super.addAll(values, modifiers_);
           onChanged();
         } else {
           modifiersBuilder_.addAllMessages(values);
@@ -5025,6 +5036,7 @@ public final class Ast {
         return modifiersBuilder_;
       }
 
+      // repeated .boa.types.Type generic_parameters = 4;
       private java.util.List<boa.types.Ast.Type> genericParameters_ =
         java.util.Collections.emptyList();
       private void ensureGenericParametersIsMutable() {
@@ -5166,8 +5178,7 @@ public final class Ast {
           java.lang.Iterable<? extends boa.types.Ast.Type> values) {
         if (genericParametersBuilder_ == null) {
           ensureGenericParametersIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, genericParameters_);
+          super.addAll(values, genericParameters_);
           onChanged();
         } else {
           genericParametersBuilder_.addAllMessages(values);
@@ -5265,6 +5276,7 @@ public final class Ast {
         return genericParametersBuilder_;
       }
 
+      // repeated .boa.types.Type parents = 5;
       private java.util.List<boa.types.Ast.Type> parents_ =
         java.util.Collections.emptyList();
       private void ensureParentsIsMutable() {
@@ -5406,8 +5418,7 @@ public final class Ast {
           java.lang.Iterable<? extends boa.types.Ast.Type> values) {
         if (parentsBuilder_ == null) {
           ensureParentsIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, parents_);
+          super.addAll(values, parents_);
           onChanged();
         } else {
           parentsBuilder_.addAllMessages(values);
@@ -5505,6 +5516,7 @@ public final class Ast {
         return parentsBuilder_;
       }
 
+      // repeated .boa.types.Method methods = 6;
       private java.util.List<boa.types.Ast.Method> methods_ =
         java.util.Collections.emptyList();
       private void ensureMethodsIsMutable() {
@@ -5646,8 +5658,7 @@ public final class Ast {
           java.lang.Iterable<? extends boa.types.Ast.Method> values) {
         if (methodsBuilder_ == null) {
           ensureMethodsIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, methods_);
+          super.addAll(values, methods_);
           onChanged();
         } else {
           methodsBuilder_.addAllMessages(values);
@@ -5745,6 +5756,7 @@ public final class Ast {
         return methodsBuilder_;
       }
 
+      // repeated .boa.types.Variable fields = 7;
       private java.util.List<boa.types.Ast.Variable> fields_ =
         java.util.Collections.emptyList();
       private void ensureFieldsIsMutable() {
@@ -5886,8 +5898,7 @@ public final class Ast {
           java.lang.Iterable<? extends boa.types.Ast.Variable> values) {
         if (fieldsBuilder_ == null) {
           ensureFieldsIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, fields_);
+          super.addAll(values, fields_);
           onChanged();
         } else {
           fieldsBuilder_.addAllMessages(values);
@@ -5985,6 +5996,7 @@ public final class Ast {
         return fieldsBuilder_;
       }
 
+      // repeated .boa.types.Declaration nested_declarations = 8;
       private java.util.List<boa.types.Ast.Declaration> nestedDeclarations_ =
         java.util.Collections.emptyList();
       private void ensureNestedDeclarationsIsMutable() {
@@ -6126,8 +6138,7 @@ public final class Ast {
           java.lang.Iterable<? extends boa.types.Ast.Declaration> values) {
         if (nestedDeclarationsBuilder_ == null) {
           ensureNestedDeclarationsIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, nestedDeclarations_);
+          super.addAll(values, nestedDeclarations_);
           onChanged();
         } else {
           nestedDeclarationsBuilder_.addAllMessages(values);
@@ -6193,7 +6204,7 @@ public final class Ast {
        */
       public boa.types.Ast.Declaration.Builder addNestedDeclarationsBuilder() {
         return getNestedDeclarationsFieldBuilder().addBuilder(
-            getDefaultInstance());
+            boa.types.Ast.Declaration.getDefaultInstance());
       }
       /**
        * <code>repeated .boa.types.Declaration nested_declarations = 8;</code>
@@ -6201,7 +6212,7 @@ public final class Ast {
       public boa.types.Ast.Declaration.Builder addNestedDeclarationsBuilder(
           int index) {
         return getNestedDeclarationsFieldBuilder().addBuilder(
-            index, getDefaultInstance());
+            index, boa.types.Ast.Declaration.getDefaultInstance());
       }
       /**
        * <code>repeated .boa.types.Declaration nested_declarations = 8;</code>
@@ -6225,6 +6236,7 @@ public final class Ast {
         return nestedDeclarationsBuilder_;
       }
 
+      // repeated .boa.types.Comment comments = 9;
       private java.util.List<boa.types.Ast.Comment> comments_ =
         java.util.Collections.emptyList();
       private void ensureCommentsIsMutable() {
@@ -6406,8 +6418,7 @@ public final class Ast {
           java.lang.Iterable<? extends boa.types.Ast.Comment> values) {
         if (commentsBuilder_ == null) {
           ensureCommentsIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, comments_);
+          super.addAll(values, comments_);
           onChanged();
         } else {
           commentsBuilder_.addAllMessages(values);
@@ -6548,54 +6559,45 @@ public final class Ast {
     // @@protoc_insertion_point(class_scope:boa.types.Declaration)
   }
 
-  public interface TypeOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:boa.types.Type)
-      com.google.protobuf.MessageOrBuilder {
+  public interface TypeOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
 
+    // required .boa.types.TypeKind kind = 1;
     /**
-     * <code>required string name = 1;</code>
-     */
-    boolean hasName();
-    /**
-     * <code>required string name = 1;</code>
-     */
-    java.lang.String getName();
-    /**
-     * <code>required string name = 1;</code>
-     */
-    com.google.protobuf.ByteString
-        getNameBytes();
-
-    /**
-     * <code>required .boa.types.TypeKind kind = 2;</code>
+     * <code>required .boa.types.TypeKind kind = 1;</code>
      */
     boolean hasKind();
     /**
-     * <code>required .boa.types.TypeKind kind = 2;</code>
+     * <code>required .boa.types.TypeKind kind = 1;</code>
      */
     boa.types.Ast.TypeKind getKind();
 
+    // required int32 name = 2;
     /**
-     * <code>optional string id = 4;</code>
+     * <code>required int32 name = 2;</code>
      */
-    boolean hasId();
+    boolean hasName();
     /**
-     * <code>optional string id = 4;</code>
+     * <code>required int32 name = 2;</code>
      */
-    java.lang.String getId();
+    int getName();
+
+    // optional int32 qualified_name = 3;
     /**
-     * <code>optional string id = 4;</code>
+     * <code>optional int32 qualified_name = 3;</code>
      */
-    com.google.protobuf.ByteString
-        getIdBytes();
+    boolean hasQualifiedName();
+    /**
+     * <code>optional int32 qualified_name = 3;</code>
+     */
+    int getQualifiedName();
   }
   /**
    * Protobuf type {@code boa.types.Type}
    */
   public static final class Type extends
-      com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:boa.types.Type)
-      TypeOrBuilder {
+      com.google.protobuf.GeneratedMessage
+      implements TypeOrBuilder {
     // Use Type.newBuilder() to construct.
     private Type(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -6641,27 +6643,25 @@ public final class Ast {
               }
               break;
             }
-            case 10: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000001;
-              name_ = bs;
-              break;
-            }
-            case 16: {
+            case 8: {
               int rawValue = input.readEnum();
               boa.types.Ast.TypeKind value = boa.types.Ast.TypeKind.valueOf(rawValue);
               if (value == null) {
-                unknownFields.mergeVarintField(2, rawValue);
+                unknownFields.mergeVarintField(1, rawValue);
               } else {
-                bitField0_ |= 0x00000002;
+                bitField0_ |= 0x00000001;
                 kind_ = value;
               }
               break;
             }
-            case 34: {
-              com.google.protobuf.ByteString bs = input.readBytes();
+            case 16: {
+              bitField0_ |= 0x00000002;
+              name_ = input.readInt32();
+              break;
+            }
+            case 24: {
               bitField0_ |= 0x00000004;
-              id_ = bs;
+              qualifiedName_ = input.readInt32();
               break;
             }
           }
@@ -6678,14 +6678,14 @@ public final class Ast {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return internal_static_boa_types_Type_descriptor;
+      return boa.types.Ast.internal_static_boa_types_Type_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return internal_static_boa_types_Type_fieldAccessorTable
+      return boa.types.Ast.internal_static_boa_types_Type_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-                  boa.types.Ast.Type.class, boa.types.Ast.Type.Builder.class);
+              boa.types.Ast.Type.class, boa.types.Ast.Type.Builder.class);
     }
 
     public static com.google.protobuf.Parser<Type> PARSER =
@@ -6704,121 +6704,69 @@ public final class Ast {
     }
 
     private int bitField0_;
-    public static final int NAME_FIELD_NUMBER = 1;
-    private java.lang.Object name_;
+    // required .boa.types.TypeKind kind = 1;
+    public static final int KIND_FIELD_NUMBER = 1;
+    private boa.types.Ast.TypeKind kind_;
     /**
-     * <code>required string name = 1;</code>
+     * <code>required .boa.types.TypeKind kind = 1;</code>
      */
-    public boolean hasName() {
+    public boolean hasKind() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required string name = 1;</code>
-     */
-    public java.lang.String getName() {
-      java.lang.Object ref = name_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          name_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <code>required string name = 1;</code>
-     */
-    public com.google.protobuf.ByteString
-        getNameBytes() {
-      java.lang.Object ref = name_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        name_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int KIND_FIELD_NUMBER = 2;
-    private boa.types.Ast.TypeKind kind_;
-    /**
-     * <code>required .boa.types.TypeKind kind = 2;</code>
-     */
-    public boolean hasKind() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    /**
-     * <code>required .boa.types.TypeKind kind = 2;</code>
+     * <code>required .boa.types.TypeKind kind = 1;</code>
      */
     public boa.types.Ast.TypeKind getKind() {
       return kind_;
     }
 
-    public static final int ID_FIELD_NUMBER = 4;
-    private java.lang.Object id_;
+    // required int32 name = 2;
+    public static final int NAME_FIELD_NUMBER = 2;
+    private int name_;
     /**
-     * <code>optional string id = 4;</code>
+     * <code>required int32 name = 2;</code>
      */
-    public boolean hasId() {
+    public boolean hasName() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required int32 name = 2;</code>
+     */
+    public int getName() {
+      return name_;
+    }
+
+    // optional int32 qualified_name = 3;
+    public static final int QUALIFIED_NAME_FIELD_NUMBER = 3;
+    private int qualifiedName_;
+    /**
+     * <code>optional int32 qualified_name = 3;</code>
+     */
+    public boolean hasQualifiedName() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>optional string id = 4;</code>
+     * <code>optional int32 qualified_name = 3;</code>
      */
-    public java.lang.String getId() {
-      java.lang.Object ref = id_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          id_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <code>optional string id = 4;</code>
-     */
-    public com.google.protobuf.ByteString
-        getIdBytes() {
-      java.lang.Object ref = id_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        id_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public int getQualifiedName() {
+      return qualifiedName_;
     }
 
     private void initFields() {
-      name_ = "";
       kind_ = boa.types.Ast.TypeKind.OTHER;
-      id_ = "";
+      name_ = 0;
+      qualifiedName_ = 0;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
+      if (isInitialized != -1) return isInitialized == 1;
 
-      if (!hasName()) {
+      if (!hasKind()) {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!hasKind()) {
+      if (!hasName()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -6830,13 +6778,13 @@ public final class Ast {
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBytes(1, getNameBytes());
+        output.writeEnum(1, kind_.getNumber());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeEnum(2, kind_.getNumber());
+        output.writeInt32(2, name_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeBytes(4, getIdBytes());
+        output.writeInt32(3, qualifiedName_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -6849,15 +6797,15 @@ public final class Ast {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, getNameBytes());
+          .computeEnumSize(1, kind_.getNumber());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(2, kind_.getNumber());
+          .computeInt32Size(2, name_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(4, getIdBytes());
+          .computeInt32Size(3, qualifiedName_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -6941,19 +6889,18 @@ public final class Ast {
      * Protobuf type {@code boa.types.Type}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:boa.types.Type)
-        boa.types.Ast.TypeOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements boa.types.Ast.TypeOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return internal_static_boa_types_Type_descriptor;
+        return boa.types.Ast.internal_static_boa_types_Type_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return internal_static_boa_types_Type_fieldAccessorTable
+        return boa.types.Ast.internal_static_boa_types_Type_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                    boa.types.Ast.Type.class, boa.types.Ast.Type.Builder.class);
+                boa.types.Ast.Type.class, boa.types.Ast.Type.Builder.class);
       }
 
       // Construct using boa.types.Ast.Type.newBuilder()
@@ -6976,11 +6923,11 @@ public final class Ast {
 
       public Builder clear() {
         super.clear();
-        name_ = "";
-        bitField0_ = (bitField0_ & ~0x00000001);
         kind_ = boa.types.Ast.TypeKind.OTHER;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        name_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
-        id_ = "";
+        qualifiedName_ = 0;
         bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
@@ -6991,11 +6938,11 @@ public final class Ast {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return internal_static_boa_types_Type_descriptor;
+        return boa.types.Ast.internal_static_boa_types_Type_descriptor;
       }
 
       public boa.types.Ast.Type getDefaultInstanceForType() {
-        return getDefaultInstance();
+        return boa.types.Ast.Type.getDefaultInstance();
       }
 
       public boa.types.Ast.Type build() {
@@ -7013,15 +6960,15 @@ public final class Ast {
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
-        result.name_ = name_;
+        result.kind_ = kind_;
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.kind_ = kind_;
+        result.name_ = name_;
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
-        result.id_ = id_;
+        result.qualifiedName_ = qualifiedName_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -7037,30 +6984,26 @@ public final class Ast {
       }
 
       public Builder mergeFrom(boa.types.Ast.Type other) {
-        if (other == getDefaultInstance()) return this;
-        if (other.hasName()) {
-          bitField0_ |= 0x00000001;
-          name_ = other.name_;
-          onChanged();
-        }
+        if (other == boa.types.Ast.Type.getDefaultInstance()) return this;
         if (other.hasKind()) {
           setKind(other.getKind());
         }
-        if (other.hasId()) {
-          bitField0_ |= 0x00000004;
-          id_ = other.id_;
-          onChanged();
+        if (other.hasName()) {
+          setName(other.getName());
+        }
+        if (other.hasQualifiedName()) {
+          setQualifiedName(other.getQualifiedName());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
 
       public final boolean isInitialized() {
-        if (!hasName()) {
+        if (!hasKind()) {
           
           return false;
         }
-        if (!hasKind()) {
+        if (!hasName()) {
           
           return false;
         }
@@ -7086,189 +7029,104 @@ public final class Ast {
       }
       private int bitField0_;
 
-      private java.lang.Object name_ = "";
+      // required .boa.types.TypeKind kind = 1;
+      private boa.types.Ast.TypeKind kind_ = boa.types.Ast.TypeKind.OTHER;
       /**
-       * <code>required string name = 1;</code>
+       * <code>required .boa.types.TypeKind kind = 1;</code>
        */
-      public boolean hasName() {
+      public boolean hasKind() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required string name = 1;</code>
-       */
-      public java.lang.String getName() {
-        java.lang.Object ref = name_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            name_ = s;
-          }
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>required string name = 1;</code>
-       */
-      public com.google.protobuf.ByteString
-          getNameBytes() {
-        java.lang.Object ref = name_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          name_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>required string name = 1;</code>
-       */
-      public Builder setName(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-        name_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required string name = 1;</code>
-       */
-      public Builder clearName() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        name_ = getDefaultInstance().getName();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required string name = 1;</code>
-       */
-      public Builder setNameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-        name_ = value;
-        onChanged();
-        return this;
-      }
-
-      private boa.types.Ast.TypeKind kind_ = boa.types.Ast.TypeKind.OTHER;
-      /**
-       * <code>required .boa.types.TypeKind kind = 2;</code>
-       */
-      public boolean hasKind() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       * <code>required .boa.types.TypeKind kind = 2;</code>
+       * <code>required .boa.types.TypeKind kind = 1;</code>
        */
       public boa.types.Ast.TypeKind getKind() {
         return kind_;
       }
       /**
-       * <code>required .boa.types.TypeKind kind = 2;</code>
+       * <code>required .boa.types.TypeKind kind = 1;</code>
        */
       public Builder setKind(boa.types.Ast.TypeKind value) {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000001;
         kind_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required .boa.types.TypeKind kind = 2;</code>
+       * <code>required .boa.types.TypeKind kind = 1;</code>
        */
       public Builder clearKind() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000001);
         kind_ = boa.types.Ast.TypeKind.OTHER;
         onChanged();
         return this;
       }
 
-      private java.lang.Object id_ = "";
+      // required int32 name = 2;
+      private int name_ ;
       /**
-       * <code>optional string id = 4;</code>
+       * <code>required int32 name = 2;</code>
        */
-      public boolean hasId() {
+      public boolean hasName() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required int32 name = 2;</code>
+       */
+      public int getName() {
+        return name_;
+      }
+      /**
+       * <code>required int32 name = 2;</code>
+       */
+      public Builder setName(int value) {
+        bitField0_ |= 0x00000002;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 name = 2;</code>
+       */
+      public Builder clearName() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        name_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 qualified_name = 3;
+      private int qualifiedName_ ;
+      /**
+       * <code>optional int32 qualified_name = 3;</code>
+       */
+      public boolean hasQualifiedName() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>optional string id = 4;</code>
+       * <code>optional int32 qualified_name = 3;</code>
        */
-      public java.lang.String getId() {
-        java.lang.Object ref = id_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            id_ = s;
-          }
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public int getQualifiedName() {
+        return qualifiedName_;
       }
       /**
-       * <code>optional string id = 4;</code>
+       * <code>optional int32 qualified_name = 3;</code>
        */
-      public com.google.protobuf.ByteString
-          getIdBytes() {
-        java.lang.Object ref = id_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          id_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>optional string id = 4;</code>
-       */
-      public Builder setId(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
-        id_ = value;
+      public Builder setQualifiedName(int value) {
+        bitField0_ |= 0x00000004;
+        qualifiedName_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string id = 4;</code>
+       * <code>optional int32 qualified_name = 3;</code>
        */
-      public Builder clearId() {
+      public Builder clearQualifiedName() {
         bitField0_ = (bitField0_ & ~0x00000004);
-        id_ = getDefaultInstance().getId();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional string id = 4;</code>
-       */
-      public Builder setIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
-        id_ = value;
+        qualifiedName_ = 0;
         onChanged();
         return this;
       }
@@ -7284,10 +7142,10 @@ public final class Ast {
     // @@protoc_insertion_point(class_scope:boa.types.Type)
   }
 
-  public interface MethodOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:boa.types.Method)
-      com.google.protobuf.MessageOrBuilder {
+  public interface MethodOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
 
+    // optional string name = 1;
     /**
      * <code>optional string name = 1;</code>
      */
@@ -7302,6 +7160,7 @@ public final class Ast {
     com.google.protobuf.ByteString
         getNameBytes();
 
+    // repeated .boa.types.Modifier modifiers = 2;
     /**
      * <code>repeated .boa.types.Modifier modifiers = 2;</code>
      */
@@ -7326,6 +7185,7 @@ public final class Ast {
     boa.types.Ast.ModifierOrBuilder getModifiersOrBuilder(
         int index);
 
+    // required .boa.types.Type return_type = 3;
     /**
      * <code>required .boa.types.Type return_type = 3;</code>
      */
@@ -7339,6 +7199,7 @@ public final class Ast {
      */
     boa.types.Ast.TypeOrBuilder getReturnTypeOrBuilder();
 
+    // repeated .boa.types.Type generic_parameters = 4;
     /**
      * <code>repeated .boa.types.Type generic_parameters = 4;</code>
      */
@@ -7363,6 +7224,7 @@ public final class Ast {
     boa.types.Ast.TypeOrBuilder getGenericParametersOrBuilder(
         int index);
 
+    // repeated .boa.types.Variable arguments = 5;
     /**
      * <code>repeated .boa.types.Variable arguments = 5;</code>
      */
@@ -7387,6 +7249,7 @@ public final class Ast {
     boa.types.Ast.VariableOrBuilder getArgumentsOrBuilder(
         int index);
 
+    // repeated .boa.types.Type exception_types = 6;
     /**
      * <code>repeated .boa.types.Type exception_types = 6;</code>
      */
@@ -7411,6 +7274,7 @@ public final class Ast {
     boa.types.Ast.TypeOrBuilder getExceptionTypesOrBuilder(
         int index);
 
+    // repeated .boa.types.Statement statements = 7;
     /**
      * <code>repeated .boa.types.Statement statements = 7;</code>
      */
@@ -7435,6 +7299,7 @@ public final class Ast {
     boa.types.Ast.StatementOrBuilder getStatementsOrBuilder(
         int index);
 
+    // repeated .boa.types.Comment comments = 8;
     /**
      * <code>repeated .boa.types.Comment comments = 8;</code>
      *
@@ -7483,9 +7348,8 @@ public final class Ast {
    * Protobuf type {@code boa.types.Method}
    */
   public static final class Method extends
-      com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:boa.types.Method)
-      MethodOrBuilder {
+      com.google.protobuf.GeneratedMessage
+      implements MethodOrBuilder {
     // Use Method.newBuilder() to construct.
     private Method(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -7532,9 +7396,8 @@ public final class Ast {
               break;
             }
             case 10: {
-              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
-              name_ = bs;
+              name_ = input.readBytes();
               break;
             }
             case 18: {
@@ -7630,14 +7493,14 @@ public final class Ast {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return internal_static_boa_types_Method_descriptor;
+      return boa.types.Ast.internal_static_boa_types_Method_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return internal_static_boa_types_Method_fieldAccessorTable
+      return boa.types.Ast.internal_static_boa_types_Method_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-                  boa.types.Ast.Method.class, boa.types.Ast.Method.Builder.class);
+              boa.types.Ast.Method.class, boa.types.Ast.Method.Builder.class);
     }
 
     public static com.google.protobuf.Parser<Method> PARSER =
@@ -7656,6 +7519,7 @@ public final class Ast {
     }
 
     private int bitField0_;
+    // optional string name = 1;
     public static final int NAME_FIELD_NUMBER = 1;
     private java.lang.Object name_;
     /**
@@ -7698,6 +7562,7 @@ public final class Ast {
       }
     }
 
+    // repeated .boa.types.Modifier modifiers = 2;
     public static final int MODIFIERS_FIELD_NUMBER = 2;
     private java.util.List<boa.types.Ast.Modifier> modifiers_;
     /**
@@ -7733,6 +7598,7 @@ public final class Ast {
       return modifiers_.get(index);
     }
 
+    // required .boa.types.Type return_type = 3;
     public static final int RETURN_TYPE_FIELD_NUMBER = 3;
     private boa.types.Ast.Type returnType_;
     /**
@@ -7754,6 +7620,7 @@ public final class Ast {
       return returnType_;
     }
 
+    // repeated .boa.types.Type generic_parameters = 4;
     public static final int GENERIC_PARAMETERS_FIELD_NUMBER = 4;
     private java.util.List<boa.types.Ast.Type> genericParameters_;
     /**
@@ -7789,6 +7656,7 @@ public final class Ast {
       return genericParameters_.get(index);
     }
 
+    // repeated .boa.types.Variable arguments = 5;
     public static final int ARGUMENTS_FIELD_NUMBER = 5;
     private java.util.List<boa.types.Ast.Variable> arguments_;
     /**
@@ -7824,6 +7692,7 @@ public final class Ast {
       return arguments_.get(index);
     }
 
+    // repeated .boa.types.Type exception_types = 6;
     public static final int EXCEPTION_TYPES_FIELD_NUMBER = 6;
     private java.util.List<boa.types.Ast.Type> exceptionTypes_;
     /**
@@ -7859,6 +7728,7 @@ public final class Ast {
       return exceptionTypes_.get(index);
     }
 
+    // repeated .boa.types.Statement statements = 7;
     public static final int STATEMENTS_FIELD_NUMBER = 7;
     private java.util.List<boa.types.Ast.Statement> statements_;
     /**
@@ -7894,6 +7764,7 @@ public final class Ast {
       return statements_.get(index);
     }
 
+    // repeated .boa.types.Comment comments = 8;
     public static final int COMMENTS_FIELD_NUMBER = 8;
     private java.util.List<boa.types.Ast.Comment> comments_;
     /**
@@ -7962,8 +7833,7 @@ public final class Ast {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
+      if (isInitialized != -1) return isInitialized == 1;
 
       if (!hasReturnType()) {
         memoizedIsInitialized = 0;
@@ -8163,19 +8033,18 @@ public final class Ast {
      * Protobuf type {@code boa.types.Method}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:boa.types.Method)
-        boa.types.Ast.MethodOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements boa.types.Ast.MethodOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return internal_static_boa_types_Method_descriptor;
+        return boa.types.Ast.internal_static_boa_types_Method_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return internal_static_boa_types_Method_fieldAccessorTable
+        return boa.types.Ast.internal_static_boa_types_Method_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                    boa.types.Ast.Method.class, boa.types.Ast.Method.Builder.class);
+                boa.types.Ast.Method.class, boa.types.Ast.Method.Builder.class);
       }
 
       // Construct using boa.types.Ast.Method.newBuilder()
@@ -8258,11 +8127,11 @@ public final class Ast {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return internal_static_boa_types_Method_descriptor;
+        return boa.types.Ast.internal_static_boa_types_Method_descriptor;
       }
 
       public boa.types.Ast.Method getDefaultInstanceForType() {
-        return getDefaultInstance();
+        return boa.types.Ast.Method.getDefaultInstance();
       }
 
       public boa.types.Ast.Method build() {
@@ -8358,7 +8227,7 @@ public final class Ast {
       }
 
       public Builder mergeFrom(boa.types.Ast.Method other) {
-        if (other == getDefaultInstance()) return this;
+        if (other == boa.types.Ast.Method.getDefaultInstance()) return this;
         if (other.hasName()) {
           bitField0_ |= 0x00000001;
           name_ = other.name_;
@@ -8594,6 +8463,7 @@ public final class Ast {
       }
       private int bitField0_;
 
+      // optional string name = 1;
       private java.lang.Object name_ = "";
       /**
        * <code>optional string name = 1;</code>
@@ -8607,12 +8477,9 @@ public final class Ast {
       public java.lang.String getName() {
         java.lang.Object ref = name_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            name_ = s;
-          }
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          name_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -8670,6 +8537,7 @@ public final class Ast {
         return this;
       }
 
+      // repeated .boa.types.Modifier modifiers = 2;
       private java.util.List<boa.types.Ast.Modifier> modifiers_ =
         java.util.Collections.emptyList();
       private void ensureModifiersIsMutable() {
@@ -8811,8 +8679,7 @@ public final class Ast {
           java.lang.Iterable<? extends boa.types.Ast.Modifier> values) {
         if (modifiersBuilder_ == null) {
           ensureModifiersIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, modifiers_);
+          super.addAll(values, modifiers_);
           onChanged();
         } else {
           modifiersBuilder_.addAllMessages(values);
@@ -8910,6 +8777,7 @@ public final class Ast {
         return modifiersBuilder_;
       }
 
+      // required .boa.types.Type return_type = 3;
       private boa.types.Ast.Type returnType_ = boa.types.Ast.Type.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           boa.types.Ast.Type, boa.types.Ast.Type.Builder, boa.types.Ast.TypeOrBuilder> returnTypeBuilder_;
@@ -9018,7 +8886,7 @@ public final class Ast {
         if (returnTypeBuilder_ == null) {
           returnTypeBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               boa.types.Ast.Type, boa.types.Ast.Type.Builder, boa.types.Ast.TypeOrBuilder>(
-                  getReturnType(),
+                  returnType_,
                   getParentForChildren(),
                   isClean());
           returnType_ = null;
@@ -9026,6 +8894,7 @@ public final class Ast {
         return returnTypeBuilder_;
       }
 
+      // repeated .boa.types.Type generic_parameters = 4;
       private java.util.List<boa.types.Ast.Type> genericParameters_ =
         java.util.Collections.emptyList();
       private void ensureGenericParametersIsMutable() {
@@ -9167,8 +9036,7 @@ public final class Ast {
           java.lang.Iterable<? extends boa.types.Ast.Type> values) {
         if (genericParametersBuilder_ == null) {
           ensureGenericParametersIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, genericParameters_);
+          super.addAll(values, genericParameters_);
           onChanged();
         } else {
           genericParametersBuilder_.addAllMessages(values);
@@ -9266,6 +9134,7 @@ public final class Ast {
         return genericParametersBuilder_;
       }
 
+      // repeated .boa.types.Variable arguments = 5;
       private java.util.List<boa.types.Ast.Variable> arguments_ =
         java.util.Collections.emptyList();
       private void ensureArgumentsIsMutable() {
@@ -9407,8 +9276,7 @@ public final class Ast {
           java.lang.Iterable<? extends boa.types.Ast.Variable> values) {
         if (argumentsBuilder_ == null) {
           ensureArgumentsIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, arguments_);
+          super.addAll(values, arguments_);
           onChanged();
         } else {
           argumentsBuilder_.addAllMessages(values);
@@ -9506,6 +9374,7 @@ public final class Ast {
         return argumentsBuilder_;
       }
 
+      // repeated .boa.types.Type exception_types = 6;
       private java.util.List<boa.types.Ast.Type> exceptionTypes_ =
         java.util.Collections.emptyList();
       private void ensureExceptionTypesIsMutable() {
@@ -9647,8 +9516,7 @@ public final class Ast {
           java.lang.Iterable<? extends boa.types.Ast.Type> values) {
         if (exceptionTypesBuilder_ == null) {
           ensureExceptionTypesIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, exceptionTypes_);
+          super.addAll(values, exceptionTypes_);
           onChanged();
         } else {
           exceptionTypesBuilder_.addAllMessages(values);
@@ -9746,6 +9614,7 @@ public final class Ast {
         return exceptionTypesBuilder_;
       }
 
+      // repeated .boa.types.Statement statements = 7;
       private java.util.List<boa.types.Ast.Statement> statements_ =
         java.util.Collections.emptyList();
       private void ensureStatementsIsMutable() {
@@ -9887,8 +9756,7 @@ public final class Ast {
           java.lang.Iterable<? extends boa.types.Ast.Statement> values) {
         if (statementsBuilder_ == null) {
           ensureStatementsIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, statements_);
+          super.addAll(values, statements_);
           onChanged();
         } else {
           statementsBuilder_.addAllMessages(values);
@@ -9986,6 +9854,7 @@ public final class Ast {
         return statementsBuilder_;
       }
 
+      // repeated .boa.types.Comment comments = 8;
       private java.util.List<boa.types.Ast.Comment> comments_ =
         java.util.Collections.emptyList();
       private void ensureCommentsIsMutable() {
@@ -10167,8 +10036,7 @@ public final class Ast {
           java.lang.Iterable<? extends boa.types.Ast.Comment> values) {
         if (commentsBuilder_ == null) {
           ensureCommentsIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, comments_);
+          super.addAll(values, comments_);
           onChanged();
         } else {
           commentsBuilder_.addAllMessages(values);
@@ -10309,10 +10177,10 @@ public final class Ast {
     // @@protoc_insertion_point(class_scope:boa.types.Method)
   }
 
-  public interface VariableOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:boa.types.Variable)
-      com.google.protobuf.MessageOrBuilder {
+  public interface VariableOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
 
+    // required string name = 1;
     /**
      * <code>required string name = 1;</code>
      */
@@ -10327,6 +10195,7 @@ public final class Ast {
     com.google.protobuf.ByteString
         getNameBytes();
 
+    // required .boa.types.Type variable_type = 2;
     /**
      * <code>required .boa.types.Type variable_type = 2;</code>
      */
@@ -10340,6 +10209,7 @@ public final class Ast {
      */
     boa.types.Ast.TypeOrBuilder getVariableTypeOrBuilder();
 
+    // repeated .boa.types.Modifier modifiers = 3;
     /**
      * <code>repeated .boa.types.Modifier modifiers = 3;</code>
      */
@@ -10364,6 +10234,7 @@ public final class Ast {
     boa.types.Ast.ModifierOrBuilder getModifiersOrBuilder(
         int index);
 
+    // optional .boa.types.Expression initializer = 4;
     /**
      * <code>optional .boa.types.Expression initializer = 4;</code>
      */
@@ -10377,6 +10248,7 @@ public final class Ast {
      */
     boa.types.Ast.ExpressionOrBuilder getInitializerOrBuilder();
 
+    // repeated .boa.types.Comment comments = 5;
     /**
      * <code>repeated .boa.types.Comment comments = 5;</code>
      *
@@ -10425,9 +10297,8 @@ public final class Ast {
    * Protobuf type {@code boa.types.Variable}
    */
   public static final class Variable extends
-      com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:boa.types.Variable)
-      VariableOrBuilder {
+      com.google.protobuf.GeneratedMessage
+      implements VariableOrBuilder {
     // Use Variable.newBuilder() to construct.
     private Variable(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -10474,9 +10345,8 @@ public final class Ast {
               break;
             }
             case 10: {
-              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
-              name_ = bs;
+              name_ = input.readBytes();
               break;
             }
             case 18: {
@@ -10541,14 +10411,14 @@ public final class Ast {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return internal_static_boa_types_Variable_descriptor;
+      return boa.types.Ast.internal_static_boa_types_Variable_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return internal_static_boa_types_Variable_fieldAccessorTable
+      return boa.types.Ast.internal_static_boa_types_Variable_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-                  boa.types.Ast.Variable.class, boa.types.Ast.Variable.Builder.class);
+              boa.types.Ast.Variable.class, boa.types.Ast.Variable.Builder.class);
     }
 
     public static com.google.protobuf.Parser<Variable> PARSER =
@@ -10567,6 +10437,7 @@ public final class Ast {
     }
 
     private int bitField0_;
+    // required string name = 1;
     public static final int NAME_FIELD_NUMBER = 1;
     private java.lang.Object name_;
     /**
@@ -10609,6 +10480,7 @@ public final class Ast {
       }
     }
 
+    // required .boa.types.Type variable_type = 2;
     public static final int VARIABLE_TYPE_FIELD_NUMBER = 2;
     private boa.types.Ast.Type variableType_;
     /**
@@ -10630,6 +10502,7 @@ public final class Ast {
       return variableType_;
     }
 
+    // repeated .boa.types.Modifier modifiers = 3;
     public static final int MODIFIERS_FIELD_NUMBER = 3;
     private java.util.List<boa.types.Ast.Modifier> modifiers_;
     /**
@@ -10665,6 +10538,7 @@ public final class Ast {
       return modifiers_.get(index);
     }
 
+    // optional .boa.types.Expression initializer = 4;
     public static final int INITIALIZER_FIELD_NUMBER = 4;
     private boa.types.Ast.Expression initializer_;
     /**
@@ -10686,6 +10560,7 @@ public final class Ast {
       return initializer_;
     }
 
+    // repeated .boa.types.Comment comments = 5;
     public static final int COMMENTS_FIELD_NUMBER = 5;
     private java.util.List<boa.types.Ast.Comment> comments_;
     /**
@@ -10751,8 +10626,7 @@ public final class Ast {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
+      if (isInitialized != -1) return isInitialized == 1;
 
       if (!hasName()) {
         memoizedIsInitialized = 0;
@@ -10917,19 +10791,18 @@ public final class Ast {
      * Protobuf type {@code boa.types.Variable}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:boa.types.Variable)
-        boa.types.Ast.VariableOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements boa.types.Ast.VariableOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return internal_static_boa_types_Variable_descriptor;
+        return boa.types.Ast.internal_static_boa_types_Variable_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return internal_static_boa_types_Variable_fieldAccessorTable
+        return boa.types.Ast.internal_static_boa_types_Variable_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                    boa.types.Ast.Variable.class, boa.types.Ast.Variable.Builder.class);
+                boa.types.Ast.Variable.class, boa.types.Ast.Variable.Builder.class);
       }
 
       // Construct using boa.types.Ast.Variable.newBuilder()
@@ -10991,11 +10864,11 @@ public final class Ast {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return internal_static_boa_types_Variable_descriptor;
+        return boa.types.Ast.internal_static_boa_types_Variable_descriptor;
       }
 
       public boa.types.Ast.Variable getDefaultInstanceForType() {
-        return getDefaultInstance();
+        return boa.types.Ast.Variable.getDefaultInstance();
       }
 
       public boa.types.Ast.Variable build() {
@@ -11063,7 +10936,7 @@ public final class Ast {
       }
 
       public Builder mergeFrom(boa.types.Ast.Variable other) {
-        if (other == getDefaultInstance()) return this;
+        if (other == boa.types.Ast.Variable.getDefaultInstance()) return this;
         if (other.hasName()) {
           bitField0_ |= 0x00000001;
           name_ = other.name_;
@@ -11184,6 +11057,7 @@ public final class Ast {
       }
       private int bitField0_;
 
+      // required string name = 1;
       private java.lang.Object name_ = "";
       /**
        * <code>required string name = 1;</code>
@@ -11197,12 +11071,9 @@ public final class Ast {
       public java.lang.String getName() {
         java.lang.Object ref = name_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            name_ = s;
-          }
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          name_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -11260,6 +11131,7 @@ public final class Ast {
         return this;
       }
 
+      // required .boa.types.Type variable_type = 2;
       private boa.types.Ast.Type variableType_ = boa.types.Ast.Type.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           boa.types.Ast.Type, boa.types.Ast.Type.Builder, boa.types.Ast.TypeOrBuilder> variableTypeBuilder_;
@@ -11368,7 +11240,7 @@ public final class Ast {
         if (variableTypeBuilder_ == null) {
           variableTypeBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               boa.types.Ast.Type, boa.types.Ast.Type.Builder, boa.types.Ast.TypeOrBuilder>(
-                  getVariableType(),
+                  variableType_,
                   getParentForChildren(),
                   isClean());
           variableType_ = null;
@@ -11376,6 +11248,7 @@ public final class Ast {
         return variableTypeBuilder_;
       }
 
+      // repeated .boa.types.Modifier modifiers = 3;
       private java.util.List<boa.types.Ast.Modifier> modifiers_ =
         java.util.Collections.emptyList();
       private void ensureModifiersIsMutable() {
@@ -11517,8 +11390,7 @@ public final class Ast {
           java.lang.Iterable<? extends boa.types.Ast.Modifier> values) {
         if (modifiersBuilder_ == null) {
           ensureModifiersIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, modifiers_);
+          super.addAll(values, modifiers_);
           onChanged();
         } else {
           modifiersBuilder_.addAllMessages(values);
@@ -11616,6 +11488,7 @@ public final class Ast {
         return modifiersBuilder_;
       }
 
+      // optional .boa.types.Expression initializer = 4;
       private boa.types.Ast.Expression initializer_ = boa.types.Ast.Expression.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           boa.types.Ast.Expression, boa.types.Ast.Expression.Builder, boa.types.Ast.ExpressionOrBuilder> initializerBuilder_;
@@ -11724,7 +11597,7 @@ public final class Ast {
         if (initializerBuilder_ == null) {
           initializerBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               boa.types.Ast.Expression, boa.types.Ast.Expression.Builder, boa.types.Ast.ExpressionOrBuilder>(
-                  getInitializer(),
+                  initializer_,
                   getParentForChildren(),
                   isClean());
           initializer_ = null;
@@ -11732,6 +11605,7 @@ public final class Ast {
         return initializerBuilder_;
       }
 
+      // repeated .boa.types.Comment comments = 5;
       private java.util.List<boa.types.Ast.Comment> comments_ =
         java.util.Collections.emptyList();
       private void ensureCommentsIsMutable() {
@@ -11913,8 +11787,7 @@ public final class Ast {
           java.lang.Iterable<? extends boa.types.Ast.Comment> values) {
         if (commentsBuilder_ == null) {
           ensureCommentsIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, comments_);
+          super.addAll(values, comments_);
           onChanged();
         } else {
           commentsBuilder_.addAllMessages(values);
@@ -12055,10 +11928,10 @@ public final class Ast {
     // @@protoc_insertion_point(class_scope:boa.types.Variable)
   }
 
-  public interface StatementOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:boa.types.Statement)
-      com.google.protobuf.MessageOrBuilder {
+  public interface StatementOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
 
+    // required .boa.types.Statement.StatementKind kind = 1;
     /**
      * <code>required .boa.types.Statement.StatementKind kind = 1;</code>
      */
@@ -12068,6 +11941,7 @@ public final class Ast {
      */
     boa.types.Ast.Statement.StatementKind getKind();
 
+    // repeated .boa.types.Comment comments = 2;
     /**
      * <code>repeated .boa.types.Comment comments = 2;</code>
      */
@@ -12092,6 +11966,7 @@ public final class Ast {
     boa.types.Ast.CommentOrBuilder getCommentsOrBuilder(
         int index);
 
+    // repeated .boa.types.Statement statements = 3;
     /**
      * <code>repeated .boa.types.Statement statements = 3;</code>
      */
@@ -12116,6 +11991,7 @@ public final class Ast {
     boa.types.Ast.StatementOrBuilder getStatementsOrBuilder(
         int index);
 
+    // repeated .boa.types.Expression initializations = 4;
     /**
      * <code>repeated .boa.types.Expression initializations = 4;</code>
      */
@@ -12140,6 +12016,7 @@ public final class Ast {
     boa.types.Ast.ExpressionOrBuilder getInitializationsOrBuilder(
         int index);
 
+    // optional .boa.types.Expression condition = 5;
     /**
      * <code>optional .boa.types.Expression condition = 5;</code>
      */
@@ -12153,6 +12030,7 @@ public final class Ast {
      */
     boa.types.Ast.ExpressionOrBuilder getConditionOrBuilder();
 
+    // repeated .boa.types.Expression updates = 6;
     /**
      * <code>repeated .boa.types.Expression updates = 6;</code>
      */
@@ -12177,6 +12055,7 @@ public final class Ast {
     boa.types.Ast.ExpressionOrBuilder getUpdatesOrBuilder(
         int index);
 
+    // optional .boa.types.Variable variable_declaration = 7;
     /**
      * <code>optional .boa.types.Variable variable_declaration = 7;</code>
      */
@@ -12190,6 +12069,7 @@ public final class Ast {
      */
     boa.types.Ast.VariableOrBuilder getVariableDeclarationOrBuilder();
 
+    // optional .boa.types.Declaration type_declaration = 8;
     /**
      * <code>optional .boa.types.Declaration type_declaration = 8;</code>
      */
@@ -12203,6 +12083,7 @@ public final class Ast {
      */
     boa.types.Ast.DeclarationOrBuilder getTypeDeclarationOrBuilder();
 
+    // optional .boa.types.Expression expression = 9;
     /**
      * <code>optional .boa.types.Expression expression = 9;</code>
      *
@@ -12232,9 +12113,8 @@ public final class Ast {
    * Protobuf type {@code boa.types.Statement}
    */
   public static final class Statement extends
-      com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:boa.types.Statement)
-      StatementOrBuilder {
+      com.google.protobuf.GeneratedMessage
+      implements StatementOrBuilder {
     // Use Statement.newBuilder() to construct.
     private Statement(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -12304,7 +12184,7 @@ public final class Ast {
                 statements_ = new java.util.ArrayList<boa.types.Ast.Statement>();
                 mutable_bitField0_ |= 0x00000004;
               }
-              statements_.add(input.readMessage(PARSER, extensionRegistry));
+              statements_.add(input.readMessage(boa.types.Ast.Statement.PARSER, extensionRegistry));
               break;
             }
             case 34: {
@@ -12401,14 +12281,14 @@ public final class Ast {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return internal_static_boa_types_Statement_descriptor;
+      return boa.types.Ast.internal_static_boa_types_Statement_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return internal_static_boa_types_Statement_fieldAccessorTable
+      return boa.types.Ast.internal_static_boa_types_Statement_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-                  boa.types.Ast.Statement.class, boa.types.Ast.Statement.Builder.class);
+              boa.types.Ast.Statement.class, boa.types.Ast.Statement.Builder.class);
     }
 
     public static com.google.protobuf.Parser<Statement> PARSER =
@@ -12689,6 +12569,7 @@ public final class Ast {
     }
 
     private int bitField0_;
+    // required .boa.types.Statement.StatementKind kind = 1;
     public static final int KIND_FIELD_NUMBER = 1;
     private boa.types.Ast.Statement.StatementKind kind_;
     /**
@@ -12704,6 +12585,7 @@ public final class Ast {
       return kind_;
     }
 
+    // repeated .boa.types.Comment comments = 2;
     public static final int COMMENTS_FIELD_NUMBER = 2;
     private java.util.List<boa.types.Ast.Comment> comments_;
     /**
@@ -12739,6 +12621,7 @@ public final class Ast {
       return comments_.get(index);
     }
 
+    // repeated .boa.types.Statement statements = 3;
     public static final int STATEMENTS_FIELD_NUMBER = 3;
     private java.util.List<boa.types.Ast.Statement> statements_;
     /**
@@ -12774,6 +12657,7 @@ public final class Ast {
       return statements_.get(index);
     }
 
+    // repeated .boa.types.Expression initializations = 4;
     public static final int INITIALIZATIONS_FIELD_NUMBER = 4;
     private java.util.List<boa.types.Ast.Expression> initializations_;
     /**
@@ -12809,6 +12693,7 @@ public final class Ast {
       return initializations_.get(index);
     }
 
+    // optional .boa.types.Expression condition = 5;
     public static final int CONDITION_FIELD_NUMBER = 5;
     private boa.types.Ast.Expression condition_;
     /**
@@ -12830,6 +12715,7 @@ public final class Ast {
       return condition_;
     }
 
+    // repeated .boa.types.Expression updates = 6;
     public static final int UPDATES_FIELD_NUMBER = 6;
     private java.util.List<boa.types.Ast.Expression> updates_;
     /**
@@ -12865,6 +12751,7 @@ public final class Ast {
       return updates_.get(index);
     }
 
+    // optional .boa.types.Variable variable_declaration = 7;
     public static final int VARIABLE_DECLARATION_FIELD_NUMBER = 7;
     private boa.types.Ast.Variable variableDeclaration_;
     /**
@@ -12886,6 +12773,7 @@ public final class Ast {
       return variableDeclaration_;
     }
 
+    // optional .boa.types.Declaration type_declaration = 8;
     public static final int TYPE_DECLARATION_FIELD_NUMBER = 8;
     private boa.types.Ast.Declaration typeDeclaration_;
     /**
@@ -12907,6 +12795,7 @@ public final class Ast {
       return typeDeclaration_;
     }
 
+    // optional .boa.types.Expression expression = 9;
     public static final int EXPRESSION_FIELD_NUMBER = 9;
     private boa.types.Ast.Expression expression_;
     /**
@@ -12954,8 +12843,7 @@ public final class Ast {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
+      if (isInitialized != -1) return isInitialized == 1;
 
       if (!hasKind()) {
         memoizedIsInitialized = 0;
@@ -13170,19 +13058,18 @@ public final class Ast {
      * Protobuf type {@code boa.types.Statement}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:boa.types.Statement)
-        boa.types.Ast.StatementOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements boa.types.Ast.StatementOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return internal_static_boa_types_Statement_descriptor;
+        return boa.types.Ast.internal_static_boa_types_Statement_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return internal_static_boa_types_Statement_fieldAccessorTable
+        return boa.types.Ast.internal_static_boa_types_Statement_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                    boa.types.Ast.Statement.class, boa.types.Ast.Statement.Builder.class);
+                boa.types.Ast.Statement.class, boa.types.Ast.Statement.Builder.class);
       }
 
       // Construct using boa.types.Ast.Statement.newBuilder()
@@ -13272,11 +13159,11 @@ public final class Ast {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return internal_static_boa_types_Statement_descriptor;
+        return boa.types.Ast.internal_static_boa_types_Statement_descriptor;
       }
 
       public boa.types.Ast.Statement getDefaultInstanceForType() {
-        return getDefaultInstance();
+        return boa.types.Ast.Statement.getDefaultInstance();
       }
 
       public boa.types.Ast.Statement build() {
@@ -13378,7 +13265,7 @@ public final class Ast {
       }
 
       public Builder mergeFrom(boa.types.Ast.Statement other) {
-        if (other == getDefaultInstance()) return this;
+        if (other == boa.types.Ast.Statement.getDefaultInstance()) return this;
         if (other.hasKind()) {
           setKind(other.getKind());
         }
@@ -13577,6 +13464,7 @@ public final class Ast {
       }
       private int bitField0_;
 
+      // required .boa.types.Statement.StatementKind kind = 1;
       private boa.types.Ast.Statement.StatementKind kind_ = boa.types.Ast.Statement.StatementKind.OTHER;
       /**
        * <code>required .boa.types.Statement.StatementKind kind = 1;</code>
@@ -13612,6 +13500,7 @@ public final class Ast {
         return this;
       }
 
+      // repeated .boa.types.Comment comments = 2;
       private java.util.List<boa.types.Ast.Comment> comments_ =
         java.util.Collections.emptyList();
       private void ensureCommentsIsMutable() {
@@ -13753,8 +13642,7 @@ public final class Ast {
           java.lang.Iterable<? extends boa.types.Ast.Comment> values) {
         if (commentsBuilder_ == null) {
           ensureCommentsIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, comments_);
+          super.addAll(values, comments_);
           onChanged();
         } else {
           commentsBuilder_.addAllMessages(values);
@@ -13852,6 +13740,7 @@ public final class Ast {
         return commentsBuilder_;
       }
 
+      // repeated .boa.types.Statement statements = 3;
       private java.util.List<boa.types.Ast.Statement> statements_ =
         java.util.Collections.emptyList();
       private void ensureStatementsIsMutable() {
@@ -13993,8 +13882,7 @@ public final class Ast {
           java.lang.Iterable<? extends boa.types.Ast.Statement> values) {
         if (statementsBuilder_ == null) {
           ensureStatementsIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, statements_);
+          super.addAll(values, statements_);
           onChanged();
         } else {
           statementsBuilder_.addAllMessages(values);
@@ -14060,7 +13948,7 @@ public final class Ast {
        */
       public boa.types.Ast.Statement.Builder addStatementsBuilder() {
         return getStatementsFieldBuilder().addBuilder(
-            getDefaultInstance());
+            boa.types.Ast.Statement.getDefaultInstance());
       }
       /**
        * <code>repeated .boa.types.Statement statements = 3;</code>
@@ -14068,7 +13956,7 @@ public final class Ast {
       public boa.types.Ast.Statement.Builder addStatementsBuilder(
           int index) {
         return getStatementsFieldBuilder().addBuilder(
-            index, getDefaultInstance());
+            index, boa.types.Ast.Statement.getDefaultInstance());
       }
       /**
        * <code>repeated .boa.types.Statement statements = 3;</code>
@@ -14092,6 +13980,7 @@ public final class Ast {
         return statementsBuilder_;
       }
 
+      // repeated .boa.types.Expression initializations = 4;
       private java.util.List<boa.types.Ast.Expression> initializations_ =
         java.util.Collections.emptyList();
       private void ensureInitializationsIsMutable() {
@@ -14233,8 +14122,7 @@ public final class Ast {
           java.lang.Iterable<? extends boa.types.Ast.Expression> values) {
         if (initializationsBuilder_ == null) {
           ensureInitializationsIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, initializations_);
+          super.addAll(values, initializations_);
           onChanged();
         } else {
           initializationsBuilder_.addAllMessages(values);
@@ -14332,6 +14220,7 @@ public final class Ast {
         return initializationsBuilder_;
       }
 
+      // optional .boa.types.Expression condition = 5;
       private boa.types.Ast.Expression condition_ = boa.types.Ast.Expression.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           boa.types.Ast.Expression, boa.types.Ast.Expression.Builder, boa.types.Ast.ExpressionOrBuilder> conditionBuilder_;
@@ -14440,7 +14329,7 @@ public final class Ast {
         if (conditionBuilder_ == null) {
           conditionBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               boa.types.Ast.Expression, boa.types.Ast.Expression.Builder, boa.types.Ast.ExpressionOrBuilder>(
-                  getCondition(),
+                  condition_,
                   getParentForChildren(),
                   isClean());
           condition_ = null;
@@ -14448,6 +14337,7 @@ public final class Ast {
         return conditionBuilder_;
       }
 
+      // repeated .boa.types.Expression updates = 6;
       private java.util.List<boa.types.Ast.Expression> updates_ =
         java.util.Collections.emptyList();
       private void ensureUpdatesIsMutable() {
@@ -14589,8 +14479,7 @@ public final class Ast {
           java.lang.Iterable<? extends boa.types.Ast.Expression> values) {
         if (updatesBuilder_ == null) {
           ensureUpdatesIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, updates_);
+          super.addAll(values, updates_);
           onChanged();
         } else {
           updatesBuilder_.addAllMessages(values);
@@ -14688,6 +14577,7 @@ public final class Ast {
         return updatesBuilder_;
       }
 
+      // optional .boa.types.Variable variable_declaration = 7;
       private boa.types.Ast.Variable variableDeclaration_ = boa.types.Ast.Variable.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           boa.types.Ast.Variable, boa.types.Ast.Variable.Builder, boa.types.Ast.VariableOrBuilder> variableDeclarationBuilder_;
@@ -14796,7 +14686,7 @@ public final class Ast {
         if (variableDeclarationBuilder_ == null) {
           variableDeclarationBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               boa.types.Ast.Variable, boa.types.Ast.Variable.Builder, boa.types.Ast.VariableOrBuilder>(
-                  getVariableDeclaration(),
+                  variableDeclaration_,
                   getParentForChildren(),
                   isClean());
           variableDeclaration_ = null;
@@ -14804,6 +14694,7 @@ public final class Ast {
         return variableDeclarationBuilder_;
       }
 
+      // optional .boa.types.Declaration type_declaration = 8;
       private boa.types.Ast.Declaration typeDeclaration_ = boa.types.Ast.Declaration.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           boa.types.Ast.Declaration, boa.types.Ast.Declaration.Builder, boa.types.Ast.DeclarationOrBuilder> typeDeclarationBuilder_;
@@ -14912,7 +14803,7 @@ public final class Ast {
         if (typeDeclarationBuilder_ == null) {
           typeDeclarationBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               boa.types.Ast.Declaration, boa.types.Ast.Declaration.Builder, boa.types.Ast.DeclarationOrBuilder>(
-                  getTypeDeclaration(),
+                  typeDeclaration_,
                   getParentForChildren(),
                   isClean());
           typeDeclaration_ = null;
@@ -14920,6 +14811,7 @@ public final class Ast {
         return typeDeclarationBuilder_;
       }
 
+      // optional .boa.types.Expression expression = 9;
       private boa.types.Ast.Expression expression_ = boa.types.Ast.Expression.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           boa.types.Ast.Expression, boa.types.Ast.Expression.Builder, boa.types.Ast.ExpressionOrBuilder> expressionBuilder_;
@@ -15064,7 +14956,7 @@ public final class Ast {
         if (expressionBuilder_ == null) {
           expressionBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               boa.types.Ast.Expression, boa.types.Ast.Expression.Builder, boa.types.Ast.ExpressionOrBuilder>(
-                  getExpression(),
+                  expression_,
                   getParentForChildren(),
                   isClean());
           expression_ = null;
@@ -15083,10 +14975,10 @@ public final class Ast {
     // @@protoc_insertion_point(class_scope:boa.types.Statement)
   }
 
-  public interface ExpressionOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:boa.types.Expression)
-      com.google.protobuf.MessageOrBuilder {
+  public interface ExpressionOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
 
+    // required .boa.types.Expression.ExpressionKind kind = 1;
     /**
      * <code>required .boa.types.Expression.ExpressionKind kind = 1;</code>
      */
@@ -15096,6 +14988,7 @@ public final class Ast {
      */
     boa.types.Ast.Expression.ExpressionKind getKind();
 
+    // repeated .boa.types.Expression expressions = 2;
     /**
      * <code>repeated .boa.types.Expression expressions = 2;</code>
      */
@@ -15120,6 +15013,7 @@ public final class Ast {
     boa.types.Ast.ExpressionOrBuilder getExpressionsOrBuilder(
         int index);
 
+    // repeated .boa.types.Variable variable_decls = 3;
     /**
      * <code>repeated .boa.types.Variable variable_decls = 3;</code>
      */
@@ -15144,6 +15038,7 @@ public final class Ast {
     boa.types.Ast.VariableOrBuilder getVariableDeclsOrBuilder(
         int index);
 
+    // optional .boa.types.Type new_type = 4;
     /**
      * <code>optional .boa.types.Type new_type = 4;</code>
      */
@@ -15157,6 +15052,7 @@ public final class Ast {
      */
     boa.types.Ast.TypeOrBuilder getNewTypeOrBuilder();
 
+    // repeated .boa.types.Type generic_parameters = 5;
     /**
      * <code>repeated .boa.types.Type generic_parameters = 5;</code>
      */
@@ -15181,6 +15077,7 @@ public final class Ast {
     boa.types.Ast.TypeOrBuilder getGenericParametersOrBuilder(
         int index);
 
+    // optional bool is_postfix = 6;
     /**
      * <code>optional bool is_postfix = 6;</code>
      */
@@ -15190,6 +15087,7 @@ public final class Ast {
      */
     boolean getIsPostfix();
 
+    // optional string literal = 7;
     /**
      * <code>optional string literal = 7;</code>
      */
@@ -15204,6 +15102,7 @@ public final class Ast {
     com.google.protobuf.ByteString
         getLiteralBytes();
 
+    // optional string variable = 8;
     /**
      * <code>optional string variable = 8;</code>
      */
@@ -15218,6 +15117,7 @@ public final class Ast {
     com.google.protobuf.ByteString
         getVariableBytes();
 
+    // optional string method = 9;
     /**
      * <code>optional string method = 9;</code>
      */
@@ -15232,6 +15132,7 @@ public final class Ast {
     com.google.protobuf.ByteString
         getMethodBytes();
 
+    // repeated .boa.types.Expression method_args = 10;
     /**
      * <code>repeated .boa.types.Expression method_args = 10;</code>
      */
@@ -15256,6 +15157,7 @@ public final class Ast {
     boa.types.Ast.ExpressionOrBuilder getMethodArgsOrBuilder(
         int index);
 
+    // optional .boa.types.Declaration anon_declaration = 11;
     /**
      * <code>optional .boa.types.Declaration anon_declaration = 11;</code>
      */
@@ -15269,6 +15171,7 @@ public final class Ast {
      */
     boa.types.Ast.DeclarationOrBuilder getAnonDeclarationOrBuilder();
 
+    // optional .boa.types.Modifier annotation = 12;
     /**
      * <code>optional .boa.types.Modifier annotation = 12;</code>
      *
@@ -15298,9 +15201,8 @@ public final class Ast {
    * Protobuf type {@code boa.types.Expression}
    */
   public static final class Expression extends
-      com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:boa.types.Expression)
-      ExpressionOrBuilder {
+      com.google.protobuf.GeneratedMessage
+      implements ExpressionOrBuilder {
     // Use Expression.newBuilder() to construct.
     private Expression(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -15362,7 +15264,7 @@ public final class Ast {
                 expressions_ = new java.util.ArrayList<boa.types.Ast.Expression>();
                 mutable_bitField0_ |= 0x00000002;
               }
-              expressions_.add(input.readMessage(PARSER, extensionRegistry));
+              expressions_.add(input.readMessage(boa.types.Ast.Expression.PARSER, extensionRegistry));
               break;
             }
             case 26: {
@@ -15400,21 +15302,18 @@ public final class Ast {
               break;
             }
             case 58: {
-              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000008;
-              literal_ = bs;
+              literal_ = input.readBytes();
               break;
             }
             case 66: {
-              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000010;
-              variable_ = bs;
+              variable_ = input.readBytes();
               break;
             }
             case 74: {
-              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000020;
-              method_ = bs;
+              method_ = input.readBytes();
               break;
             }
             case 82: {
@@ -15422,7 +15321,7 @@ public final class Ast {
                 methodArgs_ = new java.util.ArrayList<boa.types.Ast.Expression>();
                 mutable_bitField0_ |= 0x00000200;
               }
-              methodArgs_.add(input.readMessage(PARSER, extensionRegistry));
+              methodArgs_.add(input.readMessage(boa.types.Ast.Expression.PARSER, extensionRegistry));
               break;
             }
             case 90: {
@@ -15477,14 +15376,14 @@ public final class Ast {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return internal_static_boa_types_Expression_descriptor;
+      return boa.types.Ast.internal_static_boa_types_Expression_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return internal_static_boa_types_Expression_fieldAccessorTable
+      return boa.types.Ast.internal_static_boa_types_Expression_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-                  boa.types.Ast.Expression.class, boa.types.Ast.Expression.Builder.class);
+              boa.types.Ast.Expression.class, boa.types.Ast.Expression.Builder.class);
     }
 
     public static com.google.protobuf.Parser<Expression> PARSER =
@@ -16008,6 +15907,7 @@ public final class Ast {
     }
 
     private int bitField0_;
+    // required .boa.types.Expression.ExpressionKind kind = 1;
     public static final int KIND_FIELD_NUMBER = 1;
     private boa.types.Ast.Expression.ExpressionKind kind_;
     /**
@@ -16023,6 +15923,7 @@ public final class Ast {
       return kind_;
     }
 
+    // repeated .boa.types.Expression expressions = 2;
     public static final int EXPRESSIONS_FIELD_NUMBER = 2;
     private java.util.List<boa.types.Ast.Expression> expressions_;
     /**
@@ -16058,6 +15959,7 @@ public final class Ast {
       return expressions_.get(index);
     }
 
+    // repeated .boa.types.Variable variable_decls = 3;
     public static final int VARIABLE_DECLS_FIELD_NUMBER = 3;
     private java.util.List<boa.types.Ast.Variable> variableDecls_;
     /**
@@ -16093,6 +15995,7 @@ public final class Ast {
       return variableDecls_.get(index);
     }
 
+    // optional .boa.types.Type new_type = 4;
     public static final int NEW_TYPE_FIELD_NUMBER = 4;
     private boa.types.Ast.Type newType_;
     /**
@@ -16114,6 +16017,7 @@ public final class Ast {
       return newType_;
     }
 
+    // repeated .boa.types.Type generic_parameters = 5;
     public static final int GENERIC_PARAMETERS_FIELD_NUMBER = 5;
     private java.util.List<boa.types.Ast.Type> genericParameters_;
     /**
@@ -16149,6 +16053,7 @@ public final class Ast {
       return genericParameters_.get(index);
     }
 
+    // optional bool is_postfix = 6;
     public static final int IS_POSTFIX_FIELD_NUMBER = 6;
     private boolean isPostfix_;
     /**
@@ -16164,6 +16069,7 @@ public final class Ast {
       return isPostfix_;
     }
 
+    // optional string literal = 7;
     public static final int LITERAL_FIELD_NUMBER = 7;
     private java.lang.Object literal_;
     /**
@@ -16206,6 +16112,7 @@ public final class Ast {
       }
     }
 
+    // optional string variable = 8;
     public static final int VARIABLE_FIELD_NUMBER = 8;
     private java.lang.Object variable_;
     /**
@@ -16248,6 +16155,7 @@ public final class Ast {
       }
     }
 
+    // optional string method = 9;
     public static final int METHOD_FIELD_NUMBER = 9;
     private java.lang.Object method_;
     /**
@@ -16290,6 +16198,7 @@ public final class Ast {
       }
     }
 
+    // repeated .boa.types.Expression method_args = 10;
     public static final int METHOD_ARGS_FIELD_NUMBER = 10;
     private java.util.List<boa.types.Ast.Expression> methodArgs_;
     /**
@@ -16325,6 +16234,7 @@ public final class Ast {
       return methodArgs_.get(index);
     }
 
+    // optional .boa.types.Declaration anon_declaration = 11;
     public static final int ANON_DECLARATION_FIELD_NUMBER = 11;
     private boa.types.Ast.Declaration anonDeclaration_;
     /**
@@ -16346,6 +16256,7 @@ public final class Ast {
       return anonDeclaration_;
     }
 
+    // optional .boa.types.Modifier annotation = 12;
     public static final int ANNOTATION_FIELD_NUMBER = 12;
     private boa.types.Ast.Modifier annotation_;
     /**
@@ -16396,8 +16307,7 @@ public final class Ast {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
+      if (isInitialized != -1) return isInitialized == 1;
 
       if (!hasKind()) {
         memoizedIsInitialized = 0;
@@ -16627,19 +16537,18 @@ public final class Ast {
      * Protobuf type {@code boa.types.Expression}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:boa.types.Expression)
-        boa.types.Ast.ExpressionOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements boa.types.Ast.ExpressionOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return internal_static_boa_types_Expression_descriptor;
+        return boa.types.Ast.internal_static_boa_types_Expression_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return internal_static_boa_types_Expression_fieldAccessorTable
+        return boa.types.Ast.internal_static_boa_types_Expression_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                    boa.types.Ast.Expression.class, boa.types.Ast.Expression.Builder.class);
+                boa.types.Ast.Expression.class, boa.types.Ast.Expression.Builder.class);
       }
 
       // Construct using boa.types.Ast.Expression.newBuilder()
@@ -16730,11 +16639,11 @@ public final class Ast {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return internal_static_boa_types_Expression_descriptor;
+        return boa.types.Ast.internal_static_boa_types_Expression_descriptor;
       }
 
       public boa.types.Ast.Expression getDefaultInstanceForType() {
-        return getDefaultInstance();
+        return boa.types.Ast.Expression.getDefaultInstance();
       }
 
       public boa.types.Ast.Expression build() {
@@ -16844,7 +16753,7 @@ public final class Ast {
       }
 
       public Builder mergeFrom(boa.types.Ast.Expression other) {
-        if (other == getDefaultInstance()) return this;
+        if (other == boa.types.Ast.Expression.getDefaultInstance()) return this;
         if (other.hasKind()) {
           setKind(other.getKind());
         }
@@ -17052,6 +16961,7 @@ public final class Ast {
       }
       private int bitField0_;
 
+      // required .boa.types.Expression.ExpressionKind kind = 1;
       private boa.types.Ast.Expression.ExpressionKind kind_ = boa.types.Ast.Expression.ExpressionKind.OTHER;
       /**
        * <code>required .boa.types.Expression.ExpressionKind kind = 1;</code>
@@ -17087,6 +16997,7 @@ public final class Ast {
         return this;
       }
 
+      // repeated .boa.types.Expression expressions = 2;
       private java.util.List<boa.types.Ast.Expression> expressions_ =
         java.util.Collections.emptyList();
       private void ensureExpressionsIsMutable() {
@@ -17228,8 +17139,7 @@ public final class Ast {
           java.lang.Iterable<? extends boa.types.Ast.Expression> values) {
         if (expressionsBuilder_ == null) {
           ensureExpressionsIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, expressions_);
+          super.addAll(values, expressions_);
           onChanged();
         } else {
           expressionsBuilder_.addAllMessages(values);
@@ -17295,7 +17205,7 @@ public final class Ast {
        */
       public boa.types.Ast.Expression.Builder addExpressionsBuilder() {
         return getExpressionsFieldBuilder().addBuilder(
-            getDefaultInstance());
+            boa.types.Ast.Expression.getDefaultInstance());
       }
       /**
        * <code>repeated .boa.types.Expression expressions = 2;</code>
@@ -17303,7 +17213,7 @@ public final class Ast {
       public boa.types.Ast.Expression.Builder addExpressionsBuilder(
           int index) {
         return getExpressionsFieldBuilder().addBuilder(
-            index, getDefaultInstance());
+            index, boa.types.Ast.Expression.getDefaultInstance());
       }
       /**
        * <code>repeated .boa.types.Expression expressions = 2;</code>
@@ -17327,6 +17237,7 @@ public final class Ast {
         return expressionsBuilder_;
       }
 
+      // repeated .boa.types.Variable variable_decls = 3;
       private java.util.List<boa.types.Ast.Variable> variableDecls_ =
         java.util.Collections.emptyList();
       private void ensureVariableDeclsIsMutable() {
@@ -17468,8 +17379,7 @@ public final class Ast {
           java.lang.Iterable<? extends boa.types.Ast.Variable> values) {
         if (variableDeclsBuilder_ == null) {
           ensureVariableDeclsIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, variableDecls_);
+          super.addAll(values, variableDecls_);
           onChanged();
         } else {
           variableDeclsBuilder_.addAllMessages(values);
@@ -17567,6 +17477,7 @@ public final class Ast {
         return variableDeclsBuilder_;
       }
 
+      // optional .boa.types.Type new_type = 4;
       private boa.types.Ast.Type newType_ = boa.types.Ast.Type.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           boa.types.Ast.Type, boa.types.Ast.Type.Builder, boa.types.Ast.TypeOrBuilder> newTypeBuilder_;
@@ -17675,7 +17586,7 @@ public final class Ast {
         if (newTypeBuilder_ == null) {
           newTypeBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               boa.types.Ast.Type, boa.types.Ast.Type.Builder, boa.types.Ast.TypeOrBuilder>(
-                  getNewType(),
+                  newType_,
                   getParentForChildren(),
                   isClean());
           newType_ = null;
@@ -17683,6 +17594,7 @@ public final class Ast {
         return newTypeBuilder_;
       }
 
+      // repeated .boa.types.Type generic_parameters = 5;
       private java.util.List<boa.types.Ast.Type> genericParameters_ =
         java.util.Collections.emptyList();
       private void ensureGenericParametersIsMutable() {
@@ -17824,8 +17736,7 @@ public final class Ast {
           java.lang.Iterable<? extends boa.types.Ast.Type> values) {
         if (genericParametersBuilder_ == null) {
           ensureGenericParametersIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, genericParameters_);
+          super.addAll(values, genericParameters_);
           onChanged();
         } else {
           genericParametersBuilder_.addAllMessages(values);
@@ -17923,6 +17834,7 @@ public final class Ast {
         return genericParametersBuilder_;
       }
 
+      // optional bool is_postfix = 6;
       private boolean isPostfix_ ;
       /**
        * <code>optional bool is_postfix = 6;</code>
@@ -17955,6 +17867,7 @@ public final class Ast {
         return this;
       }
 
+      // optional string literal = 7;
       private java.lang.Object literal_ = "";
       /**
        * <code>optional string literal = 7;</code>
@@ -17968,12 +17881,9 @@ public final class Ast {
       public java.lang.String getLiteral() {
         java.lang.Object ref = literal_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            literal_ = s;
-          }
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          literal_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -18031,6 +17941,7 @@ public final class Ast {
         return this;
       }
 
+      // optional string variable = 8;
       private java.lang.Object variable_ = "";
       /**
        * <code>optional string variable = 8;</code>
@@ -18044,12 +17955,9 @@ public final class Ast {
       public java.lang.String getVariable() {
         java.lang.Object ref = variable_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            variable_ = s;
-          }
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          variable_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -18107,6 +18015,7 @@ public final class Ast {
         return this;
       }
 
+      // optional string method = 9;
       private java.lang.Object method_ = "";
       /**
        * <code>optional string method = 9;</code>
@@ -18120,12 +18029,9 @@ public final class Ast {
       public java.lang.String getMethod() {
         java.lang.Object ref = method_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            method_ = s;
-          }
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          method_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -18183,6 +18089,7 @@ public final class Ast {
         return this;
       }
 
+      // repeated .boa.types.Expression method_args = 10;
       private java.util.List<boa.types.Ast.Expression> methodArgs_ =
         java.util.Collections.emptyList();
       private void ensureMethodArgsIsMutable() {
@@ -18324,8 +18231,7 @@ public final class Ast {
           java.lang.Iterable<? extends boa.types.Ast.Expression> values) {
         if (methodArgsBuilder_ == null) {
           ensureMethodArgsIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, methodArgs_);
+          super.addAll(values, methodArgs_);
           onChanged();
         } else {
           methodArgsBuilder_.addAllMessages(values);
@@ -18391,7 +18297,7 @@ public final class Ast {
        */
       public boa.types.Ast.Expression.Builder addMethodArgsBuilder() {
         return getMethodArgsFieldBuilder().addBuilder(
-            getDefaultInstance());
+            boa.types.Ast.Expression.getDefaultInstance());
       }
       /**
        * <code>repeated .boa.types.Expression method_args = 10;</code>
@@ -18399,7 +18305,7 @@ public final class Ast {
       public boa.types.Ast.Expression.Builder addMethodArgsBuilder(
           int index) {
         return getMethodArgsFieldBuilder().addBuilder(
-            index, getDefaultInstance());
+            index, boa.types.Ast.Expression.getDefaultInstance());
       }
       /**
        * <code>repeated .boa.types.Expression method_args = 10;</code>
@@ -18423,6 +18329,7 @@ public final class Ast {
         return methodArgsBuilder_;
       }
 
+      // optional .boa.types.Declaration anon_declaration = 11;
       private boa.types.Ast.Declaration anonDeclaration_ = boa.types.Ast.Declaration.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           boa.types.Ast.Declaration, boa.types.Ast.Declaration.Builder, boa.types.Ast.DeclarationOrBuilder> anonDeclarationBuilder_;
@@ -18531,7 +18438,7 @@ public final class Ast {
         if (anonDeclarationBuilder_ == null) {
           anonDeclarationBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               boa.types.Ast.Declaration, boa.types.Ast.Declaration.Builder, boa.types.Ast.DeclarationOrBuilder>(
-                  getAnonDeclaration(),
+                  anonDeclaration_,
                   getParentForChildren(),
                   isClean());
           anonDeclaration_ = null;
@@ -18539,6 +18446,7 @@ public final class Ast {
         return anonDeclarationBuilder_;
       }
 
+      // optional .boa.types.Modifier annotation = 12;
       private boa.types.Ast.Modifier annotation_ = boa.types.Ast.Modifier.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           boa.types.Ast.Modifier, boa.types.Ast.Modifier.Builder, boa.types.Ast.ModifierOrBuilder> annotationBuilder_;
@@ -18683,7 +18591,7 @@ public final class Ast {
         if (annotationBuilder_ == null) {
           annotationBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               boa.types.Ast.Modifier, boa.types.Ast.Modifier.Builder, boa.types.Ast.ModifierOrBuilder>(
-                  getAnnotation(),
+                  annotation_,
                   getParentForChildren(),
                   isClean());
           annotation_ = null;
@@ -18702,10 +18610,10 @@ public final class Ast {
     // @@protoc_insertion_point(class_scope:boa.types.Expression)
   }
 
-  public interface ModifierOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:boa.types.Modifier)
-      com.google.protobuf.MessageOrBuilder {
+  public interface ModifierOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
 
+    // required .boa.types.Modifier.ModifierKind kind = 1;
     /**
      * <code>required .boa.types.Modifier.ModifierKind kind = 1;</code>
      */
@@ -18715,6 +18623,7 @@ public final class Ast {
      */
     boa.types.Ast.Modifier.ModifierKind getKind();
 
+    // optional .boa.types.Modifier.Visibility visibility = 2;
     /**
      * <code>optional .boa.types.Modifier.Visibility visibility = 2;</code>
      */
@@ -18724,6 +18633,7 @@ public final class Ast {
      */
     boa.types.Ast.Modifier.Visibility getVisibility();
 
+    // optional string annotation_name = 3;
     /**
      * <code>optional string annotation_name = 3;</code>
      */
@@ -18738,11 +18648,12 @@ public final class Ast {
     com.google.protobuf.ByteString
         getAnnotationNameBytes();
 
+    // repeated string annotation_members = 4;
     /**
      * <code>repeated string annotation_members = 4;</code>
      */
-    com.google.protobuf.ProtocolStringList
-        getAnnotationMembersList();
+    java.util.List<java.lang.String>
+    getAnnotationMembersList();
     /**
      * <code>repeated string annotation_members = 4;</code>
      */
@@ -18757,6 +18668,7 @@ public final class Ast {
     com.google.protobuf.ByteString
         getAnnotationMembersBytes(int index);
 
+    // repeated .boa.types.Expression annotation_values = 5;
     /**
      * <code>repeated .boa.types.Expression annotation_values = 5;</code>
      */
@@ -18781,6 +18693,7 @@ public final class Ast {
     boa.types.Ast.ExpressionOrBuilder getAnnotationValuesOrBuilder(
         int index);
 
+    // optional string other = 6;
     /**
      * <code>optional string other = 6;</code>
      *
@@ -18811,9 +18724,8 @@ public final class Ast {
    * Protobuf type {@code boa.types.Modifier}
    */
   public static final class Modifier extends
-      com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:boa.types.Modifier)
-      ModifierOrBuilder {
+      com.google.protobuf.GeneratedMessage
+      implements ModifierOrBuilder {
     // Use Modifier.newBuilder() to construct.
     private Modifier(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -18882,18 +18794,16 @@ public final class Ast {
               break;
             }
             case 26: {
-              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000004;
-              annotationName_ = bs;
+              annotationName_ = input.readBytes();
               break;
             }
             case 34: {
-              com.google.protobuf.ByteString bs = input.readBytes();
               if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
                 annotationMembers_ = new com.google.protobuf.LazyStringArrayList();
                 mutable_bitField0_ |= 0x00000008;
               }
-              annotationMembers_.add(bs);
+              annotationMembers_.add(input.readBytes());
               break;
             }
             case 42: {
@@ -18905,9 +18815,8 @@ public final class Ast {
               break;
             }
             case 50: {
-              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000008;
-              other_ = bs;
+              other_ = input.readBytes();
               break;
             }
           }
@@ -18919,7 +18828,7 @@ public final class Ast {
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-          annotationMembers_ = annotationMembers_.getUnmodifiableView();
+          annotationMembers_ = new com.google.protobuf.UnmodifiableLazyStringList(annotationMembers_);
         }
         if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
           annotationValues_ = java.util.Collections.unmodifiableList(annotationValues_);
@@ -18930,14 +18839,14 @@ public final class Ast {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return internal_static_boa_types_Modifier_descriptor;
+      return boa.types.Ast.internal_static_boa_types_Modifier_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return internal_static_boa_types_Modifier_fieldAccessorTable
+      return boa.types.Ast.internal_static_boa_types_Modifier_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-                  boa.types.Ast.Modifier.class, boa.types.Ast.Modifier.Builder.class);
+              boa.types.Ast.Modifier.class, boa.types.Ast.Modifier.Builder.class);
     }
 
     public static com.google.protobuf.Parser<Modifier> PARSER =
@@ -19193,6 +19102,7 @@ public final class Ast {
     }
 
     private int bitField0_;
+    // required .boa.types.Modifier.ModifierKind kind = 1;
     public static final int KIND_FIELD_NUMBER = 1;
     private boa.types.Ast.Modifier.ModifierKind kind_;
     /**
@@ -19208,6 +19118,7 @@ public final class Ast {
       return kind_;
     }
 
+    // optional .boa.types.Modifier.Visibility visibility = 2;
     public static final int VISIBILITY_FIELD_NUMBER = 2;
     private boa.types.Ast.Modifier.Visibility visibility_;
     /**
@@ -19223,6 +19134,7 @@ public final class Ast {
       return visibility_;
     }
 
+    // optional string annotation_name = 3;
     public static final int ANNOTATION_NAME_FIELD_NUMBER = 3;
     private java.lang.Object annotationName_;
     /**
@@ -19265,12 +19177,13 @@ public final class Ast {
       }
     }
 
+    // repeated string annotation_members = 4;
     public static final int ANNOTATION_MEMBERS_FIELD_NUMBER = 4;
     private com.google.protobuf.LazyStringList annotationMembers_;
     /**
      * <code>repeated string annotation_members = 4;</code>
      */
-    public com.google.protobuf.ProtocolStringList
+    public java.util.List<java.lang.String>
         getAnnotationMembersList() {
       return annotationMembers_;
     }
@@ -19294,6 +19207,7 @@ public final class Ast {
       return annotationMembers_.getByteString(index);
     }
 
+    // repeated .boa.types.Expression annotation_values = 5;
     public static final int ANNOTATION_VALUES_FIELD_NUMBER = 5;
     private java.util.List<boa.types.Ast.Expression> annotationValues_;
     /**
@@ -19329,6 +19243,7 @@ public final class Ast {
       return annotationValues_.get(index);
     }
 
+    // optional string other = 6;
     public static final int OTHER_FIELD_NUMBER = 6;
     private java.lang.Object other_;
     /**
@@ -19394,8 +19309,7 @@ public final class Ast {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
+      if (isInitialized != -1) return isInitialized == 1;
 
       if (!hasKind()) {
         memoizedIsInitialized = 0;
@@ -19552,19 +19466,18 @@ public final class Ast {
      * Protobuf type {@code boa.types.Modifier}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:boa.types.Modifier)
-        boa.types.Ast.ModifierOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements boa.types.Ast.ModifierOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return internal_static_boa_types_Modifier_descriptor;
+        return boa.types.Ast.internal_static_boa_types_Modifier_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return internal_static_boa_types_Modifier_fieldAccessorTable
+        return boa.types.Ast.internal_static_boa_types_Modifier_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                    boa.types.Ast.Modifier.class, boa.types.Ast.Modifier.Builder.class);
+                boa.types.Ast.Modifier.class, boa.types.Ast.Modifier.Builder.class);
       }
 
       // Construct using boa.types.Ast.Modifier.newBuilder()
@@ -19613,11 +19526,11 @@ public final class Ast {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return internal_static_boa_types_Modifier_descriptor;
+        return boa.types.Ast.internal_static_boa_types_Modifier_descriptor;
       }
 
       public boa.types.Ast.Modifier getDefaultInstanceForType() {
-        return getDefaultInstance();
+        return boa.types.Ast.Modifier.getDefaultInstance();
       }
 
       public boa.types.Ast.Modifier build() {
@@ -19645,7 +19558,8 @@ public final class Ast {
         }
         result.annotationName_ = annotationName_;
         if (((bitField0_ & 0x00000008) == 0x00000008)) {
-          annotationMembers_ = annotationMembers_.getUnmodifiableView();
+          annotationMembers_ = new com.google.protobuf.UnmodifiableLazyStringList(
+              annotationMembers_);
           bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.annotationMembers_ = annotationMembers_;
@@ -19677,7 +19591,7 @@ public final class Ast {
       }
 
       public Builder mergeFrom(boa.types.Ast.Modifier other) {
-        if (other == getDefaultInstance()) return this;
+        if (other == boa.types.Ast.Modifier.getDefaultInstance()) return this;
         if (other.hasKind()) {
           setKind(other.getKind());
         }
@@ -19767,6 +19681,7 @@ public final class Ast {
       }
       private int bitField0_;
 
+      // required .boa.types.Modifier.ModifierKind kind = 1;
       private boa.types.Ast.Modifier.ModifierKind kind_ = boa.types.Ast.Modifier.ModifierKind.OTHER;
       /**
        * <code>required .boa.types.Modifier.ModifierKind kind = 1;</code>
@@ -19802,6 +19717,7 @@ public final class Ast {
         return this;
       }
 
+      // optional .boa.types.Modifier.Visibility visibility = 2;
       private boa.types.Ast.Modifier.Visibility visibility_ = boa.types.Ast.Modifier.Visibility.PUBLIC;
       /**
        * <code>optional .boa.types.Modifier.Visibility visibility = 2;</code>
@@ -19837,6 +19753,7 @@ public final class Ast {
         return this;
       }
 
+      // optional string annotation_name = 3;
       private java.lang.Object annotationName_ = "";
       /**
        * <code>optional string annotation_name = 3;</code>
@@ -19850,12 +19767,9 @@ public final class Ast {
       public java.lang.String getAnnotationName() {
         java.lang.Object ref = annotationName_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            annotationName_ = s;
-          }
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          annotationName_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -19913,6 +19827,7 @@ public final class Ast {
         return this;
       }
 
+      // repeated string annotation_members = 4;
       private com.google.protobuf.LazyStringList annotationMembers_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureAnnotationMembersIsMutable() {
         if (!((bitField0_ & 0x00000008) == 0x00000008)) {
@@ -19923,9 +19838,9 @@ public final class Ast {
       /**
        * <code>repeated string annotation_members = 4;</code>
        */
-      public com.google.protobuf.ProtocolStringList
+      public java.util.List<java.lang.String>
           getAnnotationMembersList() {
-        return annotationMembers_.getUnmodifiableView();
+        return java.util.Collections.unmodifiableList(annotationMembers_);
       }
       /**
        * <code>repeated string annotation_members = 4;</code>
@@ -19978,8 +19893,7 @@ public final class Ast {
       public Builder addAllAnnotationMembers(
           java.lang.Iterable<java.lang.String> values) {
         ensureAnnotationMembersIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, annotationMembers_);
+        super.addAll(values, annotationMembers_);
         onChanged();
         return this;
       }
@@ -20006,6 +19920,7 @@ public final class Ast {
         return this;
       }
 
+      // repeated .boa.types.Expression annotation_values = 5;
       private java.util.List<boa.types.Ast.Expression> annotationValues_ =
         java.util.Collections.emptyList();
       private void ensureAnnotationValuesIsMutable() {
@@ -20147,8 +20062,7 @@ public final class Ast {
           java.lang.Iterable<? extends boa.types.Ast.Expression> values) {
         if (annotationValuesBuilder_ == null) {
           ensureAnnotationValuesIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, annotationValues_);
+          super.addAll(values, annotationValues_);
           onChanged();
         } else {
           annotationValuesBuilder_.addAllMessages(values);
@@ -20246,6 +20160,7 @@ public final class Ast {
         return annotationValuesBuilder_;
       }
 
+      // optional string other = 6;
       private java.lang.Object other_ = "";
       /**
        * <code>optional string other = 6;</code>
@@ -20267,12 +20182,9 @@ public final class Ast {
       public java.lang.String getOther() {
         java.lang.Object ref = other_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            other_ = s;
-          }
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          other_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -20357,10 +20269,10 @@ public final class Ast {
     // @@protoc_insertion_point(class_scope:boa.types.Modifier)
   }
 
-  public interface CommentOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:boa.types.Comment)
-      com.google.protobuf.MessageOrBuilder {
+  public interface CommentOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
 
+    // required .boa.types.Comment.CommentKind kind = 1;
     /**
      * <code>required .boa.types.Comment.CommentKind kind = 1;</code>
      */
@@ -20370,6 +20282,7 @@ public final class Ast {
      */
     boa.types.Ast.Comment.CommentKind getKind();
 
+    // required string value = 2;
     /**
      * <code>required string value = 2;</code>
      */
@@ -20384,6 +20297,7 @@ public final class Ast {
     com.google.protobuf.ByteString
         getValueBytes();
 
+    // required .boa.types.PositionInfo position = 3;
     /**
      * <code>required .boa.types.PositionInfo position = 3;</code>
      */
@@ -20401,9 +20315,8 @@ public final class Ast {
    * Protobuf type {@code boa.types.Comment}
    */
   public static final class Comment extends
-      com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:boa.types.Comment)
-      CommentOrBuilder {
+      com.google.protobuf.GeneratedMessage
+      implements CommentOrBuilder {
     // Use Comment.newBuilder() to construct.
     private Comment(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -20461,9 +20374,8 @@ public final class Ast {
               break;
             }
             case 18: {
-              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000002;
-              value_ = bs;
+              value_ = input.readBytes();
               break;
             }
             case 26: {
@@ -20493,14 +20405,14 @@ public final class Ast {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return internal_static_boa_types_Comment_descriptor;
+      return boa.types.Ast.internal_static_boa_types_Comment_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return internal_static_boa_types_Comment_fieldAccessorTable
+      return boa.types.Ast.internal_static_boa_types_Comment_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-                  boa.types.Ast.Comment.class, boa.types.Ast.Comment.Builder.class);
+              boa.types.Ast.Comment.class, boa.types.Ast.Comment.Builder.class);
     }
 
     public static com.google.protobuf.Parser<Comment> PARSER =
@@ -20646,6 +20558,7 @@ public final class Ast {
     }
 
     private int bitField0_;
+    // required .boa.types.Comment.CommentKind kind = 1;
     public static final int KIND_FIELD_NUMBER = 1;
     private boa.types.Ast.Comment.CommentKind kind_;
     /**
@@ -20661,6 +20574,7 @@ public final class Ast {
       return kind_;
     }
 
+    // required string value = 2;
     public static final int VALUE_FIELD_NUMBER = 2;
     private java.lang.Object value_;
     /**
@@ -20703,6 +20617,7 @@ public final class Ast {
       }
     }
 
+    // required .boa.types.PositionInfo position = 3;
     public static final int POSITION_FIELD_NUMBER = 3;
     private boa.types.Ast.PositionInfo position_;
     /**
@@ -20732,8 +20647,7 @@ public final class Ast {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
+      if (isInitialized != -1) return isInitialized == 1;
 
       if (!hasKind()) {
         memoizedIsInitialized = 0;
@@ -20870,19 +20784,18 @@ public final class Ast {
      * Protobuf type {@code boa.types.Comment}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:boa.types.Comment)
-        boa.types.Ast.CommentOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements boa.types.Ast.CommentOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return internal_static_boa_types_Comment_descriptor;
+        return boa.types.Ast.internal_static_boa_types_Comment_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return internal_static_boa_types_Comment_fieldAccessorTable
+        return boa.types.Ast.internal_static_boa_types_Comment_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                    boa.types.Ast.Comment.class, boa.types.Ast.Comment.Builder.class);
+                boa.types.Ast.Comment.class, boa.types.Ast.Comment.Builder.class);
       }
 
       // Construct using boa.types.Ast.Comment.newBuilder()
@@ -20925,11 +20838,11 @@ public final class Ast {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return internal_static_boa_types_Comment_descriptor;
+        return boa.types.Ast.internal_static_boa_types_Comment_descriptor;
       }
 
       public boa.types.Ast.Comment getDefaultInstanceForType() {
-        return getDefaultInstance();
+        return boa.types.Ast.Comment.getDefaultInstance();
       }
 
       public boa.types.Ast.Comment build() {
@@ -20975,7 +20888,7 @@ public final class Ast {
       }
 
       public Builder mergeFrom(boa.types.Ast.Comment other) {
-        if (other == getDefaultInstance()) return this;
+        if (other == boa.types.Ast.Comment.getDefaultInstance()) return this;
         if (other.hasKind()) {
           setKind(other.getKind());
         }
@@ -21030,6 +20943,7 @@ public final class Ast {
       }
       private int bitField0_;
 
+      // required .boa.types.Comment.CommentKind kind = 1;
       private boa.types.Ast.Comment.CommentKind kind_ = boa.types.Ast.Comment.CommentKind.OTHER;
       /**
        * <code>required .boa.types.Comment.CommentKind kind = 1;</code>
@@ -21065,6 +20979,7 @@ public final class Ast {
         return this;
       }
 
+      // required string value = 2;
       private java.lang.Object value_ = "";
       /**
        * <code>required string value = 2;</code>
@@ -21078,12 +20993,9 @@ public final class Ast {
       public java.lang.String getValue() {
         java.lang.Object ref = value_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            value_ = s;
-          }
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          value_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -21141,6 +21053,7 @@ public final class Ast {
         return this;
       }
 
+      // required .boa.types.PositionInfo position = 3;
       private boa.types.Ast.PositionInfo position_ = boa.types.Ast.PositionInfo.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           boa.types.Ast.PositionInfo, boa.types.Ast.PositionInfo.Builder, boa.types.Ast.PositionInfoOrBuilder> positionBuilder_;
@@ -21249,7 +21162,7 @@ public final class Ast {
         if (positionBuilder_ == null) {
           positionBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               boa.types.Ast.PositionInfo, boa.types.Ast.PositionInfo.Builder, boa.types.Ast.PositionInfoOrBuilder>(
-                  getPosition(),
+                  position_,
                   getParentForChildren(),
                   isClean());
           position_ = null;
@@ -21268,10 +21181,10 @@ public final class Ast {
     // @@protoc_insertion_point(class_scope:boa.types.Comment)
   }
 
-  public interface PositionInfoOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:boa.types.PositionInfo)
-      com.google.protobuf.MessageOrBuilder {
+  public interface PositionInfoOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
 
+    // required int32 start_pos = 1;
     /**
      * <code>required int32 start_pos = 1;</code>
      */
@@ -21281,6 +21194,7 @@ public final class Ast {
      */
     int getStartPos();
 
+    // required int32 length = 2;
     /**
      * <code>required int32 length = 2;</code>
      */
@@ -21290,6 +21204,7 @@ public final class Ast {
      */
     int getLength();
 
+    // required int32 start_line = 3;
     /**
      * <code>required int32 start_line = 3;</code>
      */
@@ -21299,6 +21214,7 @@ public final class Ast {
      */
     int getStartLine();
 
+    // required int32 start_col = 4;
     /**
      * <code>required int32 start_col = 4;</code>
      */
@@ -21308,6 +21224,7 @@ public final class Ast {
      */
     int getStartCol();
 
+    // required int32 end_line = 5;
     /**
      * <code>required int32 end_line = 5;</code>
      */
@@ -21317,6 +21234,7 @@ public final class Ast {
      */
     int getEndLine();
 
+    // required int32 end_col = 6;
     /**
      * <code>required int32 end_col = 6;</code>
      */
@@ -21330,9 +21248,8 @@ public final class Ast {
    * Protobuf type {@code boa.types.PositionInfo}
    */
   public static final class PositionInfo extends
-      com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:boa.types.PositionInfo)
-      PositionInfoOrBuilder {
+      com.google.protobuf.GeneratedMessage
+      implements PositionInfoOrBuilder {
     // Use PositionInfo.newBuilder() to construct.
     private PositionInfo(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -21422,14 +21339,14 @@ public final class Ast {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return internal_static_boa_types_PositionInfo_descriptor;
+      return boa.types.Ast.internal_static_boa_types_PositionInfo_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return internal_static_boa_types_PositionInfo_fieldAccessorTable
+      return boa.types.Ast.internal_static_boa_types_PositionInfo_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-                  boa.types.Ast.PositionInfo.class, boa.types.Ast.PositionInfo.Builder.class);
+              boa.types.Ast.PositionInfo.class, boa.types.Ast.PositionInfo.Builder.class);
     }
 
     public static com.google.protobuf.Parser<PositionInfo> PARSER =
@@ -21448,6 +21365,7 @@ public final class Ast {
     }
 
     private int bitField0_;
+    // required int32 start_pos = 1;
     public static final int START_POS_FIELD_NUMBER = 1;
     private int startPos_;
     /**
@@ -21463,6 +21381,7 @@ public final class Ast {
       return startPos_;
     }
 
+    // required int32 length = 2;
     public static final int LENGTH_FIELD_NUMBER = 2;
     private int length_;
     /**
@@ -21478,6 +21397,7 @@ public final class Ast {
       return length_;
     }
 
+    // required int32 start_line = 3;
     public static final int START_LINE_FIELD_NUMBER = 3;
     private int startLine_;
     /**
@@ -21493,6 +21413,7 @@ public final class Ast {
       return startLine_;
     }
 
+    // required int32 start_col = 4;
     public static final int START_COL_FIELD_NUMBER = 4;
     private int startCol_;
     /**
@@ -21508,6 +21429,7 @@ public final class Ast {
       return startCol_;
     }
 
+    // required int32 end_line = 5;
     public static final int END_LINE_FIELD_NUMBER = 5;
     private int endLine_;
     /**
@@ -21523,6 +21445,7 @@ public final class Ast {
       return endLine_;
     }
 
+    // required int32 end_col = 6;
     public static final int END_COL_FIELD_NUMBER = 6;
     private int endCol_;
     /**
@@ -21549,8 +21472,7 @@ public final class Ast {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
+      if (isInitialized != -1) return isInitialized == 1;
 
       if (!hasStartPos()) {
         memoizedIsInitialized = 0;
@@ -21716,19 +21638,18 @@ public final class Ast {
      * Protobuf type {@code boa.types.PositionInfo}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:boa.types.PositionInfo)
-        boa.types.Ast.PositionInfoOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements boa.types.Ast.PositionInfoOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return internal_static_boa_types_PositionInfo_descriptor;
+        return boa.types.Ast.internal_static_boa_types_PositionInfo_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return internal_static_boa_types_PositionInfo_fieldAccessorTable
+        return boa.types.Ast.internal_static_boa_types_PositionInfo_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                    boa.types.Ast.PositionInfo.class, boa.types.Ast.PositionInfo.Builder.class);
+                boa.types.Ast.PositionInfo.class, boa.types.Ast.PositionInfo.Builder.class);
       }
 
       // Construct using boa.types.Ast.PositionInfo.newBuilder()
@@ -21772,11 +21693,11 @@ public final class Ast {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return internal_static_boa_types_PositionInfo_descriptor;
+        return boa.types.Ast.internal_static_boa_types_PositionInfo_descriptor;
       }
 
       public boa.types.Ast.PositionInfo getDefaultInstanceForType() {
-        return getDefaultInstance();
+        return boa.types.Ast.PositionInfo.getDefaultInstance();
       }
 
       public boa.types.Ast.PositionInfo build() {
@@ -21830,7 +21751,7 @@ public final class Ast {
       }
 
       public Builder mergeFrom(boa.types.Ast.PositionInfo other) {
-        if (other == getDefaultInstance()) return this;
+        if (other == boa.types.Ast.PositionInfo.getDefaultInstance()) return this;
         if (other.hasStartPos()) {
           setStartPos(other.getStartPos());
         }
@@ -21900,6 +21821,7 @@ public final class Ast {
       }
       private int bitField0_;
 
+      // required int32 start_pos = 1;
       private int startPos_ ;
       /**
        * <code>required int32 start_pos = 1;</code>
@@ -21932,6 +21854,7 @@ public final class Ast {
         return this;
       }
 
+      // required int32 length = 2;
       private int length_ ;
       /**
        * <code>required int32 length = 2;</code>
@@ -21964,6 +21887,7 @@ public final class Ast {
         return this;
       }
 
+      // required int32 start_line = 3;
       private int startLine_ ;
       /**
        * <code>required int32 start_line = 3;</code>
@@ -21996,6 +21920,7 @@ public final class Ast {
         return this;
       }
 
+      // required int32 start_col = 4;
       private int startCol_ ;
       /**
        * <code>required int32 start_col = 4;</code>
@@ -22028,6 +21953,7 @@ public final class Ast {
         return this;
       }
 
+      // required int32 end_line = 5;
       private int endLine_ ;
       /**
        * <code>required int32 end_line = 5;</code>
@@ -22060,6 +21986,7 @@ public final class Ast {
         return this;
       }
 
+      // required int32 end_col = 6;
       private int endCol_ ;
       /**
        * <code>required int32 end_col = 6;</code>
@@ -22103,62 +22030,62 @@ public final class Ast {
     // @@protoc_insertion_point(class_scope:boa.types.PositionInfo)
   }
 
-  private static final com.google.protobuf.Descriptors.Descriptor
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_boa_types_CommentsRoot_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_boa_types_CommentsRoot_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_boa_types_ASTRoot_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_boa_types_ASTRoot_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_boa_types_Namespace_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_boa_types_Namespace_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_boa_types_Declaration_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_boa_types_Declaration_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_boa_types_Type_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_boa_types_Type_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_boa_types_Method_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_boa_types_Method_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_boa_types_Variable_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_boa_types_Variable_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_boa_types_Statement_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_boa_types_Statement_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_boa_types_Expression_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_boa_types_Expression_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_boa_types_Modifier_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_boa_types_Modifier_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_boa_types_Comment_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_boa_types_Comment_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_boa_types_PositionInfo_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -22187,176 +22114,177 @@ public final class Ast {
       "a.types.Method\022#\n\006fields\030\007 \003(\0132\023.boa.typ" +
       "es.Variable\0223\n\023nested_declarations\030\010 \003(\013" +
       "2\026.boa.types.Declaration\022$\n\010comments\030\t \003" +
-      "(\0132\022.boa.types.Comment\"C\n\004Type\022\014\n\004name\030\001" +
-      " \002(\t\022!\n\004kind\030\002 \002(\0162\023.boa.types.TypeKind\022" +
-      "\n\n\002id\030\004 \001(\t\"\263\002\n\006Method\022\014\n\004name\030\001 \001(\t\022&\n\t" +
-      "modifiers\030\002 \003(\0132\023.boa.types.Modifier\022$\n\013" +
-      "return_type\030\003 \002(\0132\017.boa.types.Type\022+\n\022ge",
-      "neric_parameters\030\004 \003(\0132\017.boa.types.Type\022" +
-      "&\n\targuments\030\005 \003(\0132\023.boa.types.Variable\022" +
-      "(\n\017exception_types\030\006 \003(\0132\017.boa.types.Typ" +
-      "e\022(\n\nstatements\030\007 \003(\0132\024.boa.types.Statem" +
-      "ent\022$\n\010comments\030\010 \003(\0132\022.boa.types.Commen" +
-      "t\"\272\001\n\010Variable\022\014\n\004name\030\001 \002(\t\022&\n\rvariable" +
-      "_type\030\002 \002(\0132\017.boa.types.Type\022&\n\tmodifier" +
-      "s\030\003 \003(\0132\023.boa.types.Modifier\022*\n\013initiali" +
-      "zer\030\004 \001(\0132\025.boa.types.Expression\022$\n\010comm" +
-      "ents\030\005 \003(\0132\022.boa.types.Comment\"\257\005\n\tState",
-      "ment\0220\n\004kind\030\001 \002(\0162\".boa.types.Statement" +
-      ".StatementKind\022$\n\010comments\030\002 \003(\0132\022.boa.t" +
-      "ypes.Comment\022(\n\nstatements\030\003 \003(\0132\024.boa.t" +
-      "ypes.Statement\022.\n\017initializations\030\004 \003(\0132" +
-      "\025.boa.types.Expression\022(\n\tcondition\030\005 \001(" +
-      "\0132\025.boa.types.Expression\022&\n\007updates\030\006 \003(" +
-      "\0132\025.boa.types.Expression\0221\n\024variable_dec" +
-      "laration\030\007 \001(\0132\023.boa.types.Variable\0220\n\020t" +
-      "ype_declaration\030\010 \001(\0132\026.boa.types.Declar" +
-      "ation\022)\n\nexpression\030\t \001(\0132\025.boa.types.Ex",
-      "pression\"\215\002\n\rStatementKind\022\t\n\005OTHER\020\000\022\t\n" +
-      "\005BLOCK\020\001\022\014\n\010TYPEDECL\020\002\022\016\n\nEXPRESSION\020\003\022\010" +
-      "\n\004EXPR\020\003\022\020\n\014SYNCHRONIZED\020\004\022\010\n\004SYNC\020\004\022\n\n\006" +
-      "RETURN\020\005\022\007\n\003FOR\020\006\022\006\n\002DO\020\007\022\t\n\005WHILE\020\010\022\006\n\002" +
-      "IF\020\t\022\n\n\006ASSERT\020\n\022\t\n\005BREAK\020\013\022\014\n\010CONTINUE\020" +
-      "\014\022\t\n\005LABEL\020\r\022\n\n\006SWITCH\020\016\022\010\n\004CASE\020\017\022\007\n\003TR" +
-      "Y\020\020\022\t\n\005THROW\020\021\022\t\n\005CATCH\020\022\022\t\n\005EMPTY\020\023\032\002\020\001" +
-      "\"\217\t\n\nExpression\0222\n\004kind\030\001 \002(\0162$.boa.type" +
-      "s.Expression.ExpressionKind\022*\n\013expressio" +
-      "ns\030\002 \003(\0132\025.boa.types.Expression\022+\n\016varia",
-      "ble_decls\030\003 \003(\0132\023.boa.types.Variable\022!\n\010" +
-      "new_type\030\004 \001(\0132\017.boa.types.Type\022+\n\022gener" +
-      "ic_parameters\030\005 \003(\0132\017.boa.types.Type\022\022\n\n" +
-      "is_postfix\030\006 \001(\010\022\017\n\007literal\030\007 \001(\t\022\020\n\010var" +
-      "iable\030\010 \001(\t\022\016\n\006method\030\t \001(\t\022*\n\013method_ar" +
-      "gs\030\n \003(\0132\025.boa.types.Expression\0220\n\020anon_" +
-      "declaration\030\013 \001(\0132\026.boa.types.Declaratio" +
-      "n\022\'\n\nannotation\030\014 \001(\0132\023.boa.types.Modifi" +
-      "er\"\325\005\n\016ExpressionKind\022\t\n\005OTHER\020\000\022\013\n\007LITE" +
-      "RAL\020\001\022\r\n\tVARACCESS\020\002\022\013\n\007VARDECL\020\003\022\016\n\nMET",
-      "HODCALL\020\004\022\010\n\004CAST\020\005\022\016\n\nARRAYINDEX\020\006\022\r\n\tA" +
-      "RRAYINIT\020\007\022\017\n\013TYPECOMPARE\020\010\022\007\n\003NEW\020\t\022\014\n\010" +
-      "NEWARRAY\020\n\022\n\n\006OP_ADD\020\013\022\n\n\006OP_SUB\020\014\022\013\n\007OP" +
-      "_MULT\020\r\022\n\n\006OP_DIV\020\016\022\n\n\006OP_MOD\020\017\022\n\n\006OP_IN" +
-      "C\020\020\022\n\n\006OP_DEC\020\021\022\016\n\nBIT_LSHIFT\020\022\022\016\n\nBIT_R" +
-      "SHIFT\020\023\022\026\n\022BIT_UNSIGNEDRSHIFT\020\024\022\013\n\007BIT_A" +
-      "ND\020\025\022\n\n\006BIT_OR\020\026\022\013\n\007BIT_NOT\020\027\022\013\n\007BIT_XOR" +
-      "\020\030\022\017\n\013LOGICAL_NOT\020\031\022\017\n\013LOGICAL_AND\020\032\022\016\n\n" +
-      "LOGICAL_OR\020\033\022\006\n\002EQ\020\034\022\007\n\003NEQ\020\035\022\006\n\002LT\020\036\022\006\n" +
-      "\002GT\020\037\022\010\n\004LTEQ\020 \022\010\n\004GTEQ\020!\022\017\n\013CONDITIONAL",
-      "\020\"\022\020\n\014NULLCOALESCE\020#\022\n\n\006ASSIGN\020$\022\016\n\nASSI" +
-      "GN_ADD\020%\022\016\n\nASSIGN_SUB\020&\022\017\n\013ASSIGN_MULT\020" +
-      "\'\022\016\n\nASSIGN_DIV\020(\022\016\n\nASSIGN_MOD\020)\022\021\n\rASS" +
-      "IGN_BITXOR\020*\022\021\n\rASSIGN_BITAND\020+\022\020\n\014ASSIG" +
-      "N_BITOR\020,\022\021\n\rASSIGN_LSHIFT\020-\022\021\n\rASSIGN_R" +
-      "SHIFT\020.\022\031\n\025ASSIGN_UNSIGNEDRSHIFT\020/\022\016\n\nAN" +
-      "NOTATION\0200\"\251\003\n\010Modifier\022.\n\004kind\030\001 \002(\0162 ." +
-      "boa.types.Modifier.ModifierKind\0222\n\nvisib" +
-      "ility\030\002 \001(\0162\036.boa.types.Modifier.Visibil" +
-      "ity\022\027\n\017annotation_name\030\003 \001(\t\022\032\n\022annotati",
-      "on_members\030\004 \003(\t\0220\n\021annotation_values\030\005 " +
-      "\003(\0132\025.boa.types.Expression\022\r\n\005other\030\006 \001(" +
-      "\t\"~\n\014ModifierKind\022\t\n\005OTHER\020\000\022\016\n\nVISIBILI" +
-      "TY\020\001\022\016\n\nANNOTATION\020\002\022\t\n\005FINAL\020\003\022\n\n\006STATI" +
-      "C\020\004\022\020\n\014SYNCHRONIZED\020\005\022\010\n\004SYNC\020\005\022\014\n\010ABSTR" +
-      "ACT\020\006\032\002\020\001\"C\n\nVisibility\022\n\n\006PUBLIC\020\001\022\013\n\007P" +
-      "RIVATE\020\002\022\r\n\tPROTECTED\020\003\022\r\n\tNAMESPACE\020\004\"\335" +
-      "\001\n\007Comment\022,\n\004kind\030\001 \002(\0162\036.boa.types.Com" +
-      "ment.CommentKind\022\r\n\005value\030\002 \002(\t\022)\n\010posit" +
-      "ion\030\003 \002(\0132\027.boa.types.PositionInfo\"j\n\013Co",
-      "mmentKind\022\t\n\005OTHER\020\000\022\010\n\004LINE\020\001\022\t\n\005BLOCK\020" +
-      "\002\022\007\n\003DOC\020\003\022\021\n\rDOCUMENTATION\020\003\022\010\n\004SPEC\020\004\022" +
-      "\021\n\rSPECIFICATION\020\004\032\002\020\001\"{\n\014PositionInfo\022\021" +
-      "\n\tstart_pos\030\001 \002(\005\022\016\n\006length\030\002 \002(\005\022\022\n\nsta" +
-      "rt_line\030\003 \002(\005\022\021\n\tstart_col\030\004 \002(\005\022\020\n\010end_" +
-      "line\030\005 \002(\005\022\017\n\007end_col\030\006 \002(\005*\236\001\n\010TypeKind" +
-      "\022\t\n\005OTHER\020\000\022\t\n\005CLASS\020\001\022\r\n\tINTERFACE\020\002\022\r\n" +
-      "\tANONYMOUS\020\003\022\010\n\004ANON\020\003\022\n\n\006STRUCT\020\004\022\010\n\004EN" +
-      "UM\020\005\022\017\n\013ENUMERATION\020\005\022\016\n\nANNOTATION\020\006\022\014\n" +
-      "\010DELEGATE\020\007\022\013\n\007GENERIC\020\010\032\002\020\001B\002H\001"
+      "(\0132\022.boa.types.Comment\"O\n\004Type\022!\n\004kind\030\001" +
+      " \002(\0162\023.boa.types.TypeKind\022\014\n\004name\030\002 \002(\005\022" +
+      "\026\n\016qualified_name\030\003 \001(\005\"\263\002\n\006Method\022\014\n\004na" +
+      "me\030\001 \001(\t\022&\n\tmodifiers\030\002 \003(\0132\023.boa.types." +
+      "Modifier\022$\n\013return_type\030\003 \002(\0132\017.boa.type",
+      "s.Type\022+\n\022generic_parameters\030\004 \003(\0132\017.boa" +
+      ".types.Type\022&\n\targuments\030\005 \003(\0132\023.boa.typ" +
+      "es.Variable\022(\n\017exception_types\030\006 \003(\0132\017.b" +
+      "oa.types.Type\022(\n\nstatements\030\007 \003(\0132\024.boa." +
+      "types.Statement\022$\n\010comments\030\010 \003(\0132\022.boa." +
+      "types.Comment\"\272\001\n\010Variable\022\014\n\004name\030\001 \002(\t" +
+      "\022&\n\rvariable_type\030\002 \002(\0132\017.boa.types.Type" +
+      "\022&\n\tmodifiers\030\003 \003(\0132\023.boa.types.Modifier" +
+      "\022*\n\013initializer\030\004 \001(\0132\025.boa.types.Expres" +
+      "sion\022$\n\010comments\030\005 \003(\0132\022.boa.types.Comme",
+      "nt\"\257\005\n\tStatement\0220\n\004kind\030\001 \002(\0162\".boa.typ" +
+      "es.Statement.StatementKind\022$\n\010comments\030\002" +
+      " \003(\0132\022.boa.types.Comment\022(\n\nstatements\030\003" +
+      " \003(\0132\024.boa.types.Statement\022.\n\017initializa" +
+      "tions\030\004 \003(\0132\025.boa.types.Expression\022(\n\tco" +
+      "ndition\030\005 \001(\0132\025.boa.types.Expression\022&\n\007" +
+      "updates\030\006 \003(\0132\025.boa.types.Expression\0221\n\024" +
+      "variable_declaration\030\007 \001(\0132\023.boa.types.V" +
+      "ariable\0220\n\020type_declaration\030\010 \001(\0132\026.boa." +
+      "types.Declaration\022)\n\nexpression\030\t \001(\0132\025.",
+      "boa.types.Expression\"\215\002\n\rStatementKind\022\t" +
+      "\n\005OTHER\020\000\022\t\n\005BLOCK\020\001\022\014\n\010TYPEDECL\020\002\022\016\n\nEX" +
+      "PRESSION\020\003\022\010\n\004EXPR\020\003\022\020\n\014SYNCHRONIZED\020\004\022\010" +
+      "\n\004SYNC\020\004\022\n\n\006RETURN\020\005\022\007\n\003FOR\020\006\022\006\n\002DO\020\007\022\t\n" +
+      "\005WHILE\020\010\022\006\n\002IF\020\t\022\n\n\006ASSERT\020\n\022\t\n\005BREAK\020\013\022" +
+      "\014\n\010CONTINUE\020\014\022\t\n\005LABEL\020\r\022\n\n\006SWITCH\020\016\022\010\n\004" +
+      "CASE\020\017\022\007\n\003TRY\020\020\022\t\n\005THROW\020\021\022\t\n\005CATCH\020\022\022\t\n" +
+      "\005EMPTY\020\023\032\002\020\001\"\217\t\n\nExpression\0222\n\004kind\030\001 \002(" +
+      "\0162$.boa.types.Expression.ExpressionKind\022" +
+      "*\n\013expressions\030\002 \003(\0132\025.boa.types.Express",
+      "ion\022+\n\016variable_decls\030\003 \003(\0132\023.boa.types." +
+      "Variable\022!\n\010new_type\030\004 \001(\0132\017.boa.types.T" +
+      "ype\022+\n\022generic_parameters\030\005 \003(\0132\017.boa.ty" +
+      "pes.Type\022\022\n\nis_postfix\030\006 \001(\010\022\017\n\007literal\030" +
+      "\007 \001(\t\022\020\n\010variable\030\010 \001(\t\022\016\n\006method\030\t \001(\t\022" +
+      "*\n\013method_args\030\n \003(\0132\025.boa.types.Express" +
+      "ion\0220\n\020anon_declaration\030\013 \001(\0132\026.boa.type" +
+      "s.Declaration\022\'\n\nannotation\030\014 \001(\0132\023.boa." +
+      "types.Modifier\"\325\005\n\016ExpressionKind\022\t\n\005OTH" +
+      "ER\020\000\022\013\n\007LITERAL\020\001\022\r\n\tVARACCESS\020\002\022\013\n\007VARD",
+      "ECL\020\003\022\016\n\nMETHODCALL\020\004\022\010\n\004CAST\020\005\022\016\n\nARRAY" +
+      "INDEX\020\006\022\r\n\tARRAYINIT\020\007\022\017\n\013TYPECOMPARE\020\010\022" +
+      "\007\n\003NEW\020\t\022\014\n\010NEWARRAY\020\n\022\n\n\006OP_ADD\020\013\022\n\n\006OP" +
+      "_SUB\020\014\022\013\n\007OP_MULT\020\r\022\n\n\006OP_DIV\020\016\022\n\n\006OP_MO" +
+      "D\020\017\022\n\n\006OP_INC\020\020\022\n\n\006OP_DEC\020\021\022\016\n\nBIT_LSHIF" +
+      "T\020\022\022\016\n\nBIT_RSHIFT\020\023\022\026\n\022BIT_UNSIGNEDRSHIF" +
+      "T\020\024\022\013\n\007BIT_AND\020\025\022\n\n\006BIT_OR\020\026\022\013\n\007BIT_NOT\020" +
+      "\027\022\013\n\007BIT_XOR\020\030\022\017\n\013LOGICAL_NOT\020\031\022\017\n\013LOGIC" +
+      "AL_AND\020\032\022\016\n\nLOGICAL_OR\020\033\022\006\n\002EQ\020\034\022\007\n\003NEQ\020" +
+      "\035\022\006\n\002LT\020\036\022\006\n\002GT\020\037\022\010\n\004LTEQ\020 \022\010\n\004GTEQ\020!\022\017\n",
+      "\013CONDITIONAL\020\"\022\020\n\014NULLCOALESCE\020#\022\n\n\006ASSI" +
+      "GN\020$\022\016\n\nASSIGN_ADD\020%\022\016\n\nASSIGN_SUB\020&\022\017\n\013" +
+      "ASSIGN_MULT\020\'\022\016\n\nASSIGN_DIV\020(\022\016\n\nASSIGN_" +
+      "MOD\020)\022\021\n\rASSIGN_BITXOR\020*\022\021\n\rASSIGN_BITAN" +
+      "D\020+\022\020\n\014ASSIGN_BITOR\020,\022\021\n\rASSIGN_LSHIFT\020-" +
+      "\022\021\n\rASSIGN_RSHIFT\020.\022\031\n\025ASSIGN_UNSIGNEDRS" +
+      "HIFT\020/\022\016\n\nANNOTATION\0200\"\251\003\n\010Modifier\022.\n\004k" +
+      "ind\030\001 \002(\0162 .boa.types.Modifier.ModifierK" +
+      "ind\0222\n\nvisibility\030\002 \001(\0162\036.boa.types.Modi" +
+      "fier.Visibility\022\027\n\017annotation_name\030\003 \001(\t",
+      "\022\032\n\022annotation_members\030\004 \003(\t\0220\n\021annotati" +
+      "on_values\030\005 \003(\0132\025.boa.types.Expression\022\r" +
+      "\n\005other\030\006 \001(\t\"~\n\014ModifierKind\022\t\n\005OTHER\020\000" +
+      "\022\016\n\nVISIBILITY\020\001\022\016\n\nANNOTATION\020\002\022\t\n\005FINA" +
+      "L\020\003\022\n\n\006STATIC\020\004\022\020\n\014SYNCHRONIZED\020\005\022\010\n\004SYN" +
+      "C\020\005\022\014\n\010ABSTRACT\020\006\032\002\020\001\"C\n\nVisibility\022\n\n\006P" +
+      "UBLIC\020\001\022\013\n\007PRIVATE\020\002\022\r\n\tPROTECTED\020\003\022\r\n\tN" +
+      "AMESPACE\020\004\"\335\001\n\007Comment\022,\n\004kind\030\001 \002(\0162\036.b" +
+      "oa.types.Comment.CommentKind\022\r\n\005value\030\002 " +
+      "\002(\t\022)\n\010position\030\003 \002(\0132\027.boa.types.Positi",
+      "onInfo\"j\n\013CommentKind\022\t\n\005OTHER\020\000\022\010\n\004LINE" +
+      "\020\001\022\t\n\005BLOCK\020\002\022\007\n\003DOC\020\003\022\021\n\rDOCUMENTATION\020" +
+      "\003\022\010\n\004SPEC\020\004\022\021\n\rSPECIFICATION\020\004\032\002\020\001\"{\n\014Po" +
+      "sitionInfo\022\021\n\tstart_pos\030\001 \002(\005\022\016\n\006length\030" +
+      "\002 \002(\005\022\022\n\nstart_line\030\003 \002(\005\022\021\n\tstart_col\030\004" +
+      " \002(\005\022\020\n\010end_line\030\005 \002(\005\022\017\n\007end_col\030\006 \002(\005*" +
+      "\236\001\n\010TypeKind\022\t\n\005OTHER\020\000\022\t\n\005CLASS\020\001\022\r\n\tIN" +
+      "TERFACE\020\002\022\r\n\tANONYMOUS\020\003\022\010\n\004ANON\020\003\022\n\n\006ST" +
+      "RUCT\020\004\022\010\n\004ENUM\020\005\022\017\n\013ENUMERATION\020\005\022\016\n\nANN" +
+      "OTATION\020\006\022\014\n\010DELEGATE\020\007\022\013\n\007GENERIC\020\010\032\002\020\001",
+      "B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
+      new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
+        public com.google.protobuf.ExtensionRegistry assignDescriptors(
+            com.google.protobuf.Descriptors.FileDescriptor root) {
+          descriptor = root;
+          internal_static_boa_types_CommentsRoot_descriptor =
+            getDescriptor().getMessageTypes().get(0);
+          internal_static_boa_types_CommentsRoot_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_boa_types_CommentsRoot_descriptor,
+              new java.lang.String[] { "Comments", });
+          internal_static_boa_types_ASTRoot_descriptor =
+            getDescriptor().getMessageTypes().get(1);
+          internal_static_boa_types_ASTRoot_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_boa_types_ASTRoot_descriptor,
+              new java.lang.String[] { "Namespaces", "Imports", "Names", });
+          internal_static_boa_types_Namespace_descriptor =
+            getDescriptor().getMessageTypes().get(2);
+          internal_static_boa_types_Namespace_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_boa_types_Namespace_descriptor,
+              new java.lang.String[] { "Name", "Modifiers", "Declarations", });
+          internal_static_boa_types_Declaration_descriptor =
+            getDescriptor().getMessageTypes().get(3);
+          internal_static_boa_types_Declaration_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_boa_types_Declaration_descriptor,
+              new java.lang.String[] { "Name", "Kind", "Modifiers", "GenericParameters", "Parents", "Methods", "Fields", "NestedDeclarations", "Comments", });
+          internal_static_boa_types_Type_descriptor =
+            getDescriptor().getMessageTypes().get(4);
+          internal_static_boa_types_Type_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_boa_types_Type_descriptor,
+              new java.lang.String[] { "Kind", "Name", "QualifiedName", });
+          internal_static_boa_types_Method_descriptor =
+            getDescriptor().getMessageTypes().get(5);
+          internal_static_boa_types_Method_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_boa_types_Method_descriptor,
+              new java.lang.String[] { "Name", "Modifiers", "ReturnType", "GenericParameters", "Arguments", "ExceptionTypes", "Statements", "Comments", });
+          internal_static_boa_types_Variable_descriptor =
+            getDescriptor().getMessageTypes().get(6);
+          internal_static_boa_types_Variable_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_boa_types_Variable_descriptor,
+              new java.lang.String[] { "Name", "VariableType", "Modifiers", "Initializer", "Comments", });
+          internal_static_boa_types_Statement_descriptor =
+            getDescriptor().getMessageTypes().get(7);
+          internal_static_boa_types_Statement_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_boa_types_Statement_descriptor,
+              new java.lang.String[] { "Kind", "Comments", "Statements", "Initializations", "Condition", "Updates", "VariableDeclaration", "TypeDeclaration", "Expression", });
+          internal_static_boa_types_Expression_descriptor =
+            getDescriptor().getMessageTypes().get(8);
+          internal_static_boa_types_Expression_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_boa_types_Expression_descriptor,
+              new java.lang.String[] { "Kind", "Expressions", "VariableDecls", "NewType", "GenericParameters", "IsPostfix", "Literal", "Variable", "Method", "MethodArgs", "AnonDeclaration", "Annotation", });
+          internal_static_boa_types_Modifier_descriptor =
+            getDescriptor().getMessageTypes().get(9);
+          internal_static_boa_types_Modifier_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_boa_types_Modifier_descriptor,
+              new java.lang.String[] { "Kind", "Visibility", "AnnotationName", "AnnotationMembers", "AnnotationValues", "Other", });
+          internal_static_boa_types_Comment_descriptor =
+            getDescriptor().getMessageTypes().get(10);
+          internal_static_boa_types_Comment_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_boa_types_Comment_descriptor,
+              new java.lang.String[] { "Kind", "Value", "Position", });
+          internal_static_boa_types_PositionInfo_descriptor =
+            getDescriptor().getMessageTypes().get(11);
+          internal_static_boa_types_PositionInfo_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_boa_types_PositionInfo_descriptor,
+              new java.lang.String[] { "StartPos", "Length", "StartLine", "StartCol", "EndLine", "EndCol", });
+          return null;
+        }
+      };
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_boa_types_CommentsRoot_descriptor =
-      getDescriptor().getMessageTypes().get(0);
-    internal_static_boa_types_CommentsRoot_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_boa_types_CommentsRoot_descriptor,
-        new java.lang.String[] { "Comments", });
-    internal_static_boa_types_ASTRoot_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_boa_types_ASTRoot_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_boa_types_ASTRoot_descriptor,
-        new java.lang.String[] { "Namespaces", "Imports", "Names", });
-    internal_static_boa_types_Namespace_descriptor =
-      getDescriptor().getMessageTypes().get(2);
-    internal_static_boa_types_Namespace_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_boa_types_Namespace_descriptor,
-        new java.lang.String[] { "Name", "Modifiers", "Declarations", });
-    internal_static_boa_types_Declaration_descriptor =
-      getDescriptor().getMessageTypes().get(3);
-    internal_static_boa_types_Declaration_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_boa_types_Declaration_descriptor,
-        new java.lang.String[] { "Name", "Kind", "Modifiers", "GenericParameters", "Parents", "Methods", "Fields", "NestedDeclarations", "Comments", });
-    internal_static_boa_types_Type_descriptor =
-      getDescriptor().getMessageTypes().get(4);
-    internal_static_boa_types_Type_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_boa_types_Type_descriptor,
-        new java.lang.String[] { "Name", "Kind", "Id", });
-    internal_static_boa_types_Method_descriptor =
-      getDescriptor().getMessageTypes().get(5);
-    internal_static_boa_types_Method_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_boa_types_Method_descriptor,
-        new java.lang.String[] { "Name", "Modifiers", "ReturnType", "GenericParameters", "Arguments", "ExceptionTypes", "Statements", "Comments", });
-    internal_static_boa_types_Variable_descriptor =
-      getDescriptor().getMessageTypes().get(6);
-    internal_static_boa_types_Variable_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_boa_types_Variable_descriptor,
-        new java.lang.String[] { "Name", "VariableType", "Modifiers", "Initializer", "Comments", });
-    internal_static_boa_types_Statement_descriptor =
-      getDescriptor().getMessageTypes().get(7);
-    internal_static_boa_types_Statement_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_boa_types_Statement_descriptor,
-        new java.lang.String[] { "Kind", "Comments", "Statements", "Initializations", "Condition", "Updates", "VariableDeclaration", "TypeDeclaration", "Expression", });
-    internal_static_boa_types_Expression_descriptor =
-      getDescriptor().getMessageTypes().get(8);
-    internal_static_boa_types_Expression_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_boa_types_Expression_descriptor,
-        new java.lang.String[] { "Kind", "Expressions", "VariableDecls", "NewType", "GenericParameters", "IsPostfix", "Literal", "Variable", "Method", "MethodArgs", "AnonDeclaration", "Annotation", });
-    internal_static_boa_types_Modifier_descriptor =
-      getDescriptor().getMessageTypes().get(9);
-    internal_static_boa_types_Modifier_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_boa_types_Modifier_descriptor,
-        new java.lang.String[] { "Kind", "Visibility", "AnnotationName", "AnnotationMembers", "AnnotationValues", "Other", });
-    internal_static_boa_types_Comment_descriptor =
-      getDescriptor().getMessageTypes().get(10);
-    internal_static_boa_types_Comment_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_boa_types_Comment_descriptor,
-        new java.lang.String[] { "Kind", "Value", "Position", });
-    internal_static_boa_types_PositionInfo_descriptor =
-      getDescriptor().getMessageTypes().get(11);
-    internal_static_boa_types_PositionInfo_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_boa_types_PositionInfo_descriptor,
-        new java.lang.String[] { "StartPos", "Length", "StartLine", "StartCol", "EndLine", "EndCol", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

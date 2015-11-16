@@ -1,0 +1,39 @@
+package boa.types;
+
+import "diff.proto";
+import "shared.proto";
+
+option optimize_for = SPEED;
+
+message CodeRepository {
+	required string url = 1;
+	enum RepositoryKind {
+		option allow_alias = true;
+		OTHER = 0;
+		SVN = 1;
+		SUBVERSION = 1;
+		CVS = 2;
+		GIT = 3;
+		HG = 4;
+		MERCURIAL = 4;
+		BZR = 5;
+		BAZAAR = 5;
+	}
+	required RepositoryKind kind = 2;
+	repeated Revision revisions = 3;
+	repeated int32 branches = 4;
+	repeated string branch_names = 5;
+	repeated int32 tags = 6;
+	repeated string tag_names = 7;
+}
+
+message Revision {
+	required string id = 1;
+	required Person author = 2;
+	required Person committer = 3;
+	required uint64 commit_date = 4;
+	required string log = 5;
+	repeated ChangedFile files = 6;
+	repeated int32 parents = 7;
+	repeated int32 children = 8;
+}
