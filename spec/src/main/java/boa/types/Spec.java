@@ -8,10 +8,10 @@ public final class Spec {
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
   }
-  public interface SpecificationOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:boa.types.Specification)
-      com.google.protobuf.MessageOrBuilder {
+  public interface SpecificationOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
 
+    // required string sequence_file = 1;
     /**
      * <code>required string sequence_file = 1;</code>
      *
@@ -41,6 +41,7 @@ public final class Spec {
     com.google.protobuf.ByteString
         getSequenceFileBytes();
 
+    // required int64 sequence_file_pos = 2;
     /**
      * <code>required int64 sequence_file_pos = 2;</code>
      */
@@ -50,6 +51,7 @@ public final class Spec {
      */
     long getSequenceFilePos();
 
+    // required bool is_exceptional = 3;
     /**
      * <code>required bool is_exceptional = 3;</code>
      */
@@ -59,6 +61,7 @@ public final class Spec {
      */
     boolean getIsExceptional();
 
+    // repeated .boa.types.SpecExpression preconditions = 4;
     /**
      * <code>repeated .boa.types.SpecExpression preconditions = 4;</code>
      */
@@ -83,6 +86,7 @@ public final class Spec {
     boa.types.Spec.SpecExpressionOrBuilder getPreconditionsOrBuilder(
         int index);
 
+    // repeated .boa.types.SpecExpression postconditions = 5;
     /**
      * <code>repeated .boa.types.SpecExpression postconditions = 5;</code>
      */
@@ -107,11 +111,12 @@ public final class Spec {
     boa.types.Spec.SpecExpressionOrBuilder getPostconditionsOrBuilder(
         int index);
 
+    // repeated string assignable_fields = 6;
     /**
      * <code>repeated string assignable_fields = 6;</code>
      */
-    com.google.protobuf.ProtocolStringList
-        getAssignableFieldsList();
+    java.util.List<java.lang.String>
+    getAssignableFieldsList();
     /**
      * <code>repeated string assignable_fields = 6;</code>
      */
@@ -126,11 +131,12 @@ public final class Spec {
     com.google.protobuf.ByteString
         getAssignableFieldsBytes(int index);
 
+    // repeated string exception_types = 7;
     /**
      * <code>repeated string exception_types = 7;</code>
      */
-    com.google.protobuf.ProtocolStringList
-        getExceptionTypesList();
+    java.util.List<java.lang.String>
+    getExceptionTypesList();
     /**
      * <code>repeated string exception_types = 7;</code>
      */
@@ -149,9 +155,8 @@ public final class Spec {
    * Protobuf type {@code boa.types.Specification}
    */
   public static final class Specification extends
-      com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:boa.types.Specification)
-      SpecificationOrBuilder {
+      com.google.protobuf.GeneratedMessage
+      implements SpecificationOrBuilder {
     // Use Specification.newBuilder() to construct.
     private Specification(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -198,9 +203,8 @@ public final class Spec {
               break;
             }
             case 10: {
-              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
-              sequenceFile_ = bs;
+              sequenceFile_ = input.readBytes();
               break;
             }
             case 16: {
@@ -230,21 +234,19 @@ public final class Spec {
               break;
             }
             case 50: {
-              com.google.protobuf.ByteString bs = input.readBytes();
               if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
                 assignableFields_ = new com.google.protobuf.LazyStringArrayList();
                 mutable_bitField0_ |= 0x00000020;
               }
-              assignableFields_.add(bs);
+              assignableFields_.add(input.readBytes());
               break;
             }
             case 58: {
-              com.google.protobuf.ByteString bs = input.readBytes();
               if (!((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
                 exceptionTypes_ = new com.google.protobuf.LazyStringArrayList();
                 mutable_bitField0_ |= 0x00000040;
               }
-              exceptionTypes_.add(bs);
+              exceptionTypes_.add(input.readBytes());
               break;
             }
           }
@@ -262,10 +264,10 @@ public final class Spec {
           postconditions_ = java.util.Collections.unmodifiableList(postconditions_);
         }
         if (((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
-          assignableFields_ = assignableFields_.getUnmodifiableView();
+          assignableFields_ = new com.google.protobuf.UnmodifiableLazyStringList(assignableFields_);
         }
         if (((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
-          exceptionTypes_ = exceptionTypes_.getUnmodifiableView();
+          exceptionTypes_ = new com.google.protobuf.UnmodifiableLazyStringList(exceptionTypes_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -299,6 +301,7 @@ public final class Spec {
     }
 
     private int bitField0_;
+    // required string sequence_file = 1;
     public static final int SEQUENCE_FILE_FIELD_NUMBER = 1;
     private java.lang.Object sequenceFile_;
     /**
@@ -356,6 +359,7 @@ public final class Spec {
       }
     }
 
+    // required int64 sequence_file_pos = 2;
     public static final int SEQUENCE_FILE_POS_FIELD_NUMBER = 2;
     private long sequenceFilePos_;
     /**
@@ -371,6 +375,7 @@ public final class Spec {
       return sequenceFilePos_;
     }
 
+    // required bool is_exceptional = 3;
     public static final int IS_EXCEPTIONAL_FIELD_NUMBER = 3;
     private boolean isExceptional_;
     /**
@@ -386,6 +391,7 @@ public final class Spec {
       return isExceptional_;
     }
 
+    // repeated .boa.types.SpecExpression preconditions = 4;
     public static final int PRECONDITIONS_FIELD_NUMBER = 4;
     private java.util.List<boa.types.Spec.SpecExpression> preconditions_;
     /**
@@ -421,6 +427,7 @@ public final class Spec {
       return preconditions_.get(index);
     }
 
+    // repeated .boa.types.SpecExpression postconditions = 5;
     public static final int POSTCONDITIONS_FIELD_NUMBER = 5;
     private java.util.List<boa.types.Spec.SpecExpression> postconditions_;
     /**
@@ -456,12 +463,13 @@ public final class Spec {
       return postconditions_.get(index);
     }
 
+    // repeated string assignable_fields = 6;
     public static final int ASSIGNABLE_FIELDS_FIELD_NUMBER = 6;
     private com.google.protobuf.LazyStringList assignableFields_;
     /**
      * <code>repeated string assignable_fields = 6;</code>
      */
-    public com.google.protobuf.ProtocolStringList
+    public java.util.List<java.lang.String>
         getAssignableFieldsList() {
       return assignableFields_;
     }
@@ -485,12 +493,13 @@ public final class Spec {
       return assignableFields_.getByteString(index);
     }
 
+    // repeated string exception_types = 7;
     public static final int EXCEPTION_TYPES_FIELD_NUMBER = 7;
     private com.google.protobuf.LazyStringList exceptionTypes_;
     /**
      * <code>repeated string exception_types = 7;</code>
      */
-    public com.google.protobuf.ProtocolStringList
+    public java.util.List<java.lang.String>
         getExceptionTypesList() {
       return exceptionTypes_;
     }
@@ -526,8 +535,7 @@ public final class Spec {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
+      if (isInitialized != -1) return isInitialized == 1;
 
       if (!hasSequenceFile()) {
         memoizedIsInitialized = 0;
@@ -710,9 +718,8 @@ public final class Spec {
      * Protobuf type {@code boa.types.Specification}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:boa.types.Specification)
-        boa.types.Spec.SpecificationOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements boa.types.Spec.SpecificationOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return boa.types.Spec.internal_static_boa_types_Specification_descriptor;
@@ -828,12 +835,14 @@ public final class Spec {
           result.postconditions_ = postconditionsBuilder_.build();
         }
         if (((bitField0_ & 0x00000020) == 0x00000020)) {
-          assignableFields_ = assignableFields_.getUnmodifiableView();
+          assignableFields_ = new com.google.protobuf.UnmodifiableLazyStringList(
+              assignableFields_);
           bitField0_ = (bitField0_ & ~0x00000020);
         }
         result.assignableFields_ = assignableFields_;
         if (((bitField0_ & 0x00000040) == 0x00000040)) {
-          exceptionTypes_ = exceptionTypes_.getUnmodifiableView();
+          exceptionTypes_ = new com.google.protobuf.UnmodifiableLazyStringList(
+              exceptionTypes_);
           bitField0_ = (bitField0_ & ~0x00000040);
         }
         result.exceptionTypes_ = exceptionTypes_;
@@ -987,6 +996,7 @@ public final class Spec {
       }
       private int bitField0_;
 
+      // required string sequence_file = 1;
       private java.lang.Object sequenceFile_ = "";
       /**
        * <code>required string sequence_file = 1;</code>
@@ -1010,12 +1020,9 @@ public final class Spec {
       public java.lang.String getSequenceFile() {
         java.lang.Object ref = sequenceFile_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            sequenceFile_ = s;
-          }
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          sequenceFile_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -1093,6 +1100,7 @@ public final class Spec {
         return this;
       }
 
+      // required int64 sequence_file_pos = 2;
       private long sequenceFilePos_ ;
       /**
        * <code>required int64 sequence_file_pos = 2;</code>
@@ -1125,6 +1133,7 @@ public final class Spec {
         return this;
       }
 
+      // required bool is_exceptional = 3;
       private boolean isExceptional_ ;
       /**
        * <code>required bool is_exceptional = 3;</code>
@@ -1157,6 +1166,7 @@ public final class Spec {
         return this;
       }
 
+      // repeated .boa.types.SpecExpression preconditions = 4;
       private java.util.List<boa.types.Spec.SpecExpression> preconditions_ =
         java.util.Collections.emptyList();
       private void ensurePreconditionsIsMutable() {
@@ -1298,8 +1308,7 @@ public final class Spec {
           java.lang.Iterable<? extends boa.types.Spec.SpecExpression> values) {
         if (preconditionsBuilder_ == null) {
           ensurePreconditionsIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, preconditions_);
+          super.addAll(values, preconditions_);
           onChanged();
         } else {
           preconditionsBuilder_.addAllMessages(values);
@@ -1397,6 +1406,7 @@ public final class Spec {
         return preconditionsBuilder_;
       }
 
+      // repeated .boa.types.SpecExpression postconditions = 5;
       private java.util.List<boa.types.Spec.SpecExpression> postconditions_ =
         java.util.Collections.emptyList();
       private void ensurePostconditionsIsMutable() {
@@ -1538,8 +1548,7 @@ public final class Spec {
           java.lang.Iterable<? extends boa.types.Spec.SpecExpression> values) {
         if (postconditionsBuilder_ == null) {
           ensurePostconditionsIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, postconditions_);
+          super.addAll(values, postconditions_);
           onChanged();
         } else {
           postconditionsBuilder_.addAllMessages(values);
@@ -1637,6 +1646,7 @@ public final class Spec {
         return postconditionsBuilder_;
       }
 
+      // repeated string assignable_fields = 6;
       private com.google.protobuf.LazyStringList assignableFields_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureAssignableFieldsIsMutable() {
         if (!((bitField0_ & 0x00000020) == 0x00000020)) {
@@ -1647,9 +1657,9 @@ public final class Spec {
       /**
        * <code>repeated string assignable_fields = 6;</code>
        */
-      public com.google.protobuf.ProtocolStringList
+      public java.util.List<java.lang.String>
           getAssignableFieldsList() {
-        return assignableFields_.getUnmodifiableView();
+        return java.util.Collections.unmodifiableList(assignableFields_);
       }
       /**
        * <code>repeated string assignable_fields = 6;</code>
@@ -1702,8 +1712,7 @@ public final class Spec {
       public Builder addAllAssignableFields(
           java.lang.Iterable<java.lang.String> values) {
         ensureAssignableFieldsIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, assignableFields_);
+        super.addAll(values, assignableFields_);
         onChanged();
         return this;
       }
@@ -1730,6 +1739,7 @@ public final class Spec {
         return this;
       }
 
+      // repeated string exception_types = 7;
       private com.google.protobuf.LazyStringList exceptionTypes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureExceptionTypesIsMutable() {
         if (!((bitField0_ & 0x00000040) == 0x00000040)) {
@@ -1740,9 +1750,9 @@ public final class Spec {
       /**
        * <code>repeated string exception_types = 7;</code>
        */
-      public com.google.protobuf.ProtocolStringList
+      public java.util.List<java.lang.String>
           getExceptionTypesList() {
-        return exceptionTypes_.getUnmodifiableView();
+        return java.util.Collections.unmodifiableList(exceptionTypes_);
       }
       /**
        * <code>repeated string exception_types = 7;</code>
@@ -1795,8 +1805,7 @@ public final class Spec {
       public Builder addAllExceptionTypes(
           java.lang.Iterable<java.lang.String> values) {
         ensureExceptionTypesIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, exceptionTypes_);
+        super.addAll(values, exceptionTypes_);
         onChanged();
         return this;
       }
@@ -1834,10 +1843,10 @@ public final class Spec {
     // @@protoc_insertion_point(class_scope:boa.types.Specification)
   }
 
-  public interface SpecExpressionOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:boa.types.SpecExpression)
-      com.google.protobuf.MessageOrBuilder {
+  public interface SpecExpressionOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
 
+    // required .boa.types.SpecExpression.SpecExpressionType type = 1;
     /**
      * <code>required .boa.types.SpecExpression.SpecExpressionType type = 1;</code>
      */
@@ -1847,6 +1856,7 @@ public final class Spec {
      */
     boa.types.Spec.SpecExpression.SpecExpressionType getType();
 
+    // optional .boa.types.SpecExpression.Quantifier quantifier = 2;
     /**
      * <code>optional .boa.types.SpecExpression.Quantifier quantifier = 2;</code>
      */
@@ -1856,6 +1866,7 @@ public final class Spec {
      */
     boa.types.Spec.SpecExpression.Quantifier getQuantifier();
 
+    // optional .boa.types.SpecExpression quantified_scope = 3;
     /**
      * <code>optional .boa.types.SpecExpression quantified_scope = 3;</code>
      */
@@ -1869,6 +1880,7 @@ public final class Spec {
      */
     boa.types.Spec.SpecExpressionOrBuilder getQuantifiedScopeOrBuilder();
 
+    // repeated .boa.types.SpecExpression subexpressions = 4;
     /**
      * <code>repeated .boa.types.SpecExpression subexpressions = 4;</code>
      */
@@ -1893,6 +1905,7 @@ public final class Spec {
     boa.types.Spec.SpecExpressionOrBuilder getSubexpressionsOrBuilder(
         int index);
 
+    // optional string value = 5;
     /**
      * <code>optional string value = 5;</code>
      */
@@ -1911,9 +1924,8 @@ public final class Spec {
    * Protobuf type {@code boa.types.SpecExpression}
    */
   public static final class SpecExpression extends
-      com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:boa.types.SpecExpression)
-      SpecExpressionOrBuilder {
+      com.google.protobuf.GeneratedMessage
+      implements SpecExpressionOrBuilder {
     // Use SpecExpression.newBuilder() to construct.
     private SpecExpression(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -2003,9 +2015,8 @@ public final class Spec {
               break;
             }
             case 42: {
-              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000008;
-              value_ = bs;
+              value_ = input.readBytes();
               break;
             }
           }
@@ -2536,6 +2547,7 @@ public final class Spec {
     }
 
     private int bitField0_;
+    // required .boa.types.SpecExpression.SpecExpressionType type = 1;
     public static final int TYPE_FIELD_NUMBER = 1;
     private boa.types.Spec.SpecExpression.SpecExpressionType type_;
     /**
@@ -2551,6 +2563,7 @@ public final class Spec {
       return type_;
     }
 
+    // optional .boa.types.SpecExpression.Quantifier quantifier = 2;
     public static final int QUANTIFIER_FIELD_NUMBER = 2;
     private boa.types.Spec.SpecExpression.Quantifier quantifier_;
     /**
@@ -2566,6 +2579,7 @@ public final class Spec {
       return quantifier_;
     }
 
+    // optional .boa.types.SpecExpression quantified_scope = 3;
     public static final int QUANTIFIED_SCOPE_FIELD_NUMBER = 3;
     private boa.types.Spec.SpecExpression quantifiedScope_;
     /**
@@ -2587,6 +2601,7 @@ public final class Spec {
       return quantifiedScope_;
     }
 
+    // repeated .boa.types.SpecExpression subexpressions = 4;
     public static final int SUBEXPRESSIONS_FIELD_NUMBER = 4;
     private java.util.List<boa.types.Spec.SpecExpression> subexpressions_;
     /**
@@ -2622,6 +2637,7 @@ public final class Spec {
       return subexpressions_.get(index);
     }
 
+    // optional string value = 5;
     public static final int VALUE_FIELD_NUMBER = 5;
     private java.lang.Object value_;
     /**
@@ -2674,8 +2690,7 @@ public final class Spec {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
+      if (isInitialized != -1) return isInitialized == 1;
 
       if (!hasType()) {
         memoizedIsInitialized = 0;
@@ -2826,9 +2841,8 @@ public final class Spec {
      * Protobuf type {@code boa.types.SpecExpression}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:boa.types.SpecExpression)
-        boa.types.Spec.SpecExpressionOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements boa.types.Spec.SpecExpressionOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return boa.types.Spec.internal_static_boa_types_SpecExpression_descriptor;
@@ -3037,6 +3051,7 @@ public final class Spec {
       }
       private int bitField0_;
 
+      // required .boa.types.SpecExpression.SpecExpressionType type = 1;
       private boa.types.Spec.SpecExpression.SpecExpressionType type_ = boa.types.Spec.SpecExpression.SpecExpressionType.QUANTIFIED;
       /**
        * <code>required .boa.types.SpecExpression.SpecExpressionType type = 1;</code>
@@ -3072,6 +3087,7 @@ public final class Spec {
         return this;
       }
 
+      // optional .boa.types.SpecExpression.Quantifier quantifier = 2;
       private boa.types.Spec.SpecExpression.Quantifier quantifier_ = boa.types.Spec.SpecExpression.Quantifier.FORALL;
       /**
        * <code>optional .boa.types.SpecExpression.Quantifier quantifier = 2;</code>
@@ -3107,6 +3123,7 @@ public final class Spec {
         return this;
       }
 
+      // optional .boa.types.SpecExpression quantified_scope = 3;
       private boa.types.Spec.SpecExpression quantifiedScope_ = boa.types.Spec.SpecExpression.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           boa.types.Spec.SpecExpression, boa.types.Spec.SpecExpression.Builder, boa.types.Spec.SpecExpressionOrBuilder> quantifiedScopeBuilder_;
@@ -3215,7 +3232,7 @@ public final class Spec {
         if (quantifiedScopeBuilder_ == null) {
           quantifiedScopeBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               boa.types.Spec.SpecExpression, boa.types.Spec.SpecExpression.Builder, boa.types.Spec.SpecExpressionOrBuilder>(
-                  getQuantifiedScope(),
+                  quantifiedScope_,
                   getParentForChildren(),
                   isClean());
           quantifiedScope_ = null;
@@ -3223,6 +3240,7 @@ public final class Spec {
         return quantifiedScopeBuilder_;
       }
 
+      // repeated .boa.types.SpecExpression subexpressions = 4;
       private java.util.List<boa.types.Spec.SpecExpression> subexpressions_ =
         java.util.Collections.emptyList();
       private void ensureSubexpressionsIsMutable() {
@@ -3364,8 +3382,7 @@ public final class Spec {
           java.lang.Iterable<? extends boa.types.Spec.SpecExpression> values) {
         if (subexpressionsBuilder_ == null) {
           ensureSubexpressionsIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, subexpressions_);
+          super.addAll(values, subexpressions_);
           onChanged();
         } else {
           subexpressionsBuilder_.addAllMessages(values);
@@ -3463,6 +3480,7 @@ public final class Spec {
         return subexpressionsBuilder_;
       }
 
+      // optional string value = 5;
       private java.lang.Object value_ = "";
       /**
        * <code>optional string value = 5;</code>
@@ -3476,12 +3494,9 @@ public final class Spec {
       public java.lang.String getValue() {
         java.lang.Object ref = value_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            value_ = s;
-          }
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          value_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -3550,12 +3565,12 @@ public final class Spec {
     // @@protoc_insertion_point(class_scope:boa.types.SpecExpression)
   }
 
-  private static final com.google.protobuf.Descriptors.Descriptor
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_boa_types_Specification_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_boa_types_Specification_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_boa_types_SpecExpression_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -3598,29 +3613,29 @@ public final class Spec {
       "\022\013\n\007JML_MIN\020\005B\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
+      new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
+        public com.google.protobuf.ExtensionRegistry assignDescriptors(
+            com.google.protobuf.Descriptors.FileDescriptor root) {
+          descriptor = root;
+          internal_static_boa_types_Specification_descriptor =
+            getDescriptor().getMessageTypes().get(0);
+          internal_static_boa_types_Specification_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_boa_types_Specification_descriptor,
+              new java.lang.String[] { "SequenceFile", "SequenceFilePos", "IsExceptional", "Preconditions", "Postconditions", "AssignableFields", "ExceptionTypes", });
+          internal_static_boa_types_SpecExpression_descriptor =
+            getDescriptor().getMessageTypes().get(1);
+          internal_static_boa_types_SpecExpression_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_boa_types_SpecExpression_descriptor,
+              new java.lang.String[] { "Type", "Quantifier", "QuantifiedScope", "Subexpressions", "Value", });
+          return null;
+        }
+      };
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_boa_types_Specification_descriptor =
-      getDescriptor().getMessageTypes().get(0);
-    internal_static_boa_types_Specification_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_boa_types_Specification_descriptor,
-        new java.lang.String[] { "SequenceFile", "SequenceFilePos", "IsExceptional", "Preconditions", "Postconditions", "AssignableFields", "ExceptionTypes", });
-    internal_static_boa_types_SpecExpression_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_boa_types_SpecExpression_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_boa_types_SpecExpression_descriptor,
-        new java.lang.String[] { "Type", "Quantifier", "QuantifiedScope", "Subexpressions", "Value", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
