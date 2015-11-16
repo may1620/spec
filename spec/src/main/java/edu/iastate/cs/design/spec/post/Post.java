@@ -9,8 +9,11 @@ import edu.iastate.cs.design.spec.stackexchange.request.StackExchangeRequester;
 
 import javax.persistence.EntityManager;
 
+import org.apache.http.client.ClientProtocolException;
 import org.jasypt.encryption.pbe.StandardPBEStringEncryptor;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -34,11 +37,17 @@ public class Post {
         this.openQuestionsDao = openQuestionsDao;
     }
 
-    public void run() throws Exception {
+    public void run() throws ClientProtocolException, IOException, URISyntaxException {
         Specification pendingSpecification = specificationDao.removeNextPendingSpecification();
         QuestionAddRequestData requestData = createQuestionAddRequestData(pendingSpecification);
-        QuestionDTO question = stackExchangeRequester.postQuestion(requestData);
-        openQuestionsDao.insertQuestion(question.getQuestionId());
+        QuestionDTO question;
+		try {
+			question = stackExchangeRequester.postQuestion(requestData);
+			openQuestionsDao.insertQuestion(question.getQuestionId());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+        
     }
 
     private QuestionAddRequestData createQuestionAddRequestData(Specification pendingSpecification) {
@@ -111,8 +120,7 @@ public class Post {
     }
 
     // Entry point
-    // TODO this wasn't compiling so I quickly hacked it to make it compile, make sure changes are okay
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws ClientProtocolException, IOException, URISyntaxException {
         EntityManager entityManager = FactoryStartup.getAnEntityManager();
         ISpecificationDao specificationDao = new SpecificationDao(entityManager);
         IQuestionDao questionsDao = new QuestionDao(entityManager);

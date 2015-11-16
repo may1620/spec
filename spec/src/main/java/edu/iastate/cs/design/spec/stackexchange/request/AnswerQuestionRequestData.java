@@ -1,6 +1,7 @@
 package edu.iastate.cs.design.spec.stackexchange.request;
 
 import java.net.URI;
+import java.net.URISyntaxException;
 
 public class AnswerQuestionRequestData implements IStackExchangeRequestData {
 
@@ -32,9 +33,7 @@ public class AnswerQuestionRequestData implements IStackExchangeRequestData {
         return accessToken;
     }
 
-    // TODO this wasn't compiling so I quickly hacked it to make it compile, make sure changes are okay
-    public URI requestUrl() {
-        //return "https://api.stackexchange.com/2.2/questions/" + id + "/answers/add";
-        return null;
+    public URI requestUrl() throws URISyntaxException {
+        return new URI("https://api.stackexchange.com/2.2/questions/" + id + "/answers/add");
     }
 }

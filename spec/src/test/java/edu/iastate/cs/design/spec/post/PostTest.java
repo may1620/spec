@@ -9,17 +9,19 @@ import edu.iastate.cs.design.spec.stackexchange.request.AnswerQuestionRequestDat
 import edu.iastate.cs.design.spec.stackexchange.request.IStackExchangeRequester;
 import edu.iastate.cs.design.spec.stackexchange.request.MockStackExchangeRequester;
 import edu.iastate.cs.design.spec.stackexchange.request.QuestionAnswersRequestData;
+
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.Arrays;
 import java.util.List;
 
 public class PostTest {
 
     @Test
-    public void basicTest() throws Exception {
+    public void basicTest() throws IOException {
         List<String> approxPreconditions = Arrays.asList("items != null", "items.length > 0");
         List<String> approxPostconditions = Arrays.asList("items != null", "items.length == \\old(items.length)");
         List<String> formals = Arrays.asList("E item");
@@ -30,7 +32,11 @@ public class PostTest {
         IQuestionDao openQuestionsDao = new MockQuestionDao();
         specificationDao.insertPendingSpecification(pendingSpecification);
         Post postProgram = new Post(specificationDao, stackExchangeRequester, openQuestionsDao);
-        postProgram.run();
+        try {
+			postProgram.run();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
         List<Question> questions = openQuestionsDao.getAllQuestions();
         Assert.assertEquals(1, questions.size());
         int questionId = questions.get(0).getQuestionId();

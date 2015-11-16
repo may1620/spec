@@ -17,7 +17,7 @@ public interface IStackExchangeRequester {
 
     QuestionDTO postQuestion(QuestionAddRequestData requestData) throws ClientProtocolException, IOException, URISyntaxException;
 
-    List<AnswerDTO> getAnswersToQuestion(QuestionAnswersRequestData requestData) throws JSONException, ClientProtocolException, IOException;
+    List<AnswerDTO> getAnswersToQuestion(QuestionAnswersRequestData requestData) throws JSONException, ClientProtocolException, IOException, URISyntaxException;
 
     AnswerDTO postAnswerToQuestion(AnswerQuestionRequestData requestData);
 

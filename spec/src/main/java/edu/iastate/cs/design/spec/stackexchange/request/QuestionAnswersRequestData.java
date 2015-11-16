@@ -1,6 +1,7 @@
 package edu.iastate.cs.design.spec.stackexchange.request;
 
 import java.net.URI;
+import java.net.URISyntaxException;
 
 public class QuestionAnswersRequestData implements IStackExchangeRequestData {
 
@@ -25,8 +26,7 @@ public class QuestionAnswersRequestData implements IStackExchangeRequestData {
         return id;
     }
 
-    // TODO this wasn't compiling so I quickly hacked it to make it compile, make sure changes are okay
-    public URI requestUrl() {
+    public URI requestUrl() throws URISyntaxException {
         StringBuilder requestBuilder = new StringBuilder();
         requestBuilder.append("https://api.stackexchange.com/2.2/questions/");
         requestBuilder.append(id);
@@ -35,7 +35,6 @@ public class QuestionAnswersRequestData implements IStackExchangeRequestData {
         requestBuilder.append("&site=stackoverflow");
         requestBuilder.append("&filter=withbody");
         requestBuilder.append("&key=KW1Do4aYqEdlMNsHpPEHdg((");
-        //return requestBuilder.toString();
-        return null;
+        return new URI(requestBuilder.toString());
     }
 }
