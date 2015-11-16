@@ -35,12 +35,8 @@ public class QuestionAddRequestData implements IStackExchangeRequestData {
         return body;
     }
 
-    public String getTags() {
-    	String formattedTags = "";
-    	for(String tag : tags) {
-    		formattedTags += tag + " ";
-    	}
-        return formattedTags;
+    public List<String> getTags() {
+        return tags;
     }
 
     public String getKey() {
@@ -55,7 +51,11 @@ public class QuestionAddRequestData implements IStackExchangeRequestData {
         URIBuilder uriBuild = new URIBuilder(QUESTION_ADD_URL);
         uriBuild.addParameter("title", getTitle());
         uriBuild.addParameter("body", getBody());
-        uriBuild.addParameter("tags", getTags());
+    	String formattedTags = "";
+    	for(String tag : tags) {
+    		formattedTags += tag + " ";
+    	} 
+        uriBuild.addParameter("tags", formattedTags);
         uriBuild.addParameter("key", getKey());
         uriBuild.addParameter("access_token", getAccessToken());
         return uriBuild.build();

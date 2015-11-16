@@ -1,5 +1,8 @@
 package edu.iastate.cs.design.spec.stackexchange.request;
 
+import java.net.URI;
+import java.net.URISyntaxException;
+
 public class QuestionAnswersRequestData implements IStackExchangeRequestData {
 
     public static final String ACTIVITY_SORT = "activity";
@@ -23,7 +26,7 @@ public class QuestionAnswersRequestData implements IStackExchangeRequestData {
         return id;
     }
 
-    public String requestUrl() {
+    public URI requestUrl() throws URISyntaxException {
         StringBuilder requestBuilder = new StringBuilder();
         requestBuilder.append("https://api.stackexchange.com/2.2/questions/");
         requestBuilder.append(id);
@@ -32,6 +35,6 @@ public class QuestionAnswersRequestData implements IStackExchangeRequestData {
         requestBuilder.append("&site=stackoverflow");
         requestBuilder.append("&filter=withbody");
         requestBuilder.append("&key=KW1Do4aYqEdlMNsHpPEHdg((");
-        return requestBuilder.toString();
+        return new URI(requestBuilder.toString());
     }
 }

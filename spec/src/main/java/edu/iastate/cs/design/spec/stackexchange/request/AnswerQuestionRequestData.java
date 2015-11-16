@@ -1,5 +1,8 @@
 package edu.iastate.cs.design.spec.stackexchange.request;
 
+import java.net.URI;
+import java.net.URISyntaxException;
+
 public class AnswerQuestionRequestData implements IStackExchangeRequestData {
 
     private int id;
@@ -30,7 +33,7 @@ public class AnswerQuestionRequestData implements IStackExchangeRequestData {
         return accessToken;
     }
 
-    public String requestUrl() {
-        return "https://api.stackexchange.com/2.2/questions/" + id + "/answers/add";
+    public URI requestUrl() throws URISyntaxException {
+        return new URI("https://api.stackexchange.com/2.2/questions/" + id + "/answers/add");
     }
 }

@@ -38,9 +38,13 @@ public class StackExchangeRequester implements IStackExchangeRequester {
     	 //TODO it seems that we may not be able to directly get the QuestionDTO info from the JSON response
     }
 
-    public List<AnswerDTO> getAnswersToQuestion(QuestionAnswersRequestData requestData) throws JSONException, ClientProtocolException, IOException {
+    public List<AnswerDTO> getAnswersToQuestion(QuestionAnswersRequestData requestData) throws JSONException, ClientProtocolException, IOException, URISyntaxException {
         ArrayList<AnswerDTO> answers = new ArrayList<AnswerDTO>();
-        httpget = new HttpGet(requestData.requestUrl());
+        try {
+			httpget = new HttpGet(requestData.requestUrl());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
         JSONArray rawAnswers = new JSONObject(httpclient.execute(httpget, responseHandler)).getJSONArray("items");
         for(int i = 0; i < rawAnswers.length(); i++) {
         	AnswerDTO answer = new AnswerDTO(rawAnswers.getJSONObject(i).getString("body"), rawAnswers.getJSONObject(i).getInt("answer_id"), requestData.getId());
