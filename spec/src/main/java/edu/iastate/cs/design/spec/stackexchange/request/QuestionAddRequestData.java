@@ -1,6 +1,10 @@
 package edu.iastate.cs.design.spec.stackexchange.request;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.List;
+
+import org.apache.http.client.utils.URIBuilder;
 
 /**
  * Contains the fields needed to post a question to Stack Exchange.
@@ -31,8 +35,12 @@ public class QuestionAddRequestData implements IStackExchangeRequestData {
         return body;
     }
 
-    public List<String> getTags() {
-        return tags;
+    public String getTags() {
+    	String formattedTags = "";
+    	for(String tag : tags) {
+    		formattedTags += tag + " ";
+    	}
+        return formattedTags;
     }
 
     public String getKey() {
@@ -43,7 +51,13 @@ public class QuestionAddRequestData implements IStackExchangeRequestData {
         return accessToken;
     }
 
-    public String requestUrl() {
-        return QUESTION_ADD_URL;
+    public URI requestUrl() throws URISyntaxException {
+        URIBuilder uriBuild = new URIBuilder(QUESTION_ADD_URL);
+        uriBuild.addParameter("title", getTitle());
+        uriBuild.addParameter("body", getBody());
+        uriBuild.addParameter("tags", getTags());
+        uriBuild.addParameter("key", getKey());
+        uriBuild.addParameter("access_token", getAccessToken());
+        return uriBuild.build();
     }
 }

@@ -1,11 +1,15 @@
 package edu.iastate.cs.design.spec.stackexchange.request;
 
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.RequestBuilder;
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
@@ -26,9 +30,12 @@ public class StackExchangeRequester implements IStackExchangeRequester {
 	private static BasicResponseHandler responseHandler = new BasicResponseHandler();
 	
 	
-    public QuestionDTO postQuestion(QuestionAddRequestData requestData) {
-        // TODO
-        return null;
+    public QuestionDTO postQuestion(QuestionAddRequestData requestData) throws ClientProtocolException, IOException, URISyntaxException {
+    	 URI postURI = requestData.requestUrl();
+    	 HttpGet post = new HttpGet(postURI);
+    	 JSONArray rawQuestionInfo = new JSONObject(httpclient.execute(post, responseHandler)).getJSONArray("items");
+    	 return null;
+    	 //TODO it seems that we may not be able to directly get the QuestionDTO info from the JSON response
     }
 
     public List<AnswerDTO> getAnswersToQuestion(QuestionAnswersRequestData requestData) throws JSONException, ClientProtocolException, IOException {
