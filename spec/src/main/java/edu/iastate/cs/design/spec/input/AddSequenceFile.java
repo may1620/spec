@@ -51,10 +51,58 @@ public class AddSequenceFile {
     }
 
     private void readTypesAndMethodsFromSequenceFile(SequenceFile.Reader reader, List<Type> types, List<Method> methods) {
-        Ast.ASTRoot astRoot = null;
+        Ast.ASTRoot astRoot;
         while ((astRoot = getNextFileAst(reader)) != null) {
-
+            for (Ast.Namespace ns : astRoot.getNamespacesList()) {
+                for (Ast.Declaration decl : ns.getDeclarationsList()) {
+                    Ast.TypeKind kind = decl.getKind();
+                    if ((kind == Ast.TypeKind.CLASS || kind == Ast.TypeKind.INTERFACE) && declIsPublic(decl.getModifiersList())) {
+                        Type newType = new Type(decl.getName(), ns.getName());
+                        types.add(newType);
+                        for (Ast.Method method : decl.getMethodsList()) {
+                            if (declIsPublic(method.getModifiersList())) {
+                                String signature = constructMethodSignature(method);
+                                long sequenceFilePos = 0L;
+                                try {
+                                    sequenceFilePos = reader.getPosition();
+                                } catch (IOException ioe) {
+                                    // TODO log exception
+                                }
+                                Method newMethod = new Method(method.getName(), signature, sequenceFilePath, sequenceFilePos);
+                                methods.add(newMethod);
+                            }
+                        }
+                    }
+                }
+            }
         }
+    }
+
+    private String constructMethodSignature(Ast.Method method) {
+        StringBuilder builder = new StringBuilder();
+        builder.append(method.getReturnType().getName());
+        builder.append(' ');
+        builder.append(method.getName());
+        builder.append('(');
+        for (Ast.Variable formal : method.getArgumentsList()) {
+            builder.append(formal.getVariableType().getName());
+            builder.append(' ');
+            builder.append(formal.getName());
+            builder.append(", ");
+        }
+        builder.deleteCharAt(builder.length() - 1);
+        builder.append(')');
+        return builder.toString();
+    }
+
+    private boolean declIsPublic(List<Ast.Modifier> modifiers) {
+        boolean isPublic = false;
+        for (Ast.Modifier modifier : modifiers) {
+            if (modifier.hasVisibility() && modifier.getVisibility() == Ast.Modifier.Visibility.PUBLIC) {
+                isPublic = true;
+            }
+        }
+        return isPublic;
     }
 
     private Ast.ASTRoot getNextFileAst(SequenceFile.Reader reader) {
