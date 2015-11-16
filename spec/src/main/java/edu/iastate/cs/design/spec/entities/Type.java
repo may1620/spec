@@ -25,6 +25,10 @@ public class Type implements Serializable {
         this.fullyQualifiedPackage = fullyQualifiedPackage;
     }
 
+    public Type(String name, String fullyQualifiedPackage) {
+        this(0, name, fullyQualifiedPackage);
+    }
+
     public int getTypeId() {
         return typeId;
     }
@@ -35,5 +39,14 @@ public class Type implements Serializable {
 
     public String getFullyQualifiedPackage() {
         return fullyQualifiedPackage;
+    }
+
+    @Override
+    public String toString() {
+        return "Type{" +
+                "typeId=" + typeId +
+                ", name='" + name + '\'' +
+                ", fullyQualifiedPackage='" + fullyQualifiedPackage + '\'' +
+                '}';
     }
 }

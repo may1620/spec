@@ -37,6 +37,11 @@ public class Method implements Serializable {
         this.sequenceFilePosition = sequenceFilePosition;
     }
 
+    // TODO insert by figuring out class info to get class id
+    public Method(String name, String signature, String sequenceFile, long sequenceFilePosition) {
+        this(0, 0, name, signature, sequenceFile, sequenceFilePosition);
+    }
+
     public int getMethodId() {
         return methodId;
     }
@@ -59,5 +64,17 @@ public class Method implements Serializable {
 
     public long getSequenceFilePosition() {
         return sequenceFilePosition;
+    }
+
+    @Override
+    public String toString() {
+        return "Method{" +
+                "methodId=" + methodId +
+                ", typeId=" + typeId +
+                ", name='" + name + '\'' +
+                ", signature='" + signature + '\'' +
+                ", sequenceFile='" + sequenceFile + '\'' +
+                ", sequenceFilePosition=" + sequenceFilePosition +
+                '}';
     }
 }
