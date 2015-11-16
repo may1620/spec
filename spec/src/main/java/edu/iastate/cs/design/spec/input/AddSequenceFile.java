@@ -43,6 +43,9 @@ public class AddSequenceFile {
             List<Type> types = new ArrayList<Type>();
             List<Method> methods = new ArrayList<Method>();
             readTypesAndMethodsFromSequenceFile(reader, types, methods);
+            for (Method method : methods) {
+                System.out.println(method);
+            }
             insertTypesIntoDatabase(types, typeDao);
             insertMethodsIntoDatabase(methods, methodDao);
         } finally {
@@ -61,14 +64,14 @@ public class AddSequenceFile {
                         types.add(newType);
                         for (Ast.Method method : decl.getMethodsList()) {
                             if (declIsPublic(method.getModifiersList())) {
-                                String signature = constructMethodSignature(method);
+                                String signature = constructMethodSignature(method, decl.getName());
                                 long sequenceFilePos = 0L;
                                 try {
                                     sequenceFilePos = reader.getPosition();
                                 } catch (IOException ioe) {
                                     // TODO log exception
                                 }
-                                Method newMethod = new Method(method.getName(), signature, sequenceFilePath, sequenceFilePos);
+                                Method newMethod = new Method(getMethodName(method, decl.getName()), signature, sequenceFilePath, sequenceFilePos);
                                 methods.add(newMethod);
                             }
                         }
@@ -78,21 +81,33 @@ public class AddSequenceFile {
         }
     }
 
-    private String constructMethodSignature(Ast.Method method) {
+    private String constructMethodSignature(Ast.Method method, String typeName) {
         StringBuilder builder = new StringBuilder();
         builder.append(method.getReturnType().getName());
         builder.append(' ');
-        builder.append(method.getName());
+        builder.append(getMethodName(method, typeName));
         builder.append('(');
-        for (Ast.Variable formal : method.getArgumentsList()) {
-            builder.append(formal.getVariableType().getName());
+        List<Ast.Variable> formals = method.getArgumentsList();
+        for (int i = 0; i < formals.size(); ++i) {
+            builder.append(formals.get(i).getVariableType().getName());
             builder.append(' ');
-            builder.append(formal.getName());
-            builder.append(", ");
+            builder.append(formals.get(i).getName());
+            if (i != formals.size() - 1) {
+                builder.append(", ");
+            }
         }
-        builder.deleteCharAt(builder.length() - 1);
         builder.append(')');
         return builder.toString();
+    }
+
+    // will replace <init> on a constructor with the type name
+    private String getMethodName(Ast.Method method, String typeName) {
+        final String BOA_CONSTRUCTOR_NAME = "<init>";
+        if (method.getName().equals(BOA_CONSTRUCTOR_NAME)) {
+            return typeName;
+        } else {
+            return method.getName();
+        }
     }
 
     private boolean declIsPublic(List<Ast.Modifier> modifiers) {
