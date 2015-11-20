@@ -1,6 +1,7 @@
 package edu.iastate.cs.design.spec.analyze;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
@@ -36,7 +37,7 @@ public class Analyze {
 		this.specificationDao = specificationDao;
 	}
 	
-    public void run() throws JSONException, ClientProtocolException, IOException {
+    public void run() throws JSONException, IOException, URISyntaxException {
     	EntityManager entityManager = FactoryStartup.getAnEntityManager();
     	QuestionDao questions = new QuestionDao(entityManager);
     	for(Question question : questions.getAllQuestions()) {
@@ -47,7 +48,7 @@ public class Analyze {
     }
 
     // Entry point
-    public static void main(String[] args) throws JSONException, ClientProtocolException, IOException {
+    public static void main(String[] args) throws JSONException, IOException, URISyntaxException {
     	//Analyze Test
         IStackExchangeRequester stackExchangeRequester = new StackExchangeRequester();
 		EntityManager entityManager = FactoryStartup.getAnEntityManager();

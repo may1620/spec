@@ -17,9 +17,8 @@ public class MockStackExchangeRequester implements IStackExchangeRequester {
         nextAnswerId = 1;
     }
 
-    // TODO this wasn't compiling so I quickly hacked it to make it compile, make sure changes are okay
     public QuestionDTO postQuestion(QuestionAddRequestData requestData) {
-        QuestionDTO question = new QuestionDTO(requestData.getTitle(), requestData.getBody(), Arrays.asList(requestData.getTags()), nextQuestionId);
+        QuestionDTO question = new QuestionDTO(requestData.getTitle(), requestData.getBody(), requestData.getTags(), nextQuestionId);
         postMap.put(question, new ArrayList<AnswerDTO>());
         ++nextQuestionId;
         return question;
