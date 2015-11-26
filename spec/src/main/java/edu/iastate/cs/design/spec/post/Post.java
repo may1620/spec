@@ -1,6 +1,7 @@
 package edu.iastate.cs.design.spec.post;
 
 import edu.iastate.cs.design.spec.common.*;
+import edu.iastate.cs.design.spec.entities.Method;
 import edu.iastate.cs.design.spec.persistenceResource.FactoryStartup;
 import edu.iastate.cs.design.spec.stackexchange.objects.QuestionDTO;
 import edu.iastate.cs.design.spec.stackexchange.request.IStackExchangeRequester;
@@ -25,21 +26,20 @@ import java.util.Scanner;
  */
 public class Post {
 
-    private ISpecificationDao specificationDao;
+
     private IStackExchangeRequester stackExchangeRequester;
     private IQuestionDao openQuestionsDao;
-
-    public Post(ISpecificationDao specificationDao,
-                IStackExchangeRequester stackExchangeRequester,
+    private static Method method;
+    
+    public Post(MethodDao methodDao, IStackExchangeRequester stackExchangeRequester,
                 IQuestionDao openQuestionsDao) {
-        this.specificationDao = specificationDao;
         this.stackExchangeRequester = stackExchangeRequester;
         this.openQuestionsDao = openQuestionsDao;
+        method = methodDao.getNewMethod();
     }
 
     public void run() throws ClientProtocolException, IOException, URISyntaxException {
-        Specification pendingSpecification = specificationDao.removeNextPendingSpecification();
-        QuestionAddRequestData requestData = createQuestionAddRequestData(pendingSpecification);
+        QuestionAddRequestData requestData = createQuestionAddRequestData(method);
         QuestionDTO question;
 		try {
 			question = stackExchangeRequester.postQuestion(requestData);
@@ -50,10 +50,10 @@ public class Post {
         
     }
 
-    private QuestionAddRequestData createQuestionAddRequestData(Specification pendingSpecification) {
-        String title = createQuestionTitle(pendingSpecification);
-        String body = createQuestionBody(pendingSpecification);
-        List<String> tags = createQuestionTags(pendingSpecification);
+    private QuestionAddRequestData createQuestionAddRequestData(Method method) {
+        String title = createQuestionTitle(method);
+        String body = createQuestionBody(method);
+        List<String> tags = createQuestionTags(method);
         String key = getStackExchangeKey();
         String accessToken = getStackExchangeAccessToken();
         return new QuestionAddRequestData(title, body, tags, key, accessToken);
@@ -76,44 +76,45 @@ public class Post {
         return "zuQeOSftIrtt8lhr0mYUoQ((";
     }
 
-    private List<String> createQuestionTags(Specification pendingSpecification) {
-        return Arrays.asList("JML", "Java", pendingSpecification.getClassName());
+    private List<String> createQuestionTags(Method method) {
+        return Arrays.asList("JML", "Java", method.getName());
     }
 
-    private String createQuestionTitle(Specification pendingSpecification) {
-        return "What should the JML specification be for the " + pendingSpecification.getMethodName() + "() method?";
+    private String createQuestionTitle(Method method) {
+        return "What should the JML specification be for the " + method.getName() + "() method?";
     }
 
-    private String createQuestionBody(Specification pendingSpecification) {
+    //TODO Need a way of getting all of this post info to create the question
+    private String createQuestionBody(Method method) {
         StringBuilder postBody = new StringBuilder();
         postBody.append("What would be the proper JML specification for the <code>");
-        postBody.append(pendingSpecification.getClassName());
+        //postBody.append(method.getClassName());
         postBody.append(".");
-        postBody.append(pendingSpecification.getMethodName());
+        //postBody.append(method.getMethodName());
         postBody.append("()</code> method in the <code>");
-        postBody.append(pendingSpecification.getFullPackageName());
+        //postBody.append(method.getFullPackageName());
         postBody.append("</code>package?\n");
         postBody.append("What I have for this method so far is:\n<code>");
-        for (String precondition : pendingSpecification.getPreconditions()) {
+/*        for (String precondition : method.getPreconditions()) {
             postBody.append(precondition);
             postBody.append('\n');
         }
-        for (String postcondition : pendingSpecification.getPostconditions()) {
+        for (String postcondition : method.getPostconditions()) {
             postBody.append(postcondition);
             postBody.append('\n');
-        }
+        }*/
         postBody.append("public ");
-        postBody.append(pendingSpecification.getReturnType());
+        //postBody.append(method.getReturnType());
         postBody.append(' ');
-        postBody.append(pendingSpecification.getMethodName());
+        //postBody.append(method.getMethodName());
         postBody.append("(");
-        List<String> params = pendingSpecification.getFormalParameters();
+/*        List<String> params = method.getFormalParameters();
         for (int i = 0; i < params.size(); ++i) {
             postBody.append(params.get(i));
             if (i != params.size() - 1) {
                 postBody.append(", ");
             }
-        }
+        }*/
         postBody.append(")</code>");
         // TODO we probably want to use method bodies here
         return postBody.toString();
@@ -122,10 +123,10 @@ public class Post {
     // Entry point
     public static void main(String[] args) throws ClientProtocolException, IOException, URISyntaxException {
         EntityManager entityManager = FactoryStartup.getAnEntityManager();
-        ISpecificationDao specificationDao = new SpecificationDao(entityManager);
         IQuestionDao questionsDao = new QuestionDao(entityManager);
         IStackExchangeRequester stackExchangeRequester = new StackExchangeRequester();
-        Post program = new Post(specificationDao, stackExchangeRequester, questionsDao);
+        MethodDao methodAccess = new MethodDao(entityManager);
+        Post program = new Post(methodAccess, stackExchangeRequester, questionsDao);
         program.run();
     }
 }

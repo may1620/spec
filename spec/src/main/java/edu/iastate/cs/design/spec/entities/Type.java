@@ -29,6 +29,10 @@ public class Type implements Serializable {
         this(0, name, fullyQualifiedPackage);
     }
 
+    public Type() {
+    	
+    }
+    
     public int getTypeId() {
         return typeId;
     }

@@ -41,6 +41,10 @@ public class Method implements Serializable {
     public Method(String name, String signature, String sequenceFile, long sequenceFilePosition) {
         this(0, 0, name, signature, sequenceFile, sequenceFilePosition);
     }
+    
+    public Method() {
+    	
+    }
 
     public int getMethodId() {
         return methodId;

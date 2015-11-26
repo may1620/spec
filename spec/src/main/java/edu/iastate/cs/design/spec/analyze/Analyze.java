@@ -2,20 +2,18 @@ package edu.iastate.cs.design.spec.analyze;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.TypedQuery;
 
-import org.apache.http.client.ClientProtocolException;
 import org.json.JSONException;
 
-import edu.iastate.cs.design.spec.common.ISpecificationDao;
+import edu.iastate.cs.design.spec.common.MethodDao;
 import edu.iastate.cs.design.spec.common.QuestionDao;
-import edu.iastate.cs.design.spec.common.Specification;
-import edu.iastate.cs.design.spec.common.SpecificationDao;
+import edu.iastate.cs.design.spec.entities.Method;
 import edu.iastate.cs.design.spec.entities.Question;
-import edu.iastate.cs.design.spec.entities.TestEntity;
 import edu.iastate.cs.design.spec.persistenceResource.FactoryStartup;
+import edu.iastate.cs.design.spec.stackexchange.objects.AnswerDTO;
 import edu.iastate.cs.design.spec.stackexchange.request.IStackExchangeRequester;
 import edu.iastate.cs.design.spec.stackexchange.request.QuestionAnswersRequestData;
 import edu.iastate.cs.design.spec.stackexchange.request.StackExchangeRequester;
@@ -29,12 +27,12 @@ import edu.iastate.cs.design.spec.stackexchange.request.StackExchangeRequester;
 public class Analyze {
 
 	private IStackExchangeRequester stackExchangeRequester;
-	private ISpecificationDao specificationDao;
+	private Method method;
 	
-	public Analyze(IStackExchangeRequester stackExchangeRequester, ISpecificationDao specificationDao)
+	public Analyze(IStackExchangeRequester stackExchangeRequester, MethodDao methodDao)
 	{
 		this.stackExchangeRequester = stackExchangeRequester;
-		this.specificationDao = specificationDao;
+		this.method = methodDao.getInProgressMethod();
 	}
 	
     public void run() throws JSONException, IOException, URISyntaxException {
@@ -42,8 +40,7 @@ public class Analyze {
     	QuestionDao questions = new QuestionDao(entityManager);
     	for(Question question : questions.getAllQuestions()) {
     		QuestionAnswersRequestData questionData = new QuestionAnswersRequestData(QuestionAnswersRequestData.VOTES_SORT, question.getQuestionId());
-        	Specification specification = AnswerAnalysis.analyze(stackExchangeRequester.getAnswersToQuestion(questionData));
-        	specificationDao.insertFinalizedSpecification(specification);
+        	List<AnswerDTO> answers = stackExchangeRequester.getAnswersToQuestion(questionData);
     	}
     }
 
@@ -52,15 +49,10 @@ public class Analyze {
     	//Analyze Test
         IStackExchangeRequester stackExchangeRequester = new StackExchangeRequester();
 		EntityManager entityManager = FactoryStartup.getAnEntityManager();
-		ISpecificationDao specificationDao = new SpecificationDao(entityManager);
-        Analyze program = new Analyze(stackExchangeRequester, specificationDao);
+		MethodDao methodDao = new MethodDao(entityManager);
+		
+        Analyze program = new Analyze(stackExchangeRequester, methodDao);
         program.run();
-    	
-    	//Database Test
-    	TypedQuery<TestEntity> query = entityManager.createNamedQuery("TestEntity.getAll", TestEntity.class);
-    	for(TestEntity test : query.getResultList()) {
-    		System.out.println(test.getTestId() + " " + test.getTestName());
-    	}
     
     }
     
