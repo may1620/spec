@@ -19,6 +19,7 @@ import org.apache.hadoop.io.BytesWritable;
 import org.apache.hadoop.io.SequenceFile;
 import org.apache.hadoop.io.Text;
 
+import javax.persistence.EntityManager;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -178,8 +179,9 @@ public class AddSequenceFile {
             System.out.println("Error. Must specify a sequence file to be used.");
             return;
         }
-        ITypeDao typeDao = new TypeDao();
-        IMethodDao methodDao = new MethodDao(FactoryStartup.getAnEntityManager());
+        EntityManager entityManager = FactoryStartup.getAnEntityManager();
+        ITypeDao typeDao = new TypeDao(entityManager);
+        IMethodDao methodDao = new MethodDao(entityManager);
         AddSequenceFile program = new AddSequenceFile(args[0], typeDao, methodDao);
         program.run();
     }
