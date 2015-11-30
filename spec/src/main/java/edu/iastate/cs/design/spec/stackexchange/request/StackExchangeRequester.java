@@ -7,9 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.RequestBuilder;
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
@@ -33,9 +31,13 @@ public class StackExchangeRequester implements IStackExchangeRequester {
     public QuestionDTO postQuestion(QuestionAddRequestData requestData) throws ClientProtocolException, IOException, URISyntaxException {
     	 URI postURI = requestData.requestUrl();
     	 HttpGet post = new HttpGet(postURI);
-    	 JSONArray rawQuestionInfo = new JSONObject(httpclient.execute(post, responseHandler)).getJSONArray("items");
-    	 return null;
-    	 //TODO it seems that we may not be able to directly get the QuestionDTO info from the JSON response
+    	 JSONObject rawQuestionInfo = new JSONObject(httpclient.execute(post, responseHandler));
+    	 JSONArray rawTags = rawQuestionInfo.getJSONArray("tags");
+    	 List<String> tags = new ArrayList<String>();
+    	 for(int i = 0; i < rawTags.length(); i++) {
+    	 }
+    	 
+    	 return new QuestionDTO(rawQuestionInfo.getString("title"), rawQuestionInfo.getString("body"), tags, rawQuestionInfo.getInt("question_id"));
     }
 
     public List<AnswerDTO> getAnswersToQuestion(QuestionAnswersRequestData requestData) throws JSONException, ClientProtocolException, IOException, URISyntaxException {

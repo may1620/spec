@@ -1,13 +1,17 @@
 package edu.iastate.cs.design.spec.input;
 
 import boa.types.Ast;
+
 import com.google.protobuf.CodedInputStream;
+
 import edu.iastate.cs.design.spec.common.IMethodDao;
 import edu.iastate.cs.design.spec.common.ITypeDao;
 import edu.iastate.cs.design.spec.common.MethodDao;
 import edu.iastate.cs.design.spec.common.TypeDao;
 import edu.iastate.cs.design.spec.entities.Method;
 import edu.iastate.cs.design.spec.entities.Type;
+import edu.iastate.cs.design.spec.persistenceResource.FactoryStartup;
+
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
@@ -175,7 +179,7 @@ public class AddSequenceFile {
             return;
         }
         ITypeDao typeDao = new TypeDao();
-        IMethodDao methodDao = new MethodDao();
+        IMethodDao methodDao = new MethodDao(FactoryStartup.getAnEntityManager());
         AddSequenceFile program = new AddSequenceFile(args[0], typeDao, methodDao);
         program.run();
     }

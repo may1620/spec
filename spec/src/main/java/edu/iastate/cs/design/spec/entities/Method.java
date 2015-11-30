@@ -3,9 +3,20 @@ package edu.iastate.cs.design.spec.entities;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+
 import java.io.Serializable;
 
 @Entity
+@NamedQueries({
+	@NamedQuery(name="Method.getAll", query="SELECT m FROM Method m"),
+	
+	//TODO we likely need to add an inProgress field here to let us know if a method is posted yet OR link it with Question entity
+	@NamedQuery(name="Method.getNew", query="SELECT m.methodId FROM Method m WHERE m.inProgress = false"),
+			
+	@NamedQuery(name="Method.getInProgress", query="SELECT m.methodId FROM Method m WHERE m.inProgress = true")
+})
 public class Method implements Serializable {
     private static final long serialVersionUID = 1L;
 
