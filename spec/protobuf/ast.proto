@@ -163,6 +163,13 @@ message Expression {
 		ASSIGN_RSHIFT = 46;
 		ASSIGN_UNSIGNEDRSHIFT = 47;
 		ANNOTATION = 48;
+		SPEC_OLD = 49;
+		SPEC_RESULT = 50;
+		SPEC_FORALL = 51;
+		SPEC_SUM = 52;
+		SPEC_PRODUCT = 53;
+		SPEC_MIN = 54;
+		SPEC_MAX = 55;
 	}
 	required ExpressionKind kind = 1;
 	repeated Expression expressions = 2;
