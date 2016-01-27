@@ -11,142 +11,102 @@ public final class Spec {
   public interface SpecificationOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // required string sequence_file = 1;
+    // required bool is_exceptional = 1;
     /**
-     * <code>required string sequence_file = 1;</code>
-     *
-     * <pre>
-     * Where the method this specification corresponds to is located.
-     * Do we want to have more information about the method here?
-     * </pre>
-     */
-    boolean hasSequenceFile();
-    /**
-     * <code>required string sequence_file = 1;</code>
-     *
-     * <pre>
-     * Where the method this specification corresponds to is located.
-     * Do we want to have more information about the method here?
-     * </pre>
-     */
-    java.lang.String getSequenceFile();
-    /**
-     * <code>required string sequence_file = 1;</code>
-     *
-     * <pre>
-     * Where the method this specification corresponds to is located.
-     * Do we want to have more information about the method here?
-     * </pre>
-     */
-    com.google.protobuf.ByteString
-        getSequenceFileBytes();
-
-    // required int64 sequence_file_pos = 2;
-    /**
-     * <code>required int64 sequence_file_pos = 2;</code>
-     */
-    boolean hasSequenceFilePos();
-    /**
-     * <code>required int64 sequence_file_pos = 2;</code>
-     */
-    long getSequenceFilePos();
-
-    // required bool is_exceptional = 3;
-    /**
-     * <code>required bool is_exceptional = 3;</code>
+     * <code>required bool is_exceptional = 1;</code>
      */
     boolean hasIsExceptional();
     /**
-     * <code>required bool is_exceptional = 3;</code>
+     * <code>required bool is_exceptional = 1;</code>
      */
     boolean getIsExceptional();
 
-    // repeated .boa.types.SpecExpression preconditions = 4;
+    // repeated .boa.types.Expression preconditions = 2;
     /**
-     * <code>repeated .boa.types.SpecExpression preconditions = 4;</code>
+     * <code>repeated .boa.types.Expression preconditions = 2;</code>
      */
-    java.util.List<boa.types.Spec.SpecExpression> 
+    java.util.List<boa.types.Ast.Expression> 
         getPreconditionsList();
     /**
-     * <code>repeated .boa.types.SpecExpression preconditions = 4;</code>
+     * <code>repeated .boa.types.Expression preconditions = 2;</code>
      */
-    boa.types.Spec.SpecExpression getPreconditions(int index);
+    boa.types.Ast.Expression getPreconditions(int index);
     /**
-     * <code>repeated .boa.types.SpecExpression preconditions = 4;</code>
+     * <code>repeated .boa.types.Expression preconditions = 2;</code>
      */
     int getPreconditionsCount();
     /**
-     * <code>repeated .boa.types.SpecExpression preconditions = 4;</code>
+     * <code>repeated .boa.types.Expression preconditions = 2;</code>
      */
-    java.util.List<? extends boa.types.Spec.SpecExpressionOrBuilder> 
+    java.util.List<? extends boa.types.Ast.ExpressionOrBuilder> 
         getPreconditionsOrBuilderList();
     /**
-     * <code>repeated .boa.types.SpecExpression preconditions = 4;</code>
+     * <code>repeated .boa.types.Expression preconditions = 2;</code>
      */
-    boa.types.Spec.SpecExpressionOrBuilder getPreconditionsOrBuilder(
+    boa.types.Ast.ExpressionOrBuilder getPreconditionsOrBuilder(
         int index);
 
-    // repeated .boa.types.SpecExpression postconditions = 5;
+    // repeated .boa.types.Expression postconditions = 3;
     /**
-     * <code>repeated .boa.types.SpecExpression postconditions = 5;</code>
+     * <code>repeated .boa.types.Expression postconditions = 3;</code>
      */
-    java.util.List<boa.types.Spec.SpecExpression> 
+    java.util.List<boa.types.Ast.Expression> 
         getPostconditionsList();
     /**
-     * <code>repeated .boa.types.SpecExpression postconditions = 5;</code>
+     * <code>repeated .boa.types.Expression postconditions = 3;</code>
      */
-    boa.types.Spec.SpecExpression getPostconditions(int index);
+    boa.types.Ast.Expression getPostconditions(int index);
     /**
-     * <code>repeated .boa.types.SpecExpression postconditions = 5;</code>
+     * <code>repeated .boa.types.Expression postconditions = 3;</code>
      */
     int getPostconditionsCount();
     /**
-     * <code>repeated .boa.types.SpecExpression postconditions = 5;</code>
+     * <code>repeated .boa.types.Expression postconditions = 3;</code>
      */
-    java.util.List<? extends boa.types.Spec.SpecExpressionOrBuilder> 
+    java.util.List<? extends boa.types.Ast.ExpressionOrBuilder> 
         getPostconditionsOrBuilderList();
     /**
-     * <code>repeated .boa.types.SpecExpression postconditions = 5;</code>
+     * <code>repeated .boa.types.Expression postconditions = 3;</code>
      */
-    boa.types.Spec.SpecExpressionOrBuilder getPostconditionsOrBuilder(
+    boa.types.Ast.ExpressionOrBuilder getPostconditionsOrBuilder(
         int index);
 
-    // repeated string assignable_fields = 6;
+    // repeated string assignable_fields = 4;
     /**
-     * <code>repeated string assignable_fields = 6;</code>
+     * <code>repeated string assignable_fields = 4;</code>
      */
     java.util.List<java.lang.String>
     getAssignableFieldsList();
     /**
-     * <code>repeated string assignable_fields = 6;</code>
+     * <code>repeated string assignable_fields = 4;</code>
      */
     int getAssignableFieldsCount();
     /**
-     * <code>repeated string assignable_fields = 6;</code>
+     * <code>repeated string assignable_fields = 4;</code>
      */
     java.lang.String getAssignableFields(int index);
     /**
-     * <code>repeated string assignable_fields = 6;</code>
+     * <code>repeated string assignable_fields = 4;</code>
      */
     com.google.protobuf.ByteString
         getAssignableFieldsBytes(int index);
 
-    // repeated string exception_types = 7;
+    // repeated string exception_types = 5;
     /**
-     * <code>repeated string exception_types = 7;</code>
+     * <code>repeated string exception_types = 5;</code>
      */
     java.util.List<java.lang.String>
     getExceptionTypesList();
     /**
-     * <code>repeated string exception_types = 7;</code>
+     * <code>repeated string exception_types = 5;</code>
      */
     int getExceptionTypesCount();
     /**
-     * <code>repeated string exception_types = 7;</code>
+     * <code>repeated string exception_types = 5;</code>
      */
     java.lang.String getExceptionTypes(int index);
     /**
-     * <code>repeated string exception_types = 7;</code>
+     * <code>repeated string exception_types = 5;</code>
      */
     com.google.protobuf.ByteString
         getExceptionTypesBytes(int index);
@@ -202,49 +162,39 @@ public final class Spec {
               }
               break;
             }
-            case 10: {
+            case 8: {
               bitField0_ |= 0x00000001;
-              sequenceFile_ = input.readBytes();
-              break;
-            }
-            case 16: {
-              bitField0_ |= 0x00000002;
-              sequenceFilePos_ = input.readInt64();
-              break;
-            }
-            case 24: {
-              bitField0_ |= 0x00000004;
               isExceptional_ = input.readBool();
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                preconditions_ = new java.util.ArrayList<boa.types.Ast.Expression>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              preconditions_.add(input.readMessage(boa.types.Ast.Expression.PARSER, extensionRegistry));
+              break;
+            }
+            case 26: {
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                postconditions_ = new java.util.ArrayList<boa.types.Ast.Expression>();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              postconditions_.add(input.readMessage(boa.types.Ast.Expression.PARSER, extensionRegistry));
               break;
             }
             case 34: {
               if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-                preconditions_ = new java.util.ArrayList<boa.types.Spec.SpecExpression>();
-                mutable_bitField0_ |= 0x00000008;
-              }
-              preconditions_.add(input.readMessage(boa.types.Spec.SpecExpression.PARSER, extensionRegistry));
-              break;
-            }
-            case 42: {
-              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
-                postconditions_ = new java.util.ArrayList<boa.types.Spec.SpecExpression>();
-                mutable_bitField0_ |= 0x00000010;
-              }
-              postconditions_.add(input.readMessage(boa.types.Spec.SpecExpression.PARSER, extensionRegistry));
-              break;
-            }
-            case 50: {
-              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
                 assignableFields_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000020;
+                mutable_bitField0_ |= 0x00000008;
               }
               assignableFields_.add(input.readBytes());
               break;
             }
-            case 58: {
-              if (!((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
+            case 42: {
+              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
                 exceptionTypes_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000040;
+                mutable_bitField0_ |= 0x00000010;
               }
               exceptionTypes_.add(input.readBytes());
               break;
@@ -257,16 +207,16 @@ public final class Spec {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
           preconditions_ = java.util.Collections.unmodifiableList(preconditions_);
         }
-        if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
           postconditions_ = java.util.Collections.unmodifiableList(postconditions_);
         }
-        if (((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
           assignableFields_ = new com.google.protobuf.UnmodifiableLazyStringList(assignableFields_);
         }
-        if (((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
+        if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
           exceptionTypes_ = new com.google.protobuf.UnmodifiableLazyStringList(exceptionTypes_);
         }
         this.unknownFields = unknownFields.build();
@@ -301,222 +251,148 @@ public final class Spec {
     }
 
     private int bitField0_;
-    // required string sequence_file = 1;
-    public static final int SEQUENCE_FILE_FIELD_NUMBER = 1;
-    private java.lang.Object sequenceFile_;
+    // required bool is_exceptional = 1;
+    public static final int IS_EXCEPTIONAL_FIELD_NUMBER = 1;
+    private boolean isExceptional_;
     /**
-     * <code>required string sequence_file = 1;</code>
-     *
-     * <pre>
-     * Where the method this specification corresponds to is located.
-     * Do we want to have more information about the method here?
-     * </pre>
+     * <code>required bool is_exceptional = 1;</code>
      */
-    public boolean hasSequenceFile() {
+    public boolean hasIsExceptional() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required string sequence_file = 1;</code>
-     *
-     * <pre>
-     * Where the method this specification corresponds to is located.
-     * Do we want to have more information about the method here?
-     * </pre>
-     */
-    public java.lang.String getSequenceFile() {
-      java.lang.Object ref = sequenceFile_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          sequenceFile_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <code>required string sequence_file = 1;</code>
-     *
-     * <pre>
-     * Where the method this specification corresponds to is located.
-     * Do we want to have more information about the method here?
-     * </pre>
-     */
-    public com.google.protobuf.ByteString
-        getSequenceFileBytes() {
-      java.lang.Object ref = sequenceFile_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        sequenceFile_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    // required int64 sequence_file_pos = 2;
-    public static final int SEQUENCE_FILE_POS_FIELD_NUMBER = 2;
-    private long sequenceFilePos_;
-    /**
-     * <code>required int64 sequence_file_pos = 2;</code>
-     */
-    public boolean hasSequenceFilePos() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    /**
-     * <code>required int64 sequence_file_pos = 2;</code>
-     */
-    public long getSequenceFilePos() {
-      return sequenceFilePos_;
-    }
-
-    // required bool is_exceptional = 3;
-    public static final int IS_EXCEPTIONAL_FIELD_NUMBER = 3;
-    private boolean isExceptional_;
-    /**
-     * <code>required bool is_exceptional = 3;</code>
-     */
-    public boolean hasIsExceptional() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
-    }
-    /**
-     * <code>required bool is_exceptional = 3;</code>
+     * <code>required bool is_exceptional = 1;</code>
      */
     public boolean getIsExceptional() {
       return isExceptional_;
     }
 
-    // repeated .boa.types.SpecExpression preconditions = 4;
-    public static final int PRECONDITIONS_FIELD_NUMBER = 4;
-    private java.util.List<boa.types.Spec.SpecExpression> preconditions_;
+    // repeated .boa.types.Expression preconditions = 2;
+    public static final int PRECONDITIONS_FIELD_NUMBER = 2;
+    private java.util.List<boa.types.Ast.Expression> preconditions_;
     /**
-     * <code>repeated .boa.types.SpecExpression preconditions = 4;</code>
+     * <code>repeated .boa.types.Expression preconditions = 2;</code>
      */
-    public java.util.List<boa.types.Spec.SpecExpression> getPreconditionsList() {
+    public java.util.List<boa.types.Ast.Expression> getPreconditionsList() {
       return preconditions_;
     }
     /**
-     * <code>repeated .boa.types.SpecExpression preconditions = 4;</code>
+     * <code>repeated .boa.types.Expression preconditions = 2;</code>
      */
-    public java.util.List<? extends boa.types.Spec.SpecExpressionOrBuilder> 
+    public java.util.List<? extends boa.types.Ast.ExpressionOrBuilder> 
         getPreconditionsOrBuilderList() {
       return preconditions_;
     }
     /**
-     * <code>repeated .boa.types.SpecExpression preconditions = 4;</code>
+     * <code>repeated .boa.types.Expression preconditions = 2;</code>
      */
     public int getPreconditionsCount() {
       return preconditions_.size();
     }
     /**
-     * <code>repeated .boa.types.SpecExpression preconditions = 4;</code>
+     * <code>repeated .boa.types.Expression preconditions = 2;</code>
      */
-    public boa.types.Spec.SpecExpression getPreconditions(int index) {
+    public boa.types.Ast.Expression getPreconditions(int index) {
       return preconditions_.get(index);
     }
     /**
-     * <code>repeated .boa.types.SpecExpression preconditions = 4;</code>
+     * <code>repeated .boa.types.Expression preconditions = 2;</code>
      */
-    public boa.types.Spec.SpecExpressionOrBuilder getPreconditionsOrBuilder(
+    public boa.types.Ast.ExpressionOrBuilder getPreconditionsOrBuilder(
         int index) {
       return preconditions_.get(index);
     }
 
-    // repeated .boa.types.SpecExpression postconditions = 5;
-    public static final int POSTCONDITIONS_FIELD_NUMBER = 5;
-    private java.util.List<boa.types.Spec.SpecExpression> postconditions_;
+    // repeated .boa.types.Expression postconditions = 3;
+    public static final int POSTCONDITIONS_FIELD_NUMBER = 3;
+    private java.util.List<boa.types.Ast.Expression> postconditions_;
     /**
-     * <code>repeated .boa.types.SpecExpression postconditions = 5;</code>
+     * <code>repeated .boa.types.Expression postconditions = 3;</code>
      */
-    public java.util.List<boa.types.Spec.SpecExpression> getPostconditionsList() {
+    public java.util.List<boa.types.Ast.Expression> getPostconditionsList() {
       return postconditions_;
     }
     /**
-     * <code>repeated .boa.types.SpecExpression postconditions = 5;</code>
+     * <code>repeated .boa.types.Expression postconditions = 3;</code>
      */
-    public java.util.List<? extends boa.types.Spec.SpecExpressionOrBuilder> 
+    public java.util.List<? extends boa.types.Ast.ExpressionOrBuilder> 
         getPostconditionsOrBuilderList() {
       return postconditions_;
     }
     /**
-     * <code>repeated .boa.types.SpecExpression postconditions = 5;</code>
+     * <code>repeated .boa.types.Expression postconditions = 3;</code>
      */
     public int getPostconditionsCount() {
       return postconditions_.size();
     }
     /**
-     * <code>repeated .boa.types.SpecExpression postconditions = 5;</code>
+     * <code>repeated .boa.types.Expression postconditions = 3;</code>
      */
-    public boa.types.Spec.SpecExpression getPostconditions(int index) {
+    public boa.types.Ast.Expression getPostconditions(int index) {
       return postconditions_.get(index);
     }
     /**
-     * <code>repeated .boa.types.SpecExpression postconditions = 5;</code>
+     * <code>repeated .boa.types.Expression postconditions = 3;</code>
      */
-    public boa.types.Spec.SpecExpressionOrBuilder getPostconditionsOrBuilder(
+    public boa.types.Ast.ExpressionOrBuilder getPostconditionsOrBuilder(
         int index) {
       return postconditions_.get(index);
     }
 
-    // repeated string assignable_fields = 6;
-    public static final int ASSIGNABLE_FIELDS_FIELD_NUMBER = 6;
+    // repeated string assignable_fields = 4;
+    public static final int ASSIGNABLE_FIELDS_FIELD_NUMBER = 4;
     private com.google.protobuf.LazyStringList assignableFields_;
     /**
-     * <code>repeated string assignable_fields = 6;</code>
+     * <code>repeated string assignable_fields = 4;</code>
      */
     public java.util.List<java.lang.String>
         getAssignableFieldsList() {
       return assignableFields_;
     }
     /**
-     * <code>repeated string assignable_fields = 6;</code>
+     * <code>repeated string assignable_fields = 4;</code>
      */
     public int getAssignableFieldsCount() {
       return assignableFields_.size();
     }
     /**
-     * <code>repeated string assignable_fields = 6;</code>
+     * <code>repeated string assignable_fields = 4;</code>
      */
     public java.lang.String getAssignableFields(int index) {
       return assignableFields_.get(index);
     }
     /**
-     * <code>repeated string assignable_fields = 6;</code>
+     * <code>repeated string assignable_fields = 4;</code>
      */
     public com.google.protobuf.ByteString
         getAssignableFieldsBytes(int index) {
       return assignableFields_.getByteString(index);
     }
 
-    // repeated string exception_types = 7;
-    public static final int EXCEPTION_TYPES_FIELD_NUMBER = 7;
+    // repeated string exception_types = 5;
+    public static final int EXCEPTION_TYPES_FIELD_NUMBER = 5;
     private com.google.protobuf.LazyStringList exceptionTypes_;
     /**
-     * <code>repeated string exception_types = 7;</code>
+     * <code>repeated string exception_types = 5;</code>
      */
     public java.util.List<java.lang.String>
         getExceptionTypesList() {
       return exceptionTypes_;
     }
     /**
-     * <code>repeated string exception_types = 7;</code>
+     * <code>repeated string exception_types = 5;</code>
      */
     public int getExceptionTypesCount() {
       return exceptionTypes_.size();
     }
     /**
-     * <code>repeated string exception_types = 7;</code>
+     * <code>repeated string exception_types = 5;</code>
      */
     public java.lang.String getExceptionTypes(int index) {
       return exceptionTypes_.get(index);
     }
     /**
-     * <code>repeated string exception_types = 7;</code>
+     * <code>repeated string exception_types = 5;</code>
      */
     public com.google.protobuf.ByteString
         getExceptionTypesBytes(int index) {
@@ -524,8 +400,6 @@ public final class Spec {
     }
 
     private void initFields() {
-      sequenceFile_ = "";
-      sequenceFilePos_ = 0L;
       isExceptional_ = false;
       preconditions_ = java.util.Collections.emptyList();
       postconditions_ = java.util.Collections.emptyList();
@@ -537,14 +411,6 @@ public final class Spec {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
 
-      if (!hasSequenceFile()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasSequenceFilePos()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
       if (!hasIsExceptional()) {
         memoizedIsInitialized = 0;
         return false;
@@ -569,25 +435,19 @@ public final class Spec {
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBytes(1, getSequenceFileBytes());
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeInt64(2, sequenceFilePos_);
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeBool(3, isExceptional_);
+        output.writeBool(1, isExceptional_);
       }
       for (int i = 0; i < preconditions_.size(); i++) {
-        output.writeMessage(4, preconditions_.get(i));
+        output.writeMessage(2, preconditions_.get(i));
       }
       for (int i = 0; i < postconditions_.size(); i++) {
-        output.writeMessage(5, postconditions_.get(i));
+        output.writeMessage(3, postconditions_.get(i));
       }
       for (int i = 0; i < assignableFields_.size(); i++) {
-        output.writeBytes(6, assignableFields_.getByteString(i));
+        output.writeBytes(4, assignableFields_.getByteString(i));
       }
       for (int i = 0; i < exceptionTypes_.size(); i++) {
-        output.writeBytes(7, exceptionTypes_.getByteString(i));
+        output.writeBytes(5, exceptionTypes_.getByteString(i));
       }
       getUnknownFields().writeTo(output);
     }
@@ -600,23 +460,15 @@ public final class Spec {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, getSequenceFileBytes());
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(2, sequenceFilePos_);
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(3, isExceptional_);
+          .computeBoolSize(1, isExceptional_);
       }
       for (int i = 0; i < preconditions_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, preconditions_.get(i));
+          .computeMessageSize(2, preconditions_.get(i));
       }
       for (int i = 0; i < postconditions_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(5, postconditions_.get(i));
+          .computeMessageSize(3, postconditions_.get(i));
       }
       {
         int dataSize = 0;
@@ -754,28 +606,24 @@ public final class Spec {
 
       public Builder clear() {
         super.clear();
-        sequenceFile_ = "";
-        bitField0_ = (bitField0_ & ~0x00000001);
-        sequenceFilePos_ = 0L;
-        bitField0_ = (bitField0_ & ~0x00000002);
         isExceptional_ = false;
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000001);
         if (preconditionsBuilder_ == null) {
           preconditions_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
           preconditionsBuilder_.clear();
         }
         if (postconditionsBuilder_ == null) {
           postconditions_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000010);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           postconditionsBuilder_.clear();
         }
         assignableFields_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00000008);
         exceptionTypes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000040);
+        bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
 
@@ -807,43 +655,35 @@ public final class Spec {
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
-        result.sequenceFile_ = sequenceFile_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.sequenceFilePos_ = sequenceFilePos_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-          to_bitField0_ |= 0x00000004;
-        }
         result.isExceptional_ = isExceptional_;
         if (preconditionsBuilder_ == null) {
-          if (((bitField0_ & 0x00000008) == 0x00000008)) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)) {
             preconditions_ = java.util.Collections.unmodifiableList(preconditions_);
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000002);
           }
           result.preconditions_ = preconditions_;
         } else {
           result.preconditions_ = preconditionsBuilder_.build();
         }
         if (postconditionsBuilder_ == null) {
-          if (((bitField0_ & 0x00000010) == 0x00000010)) {
+          if (((bitField0_ & 0x00000004) == 0x00000004)) {
             postconditions_ = java.util.Collections.unmodifiableList(postconditions_);
-            bitField0_ = (bitField0_ & ~0x00000010);
+            bitField0_ = (bitField0_ & ~0x00000004);
           }
           result.postconditions_ = postconditions_;
         } else {
           result.postconditions_ = postconditionsBuilder_.build();
         }
-        if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        if (((bitField0_ & 0x00000008) == 0x00000008)) {
           assignableFields_ = new com.google.protobuf.UnmodifiableLazyStringList(
               assignableFields_);
-          bitField0_ = (bitField0_ & ~0x00000020);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.assignableFields_ = assignableFields_;
-        if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        if (((bitField0_ & 0x00000010) == 0x00000010)) {
           exceptionTypes_ = new com.google.protobuf.UnmodifiableLazyStringList(
               exceptionTypes_);
-          bitField0_ = (bitField0_ & ~0x00000040);
+          bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.exceptionTypes_ = exceptionTypes_;
         result.bitField0_ = to_bitField0_;
@@ -862,14 +702,6 @@ public final class Spec {
 
       public Builder mergeFrom(boa.types.Spec.Specification other) {
         if (other == boa.types.Spec.Specification.getDefaultInstance()) return this;
-        if (other.hasSequenceFile()) {
-          bitField0_ |= 0x00000001;
-          sequenceFile_ = other.sequenceFile_;
-          onChanged();
-        }
-        if (other.hasSequenceFilePos()) {
-          setSequenceFilePos(other.getSequenceFilePos());
-        }
         if (other.hasIsExceptional()) {
           setIsExceptional(other.getIsExceptional());
         }
@@ -877,7 +709,7 @@ public final class Spec {
           if (!other.preconditions_.isEmpty()) {
             if (preconditions_.isEmpty()) {
               preconditions_ = other.preconditions_;
-              bitField0_ = (bitField0_ & ~0x00000008);
+              bitField0_ = (bitField0_ & ~0x00000002);
             } else {
               ensurePreconditionsIsMutable();
               preconditions_.addAll(other.preconditions_);
@@ -890,7 +722,7 @@ public final class Spec {
               preconditionsBuilder_.dispose();
               preconditionsBuilder_ = null;
               preconditions_ = other.preconditions_;
-              bitField0_ = (bitField0_ & ~0x00000008);
+              bitField0_ = (bitField0_ & ~0x00000002);
               preconditionsBuilder_ = 
                 com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getPreconditionsFieldBuilder() : null;
@@ -903,7 +735,7 @@ public final class Spec {
           if (!other.postconditions_.isEmpty()) {
             if (postconditions_.isEmpty()) {
               postconditions_ = other.postconditions_;
-              bitField0_ = (bitField0_ & ~0x00000010);
+              bitField0_ = (bitField0_ & ~0x00000004);
             } else {
               ensurePostconditionsIsMutable();
               postconditions_.addAll(other.postconditions_);
@@ -916,7 +748,7 @@ public final class Spec {
               postconditionsBuilder_.dispose();
               postconditionsBuilder_ = null;
               postconditions_ = other.postconditions_;
-              bitField0_ = (bitField0_ & ~0x00000010);
+              bitField0_ = (bitField0_ & ~0x00000004);
               postconditionsBuilder_ = 
                 com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getPostconditionsFieldBuilder() : null;
@@ -928,7 +760,7 @@ public final class Spec {
         if (!other.assignableFields_.isEmpty()) {
           if (assignableFields_.isEmpty()) {
             assignableFields_ = other.assignableFields_;
-            bitField0_ = (bitField0_ & ~0x00000020);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureAssignableFieldsIsMutable();
             assignableFields_.addAll(other.assignableFields_);
@@ -938,7 +770,7 @@ public final class Spec {
         if (!other.exceptionTypes_.isEmpty()) {
           if (exceptionTypes_.isEmpty()) {
             exceptionTypes_ = other.exceptionTypes_;
-            bitField0_ = (bitField0_ & ~0x00000040);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensureExceptionTypesIsMutable();
             exceptionTypes_.addAll(other.exceptionTypes_);
@@ -950,14 +782,6 @@ public final class Spec {
       }
 
       public final boolean isInitialized() {
-        if (!hasSequenceFile()) {
-          
-          return false;
-        }
-        if (!hasSequenceFilePos()) {
-          
-          return false;
-        }
         if (!hasIsExceptional()) {
           
           return false;
@@ -996,193 +820,56 @@ public final class Spec {
       }
       private int bitField0_;
 
-      // required string sequence_file = 1;
-      private java.lang.Object sequenceFile_ = "";
+      // required bool is_exceptional = 1;
+      private boolean isExceptional_ ;
       /**
-       * <code>required string sequence_file = 1;</code>
-       *
-       * <pre>
-       * Where the method this specification corresponds to is located.
-       * Do we want to have more information about the method here?
-       * </pre>
+       * <code>required bool is_exceptional = 1;</code>
        */
-      public boolean hasSequenceFile() {
+      public boolean hasIsExceptional() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required string sequence_file = 1;</code>
-       *
-       * <pre>
-       * Where the method this specification corresponds to is located.
-       * Do we want to have more information about the method here?
-       * </pre>
-       */
-      public java.lang.String getSequenceFile() {
-        java.lang.Object ref = sequenceFile_;
-        if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          sequenceFile_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>required string sequence_file = 1;</code>
-       *
-       * <pre>
-       * Where the method this specification corresponds to is located.
-       * Do we want to have more information about the method here?
-       * </pre>
-       */
-      public com.google.protobuf.ByteString
-          getSequenceFileBytes() {
-        java.lang.Object ref = sequenceFile_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          sequenceFile_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>required string sequence_file = 1;</code>
-       *
-       * <pre>
-       * Where the method this specification corresponds to is located.
-       * Do we want to have more information about the method here?
-       * </pre>
-       */
-      public Builder setSequenceFile(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-        sequenceFile_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required string sequence_file = 1;</code>
-       *
-       * <pre>
-       * Where the method this specification corresponds to is located.
-       * Do we want to have more information about the method here?
-       * </pre>
-       */
-      public Builder clearSequenceFile() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        sequenceFile_ = getDefaultInstance().getSequenceFile();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required string sequence_file = 1;</code>
-       *
-       * <pre>
-       * Where the method this specification corresponds to is located.
-       * Do we want to have more information about the method here?
-       * </pre>
-       */
-      public Builder setSequenceFileBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-        sequenceFile_ = value;
-        onChanged();
-        return this;
-      }
-
-      // required int64 sequence_file_pos = 2;
-      private long sequenceFilePos_ ;
-      /**
-       * <code>required int64 sequence_file_pos = 2;</code>
-       */
-      public boolean hasSequenceFilePos() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       * <code>required int64 sequence_file_pos = 2;</code>
-       */
-      public long getSequenceFilePos() {
-        return sequenceFilePos_;
-      }
-      /**
-       * <code>required int64 sequence_file_pos = 2;</code>
-       */
-      public Builder setSequenceFilePos(long value) {
-        bitField0_ |= 0x00000002;
-        sequenceFilePos_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required int64 sequence_file_pos = 2;</code>
-       */
-      public Builder clearSequenceFilePos() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        sequenceFilePos_ = 0L;
-        onChanged();
-        return this;
-      }
-
-      // required bool is_exceptional = 3;
-      private boolean isExceptional_ ;
-      /**
-       * <code>required bool is_exceptional = 3;</code>
-       */
-      public boolean hasIsExceptional() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
-      }
-      /**
-       * <code>required bool is_exceptional = 3;</code>
+       * <code>required bool is_exceptional = 1;</code>
        */
       public boolean getIsExceptional() {
         return isExceptional_;
       }
       /**
-       * <code>required bool is_exceptional = 3;</code>
+       * <code>required bool is_exceptional = 1;</code>
        */
       public Builder setIsExceptional(boolean value) {
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000001;
         isExceptional_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required bool is_exceptional = 3;</code>
+       * <code>required bool is_exceptional = 1;</code>
        */
       public Builder clearIsExceptional() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000001);
         isExceptional_ = false;
         onChanged();
         return this;
       }
 
-      // repeated .boa.types.SpecExpression preconditions = 4;
-      private java.util.List<boa.types.Spec.SpecExpression> preconditions_ =
+      // repeated .boa.types.Expression preconditions = 2;
+      private java.util.List<boa.types.Ast.Expression> preconditions_ =
         java.util.Collections.emptyList();
       private void ensurePreconditionsIsMutable() {
-        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
-          preconditions_ = new java.util.ArrayList<boa.types.Spec.SpecExpression>(preconditions_);
-          bitField0_ |= 0x00000008;
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+          preconditions_ = new java.util.ArrayList<boa.types.Ast.Expression>(preconditions_);
+          bitField0_ |= 0x00000002;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilder<
-          boa.types.Spec.SpecExpression, boa.types.Spec.SpecExpression.Builder, boa.types.Spec.SpecExpressionOrBuilder> preconditionsBuilder_;
+          boa.types.Ast.Expression, boa.types.Ast.Expression.Builder, boa.types.Ast.ExpressionOrBuilder> preconditionsBuilder_;
 
       /**
-       * <code>repeated .boa.types.SpecExpression preconditions = 4;</code>
+       * <code>repeated .boa.types.Expression preconditions = 2;</code>
        */
-      public java.util.List<boa.types.Spec.SpecExpression> getPreconditionsList() {
+      public java.util.List<boa.types.Ast.Expression> getPreconditionsList() {
         if (preconditionsBuilder_ == null) {
           return java.util.Collections.unmodifiableList(preconditions_);
         } else {
@@ -1190,7 +877,7 @@ public final class Spec {
         }
       }
       /**
-       * <code>repeated .boa.types.SpecExpression preconditions = 4;</code>
+       * <code>repeated .boa.types.Expression preconditions = 2;</code>
        */
       public int getPreconditionsCount() {
         if (preconditionsBuilder_ == null) {
@@ -1200,9 +887,9 @@ public final class Spec {
         }
       }
       /**
-       * <code>repeated .boa.types.SpecExpression preconditions = 4;</code>
+       * <code>repeated .boa.types.Expression preconditions = 2;</code>
        */
-      public boa.types.Spec.SpecExpression getPreconditions(int index) {
+      public boa.types.Ast.Expression getPreconditions(int index) {
         if (preconditionsBuilder_ == null) {
           return preconditions_.get(index);
         } else {
@@ -1210,10 +897,10 @@ public final class Spec {
         }
       }
       /**
-       * <code>repeated .boa.types.SpecExpression preconditions = 4;</code>
+       * <code>repeated .boa.types.Expression preconditions = 2;</code>
        */
       public Builder setPreconditions(
-          int index, boa.types.Spec.SpecExpression value) {
+          int index, boa.types.Ast.Expression value) {
         if (preconditionsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1227,10 +914,10 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>repeated .boa.types.SpecExpression preconditions = 4;</code>
+       * <code>repeated .boa.types.Expression preconditions = 2;</code>
        */
       public Builder setPreconditions(
-          int index, boa.types.Spec.SpecExpression.Builder builderForValue) {
+          int index, boa.types.Ast.Expression.Builder builderForValue) {
         if (preconditionsBuilder_ == null) {
           ensurePreconditionsIsMutable();
           preconditions_.set(index, builderForValue.build());
@@ -1241,9 +928,9 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>repeated .boa.types.SpecExpression preconditions = 4;</code>
+       * <code>repeated .boa.types.Expression preconditions = 2;</code>
        */
-      public Builder addPreconditions(boa.types.Spec.SpecExpression value) {
+      public Builder addPreconditions(boa.types.Ast.Expression value) {
         if (preconditionsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1257,10 +944,10 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>repeated .boa.types.SpecExpression preconditions = 4;</code>
+       * <code>repeated .boa.types.Expression preconditions = 2;</code>
        */
       public Builder addPreconditions(
-          int index, boa.types.Spec.SpecExpression value) {
+          int index, boa.types.Ast.Expression value) {
         if (preconditionsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1274,10 +961,10 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>repeated .boa.types.SpecExpression preconditions = 4;</code>
+       * <code>repeated .boa.types.Expression preconditions = 2;</code>
        */
       public Builder addPreconditions(
-          boa.types.Spec.SpecExpression.Builder builderForValue) {
+          boa.types.Ast.Expression.Builder builderForValue) {
         if (preconditionsBuilder_ == null) {
           ensurePreconditionsIsMutable();
           preconditions_.add(builderForValue.build());
@@ -1288,10 +975,10 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>repeated .boa.types.SpecExpression preconditions = 4;</code>
+       * <code>repeated .boa.types.Expression preconditions = 2;</code>
        */
       public Builder addPreconditions(
-          int index, boa.types.Spec.SpecExpression.Builder builderForValue) {
+          int index, boa.types.Ast.Expression.Builder builderForValue) {
         if (preconditionsBuilder_ == null) {
           ensurePreconditionsIsMutable();
           preconditions_.add(index, builderForValue.build());
@@ -1302,10 +989,10 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>repeated .boa.types.SpecExpression preconditions = 4;</code>
+       * <code>repeated .boa.types.Expression preconditions = 2;</code>
        */
       public Builder addAllPreconditions(
-          java.lang.Iterable<? extends boa.types.Spec.SpecExpression> values) {
+          java.lang.Iterable<? extends boa.types.Ast.Expression> values) {
         if (preconditionsBuilder_ == null) {
           ensurePreconditionsIsMutable();
           super.addAll(values, preconditions_);
@@ -1316,12 +1003,12 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>repeated .boa.types.SpecExpression preconditions = 4;</code>
+       * <code>repeated .boa.types.Expression preconditions = 2;</code>
        */
       public Builder clearPreconditions() {
         if (preconditionsBuilder_ == null) {
           preconditions_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000002);
           onChanged();
         } else {
           preconditionsBuilder_.clear();
@@ -1329,7 +1016,7 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>repeated .boa.types.SpecExpression preconditions = 4;</code>
+       * <code>repeated .boa.types.Expression preconditions = 2;</code>
        */
       public Builder removePreconditions(int index) {
         if (preconditionsBuilder_ == null) {
@@ -1342,16 +1029,16 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>repeated .boa.types.SpecExpression preconditions = 4;</code>
+       * <code>repeated .boa.types.Expression preconditions = 2;</code>
        */
-      public boa.types.Spec.SpecExpression.Builder getPreconditionsBuilder(
+      public boa.types.Ast.Expression.Builder getPreconditionsBuilder(
           int index) {
         return getPreconditionsFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .boa.types.SpecExpression preconditions = 4;</code>
+       * <code>repeated .boa.types.Expression preconditions = 2;</code>
        */
-      public boa.types.Spec.SpecExpressionOrBuilder getPreconditionsOrBuilder(
+      public boa.types.Ast.ExpressionOrBuilder getPreconditionsOrBuilder(
           int index) {
         if (preconditionsBuilder_ == null) {
           return preconditions_.get(index);  } else {
@@ -1359,9 +1046,9 @@ public final class Spec {
         }
       }
       /**
-       * <code>repeated .boa.types.SpecExpression preconditions = 4;</code>
+       * <code>repeated .boa.types.Expression preconditions = 2;</code>
        */
-      public java.util.List<? extends boa.types.Spec.SpecExpressionOrBuilder> 
+      public java.util.List<? extends boa.types.Ast.ExpressionOrBuilder> 
            getPreconditionsOrBuilderList() {
         if (preconditionsBuilder_ != null) {
           return preconditionsBuilder_.getMessageOrBuilderList();
@@ -1370,35 +1057,35 @@ public final class Spec {
         }
       }
       /**
-       * <code>repeated .boa.types.SpecExpression preconditions = 4;</code>
+       * <code>repeated .boa.types.Expression preconditions = 2;</code>
        */
-      public boa.types.Spec.SpecExpression.Builder addPreconditionsBuilder() {
+      public boa.types.Ast.Expression.Builder addPreconditionsBuilder() {
         return getPreconditionsFieldBuilder().addBuilder(
-            boa.types.Spec.SpecExpression.getDefaultInstance());
+            boa.types.Ast.Expression.getDefaultInstance());
       }
       /**
-       * <code>repeated .boa.types.SpecExpression preconditions = 4;</code>
+       * <code>repeated .boa.types.Expression preconditions = 2;</code>
        */
-      public boa.types.Spec.SpecExpression.Builder addPreconditionsBuilder(
+      public boa.types.Ast.Expression.Builder addPreconditionsBuilder(
           int index) {
         return getPreconditionsFieldBuilder().addBuilder(
-            index, boa.types.Spec.SpecExpression.getDefaultInstance());
+            index, boa.types.Ast.Expression.getDefaultInstance());
       }
       /**
-       * <code>repeated .boa.types.SpecExpression preconditions = 4;</code>
+       * <code>repeated .boa.types.Expression preconditions = 2;</code>
        */
-      public java.util.List<boa.types.Spec.SpecExpression.Builder> 
+      public java.util.List<boa.types.Ast.Expression.Builder> 
            getPreconditionsBuilderList() {
         return getPreconditionsFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilder<
-          boa.types.Spec.SpecExpression, boa.types.Spec.SpecExpression.Builder, boa.types.Spec.SpecExpressionOrBuilder> 
+          boa.types.Ast.Expression, boa.types.Ast.Expression.Builder, boa.types.Ast.ExpressionOrBuilder> 
           getPreconditionsFieldBuilder() {
         if (preconditionsBuilder_ == null) {
           preconditionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              boa.types.Spec.SpecExpression, boa.types.Spec.SpecExpression.Builder, boa.types.Spec.SpecExpressionOrBuilder>(
+              boa.types.Ast.Expression, boa.types.Ast.Expression.Builder, boa.types.Ast.ExpressionOrBuilder>(
                   preconditions_,
-                  ((bitField0_ & 0x00000008) == 0x00000008),
+                  ((bitField0_ & 0x00000002) == 0x00000002),
                   getParentForChildren(),
                   isClean());
           preconditions_ = null;
@@ -1406,23 +1093,23 @@ public final class Spec {
         return preconditionsBuilder_;
       }
 
-      // repeated .boa.types.SpecExpression postconditions = 5;
-      private java.util.List<boa.types.Spec.SpecExpression> postconditions_ =
+      // repeated .boa.types.Expression postconditions = 3;
+      private java.util.List<boa.types.Ast.Expression> postconditions_ =
         java.util.Collections.emptyList();
       private void ensurePostconditionsIsMutable() {
-        if (!((bitField0_ & 0x00000010) == 0x00000010)) {
-          postconditions_ = new java.util.ArrayList<boa.types.Spec.SpecExpression>(postconditions_);
-          bitField0_ |= 0x00000010;
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+          postconditions_ = new java.util.ArrayList<boa.types.Ast.Expression>(postconditions_);
+          bitField0_ |= 0x00000004;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilder<
-          boa.types.Spec.SpecExpression, boa.types.Spec.SpecExpression.Builder, boa.types.Spec.SpecExpressionOrBuilder> postconditionsBuilder_;
+          boa.types.Ast.Expression, boa.types.Ast.Expression.Builder, boa.types.Ast.ExpressionOrBuilder> postconditionsBuilder_;
 
       /**
-       * <code>repeated .boa.types.SpecExpression postconditions = 5;</code>
+       * <code>repeated .boa.types.Expression postconditions = 3;</code>
        */
-      public java.util.List<boa.types.Spec.SpecExpression> getPostconditionsList() {
+      public java.util.List<boa.types.Ast.Expression> getPostconditionsList() {
         if (postconditionsBuilder_ == null) {
           return java.util.Collections.unmodifiableList(postconditions_);
         } else {
@@ -1430,7 +1117,7 @@ public final class Spec {
         }
       }
       /**
-       * <code>repeated .boa.types.SpecExpression postconditions = 5;</code>
+       * <code>repeated .boa.types.Expression postconditions = 3;</code>
        */
       public int getPostconditionsCount() {
         if (postconditionsBuilder_ == null) {
@@ -1440,9 +1127,9 @@ public final class Spec {
         }
       }
       /**
-       * <code>repeated .boa.types.SpecExpression postconditions = 5;</code>
+       * <code>repeated .boa.types.Expression postconditions = 3;</code>
        */
-      public boa.types.Spec.SpecExpression getPostconditions(int index) {
+      public boa.types.Ast.Expression getPostconditions(int index) {
         if (postconditionsBuilder_ == null) {
           return postconditions_.get(index);
         } else {
@@ -1450,10 +1137,10 @@ public final class Spec {
         }
       }
       /**
-       * <code>repeated .boa.types.SpecExpression postconditions = 5;</code>
+       * <code>repeated .boa.types.Expression postconditions = 3;</code>
        */
       public Builder setPostconditions(
-          int index, boa.types.Spec.SpecExpression value) {
+          int index, boa.types.Ast.Expression value) {
         if (postconditionsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1467,10 +1154,10 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>repeated .boa.types.SpecExpression postconditions = 5;</code>
+       * <code>repeated .boa.types.Expression postconditions = 3;</code>
        */
       public Builder setPostconditions(
-          int index, boa.types.Spec.SpecExpression.Builder builderForValue) {
+          int index, boa.types.Ast.Expression.Builder builderForValue) {
         if (postconditionsBuilder_ == null) {
           ensurePostconditionsIsMutable();
           postconditions_.set(index, builderForValue.build());
@@ -1481,9 +1168,9 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>repeated .boa.types.SpecExpression postconditions = 5;</code>
+       * <code>repeated .boa.types.Expression postconditions = 3;</code>
        */
-      public Builder addPostconditions(boa.types.Spec.SpecExpression value) {
+      public Builder addPostconditions(boa.types.Ast.Expression value) {
         if (postconditionsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1497,10 +1184,10 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>repeated .boa.types.SpecExpression postconditions = 5;</code>
+       * <code>repeated .boa.types.Expression postconditions = 3;</code>
        */
       public Builder addPostconditions(
-          int index, boa.types.Spec.SpecExpression value) {
+          int index, boa.types.Ast.Expression value) {
         if (postconditionsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1514,10 +1201,10 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>repeated .boa.types.SpecExpression postconditions = 5;</code>
+       * <code>repeated .boa.types.Expression postconditions = 3;</code>
        */
       public Builder addPostconditions(
-          boa.types.Spec.SpecExpression.Builder builderForValue) {
+          boa.types.Ast.Expression.Builder builderForValue) {
         if (postconditionsBuilder_ == null) {
           ensurePostconditionsIsMutable();
           postconditions_.add(builderForValue.build());
@@ -1528,10 +1215,10 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>repeated .boa.types.SpecExpression postconditions = 5;</code>
+       * <code>repeated .boa.types.Expression postconditions = 3;</code>
        */
       public Builder addPostconditions(
-          int index, boa.types.Spec.SpecExpression.Builder builderForValue) {
+          int index, boa.types.Ast.Expression.Builder builderForValue) {
         if (postconditionsBuilder_ == null) {
           ensurePostconditionsIsMutable();
           postconditions_.add(index, builderForValue.build());
@@ -1542,10 +1229,10 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>repeated .boa.types.SpecExpression postconditions = 5;</code>
+       * <code>repeated .boa.types.Expression postconditions = 3;</code>
        */
       public Builder addAllPostconditions(
-          java.lang.Iterable<? extends boa.types.Spec.SpecExpression> values) {
+          java.lang.Iterable<? extends boa.types.Ast.Expression> values) {
         if (postconditionsBuilder_ == null) {
           ensurePostconditionsIsMutable();
           super.addAll(values, postconditions_);
@@ -1556,12 +1243,12 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>repeated .boa.types.SpecExpression postconditions = 5;</code>
+       * <code>repeated .boa.types.Expression postconditions = 3;</code>
        */
       public Builder clearPostconditions() {
         if (postconditionsBuilder_ == null) {
           postconditions_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000010);
+          bitField0_ = (bitField0_ & ~0x00000004);
           onChanged();
         } else {
           postconditionsBuilder_.clear();
@@ -1569,7 +1256,7 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>repeated .boa.types.SpecExpression postconditions = 5;</code>
+       * <code>repeated .boa.types.Expression postconditions = 3;</code>
        */
       public Builder removePostconditions(int index) {
         if (postconditionsBuilder_ == null) {
@@ -1582,16 +1269,16 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>repeated .boa.types.SpecExpression postconditions = 5;</code>
+       * <code>repeated .boa.types.Expression postconditions = 3;</code>
        */
-      public boa.types.Spec.SpecExpression.Builder getPostconditionsBuilder(
+      public boa.types.Ast.Expression.Builder getPostconditionsBuilder(
           int index) {
         return getPostconditionsFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .boa.types.SpecExpression postconditions = 5;</code>
+       * <code>repeated .boa.types.Expression postconditions = 3;</code>
        */
-      public boa.types.Spec.SpecExpressionOrBuilder getPostconditionsOrBuilder(
+      public boa.types.Ast.ExpressionOrBuilder getPostconditionsOrBuilder(
           int index) {
         if (postconditionsBuilder_ == null) {
           return postconditions_.get(index);  } else {
@@ -1599,9 +1286,9 @@ public final class Spec {
         }
       }
       /**
-       * <code>repeated .boa.types.SpecExpression postconditions = 5;</code>
+       * <code>repeated .boa.types.Expression postconditions = 3;</code>
        */
-      public java.util.List<? extends boa.types.Spec.SpecExpressionOrBuilder> 
+      public java.util.List<? extends boa.types.Ast.ExpressionOrBuilder> 
            getPostconditionsOrBuilderList() {
         if (postconditionsBuilder_ != null) {
           return postconditionsBuilder_.getMessageOrBuilderList();
@@ -1610,35 +1297,35 @@ public final class Spec {
         }
       }
       /**
-       * <code>repeated .boa.types.SpecExpression postconditions = 5;</code>
+       * <code>repeated .boa.types.Expression postconditions = 3;</code>
        */
-      public boa.types.Spec.SpecExpression.Builder addPostconditionsBuilder() {
+      public boa.types.Ast.Expression.Builder addPostconditionsBuilder() {
         return getPostconditionsFieldBuilder().addBuilder(
-            boa.types.Spec.SpecExpression.getDefaultInstance());
+            boa.types.Ast.Expression.getDefaultInstance());
       }
       /**
-       * <code>repeated .boa.types.SpecExpression postconditions = 5;</code>
+       * <code>repeated .boa.types.Expression postconditions = 3;</code>
        */
-      public boa.types.Spec.SpecExpression.Builder addPostconditionsBuilder(
+      public boa.types.Ast.Expression.Builder addPostconditionsBuilder(
           int index) {
         return getPostconditionsFieldBuilder().addBuilder(
-            index, boa.types.Spec.SpecExpression.getDefaultInstance());
+            index, boa.types.Ast.Expression.getDefaultInstance());
       }
       /**
-       * <code>repeated .boa.types.SpecExpression postconditions = 5;</code>
+       * <code>repeated .boa.types.Expression postconditions = 3;</code>
        */
-      public java.util.List<boa.types.Spec.SpecExpression.Builder> 
+      public java.util.List<boa.types.Ast.Expression.Builder> 
            getPostconditionsBuilderList() {
         return getPostconditionsFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilder<
-          boa.types.Spec.SpecExpression, boa.types.Spec.SpecExpression.Builder, boa.types.Spec.SpecExpressionOrBuilder> 
+          boa.types.Ast.Expression, boa.types.Ast.Expression.Builder, boa.types.Ast.ExpressionOrBuilder> 
           getPostconditionsFieldBuilder() {
         if (postconditionsBuilder_ == null) {
           postconditionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              boa.types.Spec.SpecExpression, boa.types.Spec.SpecExpression.Builder, boa.types.Spec.SpecExpressionOrBuilder>(
+              boa.types.Ast.Expression, boa.types.Ast.Expression.Builder, boa.types.Ast.ExpressionOrBuilder>(
                   postconditions_,
-                  ((bitField0_ & 0x00000010) == 0x00000010),
+                  ((bitField0_ & 0x00000004) == 0x00000004),
                   getParentForChildren(),
                   isClean());
           postconditions_ = null;
@@ -1646,42 +1333,42 @@ public final class Spec {
         return postconditionsBuilder_;
       }
 
-      // repeated string assignable_fields = 6;
+      // repeated string assignable_fields = 4;
       private com.google.protobuf.LazyStringList assignableFields_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureAssignableFieldsIsMutable() {
-        if (!((bitField0_ & 0x00000020) == 0x00000020)) {
+        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
           assignableFields_ = new com.google.protobuf.LazyStringArrayList(assignableFields_);
-          bitField0_ |= 0x00000020;
+          bitField0_ |= 0x00000008;
          }
       }
       /**
-       * <code>repeated string assignable_fields = 6;</code>
+       * <code>repeated string assignable_fields = 4;</code>
        */
       public java.util.List<java.lang.String>
           getAssignableFieldsList() {
         return java.util.Collections.unmodifiableList(assignableFields_);
       }
       /**
-       * <code>repeated string assignable_fields = 6;</code>
+       * <code>repeated string assignable_fields = 4;</code>
        */
       public int getAssignableFieldsCount() {
         return assignableFields_.size();
       }
       /**
-       * <code>repeated string assignable_fields = 6;</code>
+       * <code>repeated string assignable_fields = 4;</code>
        */
       public java.lang.String getAssignableFields(int index) {
         return assignableFields_.get(index);
       }
       /**
-       * <code>repeated string assignable_fields = 6;</code>
+       * <code>repeated string assignable_fields = 4;</code>
        */
       public com.google.protobuf.ByteString
           getAssignableFieldsBytes(int index) {
         return assignableFields_.getByteString(index);
       }
       /**
-       * <code>repeated string assignable_fields = 6;</code>
+       * <code>repeated string assignable_fields = 4;</code>
        */
       public Builder setAssignableFields(
           int index, java.lang.String value) {
@@ -1694,7 +1381,7 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>repeated string assignable_fields = 6;</code>
+       * <code>repeated string assignable_fields = 4;</code>
        */
       public Builder addAssignableFields(
           java.lang.String value) {
@@ -1707,7 +1394,7 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>repeated string assignable_fields = 6;</code>
+       * <code>repeated string assignable_fields = 4;</code>
        */
       public Builder addAllAssignableFields(
           java.lang.Iterable<java.lang.String> values) {
@@ -1717,16 +1404,16 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>repeated string assignable_fields = 6;</code>
+       * <code>repeated string assignable_fields = 4;</code>
        */
       public Builder clearAssignableFields() {
         assignableFields_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated string assignable_fields = 6;</code>
+       * <code>repeated string assignable_fields = 4;</code>
        */
       public Builder addAssignableFieldsBytes(
           com.google.protobuf.ByteString value) {
@@ -1739,42 +1426,42 @@ public final class Spec {
         return this;
       }
 
-      // repeated string exception_types = 7;
+      // repeated string exception_types = 5;
       private com.google.protobuf.LazyStringList exceptionTypes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureExceptionTypesIsMutable() {
-        if (!((bitField0_ & 0x00000040) == 0x00000040)) {
+        if (!((bitField0_ & 0x00000010) == 0x00000010)) {
           exceptionTypes_ = new com.google.protobuf.LazyStringArrayList(exceptionTypes_);
-          bitField0_ |= 0x00000040;
+          bitField0_ |= 0x00000010;
          }
       }
       /**
-       * <code>repeated string exception_types = 7;</code>
+       * <code>repeated string exception_types = 5;</code>
        */
       public java.util.List<java.lang.String>
           getExceptionTypesList() {
         return java.util.Collections.unmodifiableList(exceptionTypes_);
       }
       /**
-       * <code>repeated string exception_types = 7;</code>
+       * <code>repeated string exception_types = 5;</code>
        */
       public int getExceptionTypesCount() {
         return exceptionTypes_.size();
       }
       /**
-       * <code>repeated string exception_types = 7;</code>
+       * <code>repeated string exception_types = 5;</code>
        */
       public java.lang.String getExceptionTypes(int index) {
         return exceptionTypes_.get(index);
       }
       /**
-       * <code>repeated string exception_types = 7;</code>
+       * <code>repeated string exception_types = 5;</code>
        */
       public com.google.protobuf.ByteString
           getExceptionTypesBytes(int index) {
         return exceptionTypes_.getByteString(index);
       }
       /**
-       * <code>repeated string exception_types = 7;</code>
+       * <code>repeated string exception_types = 5;</code>
        */
       public Builder setExceptionTypes(
           int index, java.lang.String value) {
@@ -1787,7 +1474,7 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>repeated string exception_types = 7;</code>
+       * <code>repeated string exception_types = 5;</code>
        */
       public Builder addExceptionTypes(
           java.lang.String value) {
@@ -1800,7 +1487,7 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>repeated string exception_types = 7;</code>
+       * <code>repeated string exception_types = 5;</code>
        */
       public Builder addAllExceptionTypes(
           java.lang.Iterable<java.lang.String> values) {
@@ -1810,16 +1497,16 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>repeated string exception_types = 7;</code>
+       * <code>repeated string exception_types = 5;</code>
        */
       public Builder clearExceptionTypes() {
         exceptionTypes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000040);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated string exception_types = 7;</code>
+       * <code>repeated string exception_types = 5;</code>
        */
       public Builder addExceptionTypesBytes(
           com.google.protobuf.ByteString value) {
@@ -1843,1738 +1530,11 @@ public final class Spec {
     // @@protoc_insertion_point(class_scope:boa.types.Specification)
   }
 
-  public interface SpecExpressionOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
-
-    // required .boa.types.SpecExpression.SpecExpressionType type = 1;
-    /**
-     * <code>required .boa.types.SpecExpression.SpecExpressionType type = 1;</code>
-     */
-    boolean hasType();
-    /**
-     * <code>required .boa.types.SpecExpression.SpecExpressionType type = 1;</code>
-     */
-    boa.types.Spec.SpecExpression.SpecExpressionType getType();
-
-    // optional .boa.types.SpecExpression.Quantifier quantifier = 2;
-    /**
-     * <code>optional .boa.types.SpecExpression.Quantifier quantifier = 2;</code>
-     */
-    boolean hasQuantifier();
-    /**
-     * <code>optional .boa.types.SpecExpression.Quantifier quantifier = 2;</code>
-     */
-    boa.types.Spec.SpecExpression.Quantifier getQuantifier();
-
-    // optional .boa.types.SpecExpression quantified_scope = 3;
-    /**
-     * <code>optional .boa.types.SpecExpression quantified_scope = 3;</code>
-     */
-    boolean hasQuantifiedScope();
-    /**
-     * <code>optional .boa.types.SpecExpression quantified_scope = 3;</code>
-     */
-    boa.types.Spec.SpecExpression getQuantifiedScope();
-    /**
-     * <code>optional .boa.types.SpecExpression quantified_scope = 3;</code>
-     */
-    boa.types.Spec.SpecExpressionOrBuilder getQuantifiedScopeOrBuilder();
-
-    // repeated .boa.types.SpecExpression subexpressions = 4;
-    /**
-     * <code>repeated .boa.types.SpecExpression subexpressions = 4;</code>
-     */
-    java.util.List<boa.types.Spec.SpecExpression> 
-        getSubexpressionsList();
-    /**
-     * <code>repeated .boa.types.SpecExpression subexpressions = 4;</code>
-     */
-    boa.types.Spec.SpecExpression getSubexpressions(int index);
-    /**
-     * <code>repeated .boa.types.SpecExpression subexpressions = 4;</code>
-     */
-    int getSubexpressionsCount();
-    /**
-     * <code>repeated .boa.types.SpecExpression subexpressions = 4;</code>
-     */
-    java.util.List<? extends boa.types.Spec.SpecExpressionOrBuilder> 
-        getSubexpressionsOrBuilderList();
-    /**
-     * <code>repeated .boa.types.SpecExpression subexpressions = 4;</code>
-     */
-    boa.types.Spec.SpecExpressionOrBuilder getSubexpressionsOrBuilder(
-        int index);
-
-    // optional string value = 5;
-    /**
-     * <code>optional string value = 5;</code>
-     */
-    boolean hasValue();
-    /**
-     * <code>optional string value = 5;</code>
-     */
-    java.lang.String getValue();
-    /**
-     * <code>optional string value = 5;</code>
-     */
-    com.google.protobuf.ByteString
-        getValueBytes();
-  }
-  /**
-   * Protobuf type {@code boa.types.SpecExpression}
-   */
-  public static final class SpecExpression extends
-      com.google.protobuf.GeneratedMessage
-      implements SpecExpressionOrBuilder {
-    // Use SpecExpression.newBuilder() to construct.
-    private SpecExpression(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
-      super(builder);
-      this.unknownFields = builder.getUnknownFields();
-    }
-    private SpecExpression(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final SpecExpression defaultInstance;
-    public static SpecExpression getDefaultInstance() {
-      return defaultInstance;
-    }
-
-    public SpecExpression getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
-    }
-    private SpecExpression(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 8: {
-              int rawValue = input.readEnum();
-              boa.types.Spec.SpecExpression.SpecExpressionType value = boa.types.Spec.SpecExpression.SpecExpressionType.valueOf(rawValue);
-              if (value == null) {
-                unknownFields.mergeVarintField(1, rawValue);
-              } else {
-                bitField0_ |= 0x00000001;
-                type_ = value;
-              }
-              break;
-            }
-            case 16: {
-              int rawValue = input.readEnum();
-              boa.types.Spec.SpecExpression.Quantifier value = boa.types.Spec.SpecExpression.Quantifier.valueOf(rawValue);
-              if (value == null) {
-                unknownFields.mergeVarintField(2, rawValue);
-              } else {
-                bitField0_ |= 0x00000002;
-                quantifier_ = value;
-              }
-              break;
-            }
-            case 26: {
-              boa.types.Spec.SpecExpression.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000004) == 0x00000004)) {
-                subBuilder = quantifiedScope_.toBuilder();
-              }
-              quantifiedScope_ = input.readMessage(boa.types.Spec.SpecExpression.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(quantifiedScope_);
-                quantifiedScope_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x00000004;
-              break;
-            }
-            case 34: {
-              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-                subexpressions_ = new java.util.ArrayList<boa.types.Spec.SpecExpression>();
-                mutable_bitField0_ |= 0x00000008;
-              }
-              subexpressions_.add(input.readMessage(boa.types.Spec.SpecExpression.PARSER, extensionRegistry));
-              break;
-            }
-            case 42: {
-              bitField0_ |= 0x00000008;
-              value_ = input.readBytes();
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-          subexpressions_ = java.util.Collections.unmodifiableList(subexpressions_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return boa.types.Spec.internal_static_boa_types_SpecExpression_descriptor;
-    }
-
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return boa.types.Spec.internal_static_boa_types_SpecExpression_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              boa.types.Spec.SpecExpression.class, boa.types.Spec.SpecExpression.Builder.class);
-    }
-
-    public static com.google.protobuf.Parser<SpecExpression> PARSER =
-        new com.google.protobuf.AbstractParser<SpecExpression>() {
-      public SpecExpression parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new SpecExpression(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<SpecExpression> getParserForType() {
-      return PARSER;
-    }
-
-    /**
-     * Protobuf enum {@code boa.types.SpecExpression.SpecExpressionType}
-     */
-    public enum SpecExpressionType
-        implements com.google.protobuf.ProtocolMessageEnum {
-      /**
-       * <code>QUANTIFIED = 0;</code>
-       *
-       * <pre>
-       * body is in subexpressions
-       * </pre>
-       */
-      QUANTIFIED(0, 0),
-      /**
-       * <code>VARACCESS = 1;</code>
-       */
-      VARACCESS(1, 1),
-      /**
-       * <code>ARR_INDEXING = 2;</code>
-       *
-       * <pre>
-       * index expression is in subexpression
-       * </pre>
-       */
-      ARR_INDEXING(2, 2),
-      /**
-       * <code>IMPLIES = 3;</code>
-       *
-       * <pre>
-       * For most of these, subexpressions will just contain the left and right side of these
-       * operations
-       * </pre>
-       */
-      IMPLIES(3, 3),
-      /**
-       * <code>IFF = 4;</code>
-       */
-      IFF(4, 4),
-      /**
-       * <code>LOGICAL_AND = 5;</code>
-       */
-      LOGICAL_AND(5, 5),
-      /**
-       * <code>LOGICAL_OR = 6;</code>
-       */
-      LOGICAL_OR(6, 6),
-      /**
-       * <code>PLUS = 7;</code>
-       */
-      PLUS(7, 7),
-      /**
-       * <code>MINUS = 8;</code>
-       */
-      MINUS(8, 8),
-      /**
-       * <code>DIVIDE = 9;</code>
-       */
-      DIVIDE(9, 9),
-      /**
-       * <code>MODULUS = 10;</code>
-       */
-      MODULUS(10, 10),
-      /**
-       * <code>MULTIPLY = 11;</code>
-       */
-      MULTIPLY(11, 11),
-      /**
-       * <code>BIT_LSHIFT = 12;</code>
-       */
-      BIT_LSHIFT(12, 12),
-      /**
-       * <code>BIT_RSHIFT = 13;</code>
-       */
-      BIT_RSHIFT(13, 13),
-      /**
-       * <code>BIT_UNSIGNEDRSHIFT = 14;</code>
-       */
-      BIT_UNSIGNEDRSHIFT(14, 14),
-      /**
-       * <code>BIT_AND = 15;</code>
-       */
-      BIT_AND(15, 15),
-      /**
-       * <code>BIT_OR = 16;</code>
-       */
-      BIT_OR(16, 16),
-      /**
-       * <code>BIT_NOT = 17;</code>
-       */
-      BIT_NOT(17, 17),
-      /**
-       * <code>BIT_XOR = 18;</code>
-       */
-      BIT_XOR(18, 18),
-      /**
-       * <code>EQUAL = 19;</code>
-       */
-      EQUAL(19, 19),
-      /**
-       * <code>NOT_EQUAL = 20;</code>
-       */
-      NOT_EQUAL(20, 20),
-      /**
-       * <code>LESS_THAN = 21;</code>
-       */
-      LESS_THAN(21, 21),
-      /**
-       * <code>GREATER_THAN = 22;</code>
-       */
-      GREATER_THAN(22, 22),
-      /**
-       * <code>LESS_THAN_EQ = 23;</code>
-       */
-      LESS_THAN_EQ(23, 23),
-      /**
-       * <code>GREATER_THAN_EQ = 24;</code>
-       */
-      GREATER_THAN_EQ(24, 24),
-      /**
-       * <code>NOT = 25;</code>
-       */
-      NOT(25, 25),
-      /**
-       * <code>OLD = 26;</code>
-       *
-       * <pre>
-       * the value of a subexpression before running the method
-       * </pre>
-       */
-      OLD(26, 26),
-      /**
-       * <code>RESULT = 27;</code>
-       *
-       * <pre>
-       * the return value of the method
-       * </pre>
-       */
-      RESULT(27, 27),
-      /**
-       * <code>LITERAL = 28;</code>
-       */
-      LITERAL(28, 28),
-      ;
-
-      /**
-       * <code>QUANTIFIED = 0;</code>
-       *
-       * <pre>
-       * body is in subexpressions
-       * </pre>
-       */
-      public static final int QUANTIFIED_VALUE = 0;
-      /**
-       * <code>VARACCESS = 1;</code>
-       */
-      public static final int VARACCESS_VALUE = 1;
-      /**
-       * <code>ARR_INDEXING = 2;</code>
-       *
-       * <pre>
-       * index expression is in subexpression
-       * </pre>
-       */
-      public static final int ARR_INDEXING_VALUE = 2;
-      /**
-       * <code>IMPLIES = 3;</code>
-       *
-       * <pre>
-       * For most of these, subexpressions will just contain the left and right side of these
-       * operations
-       * </pre>
-       */
-      public static final int IMPLIES_VALUE = 3;
-      /**
-       * <code>IFF = 4;</code>
-       */
-      public static final int IFF_VALUE = 4;
-      /**
-       * <code>LOGICAL_AND = 5;</code>
-       */
-      public static final int LOGICAL_AND_VALUE = 5;
-      /**
-       * <code>LOGICAL_OR = 6;</code>
-       */
-      public static final int LOGICAL_OR_VALUE = 6;
-      /**
-       * <code>PLUS = 7;</code>
-       */
-      public static final int PLUS_VALUE = 7;
-      /**
-       * <code>MINUS = 8;</code>
-       */
-      public static final int MINUS_VALUE = 8;
-      /**
-       * <code>DIVIDE = 9;</code>
-       */
-      public static final int DIVIDE_VALUE = 9;
-      /**
-       * <code>MODULUS = 10;</code>
-       */
-      public static final int MODULUS_VALUE = 10;
-      /**
-       * <code>MULTIPLY = 11;</code>
-       */
-      public static final int MULTIPLY_VALUE = 11;
-      /**
-       * <code>BIT_LSHIFT = 12;</code>
-       */
-      public static final int BIT_LSHIFT_VALUE = 12;
-      /**
-       * <code>BIT_RSHIFT = 13;</code>
-       */
-      public static final int BIT_RSHIFT_VALUE = 13;
-      /**
-       * <code>BIT_UNSIGNEDRSHIFT = 14;</code>
-       */
-      public static final int BIT_UNSIGNEDRSHIFT_VALUE = 14;
-      /**
-       * <code>BIT_AND = 15;</code>
-       */
-      public static final int BIT_AND_VALUE = 15;
-      /**
-       * <code>BIT_OR = 16;</code>
-       */
-      public static final int BIT_OR_VALUE = 16;
-      /**
-       * <code>BIT_NOT = 17;</code>
-       */
-      public static final int BIT_NOT_VALUE = 17;
-      /**
-       * <code>BIT_XOR = 18;</code>
-       */
-      public static final int BIT_XOR_VALUE = 18;
-      /**
-       * <code>EQUAL = 19;</code>
-       */
-      public static final int EQUAL_VALUE = 19;
-      /**
-       * <code>NOT_EQUAL = 20;</code>
-       */
-      public static final int NOT_EQUAL_VALUE = 20;
-      /**
-       * <code>LESS_THAN = 21;</code>
-       */
-      public static final int LESS_THAN_VALUE = 21;
-      /**
-       * <code>GREATER_THAN = 22;</code>
-       */
-      public static final int GREATER_THAN_VALUE = 22;
-      /**
-       * <code>LESS_THAN_EQ = 23;</code>
-       */
-      public static final int LESS_THAN_EQ_VALUE = 23;
-      /**
-       * <code>GREATER_THAN_EQ = 24;</code>
-       */
-      public static final int GREATER_THAN_EQ_VALUE = 24;
-      /**
-       * <code>NOT = 25;</code>
-       */
-      public static final int NOT_VALUE = 25;
-      /**
-       * <code>OLD = 26;</code>
-       *
-       * <pre>
-       * the value of a subexpression before running the method
-       * </pre>
-       */
-      public static final int OLD_VALUE = 26;
-      /**
-       * <code>RESULT = 27;</code>
-       *
-       * <pre>
-       * the return value of the method
-       * </pre>
-       */
-      public static final int RESULT_VALUE = 27;
-      /**
-       * <code>LITERAL = 28;</code>
-       */
-      public static final int LITERAL_VALUE = 28;
-
-
-      public final int getNumber() { return value; }
-
-      public static SpecExpressionType valueOf(int value) {
-        switch (value) {
-          case 0: return QUANTIFIED;
-          case 1: return VARACCESS;
-          case 2: return ARR_INDEXING;
-          case 3: return IMPLIES;
-          case 4: return IFF;
-          case 5: return LOGICAL_AND;
-          case 6: return LOGICAL_OR;
-          case 7: return PLUS;
-          case 8: return MINUS;
-          case 9: return DIVIDE;
-          case 10: return MODULUS;
-          case 11: return MULTIPLY;
-          case 12: return BIT_LSHIFT;
-          case 13: return BIT_RSHIFT;
-          case 14: return BIT_UNSIGNEDRSHIFT;
-          case 15: return BIT_AND;
-          case 16: return BIT_OR;
-          case 17: return BIT_NOT;
-          case 18: return BIT_XOR;
-          case 19: return EQUAL;
-          case 20: return NOT_EQUAL;
-          case 21: return LESS_THAN;
-          case 22: return GREATER_THAN;
-          case 23: return LESS_THAN_EQ;
-          case 24: return GREATER_THAN_EQ;
-          case 25: return NOT;
-          case 26: return OLD;
-          case 27: return RESULT;
-          case 28: return LITERAL;
-          default: return null;
-        }
-      }
-
-      public static com.google.protobuf.Internal.EnumLiteMap<SpecExpressionType>
-          internalGetValueMap() {
-        return internalValueMap;
-      }
-      private static com.google.protobuf.Internal.EnumLiteMap<SpecExpressionType>
-          internalValueMap =
-            new com.google.protobuf.Internal.EnumLiteMap<SpecExpressionType>() {
-              public SpecExpressionType findValueByNumber(int number) {
-                return SpecExpressionType.valueOf(number);
-              }
-            };
-
-      public final com.google.protobuf.Descriptors.EnumValueDescriptor
-          getValueDescriptor() {
-        return getDescriptor().getValues().get(index);
-      }
-      public final com.google.protobuf.Descriptors.EnumDescriptor
-          getDescriptorForType() {
-        return getDescriptor();
-      }
-      public static final com.google.protobuf.Descriptors.EnumDescriptor
-          getDescriptor() {
-        return boa.types.Spec.SpecExpression.getDescriptor().getEnumTypes().get(0);
-      }
-
-      private static final SpecExpressionType[] VALUES = values();
-
-      public static SpecExpressionType valueOf(
-          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-        if (desc.getType() != getDescriptor()) {
-          throw new java.lang.IllegalArgumentException(
-            "EnumValueDescriptor is not for this type.");
-        }
-        return VALUES[desc.getIndex()];
-      }
-
-      private final int index;
-      private final int value;
-
-      private SpecExpressionType(int index, int value) {
-        this.index = index;
-        this.value = value;
-      }
-
-      // @@protoc_insertion_point(enum_scope:boa.types.SpecExpression.SpecExpressionType)
-    }
-
-    /**
-     * Protobuf enum {@code boa.types.SpecExpression.Quantifier}
-     */
-    public enum Quantifier
-        implements com.google.protobuf.ProtocolMessageEnum {
-      /**
-       * <code>FORALL = 0;</code>
-       */
-      FORALL(0, 0),
-      /**
-       * <code>EXISTS = 1;</code>
-       */
-      EXISTS(1, 1),
-      /**
-       * <code>JML_SUM = 2;</code>
-       */
-      JML_SUM(2, 2),
-      /**
-       * <code>JML_PRODUCT = 3;</code>
-       */
-      JML_PRODUCT(3, 3),
-      /**
-       * <code>JML_MAX = 4;</code>
-       */
-      JML_MAX(4, 4),
-      /**
-       * <code>JML_MIN = 5;</code>
-       */
-      JML_MIN(5, 5),
-      ;
-
-      /**
-       * <code>FORALL = 0;</code>
-       */
-      public static final int FORALL_VALUE = 0;
-      /**
-       * <code>EXISTS = 1;</code>
-       */
-      public static final int EXISTS_VALUE = 1;
-      /**
-       * <code>JML_SUM = 2;</code>
-       */
-      public static final int JML_SUM_VALUE = 2;
-      /**
-       * <code>JML_PRODUCT = 3;</code>
-       */
-      public static final int JML_PRODUCT_VALUE = 3;
-      /**
-       * <code>JML_MAX = 4;</code>
-       */
-      public static final int JML_MAX_VALUE = 4;
-      /**
-       * <code>JML_MIN = 5;</code>
-       */
-      public static final int JML_MIN_VALUE = 5;
-
-
-      public final int getNumber() { return value; }
-
-      public static Quantifier valueOf(int value) {
-        switch (value) {
-          case 0: return FORALL;
-          case 1: return EXISTS;
-          case 2: return JML_SUM;
-          case 3: return JML_PRODUCT;
-          case 4: return JML_MAX;
-          case 5: return JML_MIN;
-          default: return null;
-        }
-      }
-
-      public static com.google.protobuf.Internal.EnumLiteMap<Quantifier>
-          internalGetValueMap() {
-        return internalValueMap;
-      }
-      private static com.google.protobuf.Internal.EnumLiteMap<Quantifier>
-          internalValueMap =
-            new com.google.protobuf.Internal.EnumLiteMap<Quantifier>() {
-              public Quantifier findValueByNumber(int number) {
-                return Quantifier.valueOf(number);
-              }
-            };
-
-      public final com.google.protobuf.Descriptors.EnumValueDescriptor
-          getValueDescriptor() {
-        return getDescriptor().getValues().get(index);
-      }
-      public final com.google.protobuf.Descriptors.EnumDescriptor
-          getDescriptorForType() {
-        return getDescriptor();
-      }
-      public static final com.google.protobuf.Descriptors.EnumDescriptor
-          getDescriptor() {
-        return boa.types.Spec.SpecExpression.getDescriptor().getEnumTypes().get(1);
-      }
-
-      private static final Quantifier[] VALUES = values();
-
-      public static Quantifier valueOf(
-          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-        if (desc.getType() != getDescriptor()) {
-          throw new java.lang.IllegalArgumentException(
-            "EnumValueDescriptor is not for this type.");
-        }
-        return VALUES[desc.getIndex()];
-      }
-
-      private final int index;
-      private final int value;
-
-      private Quantifier(int index, int value) {
-        this.index = index;
-        this.value = value;
-      }
-
-      // @@protoc_insertion_point(enum_scope:boa.types.SpecExpression.Quantifier)
-    }
-
-    private int bitField0_;
-    // required .boa.types.SpecExpression.SpecExpressionType type = 1;
-    public static final int TYPE_FIELD_NUMBER = 1;
-    private boa.types.Spec.SpecExpression.SpecExpressionType type_;
-    /**
-     * <code>required .boa.types.SpecExpression.SpecExpressionType type = 1;</code>
-     */
-    public boolean hasType() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
-    }
-    /**
-     * <code>required .boa.types.SpecExpression.SpecExpressionType type = 1;</code>
-     */
-    public boa.types.Spec.SpecExpression.SpecExpressionType getType() {
-      return type_;
-    }
-
-    // optional .boa.types.SpecExpression.Quantifier quantifier = 2;
-    public static final int QUANTIFIER_FIELD_NUMBER = 2;
-    private boa.types.Spec.SpecExpression.Quantifier quantifier_;
-    /**
-     * <code>optional .boa.types.SpecExpression.Quantifier quantifier = 2;</code>
-     */
-    public boolean hasQuantifier() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    /**
-     * <code>optional .boa.types.SpecExpression.Quantifier quantifier = 2;</code>
-     */
-    public boa.types.Spec.SpecExpression.Quantifier getQuantifier() {
-      return quantifier_;
-    }
-
-    // optional .boa.types.SpecExpression quantified_scope = 3;
-    public static final int QUANTIFIED_SCOPE_FIELD_NUMBER = 3;
-    private boa.types.Spec.SpecExpression quantifiedScope_;
-    /**
-     * <code>optional .boa.types.SpecExpression quantified_scope = 3;</code>
-     */
-    public boolean hasQuantifiedScope() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
-    }
-    /**
-     * <code>optional .boa.types.SpecExpression quantified_scope = 3;</code>
-     */
-    public boa.types.Spec.SpecExpression getQuantifiedScope() {
-      return quantifiedScope_;
-    }
-    /**
-     * <code>optional .boa.types.SpecExpression quantified_scope = 3;</code>
-     */
-    public boa.types.Spec.SpecExpressionOrBuilder getQuantifiedScopeOrBuilder() {
-      return quantifiedScope_;
-    }
-
-    // repeated .boa.types.SpecExpression subexpressions = 4;
-    public static final int SUBEXPRESSIONS_FIELD_NUMBER = 4;
-    private java.util.List<boa.types.Spec.SpecExpression> subexpressions_;
-    /**
-     * <code>repeated .boa.types.SpecExpression subexpressions = 4;</code>
-     */
-    public java.util.List<boa.types.Spec.SpecExpression> getSubexpressionsList() {
-      return subexpressions_;
-    }
-    /**
-     * <code>repeated .boa.types.SpecExpression subexpressions = 4;</code>
-     */
-    public java.util.List<? extends boa.types.Spec.SpecExpressionOrBuilder> 
-        getSubexpressionsOrBuilderList() {
-      return subexpressions_;
-    }
-    /**
-     * <code>repeated .boa.types.SpecExpression subexpressions = 4;</code>
-     */
-    public int getSubexpressionsCount() {
-      return subexpressions_.size();
-    }
-    /**
-     * <code>repeated .boa.types.SpecExpression subexpressions = 4;</code>
-     */
-    public boa.types.Spec.SpecExpression getSubexpressions(int index) {
-      return subexpressions_.get(index);
-    }
-    /**
-     * <code>repeated .boa.types.SpecExpression subexpressions = 4;</code>
-     */
-    public boa.types.Spec.SpecExpressionOrBuilder getSubexpressionsOrBuilder(
-        int index) {
-      return subexpressions_.get(index);
-    }
-
-    // optional string value = 5;
-    public static final int VALUE_FIELD_NUMBER = 5;
-    private java.lang.Object value_;
-    /**
-     * <code>optional string value = 5;</code>
-     */
-    public boolean hasValue() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
-    }
-    /**
-     * <code>optional string value = 5;</code>
-     */
-    public java.lang.String getValue() {
-      java.lang.Object ref = value_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          value_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <code>optional string value = 5;</code>
-     */
-    public com.google.protobuf.ByteString
-        getValueBytes() {
-      java.lang.Object ref = value_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        value_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    private void initFields() {
-      type_ = boa.types.Spec.SpecExpression.SpecExpressionType.QUANTIFIED;
-      quantifier_ = boa.types.Spec.SpecExpression.Quantifier.FORALL;
-      quantifiedScope_ = boa.types.Spec.SpecExpression.getDefaultInstance();
-      subexpressions_ = java.util.Collections.emptyList();
-      value_ = "";
-    }
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
-
-      if (!hasType()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (hasQuantifiedScope()) {
-        if (!getQuantifiedScope().isInitialized()) {
-          memoizedIsInitialized = 0;
-          return false;
-        }
-      }
-      for (int i = 0; i < getSubexpressionsCount(); i++) {
-        if (!getSubexpressions(i).isInitialized()) {
-          memoizedIsInitialized = 0;
-          return false;
-        }
-      }
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeEnum(1, type_.getNumber());
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeEnum(2, quantifier_.getNumber());
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeMessage(3, quantifiedScope_);
-      }
-      for (int i = 0; i < subexpressions_.size(); i++) {
-        output.writeMessage(4, subexpressions_.get(i));
-      }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeBytes(5, getValueBytes());
-      }
-      getUnknownFields().writeTo(output);
-    }
-
-    private int memoizedSerializedSize = -1;
-    public int getSerializedSize() {
-      int size = memoizedSerializedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(1, type_.getNumber());
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(2, quantifier_.getNumber());
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, quantifiedScope_);
-      }
-      for (int i = 0; i < subexpressions_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, subexpressions_.get(i));
-      }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(5, getValueBytes());
-      }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
-      return size;
-    }
-
-    private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-
-    public static boa.types.Spec.SpecExpression parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static boa.types.Spec.SpecExpression parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static boa.types.Spec.SpecExpression parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static boa.types.Spec.SpecExpression parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static boa.types.Spec.SpecExpression parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-    public static boa.types.Spec.SpecExpression parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-    public static boa.types.Spec.SpecExpression parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
-    }
-    public static boa.types.Spec.SpecExpression parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
-    }
-    public static boa.types.Spec.SpecExpression parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-    public static boa.types.Spec.SpecExpression parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-
-    public static Builder newBuilder() { return Builder.create(); }
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(boa.types.Spec.SpecExpression prototype) {
-      return newBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() { return newBuilder(this); }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code boa.types.SpecExpression}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements boa.types.Spec.SpecExpressionOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return boa.types.Spec.internal_static_boa_types_SpecExpression_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return boa.types.Spec.internal_static_boa_types_SpecExpression_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                boa.types.Spec.SpecExpression.class, boa.types.Spec.SpecExpression.Builder.class);
-      }
-
-      // Construct using boa.types.Spec.SpecExpression.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-          getQuantifiedScopeFieldBuilder();
-          getSubexpressionsFieldBuilder();
-        }
-      }
-      private static Builder create() {
-        return new Builder();
-      }
-
-      public Builder clear() {
-        super.clear();
-        type_ = boa.types.Spec.SpecExpression.SpecExpressionType.QUANTIFIED;
-        bitField0_ = (bitField0_ & ~0x00000001);
-        quantifier_ = boa.types.Spec.SpecExpression.Quantifier.FORALL;
-        bitField0_ = (bitField0_ & ~0x00000002);
-        if (quantifiedScopeBuilder_ == null) {
-          quantifiedScope_ = boa.types.Spec.SpecExpression.getDefaultInstance();
-        } else {
-          quantifiedScopeBuilder_.clear();
-        }
-        bitField0_ = (bitField0_ & ~0x00000004);
-        if (subexpressionsBuilder_ == null) {
-          subexpressions_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000008);
-        } else {
-          subexpressionsBuilder_.clear();
-        }
-        value_ = "";
-        bitField0_ = (bitField0_ & ~0x00000010);
-        return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return boa.types.Spec.internal_static_boa_types_SpecExpression_descriptor;
-      }
-
-      public boa.types.Spec.SpecExpression getDefaultInstanceForType() {
-        return boa.types.Spec.SpecExpression.getDefaultInstance();
-      }
-
-      public boa.types.Spec.SpecExpression build() {
-        boa.types.Spec.SpecExpression result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public boa.types.Spec.SpecExpression buildPartial() {
-        boa.types.Spec.SpecExpression result = new boa.types.Spec.SpecExpression(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        result.type_ = type_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.quantifier_ = quantifier_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-          to_bitField0_ |= 0x00000004;
-        }
-        if (quantifiedScopeBuilder_ == null) {
-          result.quantifiedScope_ = quantifiedScope_;
-        } else {
-          result.quantifiedScope_ = quantifiedScopeBuilder_.build();
-        }
-        if (subexpressionsBuilder_ == null) {
-          if (((bitField0_ & 0x00000008) == 0x00000008)) {
-            subexpressions_ = java.util.Collections.unmodifiableList(subexpressions_);
-            bitField0_ = (bitField0_ & ~0x00000008);
-          }
-          result.subexpressions_ = subexpressions_;
-        } else {
-          result.subexpressions_ = subexpressionsBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
-          to_bitField0_ |= 0x00000008;
-        }
-        result.value_ = value_;
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
-      }
-
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof boa.types.Spec.SpecExpression) {
-          return mergeFrom((boa.types.Spec.SpecExpression)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(boa.types.Spec.SpecExpression other) {
-        if (other == boa.types.Spec.SpecExpression.getDefaultInstance()) return this;
-        if (other.hasType()) {
-          setType(other.getType());
-        }
-        if (other.hasQuantifier()) {
-          setQuantifier(other.getQuantifier());
-        }
-        if (other.hasQuantifiedScope()) {
-          mergeQuantifiedScope(other.getQuantifiedScope());
-        }
-        if (subexpressionsBuilder_ == null) {
-          if (!other.subexpressions_.isEmpty()) {
-            if (subexpressions_.isEmpty()) {
-              subexpressions_ = other.subexpressions_;
-              bitField0_ = (bitField0_ & ~0x00000008);
-            } else {
-              ensureSubexpressionsIsMutable();
-              subexpressions_.addAll(other.subexpressions_);
-            }
-            onChanged();
-          }
-        } else {
-          if (!other.subexpressions_.isEmpty()) {
-            if (subexpressionsBuilder_.isEmpty()) {
-              subexpressionsBuilder_.dispose();
-              subexpressionsBuilder_ = null;
-              subexpressions_ = other.subexpressions_;
-              bitField0_ = (bitField0_ & ~0x00000008);
-              subexpressionsBuilder_ = 
-                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
-                   getSubexpressionsFieldBuilder() : null;
-            } else {
-              subexpressionsBuilder_.addAllMessages(other.subexpressions_);
-            }
-          }
-        }
-        if (other.hasValue()) {
-          bitField0_ |= 0x00000010;
-          value_ = other.value_;
-          onChanged();
-        }
-        this.mergeUnknownFields(other.getUnknownFields());
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        if (!hasType()) {
-          
-          return false;
-        }
-        if (hasQuantifiedScope()) {
-          if (!getQuantifiedScope().isInitialized()) {
-            
-            return false;
-          }
-        }
-        for (int i = 0; i < getSubexpressionsCount(); i++) {
-          if (!getSubexpressions(i).isInitialized()) {
-            
-            return false;
-          }
-        }
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        boa.types.Spec.SpecExpression parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (boa.types.Spec.SpecExpression) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      // required .boa.types.SpecExpression.SpecExpressionType type = 1;
-      private boa.types.Spec.SpecExpression.SpecExpressionType type_ = boa.types.Spec.SpecExpression.SpecExpressionType.QUANTIFIED;
-      /**
-       * <code>required .boa.types.SpecExpression.SpecExpressionType type = 1;</code>
-       */
-      public boolean hasType() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      /**
-       * <code>required .boa.types.SpecExpression.SpecExpressionType type = 1;</code>
-       */
-      public boa.types.Spec.SpecExpression.SpecExpressionType getType() {
-        return type_;
-      }
-      /**
-       * <code>required .boa.types.SpecExpression.SpecExpressionType type = 1;</code>
-       */
-      public Builder setType(boa.types.Spec.SpecExpression.SpecExpressionType value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        bitField0_ |= 0x00000001;
-        type_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required .boa.types.SpecExpression.SpecExpressionType type = 1;</code>
-       */
-      public Builder clearType() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        type_ = boa.types.Spec.SpecExpression.SpecExpressionType.QUANTIFIED;
-        onChanged();
-        return this;
-      }
-
-      // optional .boa.types.SpecExpression.Quantifier quantifier = 2;
-      private boa.types.Spec.SpecExpression.Quantifier quantifier_ = boa.types.Spec.SpecExpression.Quantifier.FORALL;
-      /**
-       * <code>optional .boa.types.SpecExpression.Quantifier quantifier = 2;</code>
-       */
-      public boolean hasQuantifier() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       * <code>optional .boa.types.SpecExpression.Quantifier quantifier = 2;</code>
-       */
-      public boa.types.Spec.SpecExpression.Quantifier getQuantifier() {
-        return quantifier_;
-      }
-      /**
-       * <code>optional .boa.types.SpecExpression.Quantifier quantifier = 2;</code>
-       */
-      public Builder setQuantifier(boa.types.Spec.SpecExpression.Quantifier value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        bitField0_ |= 0x00000002;
-        quantifier_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional .boa.types.SpecExpression.Quantifier quantifier = 2;</code>
-       */
-      public Builder clearQuantifier() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        quantifier_ = boa.types.Spec.SpecExpression.Quantifier.FORALL;
-        onChanged();
-        return this;
-      }
-
-      // optional .boa.types.SpecExpression quantified_scope = 3;
-      private boa.types.Spec.SpecExpression quantifiedScope_ = boa.types.Spec.SpecExpression.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
-          boa.types.Spec.SpecExpression, boa.types.Spec.SpecExpression.Builder, boa.types.Spec.SpecExpressionOrBuilder> quantifiedScopeBuilder_;
-      /**
-       * <code>optional .boa.types.SpecExpression quantified_scope = 3;</code>
-       */
-      public boolean hasQuantifiedScope() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
-      }
-      /**
-       * <code>optional .boa.types.SpecExpression quantified_scope = 3;</code>
-       */
-      public boa.types.Spec.SpecExpression getQuantifiedScope() {
-        if (quantifiedScopeBuilder_ == null) {
-          return quantifiedScope_;
-        } else {
-          return quantifiedScopeBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>optional .boa.types.SpecExpression quantified_scope = 3;</code>
-       */
-      public Builder setQuantifiedScope(boa.types.Spec.SpecExpression value) {
-        if (quantifiedScopeBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          quantifiedScope_ = value;
-          onChanged();
-        } else {
-          quantifiedScopeBuilder_.setMessage(value);
-        }
-        bitField0_ |= 0x00000004;
-        return this;
-      }
-      /**
-       * <code>optional .boa.types.SpecExpression quantified_scope = 3;</code>
-       */
-      public Builder setQuantifiedScope(
-          boa.types.Spec.SpecExpression.Builder builderForValue) {
-        if (quantifiedScopeBuilder_ == null) {
-          quantifiedScope_ = builderForValue.build();
-          onChanged();
-        } else {
-          quantifiedScopeBuilder_.setMessage(builderForValue.build());
-        }
-        bitField0_ |= 0x00000004;
-        return this;
-      }
-      /**
-       * <code>optional .boa.types.SpecExpression quantified_scope = 3;</code>
-       */
-      public Builder mergeQuantifiedScope(boa.types.Spec.SpecExpression value) {
-        if (quantifiedScopeBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) == 0x00000004) &&
-              quantifiedScope_ != boa.types.Spec.SpecExpression.getDefaultInstance()) {
-            quantifiedScope_ =
-              boa.types.Spec.SpecExpression.newBuilder(quantifiedScope_).mergeFrom(value).buildPartial();
-          } else {
-            quantifiedScope_ = value;
-          }
-          onChanged();
-        } else {
-          quantifiedScopeBuilder_.mergeFrom(value);
-        }
-        bitField0_ |= 0x00000004;
-        return this;
-      }
-      /**
-       * <code>optional .boa.types.SpecExpression quantified_scope = 3;</code>
-       */
-      public Builder clearQuantifiedScope() {
-        if (quantifiedScopeBuilder_ == null) {
-          quantifiedScope_ = boa.types.Spec.SpecExpression.getDefaultInstance();
-          onChanged();
-        } else {
-          quantifiedScopeBuilder_.clear();
-        }
-        bitField0_ = (bitField0_ & ~0x00000004);
-        return this;
-      }
-      /**
-       * <code>optional .boa.types.SpecExpression quantified_scope = 3;</code>
-       */
-      public boa.types.Spec.SpecExpression.Builder getQuantifiedScopeBuilder() {
-        bitField0_ |= 0x00000004;
-        onChanged();
-        return getQuantifiedScopeFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>optional .boa.types.SpecExpression quantified_scope = 3;</code>
-       */
-      public boa.types.Spec.SpecExpressionOrBuilder getQuantifiedScopeOrBuilder() {
-        if (quantifiedScopeBuilder_ != null) {
-          return quantifiedScopeBuilder_.getMessageOrBuilder();
-        } else {
-          return quantifiedScope_;
-        }
-      }
-      /**
-       * <code>optional .boa.types.SpecExpression quantified_scope = 3;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilder<
-          boa.types.Spec.SpecExpression, boa.types.Spec.SpecExpression.Builder, boa.types.Spec.SpecExpressionOrBuilder> 
-          getQuantifiedScopeFieldBuilder() {
-        if (quantifiedScopeBuilder_ == null) {
-          quantifiedScopeBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              boa.types.Spec.SpecExpression, boa.types.Spec.SpecExpression.Builder, boa.types.Spec.SpecExpressionOrBuilder>(
-                  quantifiedScope_,
-                  getParentForChildren(),
-                  isClean());
-          quantifiedScope_ = null;
-        }
-        return quantifiedScopeBuilder_;
-      }
-
-      // repeated .boa.types.SpecExpression subexpressions = 4;
-      private java.util.List<boa.types.Spec.SpecExpression> subexpressions_ =
-        java.util.Collections.emptyList();
-      private void ensureSubexpressionsIsMutable() {
-        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
-          subexpressions_ = new java.util.ArrayList<boa.types.Spec.SpecExpression>(subexpressions_);
-          bitField0_ |= 0x00000008;
-         }
-      }
-
-      private com.google.protobuf.RepeatedFieldBuilder<
-          boa.types.Spec.SpecExpression, boa.types.Spec.SpecExpression.Builder, boa.types.Spec.SpecExpressionOrBuilder> subexpressionsBuilder_;
-
-      /**
-       * <code>repeated .boa.types.SpecExpression subexpressions = 4;</code>
-       */
-      public java.util.List<boa.types.Spec.SpecExpression> getSubexpressionsList() {
-        if (subexpressionsBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(subexpressions_);
-        } else {
-          return subexpressionsBuilder_.getMessageList();
-        }
-      }
-      /**
-       * <code>repeated .boa.types.SpecExpression subexpressions = 4;</code>
-       */
-      public int getSubexpressionsCount() {
-        if (subexpressionsBuilder_ == null) {
-          return subexpressions_.size();
-        } else {
-          return subexpressionsBuilder_.getCount();
-        }
-      }
-      /**
-       * <code>repeated .boa.types.SpecExpression subexpressions = 4;</code>
-       */
-      public boa.types.Spec.SpecExpression getSubexpressions(int index) {
-        if (subexpressionsBuilder_ == null) {
-          return subexpressions_.get(index);
-        } else {
-          return subexpressionsBuilder_.getMessage(index);
-        }
-      }
-      /**
-       * <code>repeated .boa.types.SpecExpression subexpressions = 4;</code>
-       */
-      public Builder setSubexpressions(
-          int index, boa.types.Spec.SpecExpression value) {
-        if (subexpressionsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureSubexpressionsIsMutable();
-          subexpressions_.set(index, value);
-          onChanged();
-        } else {
-          subexpressionsBuilder_.setMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .boa.types.SpecExpression subexpressions = 4;</code>
-       */
-      public Builder setSubexpressions(
-          int index, boa.types.Spec.SpecExpression.Builder builderForValue) {
-        if (subexpressionsBuilder_ == null) {
-          ensureSubexpressionsIsMutable();
-          subexpressions_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          subexpressionsBuilder_.setMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .boa.types.SpecExpression subexpressions = 4;</code>
-       */
-      public Builder addSubexpressions(boa.types.Spec.SpecExpression value) {
-        if (subexpressionsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureSubexpressionsIsMutable();
-          subexpressions_.add(value);
-          onChanged();
-        } else {
-          subexpressionsBuilder_.addMessage(value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .boa.types.SpecExpression subexpressions = 4;</code>
-       */
-      public Builder addSubexpressions(
-          int index, boa.types.Spec.SpecExpression value) {
-        if (subexpressionsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureSubexpressionsIsMutable();
-          subexpressions_.add(index, value);
-          onChanged();
-        } else {
-          subexpressionsBuilder_.addMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .boa.types.SpecExpression subexpressions = 4;</code>
-       */
-      public Builder addSubexpressions(
-          boa.types.Spec.SpecExpression.Builder builderForValue) {
-        if (subexpressionsBuilder_ == null) {
-          ensureSubexpressionsIsMutable();
-          subexpressions_.add(builderForValue.build());
-          onChanged();
-        } else {
-          subexpressionsBuilder_.addMessage(builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .boa.types.SpecExpression subexpressions = 4;</code>
-       */
-      public Builder addSubexpressions(
-          int index, boa.types.Spec.SpecExpression.Builder builderForValue) {
-        if (subexpressionsBuilder_ == null) {
-          ensureSubexpressionsIsMutable();
-          subexpressions_.add(index, builderForValue.build());
-          onChanged();
-        } else {
-          subexpressionsBuilder_.addMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .boa.types.SpecExpression subexpressions = 4;</code>
-       */
-      public Builder addAllSubexpressions(
-          java.lang.Iterable<? extends boa.types.Spec.SpecExpression> values) {
-        if (subexpressionsBuilder_ == null) {
-          ensureSubexpressionsIsMutable();
-          super.addAll(values, subexpressions_);
-          onChanged();
-        } else {
-          subexpressionsBuilder_.addAllMessages(values);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .boa.types.SpecExpression subexpressions = 4;</code>
-       */
-      public Builder clearSubexpressions() {
-        if (subexpressionsBuilder_ == null) {
-          subexpressions_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000008);
-          onChanged();
-        } else {
-          subexpressionsBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .boa.types.SpecExpression subexpressions = 4;</code>
-       */
-      public Builder removeSubexpressions(int index) {
-        if (subexpressionsBuilder_ == null) {
-          ensureSubexpressionsIsMutable();
-          subexpressions_.remove(index);
-          onChanged();
-        } else {
-          subexpressionsBuilder_.remove(index);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .boa.types.SpecExpression subexpressions = 4;</code>
-       */
-      public boa.types.Spec.SpecExpression.Builder getSubexpressionsBuilder(
-          int index) {
-        return getSubexpressionsFieldBuilder().getBuilder(index);
-      }
-      /**
-       * <code>repeated .boa.types.SpecExpression subexpressions = 4;</code>
-       */
-      public boa.types.Spec.SpecExpressionOrBuilder getSubexpressionsOrBuilder(
-          int index) {
-        if (subexpressionsBuilder_ == null) {
-          return subexpressions_.get(index);  } else {
-          return subexpressionsBuilder_.getMessageOrBuilder(index);
-        }
-      }
-      /**
-       * <code>repeated .boa.types.SpecExpression subexpressions = 4;</code>
-       */
-      public java.util.List<? extends boa.types.Spec.SpecExpressionOrBuilder> 
-           getSubexpressionsOrBuilderList() {
-        if (subexpressionsBuilder_ != null) {
-          return subexpressionsBuilder_.getMessageOrBuilderList();
-        } else {
-          return java.util.Collections.unmodifiableList(subexpressions_);
-        }
-      }
-      /**
-       * <code>repeated .boa.types.SpecExpression subexpressions = 4;</code>
-       */
-      public boa.types.Spec.SpecExpression.Builder addSubexpressionsBuilder() {
-        return getSubexpressionsFieldBuilder().addBuilder(
-            boa.types.Spec.SpecExpression.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .boa.types.SpecExpression subexpressions = 4;</code>
-       */
-      public boa.types.Spec.SpecExpression.Builder addSubexpressionsBuilder(
-          int index) {
-        return getSubexpressionsFieldBuilder().addBuilder(
-            index, boa.types.Spec.SpecExpression.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .boa.types.SpecExpression subexpressions = 4;</code>
-       */
-      public java.util.List<boa.types.Spec.SpecExpression.Builder> 
-           getSubexpressionsBuilderList() {
-        return getSubexpressionsFieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilder<
-          boa.types.Spec.SpecExpression, boa.types.Spec.SpecExpression.Builder, boa.types.Spec.SpecExpressionOrBuilder> 
-          getSubexpressionsFieldBuilder() {
-        if (subexpressionsBuilder_ == null) {
-          subexpressionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              boa.types.Spec.SpecExpression, boa.types.Spec.SpecExpression.Builder, boa.types.Spec.SpecExpressionOrBuilder>(
-                  subexpressions_,
-                  ((bitField0_ & 0x00000008) == 0x00000008),
-                  getParentForChildren(),
-                  isClean());
-          subexpressions_ = null;
-        }
-        return subexpressionsBuilder_;
-      }
-
-      // optional string value = 5;
-      private java.lang.Object value_ = "";
-      /**
-       * <code>optional string value = 5;</code>
-       */
-      public boolean hasValue() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
-      }
-      /**
-       * <code>optional string value = 5;</code>
-       */
-      public java.lang.String getValue() {
-        java.lang.Object ref = value_;
-        if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          value_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>optional string value = 5;</code>
-       */
-      public com.google.protobuf.ByteString
-          getValueBytes() {
-        java.lang.Object ref = value_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          value_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>optional string value = 5;</code>
-       */
-      public Builder setValue(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000010;
-        value_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional string value = 5;</code>
-       */
-      public Builder clearValue() {
-        bitField0_ = (bitField0_ & ~0x00000010);
-        value_ = getDefaultInstance().getValue();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional string value = 5;</code>
-       */
-      public Builder setValueBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000010;
-        value_ = value;
-        onChanged();
-        return this;
-      }
-
-      // @@protoc_insertion_point(builder_scope:boa.types.SpecExpression)
-    }
-
-    static {
-      defaultInstance = new SpecExpression(true);
-      defaultInstance.initFields();
-    }
-
-    // @@protoc_insertion_point(class_scope:boa.types.SpecExpression)
-  }
-
   private static com.google.protobuf.Descriptors.Descriptor
     internal_static_boa_types_Specification_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_boa_types_Specification_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_boa_types_SpecExpression_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_boa_types_SpecExpression_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -3584,33 +1544,12 @@ public final class Spec {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\nspec.proto\022\tboa.types\"\362\001\n\rSpecificatio" +
-      "n\022\025\n\rsequence_file\030\001 \002(\t\022\031\n\021sequence_fil" +
-      "e_pos\030\002 \002(\003\022\026\n\016is_exceptional\030\003 \002(\010\0220\n\rp" +
-      "reconditions\030\004 \003(\0132\031.boa.types.SpecExpre" +
-      "ssion\0221\n\016postconditions\030\005 \003(\0132\031.boa.type" +
-      "s.SpecExpression\022\031\n\021assignable_fields\030\006 " +
-      "\003(\t\022\027\n\017exception_types\030\007 \003(\t\"\216\006\n\016SpecExp" +
-      "ression\022:\n\004type\030\001 \002(\0162,.boa.types.SpecEx" +
-      "pression.SpecExpressionType\0228\n\nquantifie" +
-      "r\030\002 \001(\0162$.boa.types.SpecExpression.Quant",
-      "ifier\0223\n\020quantified_scope\030\003 \001(\0132\031.boa.ty" +
-      "pes.SpecExpression\0221\n\016subexpressions\030\004 \003" +
-      "(\0132\031.boa.types.SpecExpression\022\r\n\005value\030\005" +
-      " \001(\t\"\260\003\n\022SpecExpressionType\022\016\n\nQUANTIFIE" +
-      "D\020\000\022\r\n\tVARACCESS\020\001\022\020\n\014ARR_INDEXING\020\002\022\013\n\007" +
-      "IMPLIES\020\003\022\007\n\003IFF\020\004\022\017\n\013LOGICAL_AND\020\005\022\016\n\nL" +
-      "OGICAL_OR\020\006\022\010\n\004PLUS\020\007\022\t\n\005MINUS\020\010\022\n\n\006DIVI" +
-      "DE\020\t\022\013\n\007MODULUS\020\n\022\014\n\010MULTIPLY\020\013\022\016\n\nBIT_L" +
-      "SHIFT\020\014\022\016\n\nBIT_RSHIFT\020\r\022\026\n\022BIT_UNSIGNEDR" +
-      "SHIFT\020\016\022\013\n\007BIT_AND\020\017\022\n\n\006BIT_OR\020\020\022\013\n\007BIT_",
-      "NOT\020\021\022\013\n\007BIT_XOR\020\022\022\t\n\005EQUAL\020\023\022\r\n\tNOT_EQU" +
-      "AL\020\024\022\r\n\tLESS_THAN\020\025\022\020\n\014GREATER_THAN\020\026\022\020\n" +
-      "\014LESS_THAN_EQ\020\027\022\023\n\017GREATER_THAN_EQ\020\030\022\007\n\003" +
-      "NOT\020\031\022\007\n\003OLD\020\032\022\n\n\006RESULT\020\033\022\013\n\007LITERAL\020\034\"" +
-      "\\\n\nQuantifier\022\n\n\006FORALL\020\000\022\n\n\006EXISTS\020\001\022\013\n" +
-      "\007JML_SUM\020\002\022\017\n\013JML_PRODUCT\020\003\022\013\n\007JML_MAX\020\004" +
-      "\022\013\n\007JML_MIN\020\005B\002H\001"
+      "\n\nspec.proto\022\tboa.types\032\tast.proto\"\270\001\n\rS" +
+      "pecification\022\026\n\016is_exceptional\030\001 \002(\010\022,\n\r" +
+      "preconditions\030\002 \003(\0132\025.boa.types.Expressi" +
+      "on\022-\n\016postconditions\030\003 \003(\0132\025.boa.types.E" +
+      "xpression\022\031\n\021assignable_fields\030\004 \003(\t\022\027\n\017" +
+      "exception_types\030\005 \003(\tB\002H\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -3622,19 +1561,14 @@ public final class Spec {
           internal_static_boa_types_Specification_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_boa_types_Specification_descriptor,
-              new java.lang.String[] { "SequenceFile", "SequenceFilePos", "IsExceptional", "Preconditions", "Postconditions", "AssignableFields", "ExceptionTypes", });
-          internal_static_boa_types_SpecExpression_descriptor =
-            getDescriptor().getMessageTypes().get(1);
-          internal_static_boa_types_SpecExpression_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_boa_types_SpecExpression_descriptor,
-              new java.lang.String[] { "Type", "Quantifier", "QuantifiedScope", "Subexpressions", "Value", });
+              new java.lang.String[] { "IsExceptional", "Preconditions", "Postconditions", "AssignableFields", "ExceptionTypes", });
           return null;
         }
       };
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          boa.types.Ast.getDescriptor(),
         }, assigner);
   }
 
