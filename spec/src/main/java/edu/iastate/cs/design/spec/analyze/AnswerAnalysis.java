@@ -17,6 +17,7 @@ import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 import edu.stanford.nlp.semgraph.SemanticGraph;
 import edu.stanford.nlp.semgraph.SemanticGraphCoreAnnotations;
 import edu.stanford.nlp.trees.GrammaticalRelation;
+import edu.stanford.nlp.trees.TreeCoreAnnotations;
 import edu.stanford.nlp.trees.UniversalEnglishGrammaticalRelations;
 import edu.stanford.nlp.util.CoreMap;
 
@@ -25,7 +26,7 @@ public class AnswerAnalysis {
     public static void main(String[] args) throws Exception {
         //Method testMethod = new Method("testMethod", "void testMethod(String s, int i, List<String> list)", null, 0L);
         Method testMethod = new Method("randInt", "int randInt(int min, int max)", null, 0L);
-        analyzeAnswer(testMethod, "Returns a pseudo-random number between min and max. Returns a number less than ten. This method returns a number greater than 5.");
+        analyzeAnswer(testMethod, "Returns a number less than ten. This method returns an int greater than 5. randInt returns a number less than max");
     }
 
     public static void analyzeAnswer(Method method, String answerText) throws IOException {
@@ -46,7 +47,6 @@ public class AnswerAnalysis {
         List<CoreMap> sentences = answerAnnotation.get(SentencesAnnotation.class);
         for (CoreMap sentence : sentences) {
             SemanticGraph semanticGraph = sentence.get(SemanticGraphCoreAnnotations.BasicDependenciesAnnotation.class);
-            System.out.println(semanticGraph.toString());
             SentenceClassification classification = classifySentence(sentence);
             switch (classification) {
                 case NOT_HELPFUL:
@@ -73,7 +73,10 @@ public class AnswerAnalysis {
         System.out.println("Analyzing return information: " + sentence.get(CoreAnnotations.TextAnnotation.class));
         SemanticGraph semanticGraph = sentence.get(SemanticGraphCoreAnnotations.BasicDependenciesAnnotation.class);
         IndexedWord root = semanticGraph.getFirstRoot();
-        Set<IndexedWord> deps = semanticGraph.getChildrenWithReln(root, GrammaticalRelation.DEPENDENT);
+        Collection<GrammaticalRelation> returnValueRelations = new ArrayList<GrammaticalRelation>();
+        returnValueRelations.add(GrammaticalRelation.DEPENDENT);
+        returnValueRelations.add(UniversalEnglishGrammaticalRelations.DIRECT_OBJECT);
+        Set<IndexedWord> deps = semanticGraph.getChildrenWithRelns(root, returnValueRelations);
 
         IndexedWord dep = null;
         SpecificationValueType returnType;
@@ -84,6 +87,7 @@ public class AnswerAnalysis {
             }
         }
         Collection<GrammaticalRelation> relevantRelations = new ArrayList<GrammaticalRelation>();
+        relevantRelations.add(UniversalEnglishGrammaticalRelations.MODIFIER);
         relevantRelations.add(UniversalEnglishGrammaticalRelations.NOMINAL_MODIFIER);
         relevantRelations.add(GrammaticalRelation.DEPENDENT);
         relevantRelations.add(UniversalEnglishGrammaticalRelations.NUMERIC_MODIFIER);
@@ -93,9 +97,38 @@ public class AnswerAnalysis {
             for (IndexedWord modifier : depModifiers) {
                 CoreLabel token = modifier.backingLabel();
                 String ner = token.get(NamedEntityTagAnnotation.class);
+                String value = "";
+                if (modifier.ner().equals("NUMBER")) {
+                    String normNer = token.get(CoreAnnotations.NormalizedNamedEntityTagAnnotation.class);
+                    System.out.println(normNer);
+                    value = normNer.substring(1, normNer.length());
+                }
                 System.out.println(modifier.toString() + " " + ner);
+                relevantRelations.add(UniversalEnglishGrammaticalRelations.ADV_CLAUSE_MODIFIER);
+                relevantRelations.add(UniversalEnglishGrammaticalRelations.ADVERBIAL_MODIFIER);
+                Set<IndexedWord> modifierAdjectives = semanticGraph.getChildrenWithRelns(modifier, relevantRelations);
+                for (IndexedWord adjective : modifierAdjectives) {
+                    System.out.println("adj: " + adjective.toString());
+                }
+                IndexedWord comparison = filterRelevantAdjectives(modifierAdjectives);
+                ComparisonOperator comp = stringToComparison(comparison.originalText());
+                System.out.println("Final specification: ensures " + "\\return " + comp.toString() + " " + value);
             }
         }
+        System.out.println(semanticGraph.toString() + '\n');
+    }
+
+    private static IndexedWord filterRelevantAdjectives(Set<IndexedWord> adjectives) {
+        for (IndexedWord adjective : adjectives) {
+            if (adjective.originalText().equals("less") || adjective.originalText().equals("greater")) {
+                return adjective;
+            }
+        }
+        return null;
+    }
+
+    private static BooleanExpression buildBooleanExpression(String comparison, String left, String right) {
+        return null;
     }
 
     private static Map<IndexedWord, NamedEntityTagAnnotation> wordToNerMap(CoreMap sentence) {
@@ -105,6 +138,15 @@ public class AnswerAnalysis {
 
         }
         return wordToNerMap;
+    }
+
+    private static ComparisonOperator stringToComparison(String s) {
+        if (s.equals("less")) {
+            return ComparisonOperator.LESS_THAN;
+        } else  if (s.equals("greater")){
+            return ComparisonOperator.GREATER_THAN;
+        }
+        return null;
     }
 
 
