@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
+import java.util.AbstractMap.SimpleEntry;
 
 import edu.iastate.cs.design.spec.entities.Method;
 import edu.stanford.nlp.ling.CoreAnnotations;
@@ -22,11 +23,15 @@ import edu.stanford.nlp.trees.UniversalEnglishGrammaticalRelations;
 import edu.stanford.nlp.util.CoreMap;
 
 public class AnswerAnalysis {
+	
+	private static List<SimpleEntry<String, Integer>> paramIds = new ArrayList<SimpleEntry<String, Integer>>();
 
     public static void main(String[] args) throws Exception {
-        //Method testMethod = new Method("testMethod", "void testMethod(String s, int i, List<String> list)", null, 0L);
         Method testMethod = new Method("randInt", "int randInt(int min, int max)", null, 0L);
         analyzeAnswer(testMethod, "Returns a number less than ten. This method returns an int greater than 5. randInt returns a number less than max");
+        
+    //    Method testMethod = new Method("randInt", "int randInt(int n)", null, 0L);
+    //    analyzeAnswer(testMethod, "Returns a pseudorandom, uniformly distributed int value between 0 (inclusive) and the specified value (exclusive), drawn from this random number generator's sequence.");
     }
 
     public static void analyzeAnswer(Method method, String answerText) throws IOException {
@@ -37,11 +42,16 @@ public class AnswerAnalysis {
             System.out.println("Failed to create regex file. Exiting");
             return;
         }
+               
+        
+        answerText = createParamIds(method, answerText);
+        
         Properties nlpProperties = new Properties();
         nlpProperties.put("annotators", "tokenize, ssplit, pos, lemma, ner, regexner, parse, relation");
         nlpProperties.put("regexner.mapping", nerFile.getAbsolutePath());
         nlpProperties.put("parse.flags", "-makeCopulaHead");
         StanfordCoreNLP nlpPipeline = new StanfordCoreNLP(nlpProperties);
+        
         Annotation answerAnnotation = new Annotation(answerText);
         nlpPipeline.annotate(answerAnnotation);
         List<CoreMap> sentences = answerAnnotation.get(SentencesAnnotation.class);
@@ -112,6 +122,19 @@ public class AnswerAnalysis {
                 }
                 IndexedWord comparison = filterRelevantAdjectives(modifierAdjectives);
                 ComparisonOperator comp = stringToComparison(comparison.originalText());
+                
+                try {
+	                for(SimpleEntry<String, Integer> paramId : paramIds) {
+	                	int id = paramId.getValue().intValue();
+	                	if(Double.valueOf(value).intValue() == id) {
+	                		value = paramId.getKey();
+	                		break;
+	                	}
+	                }
+                }
+                catch(NumberFormatException nfe) {
+                	
+                }
                 System.out.println("Final specification: ensures " + "\\return " + comp.toString() + " " + value);
             }
         }
@@ -125,19 +148,6 @@ public class AnswerAnalysis {
             }
         }
         return null;
-    }
-
-    private static BooleanExpression buildBooleanExpression(String comparison, String left, String right) {
-        return null;
-    }
-
-    private static Map<IndexedWord, NamedEntityTagAnnotation> wordToNerMap(CoreMap sentence) {
-        Map<IndexedWord, NamedEntityTagAnnotation> wordToNerMap = new HashMap<IndexedWord, NamedEntityTagAnnotation>();
-        List<CoreLabel> tokens = sentence.get(TokensAnnotation.class);
-        for (CoreLabel token : tokens) {
-
-        }
-        return wordToNerMap;
     }
 
     private static ComparisonOperator stringToComparison(String s) {
@@ -157,45 +167,6 @@ public class AnswerAnalysis {
 
     private enum SpecificationValueType {
         INTEGER, FLOAT, STRING
-    }
-
-    private class BooleanExpression {
-        private BooleanExpressionType type;
-        private BooleanExpression left;
-        private BooleanExpression right;
-        private ComparisonOperator operator;
-        private int literal;
-
-        public BooleanExpression(BooleanExpressionType type, BooleanExpression left, BooleanExpression right, ComparisonOperator operator, int literal) {
-            this.type = type;
-            this.left = left;
-            this.right = right;
-            this.operator = operator;
-            this.literal = literal;
-        }
-
-        public String toString() {
-            switch (this.type) {
-                case EXPRESSION:
-                    StringBuilder builder = new StringBuilder();
-                    builder.append(left.toString());
-                    builder.append(operator.toString());
-                    builder.append(right.toString());
-                    return builder.toString();
-                case RETURN:
-                    return "\\result";
-                case OLD:
-                    return "\\old";
-                case LITERAL:
-                    return "" + literal;
-                default:
-                    return null;
-            }
-        }
-    }
-
-    private enum BooleanExpressionType {
-        EXPRESSION, RETURN, OLD, LITERAL
     }
 
     private static boolean isDependentRelevant(IndexedWord dependent) {
@@ -237,11 +208,6 @@ public class AnswerAnalysis {
         }
     }
 
-
-    private enum SpecificationType {
-        ENSURES, REQUIRES
-    }
-
     private enum SentenceClassification {
         NOT_HELPFUL,
         PRECONDITION,
@@ -259,54 +225,6 @@ public class AnswerAnalysis {
         } else {
             return SentenceClassification.NOT_HELPFUL;
         }
-    }
-
-    private static class SubjectDirectObjectPair {
-        private String subject;
-        private String directObject;
-
-        public SubjectDirectObjectPair(String subject, String directObject) {
-            this.subject = subject;
-            this.directObject = directObject;
-        }
-
-        public String getSubject() {
-            return subject;
-        }
-
-        public String getDirectObject() {
-            return directObject;
-        }
-    }
-
-    private static SubjectDirectObjectPair findNsubjAndDobj(SemanticGraph semanticGraph) {
-        IndexedWord root = semanticGraph.getFirstRoot();
-        Set<IndexedWord> nsubjs = semanticGraph.getChildrenWithReln(root, UniversalEnglishGrammaticalRelations.NOMINAL_SUBJECT);
-        Set<IndexedWord> dobjs = semanticGraph.getChildrenWithReln(root, UniversalEnglishGrammaticalRelations.DIRECT_OBJECT);
-        // TODO if this becomes useful later, actually make this good code
-        if (nsubjs.size() <= 0 || dobjs.size() <= 0) {
-            return new SubjectDirectObjectPair("", "");
-        }
-        Iterator<IndexedWord> iter1 = nsubjs.iterator();
-        Iterator<IndexedWord> iter2 = dobjs.iterator();
-        return new SubjectDirectObjectPair(iter1.next().toString(), iter2.next().toString());
-    }
-
-    private static Set<String> getRelevantAdjectives(CoreMap sentence) {
-        SemanticGraph semanticGraph = sentence.get(SemanticGraphCoreAnnotations.BasicDependenciesAnnotation.class);
-        List<String> paramsFound = new ArrayList<String>();
-        Set<String> adjectivesFound = new HashSet<String>();
-        for (CoreLabel token : sentence.get(TokensAnnotation.class)) {
-            Set<IndexedWord> adjectives = semanticGraph.getChildrenWithReln(new IndexedWord(token), UniversalEnglishGrammaticalRelations.ADJECTIVAL_MODIFIER);
-            String namedEntity = token.get(NamedEntityTagAnnotation.class);
-            if (namedEntity.equals("PARAM_NAME")) {
-                paramsFound.add(token.get(CoreAnnotations.TextAnnotation.class));
-                for (IndexedWord adjective : adjectives) {
-                    adjectivesFound.add(adjective.get(CoreAnnotations.TextAnnotation.class));
-                }
-            }
-        }
-        return adjectivesFound;
     }
 
     private static File createRegexNerFile(Method method) throws IOException{
@@ -333,13 +251,41 @@ public class AnswerAnalysis {
                 nerFileWriter.append(paramType + "\tPARAM_TYPE\r\n");
             }
             for (String paramName : paramNames) {
-                nerFileWriter.append(paramName + "\tPARAM_NAME\r\n");
+            	if(paramName.equals("max")) {
+            		 nerFileWriter.append("max" + "\tNUMBER\r\n");
+            	} else {
+            		 nerFileWriter.append(paramName + "\tPARAM_NAME\r\n");
+            	}
+               
             }
+           
         } finally {
             if (nerFileWriter != null) {
                 nerFileWriter.close();
             }
         }
         return regexNerFile;
+    }
+    
+    private static String createParamIds(Method method, String text) {
+        String signature = method.getSignature();
+        String parameterString = signature.substring(signature.indexOf('(') + 1, signature.indexOf(')'));
+        List<String> parameterList = Arrays.asList(parameterString.split(",\\s"));
+        List<String> paramTypes = new ArrayList<String>();
+        List<String> paramNames = new ArrayList<String>();
+        int paramId = 54164;
+        for (String parameter : parameterList) {
+            String[] typeAndName = parameter.split("\\s");
+            paramTypes.add(typeAndName[0]);
+            paramNames.add(typeAndName[1]);
+            if(typeAndName[0].equals("int")) {
+            	paramIds.add(new SimpleEntry<String, Integer>(typeAndName[1], paramId));
+            	text = text.replaceAll("\\b" + typeAndName[1] + "\\b", String.valueOf(paramId));
+            	paramId++;
+            }
+            
+        }
+        
+        return text;
     }
 }
