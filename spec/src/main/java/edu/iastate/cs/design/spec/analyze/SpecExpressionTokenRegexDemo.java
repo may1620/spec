@@ -25,7 +25,7 @@ public class SpecExpressionTokenRegexDemo {
                         rules);
 
         StanfordCoreNLP pipeline = new StanfordCoreNLP();
-        Annotation annotation = new Annotation("if length < 5. if max less than twelve. if original is null. if original equals null. ");
+        Annotation annotation = new Annotation("if length < 5. if max less than twelve. if original is null. if original equals null. Returns the trigonometric sine of an angle.");
         pipeline.annotate(annotation);
 
         List<CoreMap> sentences = annotation.get(CoreAnnotations.SentencesAnnotation.class);

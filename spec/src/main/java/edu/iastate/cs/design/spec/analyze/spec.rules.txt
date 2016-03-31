@@ -14,7 +14,7 @@ numtokens = { type: "CLASS", value: "edu.stanford.nlp.ling.CoreAnnotations$Numer
 ENV.defaultResultAnnotationKey = ( type, value )
 ENV.defaultNestedResultsAnnotationKey = mytokens
 
-$PARAM_NAME = ( /min/ | /max/ | /original/ | /argument/ | /length/ )
+$PARAM_NAME = ( /min/ | /max/ | /original/ | /argument/ | /length/ | /an/ /angle/ )
 
 $COMPARISON = ( /less/ /than/ | /greater/ /than/ | "<" | ">" | /equals/ | "=" | "==" | /is/)
 
@@ -54,8 +54,8 @@ ENV.defaults["stage"] = 3
 {
     ruleType: "tokens",
     pattern: ( ( ( [ { ner:PARAM_NAME } | { ner:NUMBER } ] ) ( $COMPARISON ) ( [ { ner:PARAM_NAME } | { ner:NUMBER } ] ) ) |
-               ( ( [ { ner:TRIG_OP } ]) /of/ ([ { ner:PARAMETER } ]+) ) |
-               ( ( [ { ner:PARAM_NAME } ] ) ( $COMPARISON) | /null/ ) ),
-    result: ("SPEC", Format("Expression: %s", $0)),
+               ( ( [ { ner:TRIG_OP } ]) /of/ ([ { ner:PARAM_NAME } ]+) ) |
+               ( ( [ { ner:PARAM_NAME } ] ) ( $COMPARISON ) /null/ ) ),
+    result: "SPEC",
     stage: 3
 }
