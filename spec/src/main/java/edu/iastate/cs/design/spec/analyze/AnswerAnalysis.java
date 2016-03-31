@@ -27,11 +27,11 @@ public class AnswerAnalysis {
 	private static List<SimpleEntry<String, Integer>> paramIds = new ArrayList<SimpleEntry<String, Integer>>();
 
     public static void main(String[] args) throws Exception {
-        Method testMethod = new Method("randInt", "int randInt(int min, int max)", null, 0L);
-        analyzeAnswer(testMethod, "Returns a number less than ten. This method returns an int greater than 5. randInt returns a number less than max");
+    //    Method testMethod = new Method("randInt", "int randInt(int min, int max)", null, 0L);
+    //    analyzeAnswer(testMethod, "Returns a number less than ten. This method returns an int greater than 5. randInt returns a number less than max");
         
-    //    Method testMethod = new Method("randInt", "int randInt(int n)", null, 0L);
-    //    analyzeAnswer(testMethod, "Returns a pseudorandom, uniformly distributed int value between 0 (inclusive) and the specified value (exclusive), drawn from this random number generator's sequence.");
+        Method testMethod = new Method("sin", "double sin(double a)", null, 0L);
+        analyzeAnswer(testMethod, "Returns the sine of an angle.");
     }
 
     public static void analyzeAnswer(Method method, String answerText) throws IOException {
@@ -43,8 +43,10 @@ public class AnswerAnalysis {
             return;
         }
                
-        
+        answerText = inferParams(method, answerText);
         answerText = createParamIds(method, answerText);
+        
+        
         
         Properties nlpProperties = new Properties();
         nlpProperties.put("annotators", "tokenize, ssplit, pos, lemma, ner, regexner, parse, relation");
@@ -67,7 +69,7 @@ public class AnswerAnalysis {
                 case POSTCONDITION:
                     break;
                 case RETURN:
-                    analyzeReturnSentence(sentence);
+                	nlpPipeline.xmlPrint(answerAnnotation, System.out);//analyzeReturnSentence(sentence);
                     break;
                 case EXCEPTIONAL:
                     break;
@@ -116,6 +118,7 @@ public class AnswerAnalysis {
                 System.out.println(modifier.toString() + " " + ner);
                 relevantRelations.add(UniversalEnglishGrammaticalRelations.ADV_CLAUSE_MODIFIER);
                 relevantRelations.add(UniversalEnglishGrammaticalRelations.ADVERBIAL_MODIFIER);
+                relevantRelations.add(UniversalEnglishGrammaticalRelations.NUMERIC_MODIFIER);
                 Set<IndexedWord> modifierAdjectives = semanticGraph.getChildrenWithRelns(modifier, relevantRelations);
                 for (IndexedWord adjective : modifierAdjectives) {
                     System.out.println("adj: " + adjective.toString());
@@ -143,7 +146,7 @@ public class AnswerAnalysis {
 
     private static IndexedWord filterRelevantAdjectives(Set<IndexedWord> adjectives) {
         for (IndexedWord adjective : adjectives) {
-            if (adjective.originalText().equals("less") || adjective.originalText().equals("greater")) {
+            if (adjective.originalText().equals("less") || adjective.originalText().equals("greater") || adjective.originalText().equals("sine")) {
                 return adjective;
             }
         }
@@ -182,7 +185,11 @@ public class AnswerAnalysis {
         GREATER_THAN,
         GREATER_THAN_EQUAL,
         AND,
-        OR;
+        OR,
+        SINE,
+        COSINE,
+        TANGENT;
+        
 
         public String toString() {
             switch (this) {
@@ -202,6 +209,12 @@ public class AnswerAnalysis {
                     return "&&";
                 case OR:
                     return "||";
+                case SINE:
+                	return "sin";
+                case COSINE:
+                	return "cos";
+                case TANGENT:
+                	return "tan";
                 default:
                     return "";
             }
@@ -278,7 +291,7 @@ public class AnswerAnalysis {
             String[] typeAndName = parameter.split("\\s");
             paramTypes.add(typeAndName[0]);
             paramNames.add(typeAndName[1]);
-            if(typeAndName[0].equals("int")) {
+            if(typeAndName[0].equals("int") || typeAndName[0].equals("double")) {
             	paramIds.add(new SimpleEntry<String, Integer>(typeAndName[1], paramId));
             	text = text.replaceAll("\\b" + typeAndName[1] + "\\b", String.valueOf(paramId));
             	paramId++;
@@ -288,4 +301,29 @@ public class AnswerAnalysis {
         
         return text;
     }
+    
+    
+    private static String inferParams(Method method, String text) {
+        String signature = method.getSignature();
+        String parameterString = signature.substring(signature.indexOf('(') + 1, signature.indexOf(')'));
+        List<String> parameterList = Arrays.asList(parameterString.split(",\\s"));
+        List<String> paramNames = new ArrayList<String>();
+        for (String parameter : parameterList) {
+            String[] typeAndName = parameter.split("\\s");
+            paramNames.add(typeAndName[1]);    
+        }
+        
+        int pos = text.indexOf("of an");
+        if(pos == -1) {
+        	pos = text.indexOf("of a");
+        }
+        if(pos != -1) {
+        	text = text.substring(0, pos+3);
+        	text = text.concat(paramNames.get(0));
+        }
+        
+        return text;
+    }
+    
+    
 }
