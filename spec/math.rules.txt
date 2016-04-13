@@ -3,16 +3,6 @@ ENV.defaultStringPatternFlags = 2
 ner = { type: "CLASS", value: "edu.stanford.nlp.ling.CoreAnnotations$NamedEntityTagAnnotation" }
 tokens = { type: "CLASS", value: "edu.stanford.nlp.ling.CoreAnnotations$TokensAnnotation" }
 
-$PARAM = (
-  /the/ /argument/|
-  /the/ /parameter/| 
-  /a/ /double/ /value/|
-  /an/ /angle/|
-  /a/ /float/ /value/|
-  /an/ /int/ /value/|
-  /an/ /angle/
-)
-
 $TRIG_OP = (
 	/sin/|
 	/sine/|
@@ -23,25 +13,12 @@ $TRIG_OP = (
 
 )
 
-ENV.defaults["ruleType"] = "tokens"
-ENV.defaults["stage"] = 1
-{
-  pattern: ( $PARAM ), 
-  action: ( Annotate($0, ner, "PARAMETER")),
-  stage: 1 
-}
 
 ENV.defaults["ruleType"] = "tokens"
 ENV.defaults["stage"] = 2
 {
   pattern: ( $TRIG_OP ), 
   action: ( Annotate($0, ner, "TRIG_OP")),
-  stage: 2 
+  stage: 1 
 }
 
-ENV.defaults["stage"] = 3
-{
-  ruleType: "tokens",
-  pattern: ( ( [ { ner:TRIG_OP } ]) /of/ ([ { ner:PARAMETER } ]+) ),
-  result: Format("@ensures \return (%s,%s)",$1.word, Join(" ",$2.word))
-}
