@@ -3,9 +3,9 @@ numtokens = { type: "CLASS", value: "edu.stanford.nlp.ling.CoreAnnotations$Numer
 numcomptype = { type: "CLASS", value: "edu.stanford.nlp.ling.CoreAnnotations$NumericCompositeTypeAnnotation" }
 numcompvalue = { type: "CLASS", value: "edu.stanford.nlp.ling.CoreAnnotations$NumericCompositeValueAnnotation" }
 
-mytokens = { type: "CLASS", value: "edu.stanford.nlp.ling.tokensregex.demo.MyAnnotations$MyTokensAnnotation" }
-type = { type: "CLASS", value: "edu.stanford.nlp.ling.tokensregex.demo.MyAnnotations$MyTypeAnnotation" }
-value = { type: "CLASS", value: "edu.stanford.nlp.ling.tokensregex.demo.MyAnnotations$MyValueAnnotation" }
+mytokens = { type: "CLASS", value: "edu.iastate.cs.design.spec.analyze.MyAnnotations$MyTokensAnnotation" }
+type = { type: "CLASS", value: "edu.iastate.cs.design.spec.analyze.MyAnnotations$MyTypeAnnotation" }
+value = { type: "CLASS", value: "edu.iastate.cs.design.spec.analyze.MyAnnotations$MyValueAnnotation" }
 
 ENV.defaultResultAnnotationKey = ( type, value ) 
 ENV.defaultNestedResultsAnnotationKey = mytokens 
