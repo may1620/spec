@@ -42,8 +42,9 @@ public class JavaApiSourceTest {
         //JavaCore.setComplianceOptions(JavaCore.VERSION_1_5, options);
         parser.setCompilerOptions(options);
         CompilationUnit cu = (CompilationUnit) parser.createAST(null);
-        ExceptionParseAnalysis parseSuccessAnalysis = new ExceptionParseAnalysis();
-        DocumentationVisitor visitor = new DocumentationVisitor(parseSuccessAnalysis);
+        //ExceptionParseAnalysis parseSuccessAnalysis = new ExceptionParseAnalysis();
+        ExceptionDocStructureAnalysis structureAnalysis = new ExceptionDocStructureAnalysis();
+        DocumentationVisitor visitor = new DocumentationVisitor(structureAnalysis);
         cu.accept(visitor);
     }
 }
