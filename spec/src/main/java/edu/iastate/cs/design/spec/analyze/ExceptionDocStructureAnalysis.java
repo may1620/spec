@@ -18,8 +18,19 @@ import java.util.*;
 
 public class ExceptionDocStructureAnalysis implements ExceptionDocProcessor {
 
+    private Map<Integer, ComparisonGraph> frequencyMap;
+
+    public ExceptionDocStructureAnalysis() {
+        frequencyMap = new HashMap<Integer, ComparisonGraph>();
+    }
+
     public void process(String exceptionType, String documentation, List<String> paramTypes, List<String> paramNames, MethodDeclaration methodNode) {
         System.out.println("Processing " + methodNode.getName().toString());
+        if (methodNode.getName().toString().length() < 3) {
+            // TODO
+            System.out.println("Method name too short, skipping this for now");
+            return;
+        }
         if (documentation.length() < 5) {
             // happens when {@inheritdoc} is used
             System.out.println("No documentation found, skipping");
@@ -31,11 +42,24 @@ public class ExceptionDocStructureAnalysis implements ExceptionDocProcessor {
 
         List<CoreMap> sentences = exceptionAnnotation.get(CoreAnnotations.SentencesAnnotation.class);
         System.out.println(documentation);
+        List<ComparisonGraph> comparisonGraphs = new ArrayList<ComparisonGraph>();
         for (CoreMap sentence : sentences) {
             SemanticGraph semanticGraph = sentence.get(SemanticGraphCoreAnnotations.BasicDependenciesAnnotation.class);
-            createComparisonGraphs(semanticGraph);
+            comparisonGraphs.addAll(createComparisonGraphs(semanticGraph));
         }
-        // get hashes of graphs and store them
+
+        for (ComparisonGraph graph : comparisonGraphs) {
+            Integer graphHash = graph.hashCode();
+            if (!frequencyMap.containsKey(graphHash)) {
+                frequencyMap.put(graphHash, graph);
+            } else {
+                frequencyMap.get(graphHash).incrementFrequencyCount();
+            }
+        }
+    }
+
+    public Map<Integer, ComparisonGraph> getFrequencyMap() {
+        return frequencyMap;
     }
 
     private static List<ComparisonGraph> createComparisonGraphs(SemanticGraph semanticGraph) {
@@ -90,6 +114,9 @@ public class ExceptionDocStructureAnalysis implements ExceptionDocProcessor {
         File regexNerFile = null;
         try {
             regexNerFile = File.createTempFile(methodName, ".tmp");
+        } catch (IllegalArgumentException iae) {
+            System.out.println("IAE. methodName=" + methodName);
+            return null;
         } catch (IOException ioe) {
             System.out.println("Error creating temp regexner file" + ioe.toString());
         }
