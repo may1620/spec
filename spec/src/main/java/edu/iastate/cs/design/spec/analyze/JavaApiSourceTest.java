@@ -12,10 +12,10 @@ import java.io.FileNotFoundException;
 import java.util.Map;
 import java.util.Scanner;
 
-public class UtilTest {
+public class JavaApiSourceTest {
 
     public static void main(String[] args) {
-        File srcDir = new File("C:\\Users\\Alex\\Desktop\\src\\java\\util");
+        File srcDir = new File("C:\\Users\\chanika\\Desktop\\src\\java\\util");
         for (File file : srcDir.listFiles()) {
             if (file.isFile()) {
                 testFile(file);
@@ -42,7 +42,8 @@ public class UtilTest {
         //JavaCore.setComplianceOptions(JavaCore.VERSION_1_5, options);
         parser.setCompilerOptions(options);
         CompilationUnit cu = (CompilationUnit) parser.createAST(null);
-        DocumentationVisitor visitor = new DocumentationVisitor();
+        ExceptionParseAnalysis parseSuccessAnalysis = new ExceptionParseAnalysis();
+        DocumentationVisitor visitor = new DocumentationVisitor(parseSuccessAnalysis);
         cu.accept(visitor);
     }
 }

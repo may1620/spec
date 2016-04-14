@@ -9,10 +9,16 @@ import java.util.List;
 public class DocumentationVisitor extends ASTVisitor {
 
     private boolean classIsPrivate;
+    private ExceptionDocProcessor exceptionProcessor;
 
     public DocumentationVisitor() {
         super(true);
         classIsPrivate = false;
+    }
+
+    public DocumentationVisitor(ExceptionDocProcessor exceptionProcessor) {
+        this();
+        this.exceptionProcessor = exceptionProcessor;
     }
 
     @Override
@@ -48,11 +54,16 @@ public class DocumentationVisitor extends ASTVisitor {
                             documentation += fragment.toString() + " ";
                         }
                     }
-                    try {
-						ExceptionAnalysis.analyzeThrows(exceptionType, documentation.trim(), node);
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
+                    List<SingleVariableDeclaration> params = node.parameters();
+                    List<String> paramTypes = new ArrayList<String>();
+                    List<String> paramNames = new ArrayList<String>();
+                    for (SingleVariableDeclaration param : params) {
+                        paramTypes.add(param.getType().toString());
+                        paramNames.add(param.getName().toString());
+                    }
+                    if (exceptionProcessor != null) {
+                        exceptionProcessor.process(exceptionType, documentation, paramTypes, paramNames, node);
+                    }
                 }
             }
         }
