@@ -2,6 +2,7 @@ package edu.iastate.cs.design.spec.analyze;
 
 import org.eclipse.jdt.core.dom.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,23 +48,18 @@ public class DocumentationVisitor extends ASTVisitor {
                             documentation += fragment.toString() + " ";
                         }
                     }
-                    analyzeThrows(exceptionType, documentation.trim(), node);
+                    try {
+						ExceptionAnalysis.analyzeThrows(exceptionType, documentation.trim(), node);
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
                 }
             }
         }
         return super.visit(node);
     }
 
-    private void analyzeThrows(String exceptionType, String documentation, MethodDeclaration node) {
-        List<SingleVariableDeclaration> params = node.parameters();
-        List<String> paramTypes = new ArrayList<String>();
-        List<String> paramNames = new ArrayList<String>();
-        for (SingleVariableDeclaration param : params) {
-            paramTypes.add(param.getType().toString());
-            paramNames.add(param.getName().toString());
-        }
-        // do some analysis, maybe make a new class for this?
-    }
+
 
 
     private boolean nodeIsPublic(BodyDeclaration node) {

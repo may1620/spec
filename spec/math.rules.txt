@@ -13,12 +13,55 @@ $TRIG_OP = (
 
 )
 
+$COMPARATIVE = (
+	/less/ /than/|
+	/greater/ /than/|
+	/equal/ /to/|
+	/less/ /than/ /or/ /equal/ /to/|
+	/greater/ /than/ /or/ /equal/ /to/|
+	/is/ /negative/|
+	/is/ /positive/|
+	/is/ /zero/
+)
+
+$NULL = (
+	/null/
+)
 
 ENV.defaults["ruleType"] = "tokens"
-ENV.defaults["stage"] = 2
+ENV.defaults["stage"] = 1
 {
   pattern: ( $TRIG_OP ), 
   action: ( Annotate($0, ner, "TRIG_OP")),
   stage: 1 
 }
 
+ENV.defaults["ruleType"] = "tokens"
+ENV.defaults["stage"] = 2
+{
+  pattern: ( $COMPARATIVE ), 
+  action: ( Annotate($0, ner, "COMPARATIVE")),
+  stage: 2 
+}
+
+ENV.defaults["ruleType"] = "tokens"
+ENV.defaults["stage"] = 3
+{
+  pattern: ( $NULL ), 
+  action: ( Annotate($0, ner, "NULL")),
+  stage: 3 
+}
+
+ENV.defaults["stage"] = 4
+{
+  ruleType: "tokens",
+  pattern: ( [{ner:PARAMETER}] /is/ [{ner:NULL}]),
+  result: Format("@requires %s != null", $0[0].value)
+}
+
+ENV.defaults["stage"] = 4
+{
+  ruleType: "tokens",
+  pattern: ( [{ner:PARAMETER}] [{ner:COMPARATOR}]),
+  result: Format("@requires %s != null", $0[0].value)
+}
