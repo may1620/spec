@@ -2,9 +2,6 @@ package edu.iastate.cs.design.spec.parsing;
 
 import org.eclipse.jdt.core.dom.*;
 
-import edu.iastate.cs.design.spec.tokensRegex.TokensRegexAnalysis;
-
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,14 +62,7 @@ public class DocumentationVisitor extends ASTVisitor {
                     }
                     if (exceptionProcessor != null) {
                         exceptionProcessor.process(exceptionType, documentation, paramTypes, paramNames, node);
-                    } else {
-	                    try {
-	                    	TokensRegexAnalysis.analyzeThrows(exceptionType, documentation, node);
-	                    }
-	                    catch(IOException e) {
-	                    	e.printStackTrace();
-	                    }
-                    }
+                    } 
                 }
             }
         }

@@ -7,6 +7,7 @@ import org.eclipse.jdt.core.dom.ArrayAccess;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.core.dom.Javadoc;
 
+import edu.iastate.cs.design.spec.tokensRegex.ExceptionParseAnalysis;
 import edu.iastate.cs.design.spec.treeMatching.ComparisonGraph;
 
 import java.io.File;
@@ -19,6 +20,7 @@ import java.util.Set;
 public class JavadocParse {
 
     public static ExceptionDocStructureAnalysis structureAnalysis = new ExceptionDocStructureAnalysis();
+    public static ExceptionParseAnalysis exceptionAnalysis = new ExceptionParseAnalysis();
 
     public static void run(boolean treeMatching) {
         File srcDir = new File("C:\\Users\\Alex\\Desktop\\src\\java\\util");
@@ -60,7 +62,7 @@ public class JavadocParse {
             visitor = new DocumentationVisitor(structureAnalysis);     	
         }
         else {
-        	visitor = new DocumentationVisitor();
+        	visitor = new DocumentationVisitor(exceptionAnalysis);
         }
         cu.accept(visitor);
         System.out.println(javaSourceFile.getName() + " completed.");
