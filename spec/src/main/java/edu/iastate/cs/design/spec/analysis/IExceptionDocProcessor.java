@@ -1,4 +1,4 @@
-package edu.iastate.cs.design.spec.parsing;
+package edu.iastate.cs.design.spec.analysis;
 
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 

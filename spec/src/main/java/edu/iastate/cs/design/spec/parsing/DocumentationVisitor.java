@@ -1,5 +1,6 @@
 package edu.iastate.cs.design.spec.parsing;
 
+import edu.iastate.cs.design.spec.analysis.IExceptionDocProcessor;
 import org.eclipse.jdt.core.dom.*;
 
 import java.util.ArrayList;

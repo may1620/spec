@@ -1,4 +1,4 @@
-package edu.iastate.cs.design.spec.tokensRegex;
+package edu.iastate.cs.design.spec.analysis;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -6,9 +6,9 @@ import java.io.PrintWriter;
 import java.util.List;
 import java.util.Properties;
 
+import edu.iastate.cs.design.spec.parsing.JavadocParse;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 
-import edu.iastate.cs.design.spec.parsing.IExceptionDocProcessor;
 import edu.stanford.nlp.ling.CoreAnnotations;
 import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.ling.CoreAnnotations.SentencesAnnotation;
@@ -23,6 +23,11 @@ public class ExceptionParseAnalysis implements IExceptionDocProcessor {
 	
 	private static final String RULES_1 = "param.rules.txt";
 	private static final String RULES_2 = "math.rules.txt";
+
+    public static void main(String[] args) {
+        ExceptionParseAnalysis analysis = new ExceptionParseAnalysis();
+        JavadocParse.run("C:\\Users\\Alex\\Desktop\\src\\java\\util", analysis);
+    }
 
     public void process(String exceptionType, String documentation, List<String> paramTypes, List<String> paramNames, MethodDeclaration methodNode) {
         CoreMapExpressionExtractor extractor = CoreMapExpressionExtractor.createExtractorFromFiles(TokenSequencePattern.getNewEnv(), RULES_1, RULES_2);

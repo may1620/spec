@@ -1,5 +1,6 @@
-package edu.iastate.cs.design.spec.parsing;
+package edu.iastate.cs.design.spec.analysis;
 
+import edu.iastate.cs.design.spec.parsing.JavadocParse;
 import edu.iastate.cs.design.spec.treeMatching.ComparisonGraph;
 import edu.iastate.cs.design.spec.treeMatching.ComparisonGraphNode;
 import edu.stanford.nlp.ling.CoreAnnotations;
@@ -25,6 +26,17 @@ public class ExceptionDocStructureAnalysis implements IExceptionDocProcessor {
 
     public ExceptionDocStructureAnalysis() {
         frequencyMap = new HashMap<Integer, ComparisonGraph>();
+    }
+
+    public static void main(String[] args) {
+        ExceptionDocStructureAnalysis analysis = new ExceptionDocStructureAnalysis();
+        JavadocParse.run("C:\\Users\\chanika\\Desktop\\src\\java\\util", analysis);
+        Map<Integer, ComparisonGraph> frequencyMap = analysis.getFrequencyMap();
+        PriorityQueue<ComparisonGraph> frequencySortingQueue = new PriorityQueue<ComparisonGraph>(frequencyMap.values());
+        while (!frequencySortingQueue.isEmpty()) {
+            ComparisonGraph graph = frequencySortingQueue.remove();
+            System.out.println(graph.getFrequencyCount());
+        }
     }
 
     public void process(String exceptionType, String documentation, List<String> paramTypes, List<String> paramNames, MethodDeclaration methodNode) {
