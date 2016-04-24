@@ -15,6 +15,10 @@ public abstract class ExceptionDocProcessor {
 
     protected StanfordCoreNLP initPipeline(String methodName, List<String> paramTypes, List<String> paramNames) {
         File regexNerFile = createRegexNerFile(methodName, paramTypes, paramNames);
+        if (regexNerFile == null) {
+            System.out.println("Error creating regexner file, skipping");
+            return null;
+        }
         Properties nlpProperties = new Properties();
         nlpProperties.put("annotators", "tokenize, ssplit, pos, lemma, ner, regexner, parse, relation");
         nlpProperties.put("regexner.mapping", regexNerFile.getAbsolutePath());
