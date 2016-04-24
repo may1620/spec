@@ -8,14 +8,14 @@ import java.util.List;
 public class DocumentationVisitor extends ASTVisitor {
 
     private boolean classIsPrivate;
-    private ExceptionDocProcessor exceptionProcessor;
+    private IExceptionDocProcessor exceptionProcessor;
 
     public DocumentationVisitor() {
         super(true);
         classIsPrivate = false;
     }
 
-    public DocumentationVisitor(ExceptionDocProcessor exceptionProcessor) {
+    public DocumentationVisitor(IExceptionDocProcessor exceptionProcessor) {
         this();
         this.exceptionProcessor = exceptionProcessor;
     }

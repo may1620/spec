@@ -19,7 +19,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 
-public class ExceptionDocStructureAnalysis implements ExceptionDocProcessor {
+public class ExceptionDocStructureAnalysis implements IExceptionDocProcessor {
 
     private Map<Integer, ComparisonGraph> frequencyMap;
 

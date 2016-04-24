@@ -4,7 +4,7 @@ import org.eclipse.jdt.core.dom.MethodDeclaration;
 
 import java.util.List;
 
-public interface ExceptionDocProcessor {
+public interface IExceptionDocProcessor {
 
     void process(String exceptionType, String documentation, List<String> paramTypes, List<String> paramNames, MethodDeclaration methodNode);
 }

@@ -8,7 +8,7 @@ import java.util.Properties;
 
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 
-import edu.iastate.cs.design.spec.parsing.ExceptionDocProcessor;
+import edu.iastate.cs.design.spec.parsing.IExceptionDocProcessor;
 import edu.stanford.nlp.ling.CoreAnnotations;
 import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.ling.CoreAnnotations.SentencesAnnotation;
@@ -19,7 +19,7 @@ import edu.stanford.nlp.pipeline.Annotation;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 import edu.stanford.nlp.util.CoreMap;
 
-public class ExceptionParseAnalysis implements ExceptionDocProcessor {
+public class ExceptionParseAnalysis implements IExceptionDocProcessor {
 	
 	private static final String RULES_1 = "param.rules.txt";
 	private static final String RULES_2 = "math.rules.txt";
