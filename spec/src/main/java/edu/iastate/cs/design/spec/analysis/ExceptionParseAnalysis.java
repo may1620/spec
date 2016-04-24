@@ -35,7 +35,7 @@ public class ExceptionParseAnalysis extends ExceptionDocProcessor {
 
     public static void main(String[] args) {
         ExceptionParseAnalysis analysis = new ExceptionParseAnalysis();
-        JavadocParse.run("C:\\Users\\chanika\\Desktop\\src\\java\\util", analysis);
+        JavadocParse.run("C:\\Users\\Alex\\Desktop\\src\\java\\util", analysis);
         System.out.println("processed: " + analysis.getNumProcessed());
         System.out.println("skipped: " + analysis.getNumSkipped());
         System.out.println("matched: " + analysis.getNumMatched());
@@ -83,19 +83,22 @@ public class ExceptionParseAnalysis extends ExceptionDocProcessor {
                 System.out.println("matched token: " + "word="+word + ", pos=" + pos + ", ne=" + ne);
                 if(ne.equals("PARAMETER") && rawSpec.contains(word)) {
                     rawSpec = rawSpec.replace(word, paramNames.get(0));
-                	PrintWriter out;
-					try {
-						out = new PrintWriter(new BufferedWriter(new FileWriter("results.txt", true)));
-	                    out.println(methodNode.getName() +  "  ---  " + rawSpec);
-	                    out.close();
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
-
                 }
+
+                
             }
         }
-        System.out.println(rawSpec);
+        if(!rawSpec.equals("")) {
+	    	PrintWriter out;
+			try {
+				out = new PrintWriter(new BufferedWriter(new FileWriter("results.txt", true)));
+	            out.println(methodNode.getName() +  "  ---  " + rawSpec);
+	            out.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+	        System.out.println(rawSpec);
+        }
     }
 
     public int getNumProcessed() {

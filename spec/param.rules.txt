@@ -15,12 +15,25 @@ $PARAM = (
   /specified/ [{pos: JJ}] [ { pos:NN } ]
 )
 
+$OBJECT_REFERENCE = (
+	/this/ [ { pos:NN } ]|
+	/this/ /deque/
+)
+
 ENV.defaults["ruleType"] = "tokens"
 ENV.defaults["stage"] = 1
 {
   pattern: ( $PARAM ), 
   action: ( Annotate($0, ner, "PARAMETER")),
   stage: 1 
+}
+
+ENV.defaults["ruleType"] = "tokens"
+ENV.defaults["stage"] = 1
+{
+  pattern: ( $OBJECT_REFERENCE ), 
+  action: ( Annotate($0, ner, "OBJECT_REFERENCE")),
+  stage: 2 
 }
 
 

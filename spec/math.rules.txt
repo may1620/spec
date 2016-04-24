@@ -24,9 +24,15 @@ $COMPARATIVE = (
 	/is/ /zero/
 )
 
+$EMPTY = (
+	/is/ /empty/
+)
+
 $NULL = (
 	/null/
 )
+
+
 
 ENV.defaults["ruleType"] = "tokens"
 ENV.defaults["stage"] = 1
@@ -56,12 +62,19 @@ ENV.defaults["stage"] = 4
 {
   ruleType: "tokens",
   pattern: ( [{ner:PARAMETER}] /is/ [{ner:NULL}]),
-  result: Format("@requires %s != null", $0[0].value)
+  result: Format("@requires %s == null", $0[0].value)
 }
 
-ENV.defaults["stage"] = 4
+ENV.defaults["stage"] = 5
 {
   ruleType: "tokens",
-  pattern: ( [{ner:PARAMETER}] [{ner:COMPARATOR}]),
-  result: Format("@requires %s != null", $0[0].value)
+  pattern: ( [{ner:OBJECT_REFERENCE}] [{ner:EMPTY}]),
+  result: Format("@requires %s.size() == 0", $0[0].value)
+}
+
+ENV.defaults["stage"] = 6
+{
+  ruleType: "tokens",
+  pattern: ( [{ner:PARAMETER}] [{ner:EMPTY}]),
+  result: Format("@requires %s.size() == 0", $0[0].value)
 }
