@@ -1,6 +1,6 @@
 package edu.iastate.cs.design.spec.parsing;
 
-import edu.iastate.cs.design.spec.analysis.IExceptionDocProcessor;
+import edu.iastate.cs.design.spec.analysis.ExceptionDocProcessor;
 import org.eclipse.jdt.core.dom.*;
 
 import java.util.ArrayList;
@@ -9,14 +9,14 @@ import java.util.List;
 public class DocumentationVisitor extends ASTVisitor {
 
     private boolean classIsPrivate;
-    private IExceptionDocProcessor exceptionProcessor;
+    private ExceptionDocProcessor exceptionProcessor;
 
     public DocumentationVisitor() {
         super(true);
         classIsPrivate = false;
     }
 
-    public DocumentationVisitor(IExceptionDocProcessor exceptionProcessor) {
+    public DocumentationVisitor(ExceptionDocProcessor exceptionProcessor) {
         this();
         this.exceptionProcessor = exceptionProcessor;
     }

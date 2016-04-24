@@ -19,7 +19,7 @@ import edu.stanford.nlp.pipeline.Annotation;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 import edu.stanford.nlp.util.CoreMap;
 
-public class ExceptionParseAnalysis implements IExceptionDocProcessor {
+public class ExceptionParseAnalysis extends ExceptionDocProcessor {
 	
 	private static final String RULES_1 = "param.rules.txt";
 	private static final String RULES_2 = "math.rules.txt";
@@ -29,13 +29,11 @@ public class ExceptionParseAnalysis implements IExceptionDocProcessor {
         JavadocParse.run("C:\\Users\\Alex\\Desktop\\src\\java\\util", analysis);
     }
 
+    @Override
     public void process(String exceptionType, String documentation, List<String> paramTypes, List<String> paramNames, MethodDeclaration methodNode) {
         CoreMapExpressionExtractor extractor = CoreMapExpressionExtractor.createExtractorFromFiles(TokenSequencePattern.getNewEnv(), RULES_1, RULES_2);
 
-        Properties nlpProperties = new Properties();
-        nlpProperties.put("annotators", "tokenize, ssplit, pos, lemma, ner, regexner, parse, relation");
-
-        StanfordCoreNLP pipeline = new StanfordCoreNLP(nlpProperties);
+        StanfordCoreNLP pipeline = initPipeline(methodNode.getName().toString(), paramTypes, paramNames);
         Annotation exceptionAnnotation = new Annotation(documentation);
         pipeline.annotate(exceptionAnnotation);
 

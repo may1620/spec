@@ -1,6 +1,6 @@
 package edu.iastate.cs.design.spec.parsing;
 
-import edu.iastate.cs.design.spec.analysis.IExceptionDocProcessor;
+import edu.iastate.cs.design.spec.analysis.ExceptionDocProcessor;
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.ASTParser;
@@ -14,7 +14,7 @@ import java.util.Scanner;
 public class JavadocParse {
 
 
-    public static void run(String packagePath, IExceptionDocProcessor exceptionDocProcessor) {
+    public static void run(String packagePath, ExceptionDocProcessor exceptionDocProcessor) {
         File srcDir = new File(packagePath);
         for (File file : srcDir.listFiles()) {
             if (file.isFile()) {
@@ -23,7 +23,7 @@ public class JavadocParse {
         }
     }
 
-    public static void testFile(File javaSourceFile, IExceptionDocProcessor exceptionDocProcessor) {
+    public static void testFile(File javaSourceFile, ExceptionDocProcessor exceptionDocProcessor) {
         System.out.println(javaSourceFile.getName());
         ASTParser parser = ASTParser.newParser(AST.JLS3);
         parser.setKind(ASTParser.K_COMPILATION_UNIT);
