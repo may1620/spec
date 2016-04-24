@@ -49,9 +49,19 @@ public class DocumentationVisitor extends ASTVisitor {
                     List fragments = tagElement.fragments();
                     String exceptionType = fragments.get(0).toString();
                     String documentation = "";
+                    // naive traversal to obtain to the full documentation text
                     for (Object fragment : fragments) {
                         if (fragment instanceof TextElement) {
-                            documentation += fragment.toString() + " ";
+                            if (fragment.toString().length() > 0) {
+                                documentation += fragment.toString() + " ";
+                            }
+                        } else if (fragment instanceof TagElement) {
+                            TagElement subTagElement = (TagElement) fragment;
+                            for (Object subFragment : subTagElement.fragments()) {
+                                if (subFragment instanceof TextElement) {
+                                    documentation += subFragment.toString() + " ";
+                                }
+                            }
                         }
                     }
                     List<SingleVariableDeclaration> params = node.parameters();
