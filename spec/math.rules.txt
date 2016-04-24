@@ -58,23 +58,24 @@ ENV.defaults["stage"] = 3
   stage: 3 
 }
 
-ENV.defaults["stage"] = 4
+ENV.defaults["ruleType"] = "tokens"
+ENV.defaults["stage"] = 3
+{
+  pattern: ( $EMPTY ), 
+  action: ( Annotate($0, ner, "EMPTY")),
+  stage: 4 
+}
+
+ENV.defaults["stage"] = 5
 {
   ruleType: "tokens",
   pattern: ( [{ner:PARAMETER}] /is/ [{ner:NULL}]),
   result: Format("@requires %s == null", $0[0].value)
 }
 
-ENV.defaults["stage"] = 5
-{
-  ruleType: "tokens",
-  pattern: ( [{ner:OBJECT_REFERENCE}] [{ner:EMPTY}]),
-  result: Format("@requires %s.size() == 0", $0[0].value)
-}
-
 ENV.defaults["stage"] = 6
 {
   ruleType: "tokens",
-  pattern: ( [{ner:PARAMETER}] [{ner:EMPTY}]),
+  pattern: ( [{ner:OBJECT_REFERENCE}] [{ner:EMPTY}]),
   result: Format("@requires %s.size() == 0", $0[0].value)
 }
