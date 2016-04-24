@@ -62,9 +62,9 @@ public abstract class ExceptionDocProcessor {
                 nerFileWriter.append(paramType + "\tPARAM_TYPE\t" + allowOverrideNers + "\r\n");
             }
             for (String paramName : paramNames) {
-                nerFileWriter.append(paramName + "\tPARAM_NAME\t" + allowOverrideNers + "\r\n");
+                nerFileWriter.append(paramName + "\tPARAMETER\t" + allowOverrideNers + "\r\n");
             }
-            nerFileWriter.append("null" + "\tJAVA_NULL\t" + allowOverrideNers + "\r\n");
+            nerFileWriter.append("null" + "\tNULL\t" + allowOverrideNers + "\r\n");
         } catch (IOException ioe) {
             System.out.println("Error writing regexner file");
             return null;

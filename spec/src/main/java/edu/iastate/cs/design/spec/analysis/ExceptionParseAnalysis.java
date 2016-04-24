@@ -51,7 +51,7 @@ public class ExceptionParseAnalysis extends ExceptionDocProcessor {
             ++numSkipped;
             return;
         }
-        if (documentation.length() < 5) {
+        if (documentation.length() < 10) {
             // happens when {@inheritdoc} is used
             System.out.println("No documentation found, skipping");
             ++numSkipped;
