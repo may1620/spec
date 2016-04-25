@@ -24,7 +24,8 @@ $ABSTRACT_COMPARATIVE = (
 	/greater/ /than/|
 	/equal/ /to/|
 	/less/ /than/ /or/ /equal/ /to/|
-	/greater/ /than/ /or/ /equal/ /to/
+	/greater/ /than/ /or/ /equal/ /to/|
+	 /</ | />/ | /<=/ | />=/
 )
 
 $EMPTY = (
@@ -96,4 +97,25 @@ ENV.defaults["stage"] = 8
   ruleType: "tokens",
   pattern: ( [{ner:PARAMETER}] [{ner:FINAL_COMPARATIVE}]),
   result: Format("@requires %s *", $0[0].value)
+}
+
+ENV.defaults["stage"] = 9
+{
+  ruleType: "tokens",
+  pattern: ( [{ner:PARAMETER}] /is/ [{ner:ABSTRACT_COMPARATIVE}] [{ner:PARAMETER}]),
+  result: Format("@requires %s %s %s", $0[0].value, $0[1].value, $0[2].value)
+}
+
+ENV.defaults["stage"] = 10
+{
+  ruleType: "tokens",
+  pattern: ( [{ner:PARAMETER}] /is/ [{ner:ABSTRACT_COMPARATIVE}] [{ner:NUMBER}]),
+  result: Format("@requires %s %s %s", $0[0].value, $0[1].value, $0[2].value)
+}
+
+ENV.defaults["stage"] = 11
+{
+  ruleType: "tokens",
+  pattern: ( [{ner:PARAMETER}] [{ner:ABSTRACT_COMPARATIVE}] [{ner:PARAMETER}]),
+  result: Format("@requires %s %s %s", $0[0].value, $0[1].value, $0[2].value)
 }
