@@ -130,6 +130,10 @@ public class ExceptionParseAnalysis extends ExceptionDocProcessor {
     }
     
     public String handleParameterReplacement(String rawSpec, List<String> paramNames, List<String> paramTypes, String word) {
+    	if(paramNames.contains(word)) {
+    		return rawSpec;
+    	}
+    	
     	for(int i = 0; i < paramTypes.size(); i++) {
     		String tempType = paramTypes.get(i);
     		if(!tempType.equals("byte") && !tempType.equals("short") &&
