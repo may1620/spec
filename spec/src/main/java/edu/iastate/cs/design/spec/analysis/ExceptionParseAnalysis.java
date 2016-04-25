@@ -71,10 +71,14 @@ public class ExceptionParseAnalysis extends ExceptionDocProcessor {
         String rawSpec = "";
         for (CoreMap sentence : sentences) {
             List<MatchedExpression> matchedExpressions = extractor.extractExpressions(sentence);
+            boolean nullCheck = false;
             for(MatchedExpression matched : matchedExpressions) {
                 System.out.println("matched: '" + matched.getText() + "' with value " + matched.getValue());
                 rawSpec = matched.getValue().toString();
                 ++numMatched;
+                if(matched.getValue().toString().contains("null")) {
+                	nullCheck = true;
+                }
             }
             for (CoreLabel token : sentence.get(CoreAnnotations.TokensAnnotation.class)) {
                 String word = token.get(CoreAnnotations.TextAnnotation.class);
@@ -82,7 +86,7 @@ public class ExceptionParseAnalysis extends ExceptionDocProcessor {
                 String ne = token.get(CoreAnnotations.NamedEntityTagAnnotation.class);
                 System.out.println("matched token: " + "word="+word + ", pos=" + pos + ", ne=" + ne);
                 if(ne.equals("PARAMETER") && rawSpec.contains(word)) {
-                    rawSpec = handleParameterReplacement(rawSpec, paramNames, paramTypes, word);
+                    rawSpec = handleParameterReplacement(rawSpec, paramNames, paramTypes, word, nullCheck);
                 }
                 if(ne.equals("FINAL_COMPARATIVE")) {
                 	rawSpec = handleFinalComparative(rawSpec, word);
@@ -95,7 +99,8 @@ public class ExceptionParseAnalysis extends ExceptionDocProcessor {
 	    	PrintWriter out;
 			try {
 				out = new PrintWriter(new BufferedWriter(new FileWriter("results.txt", true)));
-	            out.println(methodNode.getName() +  "  ---  " + rawSpec);
+	            out.println("Method name: " + methodNode.getName() + " ParamTypes: " + paramTypes +
+	            		" ParamNames: "+ paramNames + " Sentence: " + sentences.get(0).toString() +  " JML: " + rawSpec);
 	            out.close();
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -129,17 +134,22 @@ public class ExceptionParseAnalysis extends ExceptionDocProcessor {
     	return rawSpec;
     }
     
-    public String handleParameterReplacement(String rawSpec, List<String> paramNames, List<String> paramTypes, String word) {
+    public String handleParameterReplacement(String rawSpec, List<String> paramNames, List<String> paramTypes, String word, boolean nullCheck) {
     	if(paramNames.contains(word)) {
     		return rawSpec;
     	}
     	
     	for(int i = 0; i < paramTypes.size(); i++) {
     		String tempType = paramTypes.get(i);
-    		if(!tempType.equals("byte") && !tempType.equals("short") &&
-    				!tempType.equals("int") && !tempType.equals("long") && 
-    				!tempType.equals("float") && !tempType.equals("double") && 
-    				!tempType.equals("boolean") && !tempType.equals("char")) {
+    		if(nullCheck) {
+	    		if(!tempType.equals("byte") && !tempType.equals("short") &&
+	    				!tempType.equals("int") && !tempType.equals("long") && 
+	    				!tempType.equals("float") && !tempType.equals("double") && 
+	    				!tempType.equals("boolean") && !tempType.equals("char")) {
+	    			rawSpec = rawSpec.replace(word, paramNames.get(i));
+	    		}
+    		}
+    		else {
     			rawSpec = rawSpec.replace(word, paramNames.get(0));
     		}
     	}
