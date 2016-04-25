@@ -35,7 +35,7 @@ public class ExceptionParseAnalysis extends ExceptionDocProcessor {
 
     public static void main(String[] args) {
         ExceptionParseAnalysis analysis = new ExceptionParseAnalysis();
-        JavadocParse.run("C:\\Users\\chanika\\Desktop\\src\\java\\util", analysis);
+        JavadocParse.run("C:\\Users\\Alex\\Desktop\\src\\java\\util", analysis);
         System.out.println("processed: " + analysis.getNumProcessed());
         System.out.println("skipped: " + analysis.getNumSkipped());
         System.out.println("matched: " + analysis.getNumMatched());
@@ -82,20 +82,26 @@ public class ExceptionParseAnalysis extends ExceptionDocProcessor {
                 String ne = token.get(CoreAnnotations.NamedEntityTagAnnotation.class);
                 System.out.println("matched token: " + "word="+word + ", pos=" + pos + ", ne=" + ne);
                 if(ne.equals("PARAMETER") && rawSpec.contains(word)) {
-                    rawSpec = rawSpec.replace(word, paramNames.get(0));
-                	PrintWriter out;
-					try {
-						out = new PrintWriter(new BufferedWriter(new FileWriter("results.txt", true)));
-	                    out.println(methodNode.getName() +  "  ---  " + rawSpec);
-	                    out.close();
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
-
+                    rawSpec = handleParameterReplacement(rawSpec, paramNames, paramTypes, word);
                 }
+                if(ne.equals("FINAL_COMPARATIVE")) {
+                	rawSpec = handleFinalComparative(rawSpec, word);
+                }
+
+                
             }
         }
-        System.out.println(rawSpec);
+        if(!rawSpec.equals("")) {
+	    	PrintWriter out;
+			try {
+				out = new PrintWriter(new BufferedWriter(new FileWriter("results.txt", true)));
+	            out.println(methodNode.getName() +  "  ---  " + rawSpec);
+	            out.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+	        System.out.println(rawSpec);
+        }
     }
 
     public int getNumProcessed() {
@@ -109,4 +115,32 @@ public class ExceptionParseAnalysis extends ExceptionDocProcessor {
     public int getNumMatched() {
         return numMatched;
     }
+    
+    public String handleFinalComparative(String rawSpec, String word) {
+    	if(word.equals("negative")) {
+    		rawSpec = rawSpec.replace("*", "< 0");
+    	}
+    	else if(word.equals("positive")) {
+    		rawSpec = rawSpec.replace("*", "> 0");
+    	}
+    	else if(word.equals("zero")) {
+    		rawSpec = rawSpec.replace("*", "== 0");
+    	}
+    	return rawSpec;
+    }
+    
+    public String handleParameterReplacement(String rawSpec, List<String> paramNames, List<String> paramTypes, String word) {
+    	for(int i = 0; i < paramTypes.size(); i++) {
+    		String tempType = paramTypes.get(i);
+    		if(!tempType.equals("byte") && !tempType.equals("short") &&
+    				!tempType.equals("int") && !tempType.equals("long") && 
+    				!tempType.equals("float") && !tempType.equals("double") && 
+    				!tempType.equals("boolean") && !tempType.equals("char")) {
+    			rawSpec = rawSpec.replace(word, paramNames.get(0));
+    		}
+    	}
+    	return rawSpec;
+    }
+    
+    
 }

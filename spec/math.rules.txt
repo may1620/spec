@@ -13,20 +13,29 @@ $TRIG_OP = (
 
 )
 
-$COMPARATIVE = (
-	/less/ /than/|
-	/greater/ /than/|
-	/equal/ /to/|
-	/less/ /than/ /or/ /equal/ /to/|
-	/greater/ /than/ /or/ /equal/ /to/|
+$FINAL_COMPARATIVE = (
 	/is/ /negative/|
 	/is/ /positive/|
 	/is/ /zero/
 )
 
+$ABSTRACT_COMPARATIVE = (
+	/less/ /than/|
+	/greater/ /than/|
+	/equal/ /to/|
+	/less/ /than/ /or/ /equal/ /to/|
+	/greater/ /than/ /or/ /equal/ /to/
+)
+
+$EMPTY = (
+	/is/ /empty/
+)
+
 $NULL = (
 	/null/
 )
+
+
 
 ENV.defaults["ruleType"] = "tokens"
 ENV.defaults["stage"] = 1
@@ -39,8 +48,8 @@ ENV.defaults["stage"] = 1
 ENV.defaults["ruleType"] = "tokens"
 ENV.defaults["stage"] = 2
 {
-  pattern: ( $COMPARATIVE ), 
-  action: ( Annotate($0, ner, "COMPARATIVE")),
+  pattern: ( $FINAL_COMPARATIVE ), 
+  action: ( Annotate($0, ner, "FINAL_COMPARATIVE")),
   stage: 2 
 }
 
@@ -52,16 +61,39 @@ ENV.defaults["stage"] = 3
   stage: 3 
 }
 
+ENV.defaults["ruleType"] = "tokens"
 ENV.defaults["stage"] = 4
+{
+  pattern: ( $EMPTY ), 
+  action: ( Annotate($0, ner, "EMPTY")),
+  stage: 4 
+}
+
+ENV.defaults["ruleType"] = "tokens"
+ENV.defaults["stage"] = 5
+{
+  pattern: ( $ABSTRACT_COMPARATIVE ), 
+  action: ( Annotate($0, ner, "ABSTRACT_COMPARATIVE")),
+  stage: 5 
+}
+
+ENV.defaults["stage"] = 6
 {
   ruleType: "tokens",
   pattern: ( [{ner:PARAMETER}] /is/ [{ner:NULL}]),
-  result: Format("@requires %s != null", $0[0].value)
+  result: Format("@requires %s == null", $0[0].value)
 }
 
-ENV.defaults["stage"] = 4
+ENV.defaults["stage"] = 7
 {
   ruleType: "tokens",
-  pattern: ( [{ner:PARAMETER}] [{ner:COMPARATOR}]),
-  result: Format("@requires %s != null", $0[0].value)
+  pattern: ( [{ner:OBJECT_REFERENCE}] [{ner:EMPTY}]),
+  result: Format("@requires %s.size() == 0", $0[0].value)
+}
+
+ENV.defaults["stage"] = 8
+{
+  ruleType: "tokens",
+  pattern: ( [{ner:PARAMETER}] [{ner:FINAL_COMPARATIVE}]),
+  result: Format("@requires %s *", $0[0].value)
 }
