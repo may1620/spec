@@ -82,7 +82,10 @@ public class ExceptionParseAnalysis extends ExceptionDocProcessor {
                 String ne = token.get(CoreAnnotations.NamedEntityTagAnnotation.class);
                 System.out.println("matched token: " + "word="+word + ", pos=" + pos + ", ne=" + ne);
                 if(ne.equals("PARAMETER") && rawSpec.contains(word)) {
-                    rawSpec = rawSpec.replace(word, paramNames.get(0));
+                    rawSpec = handleParameterReplacement(rawSpec, paramNames, paramTypes, word);
+                }
+                if(ne.equals("FINAL_COMPARATIVE")) {
+                	rawSpec = handleFinalComparative(rawSpec, word);
                 }
 
                 
@@ -112,4 +115,32 @@ public class ExceptionParseAnalysis extends ExceptionDocProcessor {
     public int getNumMatched() {
         return numMatched;
     }
+    
+    public String handleFinalComparative(String rawSpec, String word) {
+    	if(word.equals("negative")) {
+    		rawSpec = rawSpec.replace("*", "< 0");
+    	}
+    	else if(word.equals("positive")) {
+    		rawSpec = rawSpec.replace("*", "> 0");
+    	}
+    	else if(word.equals("zero")) {
+    		rawSpec = rawSpec.replace("*", "== 0");
+    	}
+    	return rawSpec;
+    }
+    
+    public String handleParameterReplacement(String rawSpec, List<String> paramNames, List<String> paramTypes, String word) {
+    	for(int i = 0; i < paramTypes.size(); i++) {
+    		String tempType = paramTypes.get(i);
+    		if(!tempType.equals("byte") && !tempType.equals("short") &&
+    				!tempType.equals("int") && !tempType.equals("long") && 
+    				!tempType.equals("float") && !tempType.equals("double") && 
+    				!tempType.equals("boolean") && !tempType.equals("char")) {
+    			rawSpec = rawSpec.replace(word, paramNames.get(0));
+    		}
+    	}
+    	return rawSpec;
+    }
+    
+    
 }
