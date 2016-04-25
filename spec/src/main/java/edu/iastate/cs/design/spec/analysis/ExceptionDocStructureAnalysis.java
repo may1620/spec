@@ -23,9 +23,11 @@ import java.util.*;
 public class ExceptionDocStructureAnalysis extends ExceptionDocProcessor {
 
     private Map<Integer, ComparisonGraph> frequencyMap;
+    private Map<Integer, List<String>> documentationMap;
 
     public ExceptionDocStructureAnalysis() {
         frequencyMap = new HashMap<Integer, ComparisonGraph>();
+        documentationMap = new HashMap<Integer, List<String>>();
     }
 
     public static void main(String[] args) {
@@ -35,6 +37,7 @@ public class ExceptionDocStructureAnalysis extends ExceptionDocProcessor {
         PriorityQueue<ComparisonGraph> frequencySortingQueue = new PriorityQueue<ComparisonGraph>(frequencyMap.values());
         while (!frequencySortingQueue.isEmpty()) {
             ComparisonGraph graph = frequencySortingQueue.remove();
+            List<String> docs = analysis.getDocumentationMap().get(graph.hashCode());
             System.out.println(graph.getFrequencyCount());
         }
     }
@@ -68,14 +71,22 @@ public class ExceptionDocStructureAnalysis extends ExceptionDocProcessor {
             Integer graphHash = graph.hashCode();
             if (!frequencyMap.containsKey(graphHash)) {
                 frequencyMap.put(graphHash, graph);
+                List<String> docList = new ArrayList<String>();
+                docList.add(documentation);
+                documentationMap.put(graphHash, docList);
             } else {
                 frequencyMap.get(graphHash).incrementFrequencyCount();
+                documentationMap.get(graphHash).add(documentation);
             }
         }
     }
 
     public Map<Integer, ComparisonGraph> getFrequencyMap() {
         return frequencyMap;
+    }
+
+    public Map<Integer, List<String>> getDocumentationMap() {
+        return documentationMap;
     }
 
     private static List<ComparisonGraph> createComparisonGraphs(SemanticGraph semanticGraph) {
