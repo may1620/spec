@@ -37,6 +37,7 @@ public class DocumentationVisitor extends ASTVisitor {
 
     @Override
     public boolean visit(MethodDeclaration node) {
+        System.out.println(node.getName());
         if (classIsPrivate || !nodeIsPublic(node)) {
             return super.visit(node);
         }
@@ -45,7 +46,7 @@ public class DocumentationVisitor extends ASTVisitor {
             for (Object tag : docNode.tags()) {
                 TagElement tagElement = (TagElement) tag;
                 String tagName  = tagElement.getTagName();
-                if (tagName != null && tagName.equals("@throws")) {
+                if (tagName != null && (tagName.equals("@throws") || tagName.equals("@exception"))) {
                     List fragments = tagElement.fragments();
                     String exceptionType = fragments.get(0).toString();
                     String documentation = "";
