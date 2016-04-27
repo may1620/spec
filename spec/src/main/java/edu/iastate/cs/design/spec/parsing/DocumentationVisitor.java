@@ -65,6 +65,7 @@ public class DocumentationVisitor extends ASTVisitor {
                             }
                         }
                     }
+                    documentation = removeTagsInDoc(documentation);
                     List<SingleVariableDeclaration> params = node.parameters();
                     List<String> paramTypes = new ArrayList<String>();
                     List<String> paramNames = new ArrayList<String>();
@@ -81,6 +82,9 @@ public class DocumentationVisitor extends ASTVisitor {
         return super.visit(node);
     }
 
+    private static String removeTagsInDoc(String documentation) {
+        return documentation.replaceAll("</?tt>|</?[Cc][Oo][Dd][Ee]>|</?i>", "");
+    }
 
 
 
