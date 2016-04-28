@@ -35,7 +35,7 @@ public class ExceptionParseAnalysis extends ExceptionDocProcessor {
 
     public static void main(String[] args) {
         ExceptionParseAnalysis analysis = new ExceptionParseAnalysis();
-        JavadocParse.run("C:\\Users\\Alex\\Desktop\\src\\java\\util", analysis);
+        JavadocParse.run("C:\\Users\\chanika\\Desktop\\src\\java\\util", analysis);
         System.out.println("processed: " + analysis.getNumProcessed());
         System.out.println("skipped: " + analysis.getNumSkipped());
         System.out.println("matched: " + analysis.getNumMatched());
@@ -74,7 +74,7 @@ public class ExceptionParseAnalysis extends ExceptionDocProcessor {
             boolean nullCheck = false;
             for(MatchedExpression matched : matchedExpressions) {
                 System.out.println("matched: '" + matched.getText() + "' with value " + matched.getValue());
-                rawSpec = matched.getValue().toString();
+                rawSpec = (String) matched.getValue().get();
                 ++numMatched;
                 if(matched.getValue().toString().contains("null")) {
                 	nullCheck = true;
@@ -99,8 +99,7 @@ public class ExceptionParseAnalysis extends ExceptionDocProcessor {
 	    	PrintWriter out;
 			try {
 				out = new PrintWriter(new BufferedWriter(new FileWriter("results.txt", true)));
-	            out.println("Method name: " + methodNode.getName() + " ParamTypes: " + paramTypes +
-	            		" ParamNames: "+ paramNames + " Sentence: " + sentences.get(0).toString() +  " JML: " + rawSpec);
+                out.println("Method name: " + methodNode.getName() + "\r\nSpecification: " + rawSpec + " @signals_only " + exceptionType);
 	            out.close();
 			} catch (IOException e) {
 				e.printStackTrace();
