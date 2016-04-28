@@ -50,7 +50,7 @@ public abstract class ExceptionDocProcessor {
                 paramTypes.set(i, genericTypeStrippedType);
             }
         }
-        //regexNerFile.deleteOnExit();
+        regexNerFile.deleteOnExit();
         String allowOverrideNers = "LOCATION,PERSON,ORGANIZATION,MONEY,PERCENT,DATE,TIME";
         // write custom NER data to file
         FileWriter nerFileWriter = null;
