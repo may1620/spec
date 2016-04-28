@@ -3,6 +3,10 @@ ENV.defaultStringPatternFlags = 2
 ner = { type: "CLASS", value: "edu.stanford.nlp.ling.CoreAnnotations$NamedEntityTagAnnotation" }
 tokens = { type: "CLASS", value: "edu.stanford.nlp.ling.CoreAnnotations$TokensAnnotation" }
 
+numtokens = { type: "CLASS", value: "edu.stanford.nlp.ling.CoreAnnotations$NumerizedTokensAnnotation" }
+numcomptype = { type: "CLASS", value: "edu.stanford.nlp.ling.CoreAnnotations$NumericCompositeTypeAnnotation" }
+numcompvalue = { type: "CLASS", value: "edu.stanford.nlp.ling.CoreAnnotations$NumericCompositeValueAnnotation" }
+
 $TRIG_OP = (
 	/sin/|
 	/sine/|
@@ -119,3 +123,20 @@ ENV.defaults["stage"] = 11
   pattern: ( [{ner:PARAMETER}] [{ner:ABSTRACT_COMPARATIVE}] [{ner:PARAMETER}]),
   result: Format("@requires %s %s %s", $0[0].value, $0[1].value, $0[2].value)
 }
+
+// This would be better done by constructing an AST, but this works for now
+
+ENV.defaults["stage"] = 12
+{
+  ruleType: "tokens",
+  pattern: ( [{ner:PARAMETER}] [{ner:ABSTRACT_COMPARATIVE}] [ numcomptype:"NUMBER" ] [{word:"||"} | {word:"or"}] [{ner:PARAMETER}] [{ner:ABSTRACT_COMPARATIVE}] [{ word:"size"} | {word:"size()"} | {ner:PARAMETER} | {numcomptype:"NUMBER"}] ),
+  result: Format("@requires %s %s %s || %s %s %s", $0[0].value, $0[1].value, $0[2].value, $0[3].value, $0[4].value, $0[5].value)
+}
+
+ENV.defaults["stage"] = 13
+{
+  ruleType: "tokens",
+   pattern: ( [{ner:PARAMETER}] [{ner:ABSTRACT_COMPARATIVE}] [ numcomptype:"NUMBER" ]),
+   result: Format("@requires %s %s %s", $0[0].value, $0[1].value, $0[2].value)
+}
+
